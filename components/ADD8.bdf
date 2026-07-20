@@ -55,7 +55,7 @@ applicable agreement for further details.
 	(input)
 	(rect 336 360 504 376)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "C0" (rect 5 0 20 12)(font "Arial" ))
+	(text "C_0" (rect 5 0 26 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -120,8 +120,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "C0" (rect 0 0 15 14)(font "Arial" (font_size 8)))
-		(text "C0" (rect 21 59 36 73)(font "Arial" (font_size 8)))
+		(text "C_0" (rect 0 0 22 14)(font "Arial" (font_size 8)))
+		(text "C_0" (rect 21 59 43 73)(font "Arial" (font_size 8)))
 		(line (pt 0 64)(pt 16 64))
 	)
 	(port
@@ -145,7 +145,7 @@ applicable agreement for further details.
 (symbol
 	(rect 584 152 728 248)
 	(text "ADD4" (rect 5 0 38 14)(font "Arial" (font_size 8)))
-	(text "inst2" (rect 8 80 31 92)(font "Arial" ))
+	(text "inst1" (rect 8 80 31 92)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -163,8 +163,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "C0" (rect 0 0 15 14)(font "Arial" (font_size 8)))
-		(text "C0" (rect 21 59 36 73)(font "Arial" (font_size 8)))
+		(text "C_0" (rect 0 0 22 14)(font "Arial" (font_size 8)))
+		(text "C_0" (rect 21 59 43 73)(font "Arial" (font_size 8)))
 		(line (pt 0 64)(pt 16 64))
 	)
 	(port
@@ -226,12 +226,12 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "C0" (rect 256 216 270 228)(font "Arial" ))
-	(pt 304 232)
-	(pt 248 232)
-)
-(connector
 	(text "C" (rect 766 184 774 196)(font "Arial" ))
 	(pt 728 200)
 	(pt 776 200)
+)
+(connector
+	(text "C_0" (rect 256 216 276 228)(font "Arial" ))
+	(pt 304 232)
+	(pt 248 232)
 )

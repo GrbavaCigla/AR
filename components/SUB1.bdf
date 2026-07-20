@@ -55,7 +55,7 @@ applicable agreement for further details.
 	(input)
 	(rect -24 216 144 232)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "E0" (rect 5 0 18 12)(font "Arial" ))
+	(text "E_0" (rect 5 0 24 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -708,36 +708,6 @@ applicable agreement for further details.
 	(pt 760 616)
 )
 (connector
-	(text "NE0" (rect 248 208 269 220)(font "Arial" ))
-	(pt 240 224)
-	(pt 280 224)
-)
-(connector
-	(text "E0" (rect 153 201 165 213)(font "Arial" )(vertical))
-	(pt 168 224)
-	(pt 168 200)
-)
-(connector
-	(text "E0" (rect 376 128 388 140)(font "Arial" ))
-	(pt 408 144)
-	(pt 368 144)
-)
-(connector
-	(text "NE0" (rect 384 216 405 228)(font "Arial" ))
-	(pt 416 232)
-	(pt 376 232)
-)
-(connector
-	(text "E0" (rect 384 304 396 316)(font "Arial" ))
-	(pt 424 320)
-	(pt 376 320)
-)
-(connector
-	(text "NE0" (rect 384 392 405 404)(font "Arial" ))
-	(pt 416 408)
-	(pt 376 408)
-)
-(connector
 	(pt 712 248)
 	(pt 712 152)
 )
@@ -754,14 +724,44 @@ applicable agreement for further details.
 	(pt 816 200)
 )
 (connector
-	(text "E0" (rect 408 688 420 700)(font "Arial" ))
-	(pt 456 704)
-	(pt 400 704)
+	(text "E_0" (rect 153 201 165 219)(font "Arial" )(vertical))
+	(pt 168 224)
+	(pt 168 200)
 )
 (connector
-	(text "E0" (rect 432 528 444 540)(font "Arial" ))
+	(text "NE_0" (rect 248 208 275 220)(font "Arial" ))
+	(pt 240 224)
+	(pt 280 224)
+)
+(connector
+	(text "E_0" (rect 376 128 394 140)(font "Arial" ))
+	(pt 408 144)
+	(pt 368 144)
+)
+(connector
+	(text "NE_0" (rect 384 216 411 228)(font "Arial" ))
+	(pt 416 232)
+	(pt 376 232)
+)
+(connector
+	(text "E_0" (rect 384 304 402 316)(font "Arial" ))
+	(pt 424 320)
+	(pt 376 320)
+)
+(connector
+	(text "NE_0" (rect 384 392 411 404)(font "Arial" ))
+	(pt 416 408)
+	(pt 376 408)
+)
+(connector
+	(text "E_0" (rect 432 528 450 540)(font "Arial" ))
 	(pt 456 544)
 	(pt 424 544)
+)
+(connector
+	(text "E_0" (rect 408 688 426 700)(font "Arial" ))
+	(pt 456 704)
+	(pt 400 704)
 )
 (junction (pt 160 104))
 (junction (pt 160 160))

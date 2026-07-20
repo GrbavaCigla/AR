@@ -40,8 +40,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "E0" (rect 0 0 14 14)(font "Arial" (font_size 8)))
-		(text "E0" (rect 21 59 35 73)(font "Arial" (font_size 8)))
+		(text "E_0" (rect 0 0 21 14)(font "Arial" (font_size 8)))
+		(text "E_0" (rect 21 59 42 73)(font "Arial" (font_size 8)))
 		(line (pt 0 64)(pt 16 64))
 	)
 	(port
