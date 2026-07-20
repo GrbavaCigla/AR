@@ -53,9 +53,9 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 80 120 248 136)
+	(rect 32 160 200 176)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "C0" (rect 5 0 20 12)(font "Arial" ))
+	(text "C_0" (rect 5 0 26 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -150,7 +150,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 248 112 296 144)
+	(rect 256 152 304 184)
 	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
 	(text "inst2" (rect 3 21 26 33)(font "Arial" ))
 	(port
@@ -662,36 +662,6 @@ applicable agreement for further details.
 	(pt 464 120)
 )
 (connector
-	(text "nC0" (rect 304 112 324 124)(font "Arial" ))
-	(pt 296 128)
-	(pt 328 128)
-)
-(connector
-	(text "C0" (rect 360 112 374 124)(font "Arial" ))
-	(pt 352 128)
-	(pt 384 128)
-)
-(connector
-	(text "nC0" (rect 584 64 604 76)(font "Arial" ))
-	(pt 608 80)
-	(pt 576 80)
-)
-(connector
-	(text "nC0" (rect 584 112 604 124)(font "Arial" ))
-	(pt 608 128)
-	(pt 576 128)
-)
-(connector
-	(text "C0" (rect 584 160 598 172)(font "Arial" ))
-	(pt 608 176)
-	(pt 576 176)
-)
-(connector
-	(text "C0" (rect 584 208 598 220)(font "Arial" ))
-	(pt 608 224)
-	(pt 576 224)
-)
-(connector
 	(text "C" (rect 537 104 545 116)(font "Arial" ))
 	(pt 528 120)
 	(pt 568 120)
@@ -702,7 +672,42 @@ applicable agreement for further details.
 	(pt 792 144)
 )
 (connector
-	(text "C0" (rect 360 160 374 172)(font "Arial" ))
+	(text "C_0" (rect 221 152 241 164)(font "Arial" ))
+	(pt 200 168)
+	(pt 256 168)
+)
+(connector
+	(text "C_0" (rect 360 112 380 124)(font "Arial" ))
+	(pt 352 128)
+	(pt 384 128)
+)
+(connector
+	(text "nC_0" (rect 312 152 337 164)(font "Arial" ))
+	(pt 304 168)
+	(pt 336 168)
+)
+(connector
+	(text "C_0" (rect 352 160 372 172)(font "Arial" ))
 	(pt 352 176)
 	(pt 384 176)
+)
+(connector
+	(text "nC_0" (rect 584 64 609 76)(font "Arial" ))
+	(pt 608 80)
+	(pt 576 80)
+)
+(connector
+	(text "nC_0" (rect 584 112 609 124)(font "Arial" ))
+	(pt 608 128)
+	(pt 576 128)
+)
+(connector
+	(text "C_0" (rect 584 160 604 172)(font "Arial" ))
+	(pt 608 176)
+	(pt 576 176)
+)
+(connector
+	(text "C_0" (rect 576 208 596 220)(font "Arial" ))
+	(pt 608 224)
+	(pt 576 224)
 )

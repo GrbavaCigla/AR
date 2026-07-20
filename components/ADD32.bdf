@@ -55,7 +55,7 @@ applicable agreement for further details.
 	(input)
 	(rect 424 448 592 464)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "C0" (rect 5 0 20 12)(font "Arial" ))
+	(text "C_0" (rect 5 0 26 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -101,7 +101,7 @@ applicable agreement for further details.
 )
 (symbol
 	(rect 376 256 536 352)
-	(text "SUB16" (rect 5 0 43 14)(font "Arial" (font_size 8)))
+	(text "ADD16" (rect 5 0 45 14)(font "Arial" (font_size 8)))
 	(text "inst" (rect 8 80 25 92)(font "Arial" ))
 	(port
 		(pt 0 32)
@@ -120,8 +120,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "E0" (rect 0 0 14 14)(font "Arial" (font_size 8)))
-		(text "E0" (rect 21 59 35 73)(font "Arial" (font_size 8)))
+		(text "C_0" (rect 0 0 22 14)(font "Arial" (font_size 8)))
+		(text "C_0" (rect 21 59 43 73)(font "Arial" (font_size 8)))
 		(line (pt 0 64)(pt 16 64))
 	)
 	(port
@@ -134,8 +134,8 @@ applicable agreement for further details.
 	(port
 		(pt 160 48)
 		(output)
-		(text "E" (rect 0 0 7 14)(font "Arial" (font_size 8)))
-		(text "E" (rect 132 43 139 57)(font "Arial" (font_size 8)))
+		(text "C" (rect 0 0 8 14)(font "Arial" (font_size 8)))
+		(text "C" (rect 131 43 139 57)(font "Arial" (font_size 8)))
 		(line (pt 160 48)(pt 144 48))
 	)
 	(drawing
@@ -144,8 +144,8 @@ applicable agreement for further details.
 )
 (symbol
 	(rect 672 240 832 336)
-	(text "SUB16" (rect 5 0 43 14)(font "Arial" (font_size 8)))
-	(text "inst2" (rect 8 80 31 92)(font "Arial" ))
+	(text "ADD16" (rect 5 0 45 14)(font "Arial" (font_size 8)))
+	(text "inst1" (rect 8 80 31 92)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -163,8 +163,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "E0" (rect 0 0 14 14)(font "Arial" (font_size 8)))
-		(text "E0" (rect 21 59 35 73)(font "Arial" (font_size 8)))
+		(text "C_0" (rect 0 0 22 14)(font "Arial" (font_size 8)))
+		(text "C_0" (rect 21 59 43 73)(font "Arial" (font_size 8)))
 		(line (pt 0 64)(pt 16 64))
 	)
 	(port
@@ -177,8 +177,8 @@ applicable agreement for further details.
 	(port
 		(pt 160 48)
 		(output)
-		(text "E" (rect 0 0 7 14)(font "Arial" (font_size 8)))
-		(text "E" (rect 132 43 139 57)(font "Arial" (font_size 8)))
+		(text "C" (rect 0 0 8 14)(font "Arial" (font_size 8)))
+		(text "C" (rect 131 43 139 57)(font "Arial" (font_size 8)))
 		(line (pt 160 48)(pt 144 48))
 	)
 	(drawing
@@ -226,12 +226,12 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "C0" (rect 328 304 342 316)(font "Arial" ))
-	(pt 376 320)
-	(pt 320 320)
-)
-(connector
 	(text "C" (rect 870 272 878 284)(font "Arial" ))
 	(pt 832 288)
 	(pt 880 288)
+)
+(connector
+	(text "C_0" (rect 328 304 348 316)(font "Arial" ))
+	(pt 376 320)
+	(pt 320 320)
 )

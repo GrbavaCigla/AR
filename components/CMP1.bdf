@@ -55,7 +55,7 @@ applicable agreement for further details.
 	(input)
 	(rect 120 128 288 144)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "Gi-1" (rect 5 0 26 12)(font "Arial" ))
+	(text "Gi_1" (rect 5 0 28 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -71,7 +71,7 @@ applicable agreement for further details.
 	(input)
 	(rect 120 160 288 176)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "Ei-1" (rect 5 0 24 12)(font "Arial" ))
+	(text "Ei_1" (rect 5 0 27 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -87,7 +87,7 @@ applicable agreement for further details.
 	(input)
 	(rect 120 192 288 208)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "Li-1" (rect 5 0 23 12)(font "Arial" ))
+	(text "Li_1" (rect 5 0 26 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -579,17 +579,17 @@ applicable agreement for further details.
 	(pt 416 192)
 )
 (connector
-	(text "Gi-1" (rect 424 96 444 108)(font "Arial" ))
+	(text "Gi_1" (rect 424 96 446 108)(font "Arial" ))
 	(pt 448 112)
 	(pt 416 112)
 )
 (connector
-	(text "Li-1" (rect 424 192 441 204)(font "Arial" ))
+	(text "Li_1" (rect 424 192 444 204)(font "Arial" ))
 	(pt 448 208)
 	(pt 416 208)
 )
 (connector
-	(text "Ei-1" (rect 592 104 610 116)(font "Arial" ))
+	(text "Ei_1" (rect 592 104 613 116)(font "Arial" ))
 	(pt 584 120)
 	(pt 624 120)
 )

@@ -21,22 +21,6 @@ applicable agreement for further details.
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect 288 352 456 368)
-	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "E0" (rect 5 0 17 12)(font "Arial" ))
-	(pt 168 8)
-	(drawing
-		(line (pt 84 12)(pt 109 12))
-		(line (pt 84 4)(pt 109 4))
-		(line (pt 113 8)(pt 168 8))
-		(line (pt 84 12)(pt 84 4))
-		(line (pt 109 4)(pt 113 8))
-		(line (pt 109 12)(pt 113 8))
-	)
-	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
-)
-(pin
-	(input)
 	(rect 288 320 456 336)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
 	(text "B[15..0]" (rect 5 0 43 12)(font "Arial" ))
@@ -55,7 +39,23 @@ applicable agreement for further details.
 	(input)
 	(rect 288 288 456 304)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "A[15..0]" (rect 5 0 44 12)(font "Arial" ))
+	(text "A[15..0]" (rect 5 0 43 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 288 352 456 368)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "E_0" (rect 5 0 24 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -120,8 +120,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "E0" (rect 0 0 14 14)(font "Arial" (font_size 8)))
-		(text "E0" (rect 21 59 35 73)(font "Arial" (font_size 8)))
+		(text "E_0" (rect 0 0 21 14)(font "Arial" (font_size 8)))
+		(text "E_0" (rect 21 59 42 73)(font "Arial" (font_size 8)))
 		(line (pt 0 64)(pt 16 64))
 	)
 	(port
@@ -143,7 +143,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 536 144 680 240)
+	(rect 528 144 672 240)
 	(text "SUB8" (rect 5 0 36 14)(font "Arial" (font_size 8)))
 	(text "inst1" (rect 8 80 31 92)(font "Arial" ))
 	(port
@@ -163,8 +163,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "E0" (rect 0 0 14 14)(font "Arial" (font_size 8)))
-		(text "E0" (rect 21 59 35 73)(font "Arial" (font_size 8)))
+		(text "E_0" (rect 0 0 21 14)(font "Arial" (font_size 8)))
+		(text "E_0" (rect 21 59 42 73)(font "Arial" (font_size 8)))
 		(line (pt 0 64)(pt 16 64))
 	)
 	(port
@@ -186,20 +186,6 @@ applicable agreement for further details.
 	)
 )
 (connector
-	(text "E0" (rect 208 208 220 220)(font "Arial" ))
-	(pt 256 224)
-	(pt 200 224)
-)
-(connector
-	(text "E" (rect 718 176 725 188)(font "Arial" ))
-	(pt 680 192)
-	(pt 728 192)
-)
-(connector
-	(pt 400 208)
-	(pt 536 208)
-)
-(connector
 	(text "A[7..0]" (rect 217 176 250 188)(font "Arial" ))
 	(pt 256 192)
 	(pt 200 192)
@@ -218,20 +204,34 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "A[15..8]" (rect 498 160 536 172)(font "Arial" ))
-	(pt 536 176)
-	(pt 480 176)
+	(pt 400 208)
+	(pt 528 208)
+)
+(connector
+	(text "A[15..8]" (rect 490 160 528 172)(font "Arial" ))
+	(pt 528 176)
+	(pt 472 176)
 	(bus)
 )
 (connector
-	(text "B[15..8]" (rect 494 176 532 188)(font "Arial" ))
-	(pt 536 192)
-	(pt 480 192)
+	(text "B[15..8]" (rect 486 176 524 188)(font "Arial" ))
+	(pt 528 192)
+	(pt 472 192)
 	(bus)
 )
 (connector
-	(text "OUT[15..8]" (rect 700 152 754 164)(font "Arial" ))
-	(pt 680 176)
-	(pt 728 176)
+	(text "OUT[15..8]" (rect 692 152 746 164)(font "Arial" ))
+	(pt 672 176)
+	(pt 720 176)
 	(bus)
+)
+(connector
+	(text "E" (rect 710 176 717 188)(font "Arial" ))
+	(pt 672 192)
+	(pt 720 192)
+)
+(connector
+	(text "E_0" (rect 208 208 226 220)(font "Arial" ))
+	(pt 256 224)
+	(pt 200 224)
 )
