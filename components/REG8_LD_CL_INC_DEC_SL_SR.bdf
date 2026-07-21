@@ -230,7 +230,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 976 216 1152 232)
+	(rect 976 344 1152 360)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "E8" (rect 90 0 102 12)(font "Arial" ))
 	(pt 0 8)
@@ -246,7 +246,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 976 176 1152 192)
+	(rect 976 320 1152 336)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "C8" (rect 90 0 104 12)(font "Arial" ))
 	(pt 0 8)
@@ -1755,12 +1755,18 @@ applicable agreement for further details.
 	(pt 904 312)
 )
 (connector
-	(text "C8" (rect 886 312 900 324)(font "Arial" ))
-	(pt 904 328)
 	(pt 872 328)
+	(pt 976 328)
 )
 (connector
-	(text "E8" (rect 888 328 900 340)(font "Arial" ))
+	(pt 968 344)
+	(pt 968 352)
+)
+(connector
 	(pt 872 344)
-	(pt 904 344)
+	(pt 968 344)
+)
+(connector
+	(pt 968 352)
+	(pt 976 352)
 )
