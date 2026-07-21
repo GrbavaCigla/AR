@@ -89,15 +89,15 @@ applicable agreement for further details.
 	(port
 		(pt 96 48)
 		(output)
-		(text "Ci1" (rect 0 0 17 14)(font "Arial" (font_size 8)))
-		(text "Ci1" (rect 58 43 75 57)(font "Arial" (font_size 8)))
+		(text "Ci_1" (rect 0 0 24 14)(font "Arial" (font_size 8)))
+		(text "Ci_1" (rect 51 43 75 57)(font "Arial" (font_size 8)))
 		(line (pt 96 48)(pt 80 48))
 	)
 	(port
 		(pt 96 64)
 		(output)
-		(text "Ei1" (rect 0 0 16 14)(font "Arial" (font_size 8)))
-		(text "Ei1" (rect 59 59 75 73)(font "Arial" (font_size 8)))
+		(text "Ei_1" (rect 0 0 23 14)(font "Arial" (font_size 8)))
+		(text "Ei_1" (rect 52 59 75 73)(font "Arial" (font_size 8)))
 		(line (pt 96 64)(pt 80 64))
 	)
 	(drawing
