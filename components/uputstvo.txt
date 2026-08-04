@@ -77,7 +77,10 @@ vlog modules/REG1_LD_CL_INC_DEC_SL_SR.v modules/REG8_LD_CL_INC_DEC_SL_SR.v modul
 vsim work.tb_REG32_LD_CL_INC_DEC_SL_SR
 run -all
 
-
+DMPX2_32bit
+vlog modules/DMPX2.v modules/DMPX2_32BIT.v tests/tb_DMPX2_32BIT.v
+vsim -voptargs=+acc work.tb_DMPX2_32BIT
+run -all
 
 BITNO: kod registara koji imaju INC i DEC
 C16 je jednak 1 samo u onom trenutku dok je u registru A vrednost FFFF i dok je uključen INC.Čim stigne sledeća ivica takta i registar A pređe na 0000, C16 se u istom trenutku sam spušta na 0, čak i ako je INC i dalje na 1 (jer A više nije FFFF).
