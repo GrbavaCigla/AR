@@ -1,0 +1,10 @@
+Instruction set for riscv32i processor made in Quartus II 
+==========================================================
+----ALU----
+ADD, ADDI, SUB, AND, OR, XOR
+----MEMORY-----
+LW, SW
+---BRANCH-----
+JAL(jump and link), JALR(jump and link register)
+----CONST----
+LUI(load uppder immediate)
