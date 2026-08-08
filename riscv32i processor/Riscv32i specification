@@ -1,0 +1,10 @@
+Riscv32i specification
+
+### RISC-V Instruction Formats
+
+| Type | 31 .. 25 | 24 .. 20 | 19 .. 15 | 14 .. 12 | 11 .. 7 | 6 .. 0 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **R-Type** | funct7 (7b) | rs2 (5b) | rs1 (5b) | funct3 (3b) | rd (5b) | opcode (7b) |
+| **I-Type** | <c>imm[11:0] (12b)</c> | | rs1 (5b) | funct3 (3b) | rd (5b) | opcode (7b) |
+| **S-Type** | imm[11:5] (7b) | rs2 (5b) | rs1 (5b) | funct3 (3b) | imm[4:0] (5b) | opcode (7b) |
+| **U-Type** | <c>imm[31:12] (20b)</c> | | | | rd (5b) | opcode (7b) |
