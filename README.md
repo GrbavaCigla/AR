@@ -14,6 +14,3 @@ RV32I hardware and firmware for Cyclone V based LIDAR project.
 - FPGA - Cyclone V 5CEBA4F23C7
 - LIDAR - LD14P
 
-## TODO
-
-- Add ModelSim to configuration
