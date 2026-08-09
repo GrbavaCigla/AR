@@ -3138,10 +3138,21 @@ applicable agreement for further details.
 		(line (pt 8 8)(pt 24 8))
 	)
 )
-(connector
-	(text "RESET" (rect 245 88 280 100)(font "Arial" ))
-	(pt 232 104)
-	(pt 280 104)
+(symbol
+	(rect 120 120 152 136)
+	(text "VCC" (rect 5 6 25 16)(font "Arial" (font_size 6)))
+	(text "inst68" (rect 0 -1 29 11)(font "Arial" )(invisible))
+	(port
+		(pt 16 0)
+		(output)
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 8 -3 13 9)(font "Courier New" (bold))(invisible))
+		(line (pt 16 0)(pt 16 8))
+	)
+	(drawing
+		(line (pt 24 8)(pt 8 8))
+	)
+	(rotate180)
 )
 (connector
 	(text "CLK" (rect 244 104 265 116)(font "Arial" ))
@@ -5253,4 +5264,13 @@ applicable agreement for further details.
 	(text "<<__$DEF_ALIAS2989>>" (rect 74 48 197 60)(font "Arial" )(invisible))
 	(pt 64 64)
 	(pt 128 64)
+)
+(connector
+	(text "<<__$DEF_ALIAS429>>" (rect 245 88 363 100)(font "Arial" )(invisible))
+	(pt 136 104)
+	(pt 280 104)
+)
+(connector
+	(pt 136 104)
+	(pt 136 120)
 )
