@@ -1,18 +1,3 @@
-#### RISC-V 32-bit (RV32I) Specification
-
-### RISC-V Instruction Formats
-
-| Type | 31 .. 25 | 24 .. 20 | 19 .. 15 | 14 .. 12 | 11 .. 7 | 6 .. 0 |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **R-Type** | `funct7` (7b) | `rs2` (5b) | `rs1` (5b) | `funct3` (3b) | `rd` (5b) | `opcode` (7b) |
-| **I-Type** | `imm[11:0]` (12b) | | `rs1` (5b) | `funct3` (3b) | `rd` (5b) | `opcode` (7b) |
-| **S-Type** | `imm[11:5]` (7b) | `rs2` (5b) | `rs1` (5b) | `funct3` (3b) | `imm[4:0]` (5b) | `opcode` (7b) |
-| **B-Type** | `imm[12\|10:5]` (7b) | `rs2` (5b) | `rs1` (5b) | `funct3` (3b) | `imm[4:1\|11]` (5b) | `opcode` (7b) |
-| **U-Type** | `imm[31:12]` (20b) | | | | `rd` (5b) | `opcode` (7b) |
-| **J-Type** | `imm[20\|10:1\|11\|19:12]` (20b) | | | | `rd` (5b) | `opcode` (7b) |
-
----
-
 ## RISC-V Control Word [12..0]
 
 ```text
@@ -42,28 +27,27 @@ control_word[12:0] = { RegWrite(1), ImmSrc(3), ALUSrc(1), MemWrite(1), MemRead(1
   * `01`: Data read from memory (`LW`).
   * `10`: Return address `PC + 4` (link address for `JAL` / `JALR`).
 
-* **`Branch` (1 bit)** — Indicates a conditional branch instruction (`BEQ`, `BNE`, `BLT`, etc.). Combined with `ALU` flags (`Zero`/comparison flags) to determine if `PC` takes the branch target address or continues to `PC + 4`.
+* **`Branch` (1 bit)** — Indicates a conditional branch instruction (`BEQ`, `BNE`, `BLT`, etc.). Combined with `ALU` result (`Zero` flag for equality, `ALUResult[0]` for less-than comparisons) to determine if `PC` takes the branch target address or continues to `PC + 4`.
 
 * **`Jump` (1 bit)** — Indicates an unconditional jump (`JAL`, `JALR`). Unlike `Branch`, `PC` always updates to the target address without checking any conditions.
 
-* **`ALUOp` (2 bits)** — Provides a high-level classification of the ALU operation from the main Controller to the `ALU Decoder`, which decodes the exact operation alongside `funct3` and `funct7[5]`:
-  * `00`: Always `ADD` (used for address calculation in `LW` / `SW`).
-  * `01`: Always `SUB` (used for equality comparison in branches).
-  * `10`: Operation depends on `funct3` and `funct7[5]` (`R-type` and `I-type` arithmetic).
+* **`ALUOp` (2 bits)** — Provides a high-level classification of the ALU operation from the main Controller to the `ALU Decoder`. Unlike a simple 3-way split, all 4 encodings are used because Branch instructions share a single opcode and must also be resolved via `funct3`:
+  * `00`: Always `ADD` (used for address calculation in `LW`/`SW`/`JALR`, and for `AUIPC`/`JAL` target/link computation).
+  * `01`: Operation determined by `funct3` and `funct7[5]` (`R-type` and `I-type` arithmetic).
+  * `10`: Operation determined by `funct3` only (`Branch` — resolves to `SUB`, `SLT`, or `SLTU`).
+  * `11`: Always `PASS B` (used for `LUI`, which writes the immediate directly without any ALU computation).
 
 ---
 
-### Control Unit
+## Control Unit
 
-## Overview
+### Overview
 
 The Control Unit is a purely combinational block that decodes the 7-bit `opcode` field of the current instruction and produces all control signals needed to drive the rest of the datapath (RegFile, ImmGen, ALU, Data Memory, and PC update logic).
 
 Instead of using a lookup-table ROM (`ALTSYNCRAM ROM: 1-PORT`), the decoder is implemented manually using **opcode comparators** and **OR-gate networks**. This avoids any registered-output latency and keeps the logic fully combinational within a single clock cycle, matching our single-cycle datapath design.
 
----
-
-## Opcode Detection
+### Opcode Detection
 
 For each supported RV32I instruction group, a comparator checks whether `opcode[6:0]` matches the group's fixed value per the RISC-V ISA specification. Each comparator produces a single-bit `is_XXX` signal.
 
@@ -74,40 +58,12 @@ For each supported RV32I instruction group, a comparator checks whether `opcode[
 | `is_LW` | `0000011` | `0x03` | I-type load | `LB`, `LH`, `LW`, `LBU`, `LHU` |
 | `is_JALR` | `1100111` | `0x67` | I-type jump | `JALR` |
 | `is_SW` | `0100011` | `0x23` | S-type (store) | `SB`, `SH`, `SW` |
-| `is_Branch` | `1100111` | `0x63` | B-type (branch) | `BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, `BGEU` |
+| `is_Branch` | `1100011` | `0x63` | B-type (branch) | `BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, `BGEU` |
 | `is_LUI` | `0110111` | `0x37` | U-type | `LUI` |
 | `is_AUIPC` | `0010111` | `0x17` | U-type | `AUIPC` |
 | `is_JAL` | `1101111` | `0x6F` | J-type | `JAL` |
 
 > **Note:** `FENCE` (`0001111`) and `SYSTEM` (`1110011`, `ECALL`/`EBREAK`) opcodes are intentionally not decoded, as they have no meaningful effect in a bare-metal, single-core system with no OS. If encountered, all control signals default to `0`, making them effectively behave as a `NOP`.
-
----
-
-## Control Word
-
-All control signals are packed into a single **13-bit control word**:
-
-```text
-control_word[12:0] = { RegWrite(1), ImmSrc(3), ALUSrc(1), MemWrite(1), MemRead(1), MemtoReg(2), Branch(1), Jump(1), ALUOp(2) }
-```
-
-Each bit of the control word is derived as an OR combination of the `is_XXX` signals belonging to instruction groups that require that signal to be active.
-
-### Signal Descriptions
-
-| Signal | Width | Description |
-| :--- | :---: | :--- |
-| `RegWrite` | 1 | Enables write to the register file. Set to `1` for instructions that produce a result to be stored in `rd`. |
-| `ImmSrc` | 3 | Selects which of the 5 RISC-V immediate formats (I/S/B/U/J) the Immediate Generator should extract. |
-| `ALUSrc` | 1 | Selects the ALU's second operand: `0` = `rs2data`, `1` = sign-extended immediate. |
-| `MemWrite` | 1 | Enables write to data memory. Set to `1` only for `SW`. |
-| `MemRead` | 1 | Enables read from data memory. Set to `1` only for `LW`. |
-| `MemtoReg` | 2 | Selects the writeback source: `00` = ALU result, `01` = memory read data, `10` = `PC + 4` (link address). |
-| `Branch` | 1 | Marks the instruction as a conditional branch. Combined with the ALU comparison result to decide the next PC. |
-| `Jump` | 1 | Marks the instruction as an unconditional jump (`JAL`/`JALR`). PC is always redirected. |
-| `ALUOp` | 2 | Coarse ALU operation class, refined by the ALU decoder using `funct3`/`funct7`. |
-
----
 
 ### Signal Equations
 
@@ -127,11 +83,9 @@ MemtoReg[0] = is_LW
 
 ALUSrc      = is_Itype OR is_LW OR is_SW OR is_JALR OR is_LUI OR is_AUIPC
 
-ALUOp[1]    = is_Rtype OR is_Itype
-ALUOp[0]    = is_Branch
+ALUOp[1]    = is_Branch OR is_LUI
+ALUOp[0]    = is_Rtype OR is_Itype OR is_LUI
 ```
-
----
 
 ### Field Encodings
 
@@ -154,14 +108,113 @@ ALUOp[0]    = is_Branch
 #### ALUOp Encoding
 | Value | Meaning | Target Instructions |
 | :---: | :--- | :--- |
-| `00` | Fixed `ADD` | `LW`, `SW`, `LUI`, `AUIPC`, `JAL`, `JALR` |
-| `01` | Fixed `SUB` (for comparison) | Branch |
-| `10` | Operation determined by `funct3`/`funct7[5]` | R-type, I-type arithmetic |
+| `00` | Fixed `ADD` | `LW`, `SW`, `JALR`, `AUIPC`, `JAL` |
+| `01` | Determined by `funct3`/`funct7[5]` | R-type, I-type arithmetic |
+| `10` | Determined by `funct3` only | Branch (`BEQ`/`BNE`/`BLT`/`BGE`/`BLTU`/`BGEU`) |
+| `11` | Fixed `PASS B` | `LUI` |
+
+---
+
+## ALU Decoder
+
+### Overview
+
+The ALU Decoder is the second stage of instruction decoding, refining the coarse `ALUOp` classification from the main Control Unit into an exact 4-bit `ALUControl` signal that drives the ALU's operation-select MUX. It is implemented in the same manner as the main decoder — comparators and OR-gate networks, fully combinational, no ROM.
+
+### ALUControl Encoding
+
+| ALUControl | Operation |
+| :---: | :--- |
+| `0000` | `ADD` |
+| `0001` | `SUB` |
+| `0010` | `AND` |
+| `0011` | `OR` |
+| `0100` | `XOR` |
+| `0101` | `SLL` |
+| `0110` | `SRL` |
+| `0111` | `SRA` |
+| `1000` | `SLT` |
+| `1001` | `SLTU` |
+| `1010` | `PASS B` |
+
+### funct3 Detection
+
+Eight comparators check `funct3[2:0]` against each of its possible values, producing `is_f3_000` through `is_f3_111`. These are shared between the arithmetic and branch decode paths below.
+
+### Path 1 — R-type / I-type Arithmetic (used when `ALUOp = 01`)
+
+`funct7[5]` distinguishes `ADD`/`SUB` and `SRL`/`SRA`, which otherwise share the same `funct3`. All other operations are uniquely determined by `funct3` alone (bazni RV32I ne koristi ostale funct7 bitove — vidi napomenu ispod).
+
+```verilog
+sel_ADD  = is_f3_000 AND (NOT funct7[5])
+sel_SUB  = is_f3_000 AND funct7[5]
+sel_AND  = is_f3_111
+sel_OR   = is_f3_110
+sel_XOR  = is_f3_100
+sel_SLL  = is_f3_001
+sel_SRL  = is_f3_101 AND (NOT funct7[5])
+sel_SRA  = is_f3_101 AND funct7[5]
+sel_SLT  = is_f3_010
+sel_SLTU = is_f3_011
+
+ALUControl_arith[3] = sel_SLT OR sel_SLTU
+ALUControl_arith[2] = sel_XOR OR sel_SLL OR sel_SRL OR sel_SRA
+ALUControl_arith[1] = sel_AND OR sel_OR OR sel_SRL OR sel_SRA
+ALUControl_arith[0] = sel_SUB OR sel_OR OR sel_SLL OR sel_SRA OR sel_SLTU
+```
+
+> **Note:** only `funct7[5]` is checked, not the full 7-bit field. Per the RISC-V spec, all base RV32I R-type instructions have every `funct7` bit equal to `0` except bit `[5]`, which is `1` only for `SUB` and `SRA`. The remaining bits are reserved for future extensions (e.g. RV32M) and carry no meaning in the base ISA.
+
+### Path 2 — Branch (used when `ALUOp = 10`)
+
+Branch instructions share opcode `0x63`; `funct3` alone determines the comparison type.
+
+```verilog
+sel_branch_SUB  = is_f3_000 OR is_f3_001   (BEQ, BNE)
+sel_branch_SLT  = is_f3_100 OR is_f3_101   (BLT, BGE)
+sel_branch_SLTU = is_f3_110 OR is_f3_111   (BLTU, BGEU)
+
+ALUControl_branch[3] = sel_branch_SLT OR sel_branch_SLTU
+ALUControl_branch[2] = 0
+ALUControl_branch[1] = 0
+ALUControl_branch[0] = sel_branch_SUB OR sel_branch_SLTU
+```
+
+> `BGE`/`BGEU` use the same ALU operation as `BLT`/`BLTU` (`SLT`/`SLTU`); the branch-taken decision is inverted downstream in the PC-update logic, based on `funct3[0]` (LSB of `funct3` distinguishes the "less-than" from "greater-or-equal" variant within each pair).
+
+### Final Selection MUX
+
+A 4-to-1 MUX (`LPM_MUX`, `size=4`, `width=4`, `widthsel=2`) selects the final `ALUControl` output using `ALUOp[1:0]` directly as the selector:
+
+| ALUOp | ALUControl source |
+| :---: | :--- |
+| `00` | Constant `0000` (ADD) |
+| `01` | `ALUControl_arith[3:0]` |
+| `10` | `ALUControl_branch[3:0]` |
+| `11` | Constant `1010` (PASS B) |
+
+### Instruction → ALUControl Reference Table
+
+| Instruction | ALU Operation | ALUControl |
+| :--- | :--- | ---: |
+| `ADD`, `ADDI`, `LW`/`LH`/`LB`/`LHU`/`LBU`, `SW`/`SH`/`SB`, `JALR`, `AUIPC`, `JAL` | ADD | `0000` |
+| `SUB` | SUB | `0001` |
+| `AND`, `ANDI` | AND | `0010` |
+| `OR`, `ORI` | OR | `0011` |
+| `XOR`, `XORI` | XOR | `0100` |
+| `SLL`, `SLLI` | SLL | `0101` |
+| `SRL`, `SRLI` | SRL | `0110` |
+| `SRA`, `SRAI` | SRA | `0111` |
+| `SLT`, `SLTI`, `BLT`, `BGE` | SLT | `1000` |
+| `SLTU`, `SLTIU`, `BLTU`, `BGEU` | SLTU | `1001` |
+| `BEQ`, `BNE` | SUB | `0001` |
+| `LUI` | PASS B | `1010` |
 
 ---
 
 ## Implementation Notes
 
-* **Schematic Design:** All logic is implemented in `control_unit.bdf` using opcode comparators and OR-gate primitives, then exported as a reusable symbol (`Create Symbol Files for Current File`) for the top-level schematic.
+* **Schematic Design:** All logic (main decoder + ALU decoder) is implemented in `control_unit.bdf` using opcode/funct3 comparators, OR-gate primitives, and one `LPM_MUX`, then exported as a reusable symbol (`Create Symbol Files for Current File`) for the top-level schematic.
 * **Register Zero Protection:** `x0` is never written regardless of `RegWrite`, since the RegFile itself gates writes to register 0 via `we_real = RegWrite AND (rd != 0)`.
 * **AUIPC Handling:** `AUIPC` requires an additional mux on ALU input A (selecting between `PC` and `rs1data`), separate from the existing `ALUSrc` mux which only affects ALU input B.
+* **Branch Outcome Logic:** the ALU only produces the comparison result (`Zero` flag or `ALUResult[0]`); the decision to redirect `PC` based on `funct3` (equal/not-equal/less-than/greater-or-equal, signed/unsigned) is resolved separately in the PC-update stage, not inside the ALU Decoder.
