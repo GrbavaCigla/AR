@@ -1,4 +1,4 @@
-Riscv32i specification
+#### Riscv32i specification
 
 ### RISC-V Instruction Formats
 
@@ -41,3 +41,118 @@ Riscv32i specification
   * `00`: Always `ADD` (used for address calculation in `LW` / `SW`).
   * `01`: Always `SUB` (used for equality comparison in branches).
   * `10`: Operation depends on `funct3` and `funct7[5]` (`R-type` and `I-type` arithmetic).
+
+
+
+### Control Unit
+
+## Overview
+
+The Control Unit is a purely combinational block that decodes the 7-bit `opcode` field of the current instruction and produces all control signals needed to drive the rest of the datapath (RegFile, ImmGen, ALU, Data Memory, and PC update logic).
+
+Instead of using a lookup-table ROM (`ALTSYNCRAM ROM: 1-PORT`), the decoder is implemented manually using **opcode comparators** and **OR-gate networks**. This avoids any registered-output latency and keeps the logic fully combinational within a single clock cycle, matching our single-cycle datapath design.
+
+---
+
+## Opcode Detection
+
+For each supported RV32I instruction group, a comparator checks whether `opcode[6:0]` matches the group's fixed value per the RISC-V ISA specification. Each comparator produces a single-bit `is_XXX` signal.
+
+| Signal | Opcode (bin) | Opcode (hex) | Instruction Group | Examples |
+| :--- | :---: | :---: | :--- | :--- |
+| `is_Rtype` | `0110011` | `0x33` | R-type | `ADD`, `SUB`, `AND`, `OR`, `XOR`, `SLL`, `SRL`, `SRA`, `SLT`, `SLTU` |
+| `is_Itype` | `0010011` | `0x13` | I-type arithmetic | `ADDI`, `ANDI`, `ORI`, `XORI`, `SLTI`, `SLTIU`, `SLLI`, `SRLI`, `SRAI` |
+| `is_LW` | `0000011` | `0x03` | I-type load | `LB`, `LH`, `LW`, `LBU`, `LHU` |
+| `is_JALR` | `1100111` | `0x67` | I-type jump | `JALR` |
+| `is_SW` | `0100011` | `0x23` | S-type (store) | `SB`, `SH`, `SW` |
+| `is_Branch` | `1100011` | `0x63` | B-type (branch) | `BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, `BGEU` |
+| `is_LUI` | `0110111` | `0x37` | U-type | `LUI` |
+| `is_AUIPC` | `0010111` | `0x17` | U-type | `AUIPC` |
+| `is_JAL` | `1101111` | `0x6F` | J-type | `JAL` |
+
+> **Note:** `FENCE` (`0001111`) and `SYSTEM` (`1110011`, `ECALL`/`EBREAK`) opcodes are intentionally not decoded, as they have no meaningful effect in a bare-metal, single-core system with no OS. If encountered, all control signals default to `0`, making them effectively behave as a `NOP`.
+
+---
+
+## Control Word
+
+All control signals are packed into a single **13-bit control word**:
+
+```text
+control_word[12:0] = { RegWrite(1), ImmSrc(3), ALUSrc(1), MemWrite(1), MemRead(1), MemtoReg(2), Branch(1), Jump(1), ALUOp(2) }
+```
+
+Each bit of the control word is derived as an OR combination of the `is_XXX` signals belonging to instruction groups that require that signal to be active.
+
+### Signal Descriptions
+
+| Signal | Width | Description |
+| :--- | :---: | :--- |
+| `RegWrite` | 1 | Enables write to the register file. Set to `1` for instructions that produce a result to be stored in `rd`. |
+| `ImmSrc` | 3 | Selects which of the 5 RISC-V immediate formats (I/S/B/U/J) the Immediate Generator should extract. |
+| `ALUSrc` | 1 | Selects the ALU's second operand: `0` = `rs2data`, `1` = sign-extended immediate. |
+| `MemWrite` | 1 | Enables write to data memory. Set to `1` only for `SW`. |
+| `MemRead` | 1 | Enables read from data memory. Set to `1` only for `LW`. |
+| `MemtoReg` | 2 | Selects the writeback source: `00` = ALU result, `01` = memory read data, `10` = `PC + 4` (link address). |
+| `Branch` | 1 | Marks the instruction as a conditional branch. Combined with the ALU comparison result to decide the next PC. |
+| `Jump` | 1 | Marks the instruction as an unconditional jump (`JAL`/`JALR`). PC is always redirected. |
+| `ALUOp` | 2 | Coarse ALU operation class, refined by the ALU decoder using `funct3`/`funct7`. |
+
+---
+
+### Signal Equations
+
+```verilog
+RegWrite    = is_Rtype OR is_Itype OR is_LW OR is_LUI OR is_AUIPC OR is_JAL OR is_JALR
+MemWrite    = is_SW
+MemRead     = is_LW
+Branch      = is_Branch
+Jump        = is_JAL OR is_JALR
+
+ImmSrc[2]   = is_JAL
+ImmSrc[1]   = is_Branch OR is_LUI OR is_AUIPC
+ImmSrc[0]   = is_SW OR is_LUI OR is_AUIPC
+
+MemtoReg[1] = is_JAL OR is_JALR
+MemtoReg[0] = is_LW
+
+ALUSrc      = is_Itype OR is_LW OR is_SW OR is_JALR OR is_LUI OR is_AUIPC
+
+ALUOp[1]    = is_Rtype OR is_Itype
+ALUOp[0]    = is_Branch
+```
+
+---
+
+### Field Encodings
+
+#### ImmSrc Encoding
+| Value | Format | Target Instructions |
+| :---: | :---: | :--- |
+| `000` | I-type | `ADDI`, `LW`, `JALR` |
+| `001` | S-type | `SW` |
+| `010` | B-type | `BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, `BGEU` |
+| `011` | U-type | `LUI`, `AUIPC` |
+| `100` | J-type | `JAL` |
+
+#### MemtoReg Encoding
+| Value | Source | Target Instructions |
+| :---: | :--- | :--- |
+| `00` | ALU result | R-type, I-type arithmetic, `LUI`, `AUIPC` |
+| `01` | Data memory read | `LW` |
+| `10` | `PC + 4` | `JAL`, `JALR` |
+
+#### ALUOp Encoding
+| Value | Meaning | Target Instructions |
+| :---: | :--- | :--- |
+| `00` | Fixed `ADD` | `LW`, `SW`, `LUI`, `AUIPC`, `JAL`, `JALR` |
+| `01` | Fixed `SUB` (for comparison) | Branch |
+| `10` | Operation determined by `funct3`/`funct7[5]` | R-type, I-type arithmetic |
+
+---
+
+## Implementation Notes
+
+* **Schematic Design:** All logic is implemented in `control_unit.bdf` using opcode comparators and OR-gate primitives, then exported as a reusable symbol (`Create Symbol Files for Current File`) for the top-level schematic.
+* **Register Zero Protection:** `x0` is never written regardless of `RegWrite`, since the RegFile itself gates writes to register 0 via `we_real = RegWrite AND (rd != 0)`.
+* **AUIPC Handling:** `AUIPC` requires an additional mux on ALU input A (selecting between `PC` and `rs1data`), separate from the existing `ALUSrc` mux which only affects ALU input B.
