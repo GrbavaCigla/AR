@@ -1,18 +1,27 @@
-#### Riscv32i specification
+#### RISC-V 32-bit (RV32I) Specification
 
 ### RISC-V Instruction Formats
 
 | Type | 31 .. 25 | 24 .. 20 | 19 .. 15 | 14 .. 12 | 11 .. 7 | 6 .. 0 |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **R-Type** | funct7 (7b) | rs2 (5b) | rs1 (5b) | funct3 (3b) | rd (5b) | opcode (7b) |
-| **I-Type** | <c>imm[11:0] (12b)</c> | | rs1 (5b) | funct3 (3b) | rd (5b) | opcode (7b) |
-| **S-Type** | imm[11:5] (7b) | rs2 (5b) | rs1 (5b) | funct3 (3b) | imm[4:0] (5b) | opcode (7b) |
-| **U-Type** | <c>imm[31:12] (20b)</c> | | | | rd (5b) | opcode (7b) |
+| **R-Type** | `funct7` (7b) | `rs2` (5b) | `rs1` (5b) | `funct3` (3b) | `rd` (5b) | `opcode` (7b) |
+| **I-Type** | `imm[11:0]` (12b) | | `rs1` (5b) | `funct3` (3b) | `rd` (5b) | `opcode` (7b) |
+| **S-Type** | `imm[11:5]` (7b) | `rs2` (5b) | `rs1` (5b) | `funct3` (3b) | `imm[4:0]` (5b) | `opcode` (7b) |
+| **B-Type** | `imm[12\|10:5]` (7b) | `rs2` (5b) | `rs1` (5b) | `funct3` (3b) | `imm[4:1\|11]` (5b) | `opcode` (7b) |
+| **U-Type** | `imm[31:12]` (20b) | | | | `rd` (5b) | `opcode` (7b) |
+| **J-Type** | `imm[20\|10:1\|11\|19:12]` (20b) | | | | `rd` (5b) | `opcode` (7b) |
 
-### RISCV-V Control Word[12..0]
-{RegWrite(1b), ImmSrc(3), ALUSrc(1), MemWrite(1), MemRead(1), MemtoReg(2), Branch(1), Jump(1), ALUOp(2)}
+---
 
-### Control Signals
+## RISC-V Control Word [12..0]
+
+```text
+control_word[12:0] = { RegWrite(1), ImmSrc(3), ALUSrc(1), MemWrite(1), MemRead(1), MemtoReg(2), Branch(1), Jump(1), ALUOp(2) }
+```
+
+---
+
+## Control Signals
 
 * **`RegWrite` (1 bit)** — Asserts write-enable for the `RegFile` to specify whether the current instruction writes a result back to a destination register.
   * `1`: Write enabled (used for `ADD`, `ADDI`, `LW`, `JAL`, etc.).
@@ -42,7 +51,7 @@
   * `01`: Always `SUB` (used for equality comparison in branches).
   * `10`: Operation depends on `funct3` and `funct7[5]` (`R-type` and `I-type` arithmetic).
 
-
+---
 
 ### Control Unit
 
@@ -60,12 +69,12 @@ For each supported RV32I instruction group, a comparator checks whether `opcode[
 
 | Signal | Opcode (bin) | Opcode (hex) | Instruction Group | Examples |
 | :--- | :---: | :---: | :--- | :--- |
-| `is_Rtype` | `0110011` | `0x33` | R-type | `ADD`, `SUB`, `AND`, `OR`, `XOR`, `SLL`, `SRL`, `SRA`, `SLT`, `SLTU` |
+| `is_Rtype` | `0110011` | `0x33` | R-type (register-register) | `ADD`, `SUB`, `AND`, `OR`, `XOR`, `SLL`, `SRL`, `SRA`, `SLT`, `SLTU` |
 | `is_Itype` | `0010011` | `0x13` | I-type arithmetic | `ADDI`, `ANDI`, `ORI`, `XORI`, `SLTI`, `SLTIU`, `SLLI`, `SRLI`, `SRAI` |
 | `is_LW` | `0000011` | `0x03` | I-type load | `LB`, `LH`, `LW`, `LBU`, `LHU` |
 | `is_JALR` | `1100111` | `0x67` | I-type jump | `JALR` |
 | `is_SW` | `0100011` | `0x23` | S-type (store) | `SB`, `SH`, `SW` |
-| `is_Branch` | `1100011` | `0x63` | B-type (branch) | `BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, `BGEU` |
+| `is_Branch` | `1100111` | `0x63` | B-type (branch) | `BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, `BGEU` |
 | `is_LUI` | `0110111` | `0x37` | U-type | `LUI` |
 | `is_AUIPC` | `0010111` | `0x17` | U-type | `AUIPC` |
 | `is_JAL` | `1101111` | `0x6F` | J-type | `JAL` |
