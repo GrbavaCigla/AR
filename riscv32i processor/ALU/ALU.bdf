@@ -1051,11 +1051,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "nula" (rect -183 608 -163 620)(font "Arial" ))
-	(pt -144 624)
-	(pt -200 624)
-)
-(connector
 	(text "A[31..0]" (rect -191 688 -153 700)(font "Arial" ))
 	(pt -144 704)
 	(pt -200 704)
@@ -1066,11 +1061,6 @@ applicable agreement for further details.
 	(pt -144 720)
 	(pt -200 720)
 	(bus)
-)
-(connector
-	(text "nula" (rect -183 720 -163 732)(font "Arial" ))
-	(pt -144 736)
-	(pt -200 736)
 )
 (connector
 	(text "A[31..0]" (rect -191 800 -153 812)(font "Arial" ))
@@ -1139,11 +1129,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "nula" (rect 187 608 207 620)(font "Arial" ))
-	(pt 176 624)
-	(pt 240 624)
-)
-(connector
 	(text "srlRESULT[31..0]" (rect 401 576 487 588)(font "Arial" ))
 	(pt 384 592)
 	(pt 456 592)
@@ -1166,11 +1151,6 @@ applicable agreement for further details.
 	(pt 176 720)
 	(pt 240 720)
 	(bus)
-)
-(connector
-	(text "jedan" (rect 187 720 212 732)(font "Arial" ))
-	(pt 176 736)
-	(pt 240 736)
 )
 (connector
 	(text "A[31..0]" (rect 190 800 228 812)(font "Arial" ))
@@ -1515,24 +1495,44 @@ applicable agreement for further details.
 	(pt -112 448)
 )
 (connector
-	(text "nula" (rect -91 432 -71 444)(font "Arial" ))
-	(pt -112 448)
-	(pt -64 448)
-)
-(connector
 	(pt 16 464)
 	(pt 16 488)
-)
-(connector
-	(text "jedan" (rect -21 472 4 484)(font "Arial" ))
-	(pt 16 488)
-	(pt -32 488)
 )
 (connector
 	(text "ALUControl[3..0]" (rect 821 552 903 564)(font "Arial" ))
 	(pt 816 568)
 	(pt 904 568)
 	(bus)
+)
+(connector
+	(text "0" (rect -91 432 -86 444)(font "Arial" ))
+	(pt -112 448)
+	(pt -64 448)
+)
+(connector
+	(text "1" (rect -21 472 -16 484)(font "Arial" ))
+	(pt 16 488)
+	(pt -32 488)
+)
+(connector
+	(text "0" (rect 187 608 192 620)(font "Arial" ))
+	(pt 176 624)
+	(pt 240 624)
+)
+(connector
+	(text "1" (rect 187 720 192 732)(font "Arial" ))
+	(pt 176 736)
+	(pt 240 736)
+)
+(connector
+	(text "0" (rect -183 720 -178 732)(font "Arial" ))
+	(pt -144 736)
+	(pt -200 736)
+)
+(connector
+	(text "0" (rect -183 608 -178 620)(font "Arial" ))
+	(pt -144 624)
+	(pt -200 624)
 )
 (junction (pt 1160 632))
 (text " " (rect 664 408 667 422)(font "Arial" (font_size 8)))
