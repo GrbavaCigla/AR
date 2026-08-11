@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sun Aug 09 23:23:34 2026"
+// CREATED		"Tue Aug 11 19:23:56 2026"
 
 module ControlWord(
 	opcode,
@@ -23,7 +23,8 @@ module ControlWord(
 	MemRead,
 	Branch,
 	Jump,
-	ALUSrc,
+	ALUSrcB,
+	ALUSrcA,
 	ALUOp,
 	immSrc,
 	MemToReg
@@ -36,7 +37,8 @@ output wire	MemWrite;
 output wire	MemRead;
 output wire	Branch;
 output wire	Jump;
-output wire	ALUSrc;
+output wire	ALUSrcB;
+output wire	ALUSrcA;
 output wire	[1:0] ALUOp;
 output wire	[2:0] immSrc;
 output wire	[1:0] MemToReg;
@@ -124,6 +126,11 @@ CMP8	b2v_inst12(
 	.E(is_AUIPC)
 	);
 
+assign	ALUOp_ALTERA_SYNTHESIZED[0] = is_Itype | is_LUI | is_Rtype;
+
+assign	ALUSrcA = is_AUIPC;
+
+
 assign	immSrc_ALTERA_SYNTHESIZED[2] = is_JAL & 1;
 
 assign	MemToReg_ALTERA_SYNTHESIZED[0] = 1 & is_LW;
@@ -137,11 +144,9 @@ assign	immSrc_ALTERA_SYNTHESIZED[1] = is_AUIPC | is_LUI | is_Branch;
 
 assign	immSrc_ALTERA_SYNTHESIZED[0] = is_AUIPC | is_LUI | is_SW;
 
-assign	ALUSrc = is_Itype | is_SW | is_LW | is_JALR | is_LUI | is_AUIPC;
+assign	ALUSrcB = is_Itype | is_SW | is_LW | is_JALR | is_LUI | is_AUIPC;
 
-assign	ALUOp_ALTERA_SYNTHESIZED[1] = is_Rtype | is_Itype;
-
-assign	ALUOp_ALTERA_SYNTHESIZED[0] = is_Branch & 1;
+assign	ALUOp_ALTERA_SYNTHESIZED[1] = is_LUI | is_Branch;
 
 
 CMP8	b2v_inst3(

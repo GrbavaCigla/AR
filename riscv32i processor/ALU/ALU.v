@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 11 00:23:00 2026"
+// CREATED		"Tue Aug 11 19:53:51 2026"
 
 module ALU(
 	A,
@@ -34,12 +34,10 @@ output wire	N;
 output wire	[31:0] RESULT;
 
 wire	0;
-wire	1;
 wire	[31:0] addRESULT;
 wire	[31:0] andRESULT;
 wire	jedan;
 wire	nula;
-wire	operacija;
 wire	[31:0] orRESULT;
 wire	[31:0] RESULT_ALTERA_SYNTHESIZED;
 wire	[31:0] sllRESULT;
@@ -58,14 +56,11 @@ wire	SYNTHESIZED_WIRE_5;
 wire	[31:0] SYNTHESIZED_WIRE_6;
 wire	SYNTHESIZED_WIRE_7;
 wire	SYNTHESIZED_WIRE_8;
-wire	SYNTHESIZED_WIRE_9;
 
-wire	[3:0] GDFX_TEMP_SIGNAL_2;
 wire	[31:0] GDFX_TEMP_SIGNAL_0;
 wire	[31:0] GDFX_TEMP_SIGNAL_1;
 
 
-assign	GDFX_TEMP_SIGNAL_2 = {0,1,0,1};
 assign	GDFX_TEMP_SIGNAL_0 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,SLT};
 assign	GDFX_TEMP_SIGNAL_1 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,SLTU};
 
@@ -128,7 +123,10 @@ MPX16_32BIT	b2v_inst14(
 	.sel(ALUControl),
 	.result(RESULT_ALTERA_SYNTHESIZED));
 
-assign	SYNTHESIZED_WIRE_8 =  ~B[31];
+assign	N = RESULT_ALTERA_SYNTHESIZED[31];
+
+
+assign	SYNTHESIZED_WIRE_7 =  ~B[31];
 
 assign	SLT = SYNTHESIZED_WIRE_1 | SYNTHESIZED_WIRE_2 | SYNTHESIZED_WIRE_3;
 
@@ -137,28 +135,16 @@ assign	SYNTHESIZED_WIRE_4 =  ~A[31];
 
 assign	SYNTHESIZED_WIRE_5 =  ~B[31];
 
-assign	SYNTHESIZED_WIRE_9 = SYNTHESIZED_WIRE_4 & SYNTHESIZED_WIRE_5;
+assign	SYNTHESIZED_WIRE_8 = SYNTHESIZED_WIRE_4 & SYNTHESIZED_WIRE_5;
 
 assign	SYNTHESIZED_WIRE_0 = A[31] & B[31];
 
 
 AND32	b2v_inst24(
 	.IN(SYNTHESIZED_WIRE_6),
-	.OUT(SYNTHESIZED_WIRE_7));
+	.OUT(Z));
 
 assign	SYNTHESIZED_WIRE_6 =  ~RESULT_ALTERA_SYNTHESIZED;
-
-assign	Z = operacija & SYNTHESIZED_WIRE_7;
-
-assign	N = RESULT_ALTERA_SYNTHESIZED[31] & operacija;
-
-
-CMP4	b2v_inst29(
-	.A(ALUControl),
-	.B(GDFX_TEMP_SIGNAL_2),
-	
-	
-	.L(operacija));
 
 
 CMP32	b2v_inst3(
@@ -187,9 +173,9 @@ XOR2_32BIT	b2v_inst7(
 	.B(B),
 	.C(xorRESULT));
 
-assign	SYNTHESIZED_WIRE_3 = A[31] & SYNTHESIZED_WIRE_8;
+assign	SYNTHESIZED_WIRE_3 = A[31] & SYNTHESIZED_WIRE_7;
 
-assign	SYNTHESIZED_WIRE_1 = SYNTHESIZED_WIRE_9 & SLTU;
+assign	SYNTHESIZED_WIRE_1 = SYNTHESIZED_WIRE_8 & SLTU;
 
 assign	RESULT = RESULT_ALTERA_SYNTHESIZED;
 assign	jedan = 1;

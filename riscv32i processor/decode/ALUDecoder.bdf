@@ -55,7 +55,7 @@ applicable agreement for further details.
 	(input)
 	(rect 184 80 352 96)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "ALUOp[1..0]" (rect 5 0 67 12)(font "Arial" ))
+	(text "ALUOp[1..0]" (rect 5 0 66 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -1420,16 +1420,6 @@ applicable agreement for further details.
 	(pt 512 864)
 )
 (connector
-	(text "sel_AND" (rect 578 904 621 916)(font "Arial" ))
-	(pt 648 920)
-	(pt 568 920)
-)
-(connector
-	(text "is_f3_111" (rect 354 904 402 916)(font "Arial" ))
-	(pt 344 920)
-	(pt 520 920)
-)
-(connector
 	(text "sel_OR   " (rect 578 952 625 964)(font "Arial" ))
 	(pt 648 968)
 	(pt 568 968)
@@ -1752,6 +1742,16 @@ applicable agreement for further details.
 	(pt 1464 392)
 	(pt 1624 392)
 	(bus)
+)
+(connector
+	(text "sel_AND" (rect 578 904 621 916)(font "Arial" ))
+	(pt 648 920)
+	(pt 568 920)
+)
+(connector
+	(text "is_f3_111" (rect 354 904 402 916)(font "Arial" ))
+	(pt 344 920)
+	(pt 520 920)
 )
 (text "Komparator za funct3" (rect 608 152 731 166)(font "Arial" (font_size 8)))
 (text "ALUOp[1..0] = 01 (R/I-tip aritmetika)" (rect 608 728 807 742)(font "Arial" (font_size 8)))
