@@ -25,3 +25,10 @@ Constants:
 
   CONST_MODE_030_13b = 13'd48 = 13'h030
      Mode register: BL=1, sequential, CAS latency=3, normal operation, programmed write burst.
+
+  CONST_CMD_READ_16b = 16'd320
+    RAS_N=1, CAS_N=0, WE_N=1
+
+  CONST_CMD_WRITE_16b = 16'd256
+    RAS_N=1, CAS_N=0, WE_N=0
+
