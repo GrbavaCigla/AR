@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY ALUDecoder
+set_global_assignment -name TOP_LEVEL_ENTITY ALU
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:08:04  AUGUST 08, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -60,6 +60,21 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name BDF_FILE pc.bdf
 set_global_assignment -name BDF_FILE ir.bdf
 set_global_assignment -name BDF_FILE "decode sema.bdf"
+set_global_assignment -name BDF_FILE ../components/CMP/CMP16.bdf
+set_global_assignment -name BDF_FILE ../components/ADD/ADD32.bdf
+set_global_assignment -name BDF_FILE ../components/ADD/ADD16.bdf
+set_global_assignment -name BDF_FILE ../components/ADD/ADD8.bdf
+set_global_assignment -name BDF_FILE ../components/ADD/ADD4.bdf
+set_global_assignment -name BDF_FILE ../components/ADD/ADD2.bdf
+set_global_assignment -name BDF_FILE ../components/ADD/ADD1.bdf
+set_global_assignment -name BDF_FILE ../components/SUB/SUB32.bdf
+set_global_assignment -name BDF_FILE ../components/SUB/SUB16.bdf
+set_global_assignment -name BDF_FILE ../components/SUB/SUB8.bdf
+set_global_assignment -name BDF_FILE ../components/SUB/SUB4.bdf
+set_global_assignment -name BDF_FILE ../components/SUB/SUB2.bdf
+set_global_assignment -name BDF_FILE ../components/SUB/SUB1.bdf
+set_global_assignment -name BDF_FILE ../components/AND/AND16.bdf
+set_global_assignment -name BDF_FILE ../components/AND/AND32.bdf
 set_global_assignment -name BDF_FILE decode/ALUDecoder.bdf
 set_global_assignment -name BDF_FILE ../components/CMP/CMP1.bdf
 set_global_assignment -name BDF_FILE ../components/CMP/CMP8.bdf
@@ -88,4 +103,9 @@ set_global_assignment -name BDF_FILE ../components/SHIFT/SR5_32BIT.bdf
 set_global_assignment -name BDF_FILE ../components/SHIFT/SL5_32BIT.bdf
 set_global_assignment -name BDF_FILE ../components/SHIFT/SRA_SRL_32BIT.bdf
 set_global_assignment -name QIP_FILE ../components/MPX/MPX16_32BIT.qip
+set_global_assignment -name BDF_FILE ../components/MPX/MUX32_1.bdf
+set_global_assignment -name BDF_FILE ../components/MPX/MPX2_32BIT.bdf
+set_global_assignment -name BDF_FILE ../components/MPX/MPX2_16BIT.bdf
+set_global_assignment -name BDF_FILE ../components/MPX/MPX2.bdf
+set_global_assignment -name BDF_FILE ../components/CMP/CMP32.bdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
