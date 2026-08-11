@@ -14,56 +14,39 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 11 23:42:39 2026"
+// CREATED		"Tue Aug 11 21:58:53 2026"
 
-module pc(
+module DataMemory(
 	CLK,
+	MemWrite,
 	RESET,
-	PC
+	MemRead,
+	ADDRESS,
+	WRITEDATA,
+	READDATA
 );
 
 
 input wire	CLK;
+input wire	MemWrite;
 input wire	RESET;
-output wire	[31:0] PC;
-
-wire	0;
-wire	1;
-wire	[31:0] PC_ALTERA_SYNTHESIZED;
-wire	[31:0] PCplus4;
-wire	SYNTHESIZED_WIRE_0;
-
-assign	SYNTHESIZED_WIRE_0 = 1;
-wire	[31:0] GDFX_TEMP_SIGNAL_0;
-
-
-assign	GDFX_TEMP_SIGNAL_0 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0};
-
-
-REG32_LD_CL_INC_DEC	b2v_inst(
-	.LD(SYNTHESIZED_WIRE_0),
-	.C0(0),
-	.INC(0),
-	.E0(0),
-	.DEC(0),
-	.CL(RESET),
-	.clk(CLK),
-	.I(PCplus4),
-	
-	
-	.A(PC_ALTERA_SYNTHESIZED));
+input wire	MemRead;
+input wire	[31:0] ADDRESS;
+input wire	[31:0] WRITEDATA;
+output wire	[31:0] READDATA;
 
 
 
 
-ADD32	b2v_inst8(
-	.C_0(0),
-	.A(PC_ALTERA_SYNTHESIZED),
-	.B(GDFX_TEMP_SIGNAL_0),
-	
-	.OUT(PCplus4));
 
-assign	PC = PC_ALTERA_SYNTHESIZED;
-assign	0 = 0;
+
+RAM2	b2v_inst(
+	.wren(MemWrite),
+	.clock(CLK),
+	.data(WRITEDATA),
+	.rdaddress(ADDRESS[11:2]),
+	.wraddress(ADDRESS[11:2]),
+	.q(READDATA));
+
 
 endmodule
