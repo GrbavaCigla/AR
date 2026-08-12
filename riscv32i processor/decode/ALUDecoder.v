@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 11 00:29:16 2026"
+// CREATED		"Wed Aug 12 21:34:06 2026"
 
 module ALUDecoder(
 	ALUOp,
@@ -41,7 +41,6 @@ wire	is_f3_100;
 wire	is_f3_101;
 wire	is_f3_110;
 wire	is_f3_111;
-wire	sel_ADD;
 wire	sel_AND;
 wire	sel_branch_SLT;
 wire	sel_branch_SLTU;
@@ -55,7 +54,6 @@ wire	sel_SRL;
 wire	sel_SUB;
 wire	sel_XOR;
 wire	SYNTHESIZED_WIRE_0;
-wire	SYNTHESIZED_WIRE_1;
 
 wire	[3:0] GDFX_TEMP_SIGNAL_10;
 wire	[3:0] GDFX_TEMP_SIGNAL_17;
@@ -111,8 +109,6 @@ CMP4	b2v_inst1(
 	
 	.E(is_f3_001)
 	);
-
-assign	SYNTHESIZED_WIRE_1 = ;
 
 assign	sel_SUB = is_f3_000 & funct7;
 
@@ -188,8 +184,8 @@ CMP4	b2v_inst4(
 
 MPX4_4bit	b2v_inst40(
 	.data0x(GDFX_TEMP_SIGNAL_10),
-	.data1x(ALUControl_branch),
-	.data2x(ALUControl_arith),
+	.data1x(ALUControl_arith),
+	.data2x(ALUControl_branch),
 	.data3x(GDFX_TEMP_SIGNAL_11),
 	.sel(ALUOp),
 	.result(ALUControl));
@@ -221,7 +217,6 @@ CMP4	b2v_inst7(
 	);
 
 assign	sel_AND = is_f3_111;
-
 
 
 assign	0 = 0;

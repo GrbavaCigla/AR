@@ -31,8 +31,6 @@ output wire	N;
 output wire	Z;
 output wire	[31:0] RESULT;
 
-wire	0;
-wire	1;
 wire	[31:0] A;
 wire	[3:0] ALUControl;
 wire	[1:0] ALUOp;
@@ -60,8 +58,8 @@ wire	[31:0] GDFX_TEMP_SIGNAL_1;
 wire	[31:0] GDFX_TEMP_SIGNAL_0;
 
 
-assign	GDFX_TEMP_SIGNAL_1 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0};
-assign	GDFX_TEMP_SIGNAL_0 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+assign	GDFX_TEMP_SIGNAL_1 = 32'd4;
+assign	GDFX_TEMP_SIGNAL_0 = 32'd0;
 
 
 ALUDecoder	b2v_inst(
@@ -131,7 +129,7 @@ REGFILE	b2v_inst3(
 
 MPX2_32BIT	b2v_inst4(
 	.S(ALUSrcB),
-	.E(1),
+	.E(1'b1),
 	.I0(RS2DATA),
 	.I1(IMM_OUT),
 	.D(B));
@@ -143,7 +141,6 @@ ControlWord	b2v_inst5(
 	.MemWrite(MemWrite),
 	.MemRead(MemRead),
 	
-	
 	.ALUSrcA(ALUSrcA),
 	.ALUSrcB(ALUSrcB),
 	.ALUOp(ALUOp),
@@ -151,17 +148,16 @@ ControlWord	b2v_inst5(
 	.MemToReg(MemToReg));
 
 
-
 MPX2_32BIT	b2v_inst7(
 	.S(ALUSrcA),
-	.E(1),
+	.E(1'b1),
 	.I0(RS1DATA),
 	.I1(PC),
 	.D(A));
 
 
 ADD32	b2v_inst8(
-	.C_0(0),
+	.C_0(1'b0),
 	.A(PC),
 	.B(GDFX_TEMP_SIGNAL_1),
 	
@@ -169,7 +165,5 @@ ADD32	b2v_inst8(
 
 
 assign	RESULT = RESULT_ALTERA_SYNTHESIZED;
-assign	0 = 0;
-assign	1 = 1;
 
 endmodule

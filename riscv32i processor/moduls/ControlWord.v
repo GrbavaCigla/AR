@@ -43,8 +43,6 @@ output wire	[1:0] ALUOp;
 output wire	[2:0] immSrc;
 output wire	[1:0] MemToReg;
 
-wire	0;
-wire	1;
 wire	[1:0] ALUOp_ALTERA_SYNTHESIZED;
 wire	[2:0] immSrc_ALTERA_SYNTHESIZED;
 wire	is_AUIPC;
@@ -80,24 +78,25 @@ wire	[7:0] GDFX_TEMP_SIGNAL_14;
 wire	[7:0] GDFX_TEMP_SIGNAL_16;
 
 
-assign	GDFX_TEMP_SIGNAL_13 = {0,1,1,0,0,0,1,1};
-assign	GDFX_TEMP_SIGNAL_15 = {0,1,1,0,1,1,1,1};
-assign	GDFX_TEMP_SIGNAL_17 = {0,0,1,1,0,1,1,1};
-assign	GDFX_TEMP_SIGNAL_3 = {0,1,1,0,0,1,1,1};
-assign	GDFX_TEMP_SIGNAL_5 = {0,0,0,1,0,1,1,1};
-assign	GDFX_TEMP_SIGNAL_11 = {0,0,1,0,0,0,1,1};
-assign	GDFX_TEMP_SIGNAL_9 = {0,0,0,0,0,0,1,1};
-assign	GDFX_TEMP_SIGNAL_7 = {0,0,0,1,0,0,1,1};
-assign	GDFX_TEMP_SIGNAL_1 = {0,0,1,1,0,0,1,1};
-assign	GDFX_TEMP_SIGNAL_0 = {0,opcode[6:0]};
-assign	GDFX_TEMP_SIGNAL_2 = {0,opcode[6:0]};
-assign	GDFX_TEMP_SIGNAL_4 = {0,opcode[6:0]};
-assign	GDFX_TEMP_SIGNAL_6 = {0,opcode[6:0]};
-assign	GDFX_TEMP_SIGNAL_8 = {0,opcode[6:0]};
-assign	GDFX_TEMP_SIGNAL_10 = {0,opcode[6:0]};
-assign	GDFX_TEMP_SIGNAL_12 = {0,opcode[6:0]};
-assign	GDFX_TEMP_SIGNAL_14 = {0,opcode[6:0]};
-assign	GDFX_TEMP_SIGNAL_16 = {0,opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_13 = 8'b01100011;
+assign	GDFX_TEMP_SIGNAL_15 = 8'b01101111;
+assign	GDFX_TEMP_SIGNAL_17 = 8'b00110111;
+assign	GDFX_TEMP_SIGNAL_3  = 8'b01100111;
+assign	GDFX_TEMP_SIGNAL_5  = 8'b00010111;
+assign	GDFX_TEMP_SIGNAL_11 = 8'b00100011;
+assign	GDFX_TEMP_SIGNAL_9  = 8'b00000011;
+assign	GDFX_TEMP_SIGNAL_7  = 8'b00010011;
+assign	GDFX_TEMP_SIGNAL_1  = 8'b00110011;
+
+assign	GDFX_TEMP_SIGNAL_0  = {1'b0, opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_2  = {1'b0, opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_4  = {1'b0, opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_6  = {1'b0, opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_8  = {1'b0, opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_10 = {1'b0, opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_12 = {1'b0, opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_14 = {1'b0, opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_16 = {1'b0, opcode[6:0]};
 
 
 CMP8	b2v_inst(
@@ -105,7 +104,7 @@ CMP8	b2v_inst(
 	.B(GDFX_TEMP_SIGNAL_1),
 	
 	.E(is_Rtype)
-	);
+);
 
 
 assign	RegWrite = SYNTHESIZED_WIRE_0 | SYNTHESIZED_WIRE_1;
@@ -116,7 +115,7 @@ CMP8	b2v_inst11(
 	.B(GDFX_TEMP_SIGNAL_3),
 	
 	.E(is_JALR)
-	);
+);
 
 
 CMP8	b2v_inst12(
@@ -124,16 +123,16 @@ CMP8	b2v_inst12(
 	.B(GDFX_TEMP_SIGNAL_5),
 	
 	.E(is_AUIPC)
-	);
+);
 
 assign	ALUOp_ALTERA_SYNTHESIZED[0] = is_Itype | is_LUI | is_Rtype;
 
 assign	ALUSrcA = is_AUIPC;
 
 
-assign	immSrc_ALTERA_SYNTHESIZED[2] = is_JAL & 1;
+assign	immSrc_ALTERA_SYNTHESIZED[2] = is_JAL;
 
-assign	MemToReg_ALTERA_SYNTHESIZED[0] = 1 & is_LW;
+assign	MemToReg_ALTERA_SYNTHESIZED[0] = is_LW;
 
 assign	MemToReg_ALTERA_SYNTHESIZED[1] = is_JALR | is_JAL;
 
@@ -154,7 +153,7 @@ CMP8	b2v_inst3(
 	.B(GDFX_TEMP_SIGNAL_7),
 	
 	.E(is_Itype)
-	);
+);
 
 
 CMP8	b2v_inst4(
@@ -162,7 +161,7 @@ CMP8	b2v_inst4(
 	.B(GDFX_TEMP_SIGNAL_9),
 	
 	.E(is_LW)
-	);
+);
 
 
 CMP8	b2v_inst5(
@@ -170,7 +169,7 @@ CMP8	b2v_inst5(
 	.B(GDFX_TEMP_SIGNAL_11),
 	
 	.E(is_SW)
-	);
+);
 
 
 CMP8	b2v_inst6(
@@ -178,7 +177,7 @@ CMP8	b2v_inst6(
 	.B(GDFX_TEMP_SIGNAL_13),
 	
 	.E(is_Branch)
-	);
+);
 
 
 CMP8	b2v_inst7(
@@ -186,7 +185,7 @@ CMP8	b2v_inst7(
 	.B(GDFX_TEMP_SIGNAL_15),
 	
 	.E(is_JAL)
-	);
+);
 
 
 CMP8	b2v_inst8(
@@ -194,7 +193,7 @@ CMP8	b2v_inst8(
 	.B(GDFX_TEMP_SIGNAL_17),
 	
 	.E(is_LUI)
-	);
+);
 
 assign	SYNTHESIZED_WIRE_1 = is_Rtype | is_LW | is_JAL | is_Itype;
 
@@ -205,7 +204,5 @@ assign	Jump = is_JAL;
 assign	ALUOp = ALUOp_ALTERA_SYNTHESIZED;
 assign	immSrc = immSrc_ALTERA_SYNTHESIZED;
 assign	MemToReg = MemToReg_ALTERA_SYNTHESIZED;
-assign	0 = 0;
-assign	1 = 1;
 
 endmodule

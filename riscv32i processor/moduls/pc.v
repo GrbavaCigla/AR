@@ -27,43 +27,38 @@ input wire	CLK;
 input wire	RESET;
 output wire	[31:0] PC;
 
-wire	0;
-wire	1;
 wire	[31:0] PC_ALTERA_SYNTHESIZED;
 wire	[31:0] PCplus4;
 wire	SYNTHESIZED_WIRE_0;
 
-assign	SYNTHESIZED_WIRE_0 = 1;
+assign	SYNTHESIZED_WIRE_0 = 1'b1;
 wire	[31:0] GDFX_TEMP_SIGNAL_0;
 
-
-assign	GDFX_TEMP_SIGNAL_0 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0};
+assign	GDFX_TEMP_SIGNAL_0 = 32'd4;
 
 
 REG32_LD_CL_INC_DEC	b2v_inst(
 	.LD(SYNTHESIZED_WIRE_0),
-	.C0(0),
-	.INC(0),
-	.E0(0),
-	.DEC(0),
+	.C0(1'b0),
+	.INC(1'b0),
+	.E0(1'b0),
+	.DEC(1'b0),
 	.CL(RESET),
 	.clk(CLK),
 	.I(PCplus4),
 	
-	
-	.A(PC_ALTERA_SYNTHESIZED));
-
-
+	.A(PC_ALTERA_SYNTHESIZED)
+);
 
 
 ADD32	b2v_inst8(
-	.C_0(0),
+	.C_0(1'b0),
 	.A(PC_ALTERA_SYNTHESIZED),
 	.B(GDFX_TEMP_SIGNAL_0),
 	
-	.OUT(PCplus4));
+	.OUT(PCplus4)
+);
 
 assign	PC = PC_ALTERA_SYNTHESIZED;
-assign	0 = 0;
 
 endmodule
