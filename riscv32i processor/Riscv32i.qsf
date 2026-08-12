@@ -54,6 +54,14 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components\\decoders"
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components\\reg"
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name SOURCE_FILE alu
+set_global_assignment -name BDF_FILE pc/pc.bdf
+set_global_assignment -name BDF_FILE ImmediateGenerator/ImmediateGenTypes.bdf
+set_global_assignment -name BDF_FILE ImmediateGenerator/ImmediateGenerator.bdf
 set_global_assignment -name BDF_FILE pc.bdf
 set_global_assignment -name BDF_FILE ir.bdf
 set_global_assignment -name BDF_FILE "decode sema.bdf"
@@ -88,7 +96,6 @@ set_global_assignment -name QIP_FILE ../components/MPX/MPX5_32bit.qip
 set_global_assignment -name BDF_FILE ImmediateGenerator.bdf
 set_global_assignment -name BDF_FILE decode/ControlWord.bdf
 set_global_assignment -name BDF_FILE ../components/CMP/CMP4.bdf
-set_global_assignment -name BDF_FILE ../components/CMP/ALUDecoder.bdf
 set_global_assignment -name QIP_FILE ../components/MPX/MPX4_4bit.qip
 set_global_assignment -name BDF_FILE ../components/AND/AND2_32BIT.bdf
 set_global_assignment -name BDF_FILE ALU/ALU.bdf
@@ -112,7 +119,3 @@ set_global_assignment -name QIP_FILE ../components/MPX/MPX4_32BIT.qip
 set_global_assignment -name MIF_FILE InstructionMemory/InicializationData.mif
 set_global_assignment -name QIP_FILE InstructionMemory/ROM1.qip
 set_global_assignment -name BDF_FILE InstructionMemory/InstructionMemory.bdf
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
