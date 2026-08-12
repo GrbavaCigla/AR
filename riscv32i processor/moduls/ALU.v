@@ -33,7 +33,6 @@ output wire	Z;
 output wire	N;
 output wire	[31:0] RESULT;
 
-wire	0;
 wire	[31:0] addRESULT;
 wire	[31:0] andRESULT;
 wire	jedan;
@@ -61,8 +60,8 @@ wire	[31:0] GDFX_TEMP_SIGNAL_0;
 wire	[31:0] GDFX_TEMP_SIGNAL_1;
 
 
-assign	GDFX_TEMP_SIGNAL_0 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,SLT};
-assign	GDFX_TEMP_SIGNAL_1 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,SLTU};
+assign	GDFX_TEMP_SIGNAL_0 = {31'b0, SLT};
+assign	GDFX_TEMP_SIGNAL_1 = {31'b0, SLTU};
 
 
 ADD32	b2v_inst(
@@ -126,14 +125,14 @@ MPX16_32BIT	b2v_inst14(
 assign	N = RESULT_ALTERA_SYNTHESIZED[31];
 
 
-assign	SYNTHESIZED_WIRE_7 =  ~B[31];
+assign	SYNTHESIZED_WIRE_7 = ~B[31];
 
 assign	SLT = SYNTHESIZED_WIRE_1 | SYNTHESIZED_WIRE_2 | SYNTHESIZED_WIRE_3;
 
-assign	SYNTHESIZED_WIRE_4 =  ~A[31];
+assign	SYNTHESIZED_WIRE_4 = ~A[31];
 
 
-assign	SYNTHESIZED_WIRE_5 =  ~B[31];
+assign	SYNTHESIZED_WIRE_5 = ~B[31];
 
 assign	SYNTHESIZED_WIRE_8 = SYNTHESIZED_WIRE_4 & SYNTHESIZED_WIRE_5;
 
@@ -144,13 +143,12 @@ AND32	b2v_inst24(
 	.IN(SYNTHESIZED_WIRE_6),
 	.OUT(Z));
 
-assign	SYNTHESIZED_WIRE_6 =  ~RESULT_ALTERA_SYNTHESIZED;
+assign	SYNTHESIZED_WIRE_6 = ~RESULT_ALTERA_SYNTHESIZED;
 
 
 CMP32	b2v_inst3(
 	.A(A),
 	.B(B),
-	
 	
 	.L(SLTU));
 
@@ -178,7 +176,7 @@ assign	SYNTHESIZED_WIRE_3 = A[31] & SYNTHESIZED_WIRE_7;
 assign	SYNTHESIZED_WIRE_1 = SYNTHESIZED_WIRE_8 & SLTU;
 
 assign	RESULT = RESULT_ALTERA_SYNTHESIZED;
-assign	jedan = 1;
-assign	nula = 0;
+assign	jedan = 1'b1;
+assign	nula = 1'b0;
 
 endmodule

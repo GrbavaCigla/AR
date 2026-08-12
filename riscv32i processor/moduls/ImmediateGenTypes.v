@@ -33,11 +33,6 @@ output wire	[31:0] J_TYPE;
 output wire	[31:0] S_TYPE;
 output wire	[31:0] U_TYPE;
 
-wire	0;
-
-
-
-
 
 assign	B_TYPE[31] = INSTR[31];
 assign	B_TYPE[30] = INSTR[31];
@@ -62,7 +57,8 @@ assign	B_TYPE[12] = INSTR[31];
 assign	B_TYPE[11] = INSTR[7];
 assign	B_TYPE[10:5] = INSTR[30:25];
 assign	B_TYPE[4:1] = INSTR[11:8];
-assign	B_TYPE[0] = 0;
+assign	B_TYPE[0] = 1'b0;
+
 assign	I_TYPE[31] = INSTR[31];
 assign	I_TYPE[30] = INSTR[31];
 assign	I_TYPE[29] = INSTR[31];
@@ -85,6 +81,7 @@ assign	I_TYPE[13] = INSTR[31];
 assign	I_TYPE[12] = INSTR[31];
 assign	I_TYPE[11] = INSTR[31];
 assign	I_TYPE[10:0] = INSTR[30:20];
+
 assign	J_TYPE[31] = INSTR[31];
 assign	J_TYPE[30] = INSTR[31];
 assign	J_TYPE[29] = INSTR[31];
@@ -100,7 +97,8 @@ assign	J_TYPE[20] = INSTR[31];
 assign	J_TYPE[19:12] = INSTR[19:12];
 assign	J_TYPE[11] = INSTR[20];
 assign	J_TYPE[10:1] = INSTR[30:21];
-assign	J_TYPE[0] = 0;
+assign	J_TYPE[0] = 1'b0;
+
 assign	S_TYPE[31] = INSTR[31];
 assign	S_TYPE[30] = INSTR[31];
 assign	S_TYPE[29] = INSTR[31];
@@ -124,19 +122,8 @@ assign	S_TYPE[12] = INSTR[31];
 assign	S_TYPE[11] = INSTR[31];
 assign	S_TYPE[10:5] = INSTR[30:25];
 assign	S_TYPE[4:0] = INSTR[11:7];
+
 assign	U_TYPE[31:12] = INSTR[31:12];
-assign	U_TYPE[11] = 0;
-assign	U_TYPE[10] = 0;
-assign	U_TYPE[9] = 0;
-assign	U_TYPE[8] = 0;
-assign	U_TYPE[7] = 0;
-assign	U_TYPE[6] = 0;
-assign	U_TYPE[5] = 0;
-assign	U_TYPE[4] = 0;
-assign	U_TYPE[3] = 0;
-assign	U_TYPE[2] = 0;
-assign	U_TYPE[1] = 0;
-assign	U_TYPE[0] = 0;
-assign	0 = 0;
+assign	U_TYPE[11:0] = 12'b0;
 
 endmodule
