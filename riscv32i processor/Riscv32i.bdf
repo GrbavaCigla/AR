@@ -817,22 +817,6 @@ applicable agreement for further details.
 	(pt 1136 272)
 )
 (connector
-	(text "B[31..0]" (rect 1362 352 1410 367)(font "Arial" ))
-	(pt 1336 368)
-	(pt 1408 368)
-	(bus)
-)
-(connector
-	(text "ALUSrcB" (rect 1144 384 1201 399)(font "Arial" ))
-	(pt 1136 400)
-	(pt 1192 400)
-)
-(connector
-	(text "1" (rect 1146 400 1154 415)(font "Arial" ))
-	(pt 1136 416)
-	(pt 1192 416)
-)
-(connector
 	(text "PC[31..0]" (rect 1089 224 1148 239)(font "Arial" ))
 	(pt 1080 240)
 	(pt 1192 240)
@@ -847,18 +831,6 @@ applicable agreement for further details.
 	(text "A[31..0]" (rect 1362 208 1409 223)(font "Arial" ))
 	(pt 1336 224)
 	(pt 1408 224)
-	(bus)
-)
-(connector
-	(text "RS2DATA[31..0]" (rect 1089 352 1191 367)(font "Arial" ))
-	(pt 1072 368)
-	(pt 1192 368)
-	(bus)
-)
-(connector
-	(text "IMM_OUT[31..0]" (rect 1089 368 1190 383)(font "Arial" ))
-	(pt 1072 384)
-	(pt 1192 384)
 	(bus)
 )
 (connector
@@ -945,44 +917,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "READDATA[31..0]" (rect 1367 680 1480 695)(font "Arial" ))
-	(pt 1336 696)
-	(pt 1440 696)
-	(bus)
-)
-(connector
-	(text "RESET" (rect 965 680 1012 695)(font "Arial" ))
-	(pt 952 696)
-	(pt 1072 696)
-)
-(connector
-	(text "MemRead" (rect 965 696 1032 711)(font "Arial" ))
-	(pt 952 712)
-	(pt 1072 712)
-)
-(connector
-	(text "RS2DATA[31..0]" (rect 970 712 1072 727)(font "Arial" ))
-	(pt 944 728)
-	(pt 1072 728)
-	(bus)
-)
-(connector
-	(text "RESULT[31..0]" (rect 970 728 1065 743)(font "Arial" ))
-	(pt 944 744)
-	(pt 1072 744)
-	(bus)
-)
-(connector
-	(text "MemWrite" (rect 965 744 1029 759)(font "Arial" ))
-	(pt 952 760)
-	(pt 1072 760)
-)
-(connector
-	(text "CLK" (rect 965 760 993 775)(font "Arial" ))
-	(pt 952 776)
-	(pt 1072 776)
-)
-(connector
 	(text "PC[31..0]" (rect 140 48 199 63)(font "Arial" ))
 	(pt 128 64)
 	(pt 184 64)
@@ -1031,24 +965,6 @@ applicable agreement for further details.
 	(text "INSTRUCTIONS[31..0]" (rect 585 56 730 71)(font "Arial" ))
 	(pt 576 72)
 	(pt 680 72)
-	(bus)
-)
-(connector
-	(text "ALUControl[3..0]" (rect 902 320 1007 335)(font "Arial" ))
-	(pt 896 336)
-	(pt 984 336)
-	(bus)
-)
-(connector
-	(text "ALUOp[1..0]" (rect 580 320 656 335)(font "Arial" ))
-	(pt 568 336)
-	(pt 680 336)
-	(bus)
-)
-(connector
-	(text "INSTRUCTIONS[14..12]" (rect 535 336 688 351)(font "Arial" ))
-	(pt 568 352)
-	(pt 680 352)
 	(bus)
 )
 (connector
@@ -1107,6 +1023,90 @@ applicable agreement for further details.
 	(text "INSTRUCTIONS[19..15]" (rect 97 464 250 479)(font "Arial" ))
 	(pt 96 480)
 	(pt 232 480)
+	(bus)
+)
+(connector
+	(text "READDATA[31..0]" (rect 1367 680 1480 695)(font "Arial" ))
+	(pt 1336 696)
+	(pt 1440 696)
+	(bus)
+)
+(connector
+	(text "RESET" (rect 965 680 1012 695)(font "Arial" ))
+	(pt 952 696)
+	(pt 1072 696)
+)
+(connector
+	(text "MemRead" (rect 965 696 1032 711)(font "Arial" ))
+	(pt 952 712)
+	(pt 1072 712)
+)
+(connector
+	(text "RS2DATA[31..0]" (rect 970 712 1072 727)(font "Arial" ))
+	(pt 944 728)
+	(pt 1072 728)
+	(bus)
+)
+(connector
+	(text "RESULT[31..0]" (rect 970 728 1065 743)(font "Arial" ))
+	(pt 944 744)
+	(pt 1072 744)
+	(bus)
+)
+(connector
+	(text "MemWrite" (rect 965 744 1029 759)(font "Arial" ))
+	(pt 952 760)
+	(pt 1072 760)
+)
+(connector
+	(text "CLK" (rect 965 760 993 775)(font "Arial" ))
+	(pt 952 776)
+	(pt 1072 776)
+)
+(connector
+	(text "B[31..0]" (rect 1362 352 1410 367)(font "Arial" ))
+	(pt 1336 368)
+	(pt 1408 368)
+	(bus)
+)
+(connector
+	(text "ALUSrcB" (rect 1144 384 1201 399)(font "Arial" ))
+	(pt 1136 400)
+	(pt 1192 400)
+)
+(connector
+	(text "1" (rect 1146 400 1154 415)(font "Arial" ))
+	(pt 1136 416)
+	(pt 1192 416)
+)
+(connector
+	(text "RS2DATA[31..0]" (rect 1089 352 1191 367)(font "Arial" ))
+	(pt 1072 368)
+	(pt 1192 368)
+	(bus)
+)
+(connector
+	(text "IMM_OUT[31..0]" (rect 1089 368 1190 383)(font "Arial" ))
+	(pt 1072 384)
+	(pt 1192 384)
+	(bus)
+)
+(connector
+	(text "ALUControl[3..0]" (rect 902 320 1007 335)(font "Arial" ))
+	(pt 896 336)
+	(pt 984 336)
+	(bus)
+)
+(connector
+	(text "ALUOp[1..0]" (rect 580 320 656 335)(font "Arial" ))
+	(pt 568 336)
+	(pt 680 336)
+	(bus)
+)
+(connector
+	(text "INSTRUCTIONS[14..12]" (rect 535 336 688 351)(font "Arial" ))
+	(pt 568 352)
+	(pt 680 352)
 	(bus)
 )
 (connector
