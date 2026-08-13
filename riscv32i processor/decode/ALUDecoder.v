@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Aug 12 21:34:06 2026"
+// CREATED		"Thu Aug 13 15:20:18 2026"
 
 module ALUDecoder(
 	ALUOp,
@@ -55,7 +55,7 @@ wire	sel_SUB;
 wire	sel_XOR;
 wire	SYNTHESIZED_WIRE_0;
 
-wire	[3:0] GDFX_TEMP_SIGNAL_10;
+wire	[3:0] GDFX_TEMP_SIGNAL_11;
 wire	[3:0] GDFX_TEMP_SIGNAL_17;
 wire	[3:0] GDFX_TEMP_SIGNAL_13;
 wire	[3:0] GDFX_TEMP_SIGNAL_15;
@@ -64,7 +64,7 @@ wire	[3:0] GDFX_TEMP_SIGNAL_7;
 wire	[3:0] GDFX_TEMP_SIGNAL_5;
 wire	[3:0] GDFX_TEMP_SIGNAL_3;
 wire	[3:0] GDFX_TEMP_SIGNAL_1;
-wire	[3:0] GDFX_TEMP_SIGNAL_11;
+wire	[3:0] GDFX_TEMP_SIGNAL_10;
 wire	[3:0] GDFX_TEMP_SIGNAL_0;
 wire	[3:0] GDFX_TEMP_SIGNAL_2;
 wire	[3:0] GDFX_TEMP_SIGNAL_4;
@@ -75,7 +75,7 @@ wire	[3:0] GDFX_TEMP_SIGNAL_14;
 wire	[3:0] GDFX_TEMP_SIGNAL_16;
 
 
-assign	GDFX_TEMP_SIGNAL_10 = {1,0,1,0};
+assign	GDFX_TEMP_SIGNAL_11 = {1,0,1,0};
 assign	GDFX_TEMP_SIGNAL_17 = {0,1,1,1};
 assign	GDFX_TEMP_SIGNAL_13 = {0,1,1,0};
 assign	GDFX_TEMP_SIGNAL_15 = {0,1,0,1};
@@ -84,7 +84,7 @@ assign	GDFX_TEMP_SIGNAL_7 = {0,0,1,1};
 assign	GDFX_TEMP_SIGNAL_5 = {0,0,1,0};
 assign	GDFX_TEMP_SIGNAL_3 = {0,0,0,1};
 assign	GDFX_TEMP_SIGNAL_1 = {0,0,0,0};
-assign	GDFX_TEMP_SIGNAL_11 = {0,0,0,0};
+assign	GDFX_TEMP_SIGNAL_10 = {0,0,0,0};
 assign	GDFX_TEMP_SIGNAL_0 = {0,funct3[2:0]};
 assign	GDFX_TEMP_SIGNAL_2 = {0,funct3[2:0]};
 assign	GDFX_TEMP_SIGNAL_4 = {0,funct3[2:0]};

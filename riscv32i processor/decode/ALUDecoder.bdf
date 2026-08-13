@@ -1644,18 +1644,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "0,0,0,0" (rect 1510 344 1553 359)(font "Arial" ))
-	(pt 1464 360)
-	(pt 1624 360)
-	(bus)
-)
-(connector
-	(text "1,0,1,0" (rect 1518 392 1561 407)(font "Arial" ))
-	(pt 1464 408)
-	(pt 1624 408)
-	(bus)
-)
-(connector
 	(text "sel_AND" (rect 578 904 635 919)(font "Arial" ))
 	(pt 648 920)
 	(pt 568 920)
@@ -1675,6 +1663,18 @@ applicable agreement for further details.
 	(text "ALUControl_branch[3..0]" (rect 1488 360 1646 375)(font "Arial" ))
 	(pt 1624 376)
 	(pt 1464 376)
+	(bus)
+)
+(connector
+	(text "1,0,1,0" (rect 1510 344 1553 359)(font "Arial" ))
+	(pt 1464 360)
+	(pt 1624 360)
+	(bus)
+)
+(connector
+	(text "0,0,0,0" (rect 1518 392 1561 407)(font "Arial" ))
+	(pt 1464 408)
+	(pt 1624 408)
 	(bus)
 )
 (text "Komparator za funct3" (rect 608 152 754 168)(font "Arial" (font_size 8)))

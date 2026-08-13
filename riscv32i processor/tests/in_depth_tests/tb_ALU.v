@@ -33,8 +33,8 @@ module tb_ALU();
         if (RESULT !== 32'hF000F000) begin $display("FAIL: AND"); test_passed = 0; end
 
         // 4. OR (0011)
-        A = 32'hFF00FF00; B = 32'hF0F0F0F0; ALUControl = 4'b0011; #10;
-        if (RESULT !== 32'hFFF0FF00) begin $display("FAIL: OR"); test_passed = 0; end
+	A = 32'hFF00FF00; B = 32'hF0F0F0F0; ALUControl = 4'b0011; #10;
+	if (RESULT !== 32'hFFF0FFF0) begin $display("FAIL: OR"); test_passed = 0; end
 
         // 5. XOR (0100)
         A = 32'hA5A5A5A5; B = 32'hFFFFFFFF; ALUControl = 4'b0100; #10;
