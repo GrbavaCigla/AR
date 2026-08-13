@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY ALU
+set_global_assignment -name TOP_LEVEL_ENTITY Riscv32i
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:08:04  AUGUST 08, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -54,6 +54,7 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components\\decoders"
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components\\reg"
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components"
+set_global_assignment -name BDF_FILE pc/PC_CONTROL.bdf
 set_global_assignment -name BDF_FILE ../components/REG/REG32_LD_CL_INC_DEC.bdf
 set_global_assignment -name BDF_FILE ../components/REG/REG16_LD_CL_INC_DEC.bdf
 set_global_assignment -name BDF_FILE ../components/REG/REG8_LD_CL_INC_DEC.bdf
@@ -62,8 +63,6 @@ set_global_assignment -name SOURCE_FILE alu
 set_global_assignment -name BDF_FILE pc/pc.bdf
 set_global_assignment -name BDF_FILE ImmediateGenerator/ImmediateGenTypes.bdf
 set_global_assignment -name BDF_FILE ImmediateGenerator/ImmediateGenerator.bdf
-set_global_assignment -name BDF_FILE pc.bdf
-set_global_assignment -name BDF_FILE ir.bdf
 set_global_assignment -name BDF_FILE "decode sema.bdf"
 set_global_assignment -name BDF_FILE ../components/CMP/CMP16.bdf
 set_global_assignment -name BDF_FILE ../components/ADD/ADD32.bdf

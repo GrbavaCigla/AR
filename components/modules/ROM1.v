@@ -31,7 +31,7 @@ module ROM1 (
     // u InicializationData.hex (32-bitne hex vrednosti, jedna po liniji)
     // i postavi tacnu putanju ovde.
     initial begin
-        $readmemh("InstructionMemory/InicializationData.hex", mem);
+        $readmemh("C:/Users/Luka/Downloads/InicializationData.hex", mem);
     end
 
     // outdata_reg_a = UNREGISTERED -> izlaz prati adresu asinhrono
