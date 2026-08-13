@@ -61,7 +61,7 @@ BEGIN
 		address_aclr_a => "NONE",
 		clock_enable_input_a => "BYPASS",
 		clock_enable_output_a => "BYPASS",
-		init_file => "InicializationData.mif",
+		init_file => "./InstructionMemory/InicializationData.mif",
 		intended_device_family => "Cyclone III",
 		lpm_hint => "ENABLE_RUNTIME_MOD=NO",
 		lpm_type => "altsyncram",
@@ -103,12 +103,12 @@ END SYN;
 -- Retrieval info: PRIVATE: JTAG_ENABLED NUMERIC "0"
 -- Retrieval info: PRIVATE: JTAG_ID STRING "NONE"
 -- Retrieval info: PRIVATE: MAXIMUM_DEPTH NUMERIC "0"
--- Retrieval info: PRIVATE: MIFfilename STRING "InicializationData.mif"
+-- Retrieval info: PRIVATE: MIFfilename STRING "./InstructionMemory/InicializationData.mif"
 -- Retrieval info: PRIVATE: NUMWORDS_A NUMERIC "1024"
 -- Retrieval info: PRIVATE: RAM_BLOCK_TYPE NUMERIC "0"
 -- Retrieval info: PRIVATE: RegAddr NUMERIC "1"
 -- Retrieval info: PRIVATE: RegOutput NUMERIC "0"
--- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
+-- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "1"
 -- Retrieval info: PRIVATE: SingleClock NUMERIC "1"
 -- Retrieval info: PRIVATE: UseDQRAM NUMERIC "0"
 -- Retrieval info: PRIVATE: WidthAddr NUMERIC "10"
@@ -118,7 +118,7 @@ END SYN;
 -- Retrieval info: CONSTANT: ADDRESS_ACLR_A STRING "NONE"
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_INPUT_A STRING "BYPASS"
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_A STRING "BYPASS"
--- Retrieval info: CONSTANT: INIT_FILE STRING "InicializationData.mif"
+-- Retrieval info: CONSTANT: INIT_FILE STRING "./InstructionMemory/InicializationData.mif"
 -- Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone III"
 -- Retrieval info: CONSTANT: LPM_HINT STRING "ENABLE_RUNTIME_MOD=NO"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "altsyncram"
@@ -140,4 +140,5 @@ END SYN;
 -- Retrieval info: GEN_FILE: TYPE_NORMAL ROM1.cmp TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL ROM1.bsf TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL ROM1_inst.vhd FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL ROM1_syn.v TRUE
 -- Retrieval info: LIB_FILE: altera_mf
