@@ -14,30 +14,27 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 11 23:42:39 2026"
+// CREATED		"Thu Aug 13 20:22:00 2026"
 
 module pc(
 	CLK,
 	RESET,
+	NEXT_PC,
 	PC
 );
 
 
 input wire	CLK;
 input wire	RESET;
+input wire	[31:0] NEXT_PC;
 output wire	[31:0] PC;
 
 wire	0;
-wire	1;
-wire	[31:0] PC_ALTERA_SYNTHESIZED;
-wire	[31:0] PCplus4;
 wire	SYNTHESIZED_WIRE_0;
 
 assign	SYNTHESIZED_WIRE_0 = 1;
-wire	[31:0] GDFX_TEMP_SIGNAL_0;
 
 
-assign	GDFX_TEMP_SIGNAL_0 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0};
 
 
 REG32_LD_CL_INC_DEC	b2v_inst(
@@ -48,22 +45,13 @@ REG32_LD_CL_INC_DEC	b2v_inst(
 	.DEC(0),
 	.CL(RESET),
 	.clk(CLK),
-	.I(PCplus4),
+	.I(NEXT_PC),
 	
 	
-	.A(PC_ALTERA_SYNTHESIZED));
+	.A(PC));
 
 
 
-
-ADD32	b2v_inst8(
-	.C_0(0),
-	.A(PC_ALTERA_SYNTHESIZED),
-	.B(GDFX_TEMP_SIGNAL_0),
-	
-	.OUT(PCplus4));
-
-assign	PC = PC_ALTERA_SYNTHESIZED;
 assign	0 = 0;
 
 endmodule

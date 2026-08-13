@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 11 19:23:56 2026"
+// CREATED		"Thu Aug 13 20:43:22 2026"
 
 module ControlWord(
 	opcode,
@@ -201,7 +201,7 @@ assign	SYNTHESIZED_WIRE_1 = is_Rtype | is_LW | is_JAL | is_Itype;
 assign	MemWrite = is_SW;
 assign	MemRead = is_LW;
 assign	Branch = is_Branch;
-assign	Jump = is_JAL;
+assign	Jump = MemToReg_ALTERA_SYNTHESIZED[1];
 assign	ALUOp = ALUOp_ALTERA_SYNTHESIZED;
 assign	immSrc = immSrc_ALTERA_SYNTHESIZED;
 assign	MemToReg = MemToReg_ALTERA_SYNTHESIZED;
