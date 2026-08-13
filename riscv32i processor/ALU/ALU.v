@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 11 19:53:51 2026"
+// CREATED		"Thu Aug 13 15:22:49 2026"
 
 module ALU(
 	A,
@@ -37,7 +37,6 @@ wire	0;
 wire	[31:0] addRESULT;
 wire	[31:0] andRESULT;
 wire	jedan;
-wire	nula;
 wire	[31:0] orRESULT;
 wire	[31:0] RESULT_ALTERA_SYNTHESIZED;
 wire	[31:0] sllRESULT;
@@ -66,7 +65,7 @@ assign	GDFX_TEMP_SIGNAL_1 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 
 ADD32	b2v_inst(
-	.C_0(nula),
+	.C_0(0),
 	.A(A),
 	.B(B),
 	
@@ -74,7 +73,7 @@ ADD32	b2v_inst(
 
 
 SUB32	b2v_inst1(
-	.E_0(nula),
+	.E_0(0),
 	.A(A),
 	.B(B),
 	
@@ -90,7 +89,7 @@ assign	SYNTHESIZED_WIRE_2 = SYNTHESIZED_WIRE_0 & SLTU;
 
 
 SRA_SRL_32BIT	b2v_inst12(
-	.MODE(nula),
+	.MODE(0),
 	.A(A),
 	.B(B[4:0]),
 	.X(srlRESULT));
@@ -178,7 +177,7 @@ assign	SYNTHESIZED_WIRE_3 = A[31] & SYNTHESIZED_WIRE_7;
 assign	SYNTHESIZED_WIRE_1 = SYNTHESIZED_WIRE_8 & SLTU;
 
 assign	RESULT = RESULT_ALTERA_SYNTHESIZED;
+assign	0 = 0;
 assign	jedan = 1;
-assign	nula = 0;
 
 endmodule
