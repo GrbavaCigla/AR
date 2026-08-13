@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Mon Aug 10 13:05:05 2026"
+// CREATED		"Thu Aug 13 02:53:09 2026"
 
 module OR2_32BIT(
 	A,
