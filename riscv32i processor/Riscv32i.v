@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Thu Aug 13 21:10:37 2026"
+// CREATED		"Thu Aug 13 23:51:10 2026"
 
 module Riscv32i(
 	CLK,
@@ -39,11 +39,18 @@ wire	[1:0] ALUOp;
 wire	ALUSrcA;
 wire	ALUSrcB;
 wire	[31:0] B;
+wire	beq;
+wire	bge;
+wire	bgeu;
+wire	blt;
+wire	bltu;
+wire	bne;
 wire	Branch;
-wire	BRANCH_TAKEN;
+wire	branch_taken;
 wire	[31:0] IMM_OUT;
 wire	[2:0] immSrc;
 wire	[31:0] INSTRUCTIONS;
+wire	is_JAL;
 wire	is_JALR;
 wire	[31:0] JALR_SUM;
 wire	Jump;
@@ -52,7 +59,7 @@ wire	[1:0] MemToReg;
 wire	MemWrite;
 wire	[31:0] NEXT_PC;
 wire	[31:0] PC;
-wire	pc_sel0;
+wire	[1:0] pc_sel;
 wire	[31:0] PCplus4;
 wire	[31:0] PCplusIMM;
 wire	[31:0] READDATA;
@@ -63,22 +70,22 @@ wire	[31:0] RS2DATA;
 wire	Z_ALTERA_SYNTHESIZED;
 wire	SYNTHESIZED_WIRE_0;
 wire	SYNTHESIZED_WIRE_1;
-wire	[31:0] SYNTHESIZED_WIRE_2;
+wire	SYNTHESIZED_WIRE_2;
+wire	SYNTHESIZED_WIRE_3;
+wire	[31:0] SYNTHESIZED_WIRE_4;
 
-wire	[1:0] GDFX_TEMP_SIGNAL_3;
+wire	[7:0] GDFX_TEMP_SIGNAL_3;
 wire	[7:0] GDFX_TEMP_SIGNAL_4;
-wire	[7:0] GDFX_TEMP_SIGNAL_5;
 wire	[31:0] GDFX_TEMP_SIGNAL_1;
-wire	[31:0] GDFX_TEMP_SIGNAL_6;
+wire	[31:0] GDFX_TEMP_SIGNAL_5;
 wire	[31:0] GDFX_TEMP_SIGNAL_0;
 wire	[31:0] GDFX_TEMP_SIGNAL_2;
 
 
-assign	GDFX_TEMP_SIGNAL_3 = {pc_sel0,is_JALR};
-assign	GDFX_TEMP_SIGNAL_4 = {0,INSTRUCTIONS[6:0]};
-assign	GDFX_TEMP_SIGNAL_5 = {0,1,1,0,0,1,1,1};
+assign	GDFX_TEMP_SIGNAL_3 = {0,INSTRUCTIONS[6:0]};
+assign	GDFX_TEMP_SIGNAL_4 = {0,1,1,0,0,1,1,1};
 assign	GDFX_TEMP_SIGNAL_1 = {JALR_SUM[31:1],0};
-assign	GDFX_TEMP_SIGNAL_6 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0};
+assign	GDFX_TEMP_SIGNAL_5 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0};
 assign	GDFX_TEMP_SIGNAL_0 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 assign	GDFX_TEMP_SIGNAL_2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
@@ -120,7 +127,7 @@ MPX4_32BIT	b2v_inst12(
 	.data2x(PCplus4),
 	.data3x(GDFX_TEMP_SIGNAL_0),
 	.sel(MemToReg),
-	.result(SYNTHESIZED_WIRE_2));
+	.result(SYNTHESIZED_WIRE_4));
 
 
 pc	b2v_inst13(
@@ -149,8 +156,12 @@ MPX4_32BIT	b2v_inst16(
 	.data1x(PCplusIMM),
 	.data2x(GDFX_TEMP_SIGNAL_1),
 	.data3x(GDFX_TEMP_SIGNAL_2),
-	.sel(GDFX_TEMP_SIGNAL_3),
+	.sel(pc_sel),
 	.result(NEXT_PC));
+
+assign	SYNTHESIZED_WIRE_0 = beq | blt | bne | bge | bltu | bgeu;
+
+assign	branch_taken = SYNTHESIZED_WIRE_0 & Branch;
 
 
 ControlWord	b2v_inst19(
@@ -175,13 +186,18 @@ ALU	b2v_inst2(
 	.Z(Z_ALTERA_SYNTHESIZED),
 	.RESULT(RESULT_ALTERA_SYNTHESIZED));
 
-assign	BRANCH_TAKEN = Branch & Z_ALTERA_SYNTHESIZED;
+assign	pc_sel[1] = is_JALR;
 
-assign	pc_sel0 = SYNTHESIZED_WIRE_0 | BRANCH_TAKEN;
 
-assign	SYNTHESIZED_WIRE_0 = Jump & SYNTHESIZED_WIRE_1;
+assign	SYNTHESIZED_WIRE_2 =  ~is_JALR;
+
+assign	is_JAL = Jump & SYNTHESIZED_WIRE_1;
 
 assign	SYNTHESIZED_WIRE_1 =  ~is_JALR;
+
+assign	pc_sel[0] = SYNTHESIZED_WIRE_2 & SYNTHESIZED_WIRE_3;
+
+assign	SYNTHESIZED_WIRE_3 = branch_taken | is_JAL;
 
 
 REGFILE	b2v_inst3(
@@ -191,7 +207,7 @@ REGFILE	b2v_inst3(
 	.RD(INSTRUCTIONS[11:7]),
 	.RS1(INSTRUCTIONS[19:15]),
 	.RS2(INSTRUCTIONS[24:20]),
-	.WRITEDATA(SYNTHESIZED_WIRE_2),
+	.WRITEDATA(SYNTHESIZED_WIRE_4),
 	.RS1DATA(RS1DATA),
 	.RS2DATA(RS2DATA));
 
@@ -204,6 +220,18 @@ MPX2_32BIT	b2v_inst4(
 	.D(B));
 
 
+BranchDecoder	b2v_inst5(
+	.z(Z_ALTERA_SYNTHESIZED),
+	.funct3(INSTRUCTIONS[14:12]),
+	.result(RESULT_ALTERA_SYNTHESIZED),
+	.BEQ(beq),
+	.BNE(bne),
+	.BLT(blt),
+	.BGE(bge),
+	.BLTU(bltu),
+	.BGEU(bgeu));
+
+
 
 MPX2_32BIT	b2v_inst7(
 	.S(ALUSrcA),
@@ -214,8 +242,8 @@ MPX2_32BIT	b2v_inst7(
 
 
 CMP8	b2v_inst77(
-	.A(GDFX_TEMP_SIGNAL_4),
-	.B(GDFX_TEMP_SIGNAL_5),
+	.A(GDFX_TEMP_SIGNAL_3),
+	.B(GDFX_TEMP_SIGNAL_4),
 	
 	.E(is_JALR)
 	);
@@ -224,7 +252,7 @@ CMP8	b2v_inst77(
 ADD32	b2v_inst8(
 	.C_0(0),
 	.A(PC),
-	.B(GDFX_TEMP_SIGNAL_6),
+	.B(GDFX_TEMP_SIGNAL_5),
 	
 	.OUT(PCplus4));
 

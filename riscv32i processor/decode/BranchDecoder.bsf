@@ -1,0 +1,92 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 16 16 192 176)
+	(text "BranchDecoder" (rect 5 0 110 16)(font "Arial" (font_size 8)))
+	(text "inst" (rect 8 141 31 156)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "funct3[2..0]" (rect 0 0 76 16)(font "Arial" (font_size 8)))
+		(text "funct3[2..0]" (rect 21 27 97 43)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "z" (rect 0 0 8 16)(font "Arial" (font_size 8)))
+		(text "z" (rect 21 43 29 59)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "result[31..0]" (rect 0 0 81 16)(font "Arial" (font_size 8)))
+		(text "result[31..0]" (rect 21 59 102 75)(font "Arial" (font_size 8)))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 176 32)
+		(output)
+		(text "BEQ" (rect 0 0 33 16)(font "Arial" (font_size 8)))
+		(text "BEQ" (rect 122 27 155 43)(font "Arial" (font_size 8)))
+		(line (pt 176 32)(pt 160 32))
+	)
+	(port
+		(pt 176 48)
+		(output)
+		(text "BNE" (rect 0 0 31 16)(font "Arial" (font_size 8)))
+		(text "BNE" (rect 124 43 155 59)(font "Arial" (font_size 8)))
+		(line (pt 176 48)(pt 160 48))
+	)
+	(port
+		(pt 176 64)
+		(output)
+		(text "BLT" (rect 0 0 27 16)(font "Arial" (font_size 8)))
+		(text "BLT" (rect 128 59 155 75)(font "Arial" (font_size 8)))
+		(line (pt 176 64)(pt 160 64))
+	)
+	(port
+		(pt 176 80)
+		(output)
+		(text "BGE" (rect 0 0 33 16)(font "Arial" (font_size 8)))
+		(text "BGE" (rect 122 75 155 91)(font "Arial" (font_size 8)))
+		(line (pt 176 80)(pt 160 80))
+	)
+	(port
+		(pt 176 96)
+		(output)
+		(text "BLTU" (rect 0 0 37 16)(font "Arial" (font_size 8)))
+		(text "BLTU" (rect 118 91 155 107)(font "Arial" (font_size 8)))
+		(line (pt 176 96)(pt 160 96))
+	)
+	(port
+		(pt 176 112)
+		(output)
+		(text "BGEU" (rect 0 0 43 16)(font "Arial" (font_size 8)))
+		(text "BGEU" (rect 112 107 155 123)(font "Arial" (font_size 8)))
+		(line (pt 176 112)(pt 160 112))
+	)
+	(drawing
+		(rectangle (rect 16 16 160 144))
+	)
+)
