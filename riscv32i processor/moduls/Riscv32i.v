@@ -14,139 +14,252 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Thu Aug 13 23:36:58 2026"
+// CREATED		"Thu Aug 13 23:51:10 2026"
 
-module BranchDecoder(
-	z,
-	funct3,
-	result,
-	BEQ,
-	BNE,
-	BLT,
-	BGE,
-	BLTU,
-	BGEU
+module Riscv32i(
+	CLK,
+	RESET,
+	N,
+	Z,
+	RESULT
 );
 
 
-input wire	z;
-input wire	[2:0] funct3;
-input wire	[31:0] result;
-output wire	BEQ;
-output wire	BNE;
-output wire	BLT;
-output wire	BGE;
-output wire	BLTU;
-output wire	BGEU;
+input wire	CLK;
+input wire	RESET;
+output wire	N;
+output wire	Z;
+output wire	[31:0] RESULT;
 
-wire	wire_zero;
-wire	wire_one;
+wire	0;
+wire	1;
+wire	[31:0] A;
+wire	[3:0] ALUControl;
+wire	[1:0] ALUOp;
+wire	ALUSrcA;
+wire	ALUSrcB;
+wire	[31:0] B;
+wire	beq;
+wire	bge;
+wire	bgeu;
+wire	blt;
+wire	bltu;
+wire	bne;
+wire	Branch;
+wire	branch_taken;
+wire	[31:0] IMM_OUT;
+wire	[2:0] immSrc;
+wire	[31:0] INSTRUCTIONS;
+wire	is_JAL;
+wire	is_JALR;
+wire	[31:0] JALR_SUM;
+wire	Jump;
+wire	MemRead;
+wire	[1:0] MemToReg;
+wire	MemWrite;
+wire	[31:0] NEXT_PC;
+wire	[31:0] PC;
+wire	[1:0] pc_sel;
+wire	[31:0] PCplus4;
+wire	[31:0] PCplusIMM;
+wire	[31:0] READDATA;
+wire	RegWrite;
+wire	[31:0] RESULT_ALTERA_SYNTHESIZED;
+wire	[31:0] RS1DATA;
+wire	[31:0] RS2DATA;
+wire	Z_ALTERA_SYNTHESIZED;
 wire	SYNTHESIZED_WIRE_0;
 wire	SYNTHESIZED_WIRE_1;
 wire	SYNTHESIZED_WIRE_2;
 wire	SYNTHESIZED_WIRE_3;
-wire	SYNTHESIZED_WIRE_4;
-wire	SYNTHESIZED_WIRE_5;
-wire	SYNTHESIZED_WIRE_6;
-wire	SYNTHESIZED_WIRE_7;
-wire	SYNTHESIZED_WIRE_8;
+wire	[31:0] SYNTHESIZED_WIRE_4;
 
-wire	[3:0] GDFX_TEMP_SIGNAL_7;
-wire	[3:0] GDFX_TEMP_SIGNAL_3;
-wire	[3:0] GDFX_TEMP_SIGNAL_1;
-wire	[3:0] GDFX_TEMP_SIGNAL_11;
-wire	[3:0] GDFX_TEMP_SIGNAL_9;
-wire	[3:0] GDFX_TEMP_SIGNAL_5;
-wire	[3:0] GDFX_TEMP_SIGNAL_0;
-wire	[3:0] GDFX_TEMP_SIGNAL_2;
-wire	[3:0] GDFX_TEMP_SIGNAL_4;
-wire	[3:0] GDFX_TEMP_SIGNAL_6;
-wire	[3:0] GDFX_TEMP_SIGNAL_8;
-wire	[3:0] GDFX_TEMP_SIGNAL_10;
+wire	[7:0] GDFX_TEMP_SIGNAL_3;
+wire	[7:0] GDFX_TEMP_SIGNAL_4;
+wire	[31:0] GDFX_TEMP_SIGNAL_1;
+wire	[31:0] GDFX_TEMP_SIGNAL_5;
+wire	[31:0] GDFX_TEMP_SIGNAL_0;
+wire	[31:0] GDFX_TEMP_SIGNAL_2;
 
 
-assign	GDFX_TEMP_SIGNAL_7 = {wire_zero,wire_zero,wire_zero,wire_zero};
-assign	GDFX_TEMP_SIGNAL_3 = {wire_zero,wire_one,wire_one,wire_one};
-assign	GDFX_TEMP_SIGNAL_1 = {wire_zero,wire_one,wire_one,wire_zero};
-assign	GDFX_TEMP_SIGNAL_11 = {wire_zero,wire_one,wire_zero,wire_one};
-assign	GDFX_TEMP_SIGNAL_9 = {wire_zero,wire_one,wire_zero,wire_zero};
-assign	GDFX_TEMP_SIGNAL_5 = {wire_zero,wire_zero,wire_zero,wire_one};
-assign	GDFX_TEMP_SIGNAL_0 = {wire_zero,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_2 = {wire_zero,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_4 = {wire_zero,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_6 = {wire_zero,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_8 = {wire_zero,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_10 = {wire_zero,funct3[2:0]};
-
-assign	BEQ = z & SYNTHESIZED_WIRE_0;
-
-assign	BNE = SYNTHESIZED_WIRE_1 & SYNTHESIZED_WIRE_2;
+assign	GDFX_TEMP_SIGNAL_3 = {0,INSTRUCTIONS[6:0]};
+assign	GDFX_TEMP_SIGNAL_4 = {0,1,1,0,0,1,1,1};
+assign	GDFX_TEMP_SIGNAL_1 = {JALR_SUM[31:1],0};
+assign	GDFX_TEMP_SIGNAL_5 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0};
+assign	GDFX_TEMP_SIGNAL_0 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+assign	GDFX_TEMP_SIGNAL_2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
 
-CMP4	b2v_inst10(
-	.A(GDFX_TEMP_SIGNAL_0),
-	.B(GDFX_TEMP_SIGNAL_1),
+ALUDecoder	b2v_inst(
+	.ALUOp(ALUOp),
+	.funct3(INSTRUCTIONS[14:12]),
+	.funct7(INSTRUCTIONS[30]),
+	.ALUControl(ALUControl));
+
+
+ImmediateGenerator	b2v_inst1(
+	.IMM_SRC(immSrc),
+	.INSTRUCTION(INSTRUCTIONS),
+	.IMM_OUT(IMM_OUT));
+
+
+DataMemory	b2v_inst10(
+	.RESET(RESET),
+	.MemRead(MemRead),
+	.MemWrite(MemWrite),
+	.CLK(CLK),
+	.ADDRESS(RESULT_ALTERA_SYNTHESIZED),
+	.WRITEDATA(RS2DATA),
+	.READDATA(READDATA));
+
+
+ADD32	b2v_inst11(
+	.C_0(0),
+	.A(PC),
+	.B(IMM_OUT),
 	
-	.E(SYNTHESIZED_WIRE_8)
+	.OUT(PCplusIMM));
+
+
+MPX4_32BIT	b2v_inst12(
+	.data0x(RESULT_ALTERA_SYNTHESIZED),
+	.data1x(READDATA),
+	.data2x(PCplus4),
+	.data3x(GDFX_TEMP_SIGNAL_0),
+	.sel(MemToReg),
+	.result(SYNTHESIZED_WIRE_4));
+
+
+pc	b2v_inst13(
+	.RESET(RESET),
+	.CLK(CLK),
+	.NEXT_PC(NEXT_PC),
+	.PC(PC));
+
+
+ADD32	b2v_inst14(
+	.C_0(0),
+	.A(RS1DATA),
+	.B(IMM_OUT),
+	
+	.OUT(JALR_SUM));
+
+
+InstructionMemory	b2v_inst15(
+	.CLK(CLK),
+	.ADDRESS(PC),
+	.READDATA(INSTRUCTIONS));
+
+
+MPX4_32BIT	b2v_inst16(
+	.data0x(PCplus4),
+	.data1x(PCplusIMM),
+	.data2x(GDFX_TEMP_SIGNAL_1),
+	.data3x(GDFX_TEMP_SIGNAL_2),
+	.sel(pc_sel),
+	.result(NEXT_PC));
+
+assign	SYNTHESIZED_WIRE_0 = beq | blt | bne | bge | bltu | bgeu;
+
+assign	branch_taken = SYNTHESIZED_WIRE_0 & Branch;
+
+
+ControlWord	b2v_inst19(
+	.opcode(INSTRUCTIONS[6:0]),
+	.RegWrite(RegWrite),
+	.MemWrite(MemWrite),
+	.MemRead(MemRead),
+	.Branch(Branch),
+	.Jump(Jump),
+	.ALUSrcA(ALUSrcA),
+	.ALUSrcB(ALUSrcB),
+	.ALUOp(ALUOp),
+	.immSrc(immSrc),
+	.MemToReg(MemToReg));
+
+
+ALU	b2v_inst2(
+	.A(A),
+	.ALUControl(ALUControl),
+	.B(B),
+	.N(N),
+	.Z(Z_ALTERA_SYNTHESIZED),
+	.RESULT(RESULT_ALTERA_SYNTHESIZED));
+
+assign	pc_sel[1] = is_JALR;
+
+
+assign	SYNTHESIZED_WIRE_2 =  ~is_JALR;
+
+assign	is_JAL = Jump & SYNTHESIZED_WIRE_1;
+
+assign	SYNTHESIZED_WIRE_1 =  ~is_JALR;
+
+assign	pc_sel[0] = SYNTHESIZED_WIRE_2 & SYNTHESIZED_WIRE_3;
+
+assign	SYNTHESIZED_WIRE_3 = branch_taken | is_JAL;
+
+
+REGFILE	b2v_inst3(
+	.REGWRITE(RegWrite),
+	.CLK(CLK),
+	.RESET(RESET),
+	.RD(INSTRUCTIONS[11:7]),
+	.RS1(INSTRUCTIONS[19:15]),
+	.RS2(INSTRUCTIONS[24:20]),
+	.WRITEDATA(SYNTHESIZED_WIRE_4),
+	.RS1DATA(RS1DATA),
+	.RS2DATA(RS2DATA));
+
+
+MPX2_32BIT	b2v_inst4(
+	.S(ALUSrcB),
+	.E(1),
+	.I0(RS2DATA),
+	.I1(IMM_OUT),
+	.D(B));
+
+
+BranchDecoder	b2v_inst5(
+	.z(Z_ALTERA_SYNTHESIZED),
+	.funct3(INSTRUCTIONS[14:12]),
+	.result(RESULT_ALTERA_SYNTHESIZED),
+	.BEQ(beq),
+	.BNE(bne),
+	.BLT(blt),
+	.BGE(bge),
+	.BLTU(bltu),
+	.BGEU(bgeu));
+
+
+
+MPX2_32BIT	b2v_inst7(
+	.S(ALUSrcA),
+	.E(1),
+	.I0(RS1DATA),
+	.I1(PC),
+	.D(A));
+
+
+CMP8	b2v_inst77(
+	.A(GDFX_TEMP_SIGNAL_3),
+	.B(GDFX_TEMP_SIGNAL_4),
+	
+	.E(is_JALR)
 	);
 
-assign	BGEU = SYNTHESIZED_WIRE_3 & SYNTHESIZED_WIRE_4;
 
-
-CMP4	b2v_inst12(
-	.A(GDFX_TEMP_SIGNAL_2),
-	.B(GDFX_TEMP_SIGNAL_3),
-	
-	.E(SYNTHESIZED_WIRE_4)
-	);
-
-
-
-assign	SYNTHESIZED_WIRE_3 =  ~result[0];
-
-assign	SYNTHESIZED_WIRE_1 =  ~z;
-
-
-CMP4	b2v_inst3(
-	.A(GDFX_TEMP_SIGNAL_4),
+ADD32	b2v_inst8(
+	.C_0(0),
+	.A(PC),
 	.B(GDFX_TEMP_SIGNAL_5),
 	
-	.E(SYNTHESIZED_WIRE_2)
-	);
-
-assign	BLT = result[0] & SYNTHESIZED_WIRE_5;
+	.OUT(PCplus4));
 
 
-CMP4	b2v_inst44(
-	.A(GDFX_TEMP_SIGNAL_6),
-	.B(GDFX_TEMP_SIGNAL_7),
-	
-	.E(SYNTHESIZED_WIRE_0)
-	);
-
-
-CMP4	b2v_inst5(
-	.A(GDFX_TEMP_SIGNAL_8),
-	.B(GDFX_TEMP_SIGNAL_9),
-	
-	.E(SYNTHESIZED_WIRE_5)
-	);
-
-assign	BGE = SYNTHESIZED_WIRE_6 & SYNTHESIZED_WIRE_7;
-
-
-CMP4	b2v_inst7(
-	.A(GDFX_TEMP_SIGNAL_10),
-	.B(GDFX_TEMP_SIGNAL_11),
-	
-	.E(SYNTHESIZED_WIRE_7)
-	);
-
-assign	SYNTHESIZED_WIRE_6 =  ~result[0];
-
-assign	BLTU = result[0] & SYNTHESIZED_WIRE_8;
-
-assign	wire_zero = 1'b0;
-assign	wire_one = 1'b1;
+assign	Z = Z_ALTERA_SYNTHESIZED;
+assign	RESULT = RESULT_ALTERA_SYNTHESIZED;
+assign	0 = 0;
+assign	1 = 1;
 
 endmodule

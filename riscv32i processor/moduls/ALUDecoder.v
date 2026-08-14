@@ -29,8 +29,8 @@ input wire	[2:0] funct3;
 input wire	[5:5] funct7;
 output wire	[3:0] ALUControl;
 
-wire	nula;
-wire	jedan;
+wire	0;
+wire	1;
 wire	[3:0] ALUControl_arith;
 wire	[3:0] ALUControl_branch;
 wire	is_f3_000;
@@ -75,24 +75,24 @@ wire	[3:0] GDFX_TEMP_SIGNAL_14;
 wire	[3:0] GDFX_TEMP_SIGNAL_16;
 
 
-assign	GDFX_TEMP_SIGNAL_11 = {jedan,nula,jedan,nula};
-assign	GDFX_TEMP_SIGNAL_17 = {nula,jedan,jedan,jedan};
-assign	GDFX_TEMP_SIGNAL_13 = {nula,jedan,jedan,nula};
-assign	GDFX_TEMP_SIGNAL_15 = {nula,jedan,nula,jedan};
-assign	GDFX_TEMP_SIGNAL_9 = {nula,jedan,nula,nula};
-assign	GDFX_TEMP_SIGNAL_7 = {nula,nula,jedan,jedan};
-assign	GDFX_TEMP_SIGNAL_5 = {nula,nula,jedan,nula};
-assign	GDFX_TEMP_SIGNAL_3 = {nula,nula,nula,jedan};
-assign	GDFX_TEMP_SIGNAL_1 = {nula,nula,nula,nula};
-assign	GDFX_TEMP_SIGNAL_10 = {nula,nula,nula,nula};
-assign	GDFX_TEMP_SIGNAL_0 = {nula,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_2 = {nula,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_4 = {nula,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_6 = {nula,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_8 = {nula,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_12 = {nula,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_14 = {nula,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_16 = {nula,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_11 = {1,0,1,0};
+assign	GDFX_TEMP_SIGNAL_17 = {0,1,1,1};
+assign	GDFX_TEMP_SIGNAL_13 = {0,1,1,0};
+assign	GDFX_TEMP_SIGNAL_15 = {0,1,0,1};
+assign	GDFX_TEMP_SIGNAL_9 = {0,1,0,0};
+assign	GDFX_TEMP_SIGNAL_7 = {0,0,1,1};
+assign	GDFX_TEMP_SIGNAL_5 = {0,0,1,0};
+assign	GDFX_TEMP_SIGNAL_3 = {0,0,0,1};
+assign	GDFX_TEMP_SIGNAL_1 = {0,0,0,0};
+assign	GDFX_TEMP_SIGNAL_10 = {0,0,0,0};
+assign	GDFX_TEMP_SIGNAL_0 = {0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_2 = {0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_4 = {0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_6 = {0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_8 = {0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_12 = {0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_14 = {0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_16 = {0,funct3[2:0]};
 
 
 CMP4	b2v_inst(
@@ -147,7 +147,7 @@ assign	ALUControl_arith[2] = sel_XOR | sel_SRL | sel_SRA | sel_SLL;
 
 assign	ALUControl_arith[1] = sel_AND | sel_SRL | sel_SRA | sel_OR;
 
-assign	ALUControl_arith[0] = sel_SUB | sel_SLL | sel_OR | sel_SRA | sel_SLTU | nula;
+assign	ALUControl_arith[0] = sel_SUB | sel_SLL | sel_OR | sel_SRA | sel_SLTU | 0;
 
 assign	sel_branch_SUB = is_f3_001 | is_f3_000;
 
@@ -157,10 +157,10 @@ assign	sel_branch_SLTU = is_f3_111 | is_f3_110;
 
 assign	ALUControl_branch[3] = sel_branch_SLTU | sel_branch_SLT;
 
-assign	ALUControl_branch[1] = nula;
+assign	ALUControl_branch[1] = 0;
 
 
-assign	ALUControl_branch[2] = nula;
+assign	ALUControl_branch[2] = 0;
 
 
 
@@ -219,7 +219,7 @@ CMP4	b2v_inst7(
 assign	sel_AND = is_f3_111;
 
 
-assign	nula = 1'b0;
-assign	jedan = 1'b1;
+assign	0 = 0;
+assign	1 = 1;
 
 endmodule
