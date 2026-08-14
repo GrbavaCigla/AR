@@ -14,139 +14,198 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Thu Aug 13 23:36:58 2026"
+// CREATED		"Thu Aug 13 20:43:22 2026"
 
-module BranchDecoder(
-	z,
-	funct3,
-	result,
-	BEQ,
-	BNE,
-	BLT,
-	BGE,
-	BLTU,
-	BGEU
+module ControlWord(
+	opcode,
+	RegWrite,
+	MemWrite,
+	MemRead,
+	Branch,
+	Jump,
+	ALUSrcB,
+	ALUSrcA,
+	ALUOp,
+	immSrc,
+	MemToReg
 );
 
 
-input wire	z;
-input wire	[2:0] funct3;
-input wire	[31:0] result;
-output wire	BEQ;
-output wire	BNE;
-output wire	BLT;
-output wire	BGE;
-output wire	BLTU;
-output wire	BGEU;
+input wire	[6:0] opcode;
+output wire	RegWrite;
+output wire	MemWrite;
+output wire	MemRead;
+output wire	Branch;
+output wire	Jump;
+output wire	ALUSrcB;
+output wire	ALUSrcA;
+output wire	[1:0] ALUOp;
+output wire	[2:0] immSrc;
+output wire	[1:0] MemToReg;
 
-wire	wire_0;
-wire	wire_1;
+wire	0;
+wire	1;
+wire	[1:0] ALUOp_ALTERA_SYNTHESIZED;
+wire	[2:0] immSrc_ALTERA_SYNTHESIZED;
+wire	is_AUIPC;
+wire	is_Branch;
+wire	is_Itype;
+wire	is_JAL;
+wire	is_JALR;
+wire	is_LUI;
+wire	is_LW;
+wire	is_Rtype;
+wire	is_SW;
+wire	[1:0] MemToReg_ALTERA_SYNTHESIZED;
 wire	SYNTHESIZED_WIRE_0;
 wire	SYNTHESIZED_WIRE_1;
-wire	SYNTHESIZED_WIRE_2;
-wire	SYNTHESIZED_WIRE_3;
-wire	SYNTHESIZED_WIRE_4;
-wire	SYNTHESIZED_WIRE_5;
-wire	SYNTHESIZED_WIRE_6;
-wire	SYNTHESIZED_WIRE_7;
-wire	SYNTHESIZED_WIRE_8;
 
-wire	[3:0] GDFX_TEMP_SIGNAL_7;
-wire	[3:0] GDFX_TEMP_SIGNAL_3;
-wire	[3:0] GDFX_TEMP_SIGNAL_1;
-wire	[3:0] GDFX_TEMP_SIGNAL_11;
-wire	[3:0] GDFX_TEMP_SIGNAL_9;
-wire	[3:0] GDFX_TEMP_SIGNAL_5;
-wire	[3:0] GDFX_TEMP_SIGNAL_0;
-wire	[3:0] GDFX_TEMP_SIGNAL_2;
-wire	[3:0] GDFX_TEMP_SIGNAL_4;
-wire	[3:0] GDFX_TEMP_SIGNAL_6;
-wire	[3:0] GDFX_TEMP_SIGNAL_8;
-wire	[3:0] GDFX_TEMP_SIGNAL_10;
-
-
-assign	GDFX_TEMP_SIGNAL_7 = {wire_0,wire_0,wire_0,wire_0};
-assign	GDFX_TEMP_SIGNAL_3 = {wire_0,wire_1,wire_1,wire_1};
-assign	GDFX_TEMP_SIGNAL_1 = {wire_0,wire_1,wire_1,wire_0};
-assign	GDFX_TEMP_SIGNAL_11 = {wire_0,wire_1,wire_0,wire_1};
-assign	GDFX_TEMP_SIGNAL_9 = {wire_0,wire_1,wire_0,wire_0};
-assign	GDFX_TEMP_SIGNAL_5 = {wire_0,wire_0,wire_0,wire_1};
-assign	GDFX_TEMP_SIGNAL_0 = {wire_0,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_2 = {wire_0,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_4 = {wire_0,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_6 = {wire_0,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_8 = {wire_0,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_10 = {wire_0,funct3[2:0]};
-
-assign	BEQ = z & SYNTHESIZED_WIRE_0;
-
-assign	BNE = SYNTHESIZED_WIRE_1 & SYNTHESIZED_WIRE_2;
+wire	[7:0] GDFX_TEMP_SIGNAL_13;
+wire	[7:0] GDFX_TEMP_SIGNAL_15;
+wire	[7:0] GDFX_TEMP_SIGNAL_17;
+wire	[7:0] GDFX_TEMP_SIGNAL_3;
+wire	[7:0] GDFX_TEMP_SIGNAL_5;
+wire	[7:0] GDFX_TEMP_SIGNAL_11;
+wire	[7:0] GDFX_TEMP_SIGNAL_9;
+wire	[7:0] GDFX_TEMP_SIGNAL_7;
+wire	[7:0] GDFX_TEMP_SIGNAL_1;
+wire	[7:0] GDFX_TEMP_SIGNAL_0;
+wire	[7:0] GDFX_TEMP_SIGNAL_2;
+wire	[7:0] GDFX_TEMP_SIGNAL_4;
+wire	[7:0] GDFX_TEMP_SIGNAL_6;
+wire	[7:0] GDFX_TEMP_SIGNAL_8;
+wire	[7:0] GDFX_TEMP_SIGNAL_10;
+wire	[7:0] GDFX_TEMP_SIGNAL_12;
+wire	[7:0] GDFX_TEMP_SIGNAL_14;
+wire	[7:0] GDFX_TEMP_SIGNAL_16;
 
 
-CMP4	b2v_inst10(
+assign	GDFX_TEMP_SIGNAL_13 = {0,1,1,0,0,0,1,1};
+assign	GDFX_TEMP_SIGNAL_15 = {0,1,1,0,1,1,1,1};
+assign	GDFX_TEMP_SIGNAL_17 = {0,0,1,1,0,1,1,1};
+assign	GDFX_TEMP_SIGNAL_3 = {0,1,1,0,0,1,1,1};
+assign	GDFX_TEMP_SIGNAL_5 = {0,0,0,1,0,1,1,1};
+assign	GDFX_TEMP_SIGNAL_11 = {0,0,1,0,0,0,1,1};
+assign	GDFX_TEMP_SIGNAL_9 = {0,0,0,0,0,0,1,1};
+assign	GDFX_TEMP_SIGNAL_7 = {0,0,0,1,0,0,1,1};
+assign	GDFX_TEMP_SIGNAL_1 = {0,0,1,1,0,0,1,1};
+assign	GDFX_TEMP_SIGNAL_0 = {0,opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_2 = {0,opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_4 = {0,opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_6 = {0,opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_8 = {0,opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_10 = {0,opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_12 = {0,opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_14 = {0,opcode[6:0]};
+assign	GDFX_TEMP_SIGNAL_16 = {0,opcode[6:0]};
+
+
+CMP8	b2v_inst(
 	.A(GDFX_TEMP_SIGNAL_0),
 	.B(GDFX_TEMP_SIGNAL_1),
 	
-	.E(SYNTHESIZED_WIRE_8)
+	.E(is_Rtype)
 	);
 
-assign	BGEU = SYNTHESIZED_WIRE_3 & SYNTHESIZED_WIRE_4;
+
+assign	RegWrite = SYNTHESIZED_WIRE_0 | SYNTHESIZED_WIRE_1;
 
 
-CMP4	b2v_inst12(
+CMP8	b2v_inst11(
 	.A(GDFX_TEMP_SIGNAL_2),
 	.B(GDFX_TEMP_SIGNAL_3),
 	
-	.E(SYNTHESIZED_WIRE_4)
+	.E(is_JALR)
 	);
 
 
-
-assign	SYNTHESIZED_WIRE_3 =  ~result[0];
-
-assign	SYNTHESIZED_WIRE_1 =  ~z;
-
-
-CMP4	b2v_inst3(
+CMP8	b2v_inst12(
 	.A(GDFX_TEMP_SIGNAL_4),
 	.B(GDFX_TEMP_SIGNAL_5),
 	
-	.E(SYNTHESIZED_WIRE_2)
+	.E(is_AUIPC)
 	);
 
-assign	BLT = result[0] & SYNTHESIZED_WIRE_5;
+assign	ALUOp_ALTERA_SYNTHESIZED[0] = is_Itype | is_LUI | is_Rtype;
+
+assign	ALUSrcA = is_AUIPC;
 
 
-CMP4	b2v_inst44(
+assign	immSrc_ALTERA_SYNTHESIZED[2] = is_JAL & 1;
+
+assign	MemToReg_ALTERA_SYNTHESIZED[0] = 1 & is_LW;
+
+assign	MemToReg_ALTERA_SYNTHESIZED[1] = is_JALR | is_JAL;
+
+
+assign	SYNTHESIZED_WIRE_0 = is_JALR | is_AUIPC | is_LUI;
+
+assign	immSrc_ALTERA_SYNTHESIZED[1] = is_AUIPC | is_LUI | is_Branch;
+
+assign	immSrc_ALTERA_SYNTHESIZED[0] = is_AUIPC | is_LUI | is_SW;
+
+assign	ALUSrcB = is_Itype | is_SW | is_LW | is_JALR | is_LUI | is_AUIPC;
+
+assign	ALUOp_ALTERA_SYNTHESIZED[1] = is_LUI | is_Branch;
+
+
+CMP8	b2v_inst3(
 	.A(GDFX_TEMP_SIGNAL_6),
 	.B(GDFX_TEMP_SIGNAL_7),
 	
-	.E(SYNTHESIZED_WIRE_0)
+	.E(is_Itype)
 	);
 
 
-CMP4	b2v_inst5(
+CMP8	b2v_inst4(
 	.A(GDFX_TEMP_SIGNAL_8),
 	.B(GDFX_TEMP_SIGNAL_9),
 	
-	.E(SYNTHESIZED_WIRE_5)
+	.E(is_LW)
 	);
 
-assign	BGE = SYNTHESIZED_WIRE_6 & SYNTHESIZED_WIRE_7;
 
-
-CMP4	b2v_inst7(
+CMP8	b2v_inst5(
 	.A(GDFX_TEMP_SIGNAL_10),
 	.B(GDFX_TEMP_SIGNAL_11),
 	
-	.E(SYNTHESIZED_WIRE_7)
+	.E(is_SW)
 	);
 
-assign	SYNTHESIZED_WIRE_6 =  ~result[0];
 
-assign	BLTU = result[0] & SYNTHESIZED_WIRE_8;
+CMP8	b2v_inst6(
+	.A(GDFX_TEMP_SIGNAL_12),
+	.B(GDFX_TEMP_SIGNAL_13),
+	
+	.E(is_Branch)
+	);
 
-assign	wire_0 = 0;
-assign	wire_1 = 1;
+
+CMP8	b2v_inst7(
+	.A(GDFX_TEMP_SIGNAL_14),
+	.B(GDFX_TEMP_SIGNAL_15),
+	
+	.E(is_JAL)
+	);
+
+
+CMP8	b2v_inst8(
+	.A(GDFX_TEMP_SIGNAL_16),
+	.B(GDFX_TEMP_SIGNAL_17),
+	
+	.E(is_LUI)
+	);
+
+assign	SYNTHESIZED_WIRE_1 = is_Rtype | is_LW | is_JAL | is_Itype;
+
+assign	MemWrite = is_SW;
+assign	MemRead = is_LW;
+assign	Branch = is_Branch;
+assign	Jump = MemToReg_ALTERA_SYNTHESIZED[1];
+assign	ALUOp = ALUOp_ALTERA_SYNTHESIZED;
+assign	immSrc = immSrc_ALTERA_SYNTHESIZED;
+assign	MemToReg = MemToReg_ALTERA_SYNTHESIZED;
+assign	0 = 0;
+assign	1 = 1;
 
 endmodule
