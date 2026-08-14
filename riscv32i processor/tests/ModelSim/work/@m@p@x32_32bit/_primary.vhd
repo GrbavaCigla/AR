@@ -1,0 +1,40 @@
+library verilog;
+use verilog.vl_types.all;
+entity MPX32_32bit is
+    port(
+        data0x          : in     vl_logic_vector(31 downto 0);
+        data1x          : in     vl_logic_vector(31 downto 0);
+        data2x          : in     vl_logic_vector(31 downto 0);
+        data3x          : in     vl_logic_vector(31 downto 0);
+        data4x          : in     vl_logic_vector(31 downto 0);
+        data5x          : in     vl_logic_vector(31 downto 0);
+        data6x          : in     vl_logic_vector(31 downto 0);
+        data7x          : in     vl_logic_vector(31 downto 0);
+        data8x          : in     vl_logic_vector(31 downto 0);
+        data9x          : in     vl_logic_vector(31 downto 0);
+        data10x         : in     vl_logic_vector(31 downto 0);
+        data11x         : in     vl_logic_vector(31 downto 0);
+        data12x         : in     vl_logic_vector(31 downto 0);
+        data13x         : in     vl_logic_vector(31 downto 0);
+        data14x         : in     vl_logic_vector(31 downto 0);
+        data15x         : in     vl_logic_vector(31 downto 0);
+        data16x         : in     vl_logic_vector(31 downto 0);
+        data17x         : in     vl_logic_vector(31 downto 0);
+        data18x         : in     vl_logic_vector(31 downto 0);
+        data19x         : in     vl_logic_vector(31 downto 0);
+        data20x         : in     vl_logic_vector(31 downto 0);
+        data21x         : in     vl_logic_vector(31 downto 0);
+        data22x         : in     vl_logic_vector(31 downto 0);
+        data23x         : in     vl_logic_vector(31 downto 0);
+        data24x         : in     vl_logic_vector(31 downto 0);
+        data25x         : in     vl_logic_vector(31 downto 0);
+        data26x         : in     vl_logic_vector(31 downto 0);
+        data27x         : in     vl_logic_vector(31 downto 0);
+        data28x         : in     vl_logic_vector(31 downto 0);
+        data29x         : in     vl_logic_vector(31 downto 0);
+        data30x         : in     vl_logic_vector(31 downto 0);
+        data31x         : in     vl_logic_vector(31 downto 0);
+        sel             : in     vl_logic_vector(4 downto 0);
+        result          : out    vl_logic_vector(31 downto 0)
+    );
+end MPX32_32bit;

@@ -14,51 +14,139 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 11 23:42:39 2026"
+// CREATED		"Thu Aug 13 23:36:58 2026"
 
-module pc(
-	CLK,
-	RESET,
-	PC
+module BranchDecoder(
+	z,
+	funct3,
+	result,
+	BEQ,
+	BNE,
+	BLT,
+	BGE,
+	BLTU,
+	BGEU
 );
 
 
-input wire	CLK;
-input wire	RESET;
-output wire	[31:0] PC;
+input wire	z;
+input wire	[2:0] funct3;
+input wire	[31:0] result;
+output wire	BEQ;
+output wire	BNE;
+output wire	BLT;
+output wire	BGE;
+output wire	BLTU;
+output wire	BGEU;
 
-wire	[31:0] PC_ALTERA_SYNTHESIZED;
-wire	[31:0] PCplus4;
+wire	wire_0;
+wire	wire_1;
 wire	SYNTHESIZED_WIRE_0;
+wire	SYNTHESIZED_WIRE_1;
+wire	SYNTHESIZED_WIRE_2;
+wire	SYNTHESIZED_WIRE_3;
+wire	SYNTHESIZED_WIRE_4;
+wire	SYNTHESIZED_WIRE_5;
+wire	SYNTHESIZED_WIRE_6;
+wire	SYNTHESIZED_WIRE_7;
+wire	SYNTHESIZED_WIRE_8;
 
-assign	SYNTHESIZED_WIRE_0 = 1'b1;
-wire	[31:0] GDFX_TEMP_SIGNAL_0;
+wire	[3:0] GDFX_TEMP_SIGNAL_7;
+wire	[3:0] GDFX_TEMP_SIGNAL_3;
+wire	[3:0] GDFX_TEMP_SIGNAL_1;
+wire	[3:0] GDFX_TEMP_SIGNAL_11;
+wire	[3:0] GDFX_TEMP_SIGNAL_9;
+wire	[3:0] GDFX_TEMP_SIGNAL_5;
+wire	[3:0] GDFX_TEMP_SIGNAL_0;
+wire	[3:0] GDFX_TEMP_SIGNAL_2;
+wire	[3:0] GDFX_TEMP_SIGNAL_4;
+wire	[3:0] GDFX_TEMP_SIGNAL_6;
+wire	[3:0] GDFX_TEMP_SIGNAL_8;
+wire	[3:0] GDFX_TEMP_SIGNAL_10;
 
-assign	GDFX_TEMP_SIGNAL_0 = 32'd4;
+
+assign	GDFX_TEMP_SIGNAL_7 = {wire_0,wire_0,wire_0,wire_0};
+assign	GDFX_TEMP_SIGNAL_3 = {wire_0,wire_1,wire_1,wire_1};
+assign	GDFX_TEMP_SIGNAL_1 = {wire_0,wire_1,wire_1,wire_0};
+assign	GDFX_TEMP_SIGNAL_11 = {wire_0,wire_1,wire_0,wire_1};
+assign	GDFX_TEMP_SIGNAL_9 = {wire_0,wire_1,wire_0,wire_0};
+assign	GDFX_TEMP_SIGNAL_5 = {wire_0,wire_0,wire_0,wire_1};
+assign	GDFX_TEMP_SIGNAL_0 = {wire_0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_2 = {wire_0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_4 = {wire_0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_6 = {wire_0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_8 = {wire_0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_10 = {wire_0,funct3[2:0]};
+
+assign	BEQ = z & SYNTHESIZED_WIRE_0;
+
+assign	BNE = SYNTHESIZED_WIRE_1 & SYNTHESIZED_WIRE_2;
 
 
-REG32_LD_CL_INC_DEC	b2v_inst(
-	.LD(SYNTHESIZED_WIRE_0),
-	.C0(1'b0),
-	.INC(1'b0),
-	.E0(1'b0),
-	.DEC(1'b0),
-	.CL(RESET),
-	.clk(CLK),
-	.I(PCplus4),
+CMP4	b2v_inst10(
+	.A(GDFX_TEMP_SIGNAL_0),
+	.B(GDFX_TEMP_SIGNAL_1),
 	
-	.A(PC_ALTERA_SYNTHESIZED)
-);
+	.E(SYNTHESIZED_WIRE_8)
+	);
+
+assign	BGEU = SYNTHESIZED_WIRE_3 & SYNTHESIZED_WIRE_4;
 
 
-ADD32	b2v_inst8(
-	.C_0(1'b0),
-	.A(PC_ALTERA_SYNTHESIZED),
-	.B(GDFX_TEMP_SIGNAL_0),
+CMP4	b2v_inst12(
+	.A(GDFX_TEMP_SIGNAL_2),
+	.B(GDFX_TEMP_SIGNAL_3),
 	
-	.OUT(PCplus4)
-);
+	.E(SYNTHESIZED_WIRE_4)
+	);
 
-assign	PC = PC_ALTERA_SYNTHESIZED;
+
+
+assign	SYNTHESIZED_WIRE_3 =  ~result[0];
+
+assign	SYNTHESIZED_WIRE_1 =  ~z;
+
+
+CMP4	b2v_inst3(
+	.A(GDFX_TEMP_SIGNAL_4),
+	.B(GDFX_TEMP_SIGNAL_5),
+	
+	.E(SYNTHESIZED_WIRE_2)
+	);
+
+assign	BLT = result[0] & SYNTHESIZED_WIRE_5;
+
+
+CMP4	b2v_inst44(
+	.A(GDFX_TEMP_SIGNAL_6),
+	.B(GDFX_TEMP_SIGNAL_7),
+	
+	.E(SYNTHESIZED_WIRE_0)
+	);
+
+
+CMP4	b2v_inst5(
+	.A(GDFX_TEMP_SIGNAL_8),
+	.B(GDFX_TEMP_SIGNAL_9),
+	
+	.E(SYNTHESIZED_WIRE_5)
+	);
+
+assign	BGE = SYNTHESIZED_WIRE_6 & SYNTHESIZED_WIRE_7;
+
+
+CMP4	b2v_inst7(
+	.A(GDFX_TEMP_SIGNAL_10),
+	.B(GDFX_TEMP_SIGNAL_11),
+	
+	.E(SYNTHESIZED_WIRE_7)
+	);
+
+assign	SYNTHESIZED_WIRE_6 =  ~result[0];
+
+assign	BLTU = result[0] & SYNTHESIZED_WIRE_8;
+
+assign	wire_0 = 1'b0;
+assign	wire_1 = 1'b1;
 
 endmodule
