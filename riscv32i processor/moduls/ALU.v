@@ -9,7 +9,7 @@
 // Agreement, or other applicable license agreement, including, 
 // without limitation, that your use is for the sole purpose of 
 // programming logic devices manufactured by Altera and sold by 
-// Altera or its authorized distributors.  Please refer to the 
+// Altera or its authorized distributors. Please refer to the 
 // applicable agreement for further details.
 
 // PROGRAM		"Quartus II 64-Bit"
@@ -33,8 +33,10 @@ output wire	Z;
 output wire	N;
 output wire	[31:0] RESULT;
 
+wire	nula; // Promenjeno ime sa '0' na 'nula'
 wire	[31:0] addRESULT;
 wire	[31:0] andRESULT;
+wire	jedan;
 wire	[31:0] orRESULT;
 wire	[31:0] RESULT_ALTERA_SYNTHESIZED;
 wire	[31:0] sllRESULT;
@@ -63,7 +65,7 @@ assign	GDFX_TEMP_SIGNAL_1 = {31'b0, SLTU};
 
 
 ADD32	b2v_inst(
-	.C_0(1'b0),
+	.C_0(nula),
 	.A(A),
 	.B(B),
 	
@@ -71,7 +73,7 @@ ADD32	b2v_inst(
 
 
 SUB32	b2v_inst1(
-	.E_0(1'b0),
+	.E_0(nula),
 	.A(A),
 	.B(B),
 	
@@ -87,14 +89,14 @@ assign	SYNTHESIZED_WIRE_2 = SYNTHESIZED_WIRE_0 & SLTU;
 
 
 SRA_SRL_32BIT	b2v_inst12(
-	.MODE(1'b0),
+	.MODE(nula),
 	.A(A),
 	.B(B[4:0]),
 	.X(srlRESULT));
 
 
 SRA_SRL_32BIT	b2v_inst13(
-	.MODE(1'b1),
+	.MODE(jedan),
 	.A(A),
 	.B(B[4:0]),
 	.X(sraRESULT));
@@ -175,5 +177,7 @@ assign	SYNTHESIZED_WIRE_3 = A[31] & SYNTHESIZED_WIRE_7;
 assign	SYNTHESIZED_WIRE_1 = SYNTHESIZED_WIRE_8 & SLTU;
 
 assign	RESULT = RESULT_ALTERA_SYNTHESIZED;
+assign	nula = 1'b0;
+assign	jedan = 1'b1;
 
 endmodule

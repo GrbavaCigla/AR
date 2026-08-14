@@ -1,0 +1,478 @@
+C:/Users/Luka/Desktop/AR/components/modules/MPX5_32bit.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/MPX5_32bit.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MPX5_32bit
+
+Top level modules:
+	MPX5_32bit
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/REG16_LD_CL_INC_DEC.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/REG16_LD_CL_INC_DEC.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG16_LD_CL_INC_DEC
+
+Top level modules:
+	REG16_LD_CL_INC_DEC
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/REG32_LD_CL_INC_DEC_SL_SR.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/REG32_LD_CL_INC_DEC_SL_SR.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG32_LD_CL_INC_DEC_SL_SR
+
+Top level modules:
+	REG32_LD_CL_INC_DEC_SL_SR
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/SUB32.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/SUB32.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module SUB32
+
+Top level modules:
+	SUB32
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/ROM1.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/ROM1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ROM1
+
+Top level modules:
+	ROM1
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/REGFILE.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/REGFILE.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REGFILE
+
+Top level modules:
+	REGFILE
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/OR16.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/OR16.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module OR16
+
+Top level modules:
+	OR16
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/DEC5.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/DEC5.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module DEC5
+
+Top level modules:
+	DEC5
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/AND16.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/AND16.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module AND16
+
+Top level modules:
+	AND16
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/RAM2.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/RAM2.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module RAM2
+
+Top level modules:
+	RAM2
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/REG16_LD_CL.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/REG16_LD_CL.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG16_LD_CL
+
+Top level modules:
+	REG16_LD_CL
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/tests/tb_all_instructions.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/tests/tb_all_instructions.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module tb_Riscv32i
+
+Top level modules:
+	tb_Riscv32i
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/DMPX2.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/DMPX2.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module DMPX2
+
+Top level modules:
+	DMPX2
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/MPX4_4bit.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/MPX4_4bit.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MPX4_4bit
+
+Top level modules:
+	MPX4_4bit
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/OR2_32BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/OR2_32BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module OR2_32BIT
+
+Top level modules:
+	OR2_32BIT
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/CMP16.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/CMP16.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module CMP16
+
+Top level modules:
+	CMP16
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/MPX16_32BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/MPX16_32BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MPX16_32BIT
+
+Top level modules:
+	MPX16_32BIT
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/REG1_LD_CL_INC_DEC.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/REG1_LD_CL_INC_DEC.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG1_LD_CL_INC_DEC
+
+Top level modules:
+	REG1_LD_CL_INC_DEC
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/ADD2.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/ADD2.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ADD2
+
+Top level modules:
+	ADD2
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/REG1_LD_CL.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/REG1_LD_CL.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG1_LD_CL
+
+Top level modules:
+	REG1_LD_CL
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/REG32_LD_CL_INC_DEC.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/REG32_LD_CL_INC_DEC.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG32_LD_CL_INC_DEC
+
+Top level modules:
+	REG32_LD_CL_INC_DEC
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/SR5_32BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/SR5_32BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module SR5_32BIT
+
+Top level modules:
+	SR5_32BIT
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/SUB4.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/SUB4.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module SUB4
+
+Top level modules:
+	SUB4
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/REG8_LD_CL_INC_DEC.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/REG8_LD_CL_INC_DEC.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG8_LD_CL_INC_DEC
+
+Top level modules:
+	REG8_LD_CL_INC_DEC
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/REG16_LD_CL_INC_DEC_SL_SR.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/REG16_LD_CL_INC_DEC_SL_SR.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG16_LD_CL_INC_DEC_SL_SR
+
+Top level modules:
+	REG16_LD_CL_INC_DEC_SL_SR
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/REG32_LD_CL.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/REG32_LD_CL.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG32_LD_CL
+
+Top level modules:
+	REG32_LD_CL
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/SUB16.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/SUB16.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module SUB16
+
+Top level modules:
+	SUB16
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/REG8_LD_CL_INC_DEC_SL_SR.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/REG8_LD_CL_INC_DEC_SL_SR.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG8_LD_CL_INC_DEC_SL_SR
+
+Top level modules:
+	REG8_LD_CL_INC_DEC_SL_SR
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/ROM1_syn.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/ROM1_syn.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ROM1_altsyncram
+-- Compiling module ROM1
+
+Top level modules:
+	ROM1
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/ALUDecoder.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/ALUDecoder.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ALUDecoder
+
+Top level modules:
+	ALUDecoder
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/SUB8.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/SUB8.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module SUB8
+
+Top level modules:
+	SUB8
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/REG8_LD_CL.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/REG8_LD_CL.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG8_LD_CL
+
+Top level modules:
+	REG8_LD_CL
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/CMP4.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/CMP4.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module CMP4
+
+Top level modules:
+	CMP4
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/DataMemory.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/DataMemory.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module DataMemory
+
+Top level modules:
+	DataMemory
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/BranchDecoder.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/BranchDecoder.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module BranchDecoder
+
+Top level modules:
+	BranchDecoder
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/ADD32.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/ADD32.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ADD32
+
+Top level modules:
+	ADD32
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/SL5_32BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/SL5_32BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module SL5_32BIT
+
+Top level modules:
+	SL5_32BIT
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/ImmediateGenerator.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/ImmediateGenerator.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ImmediateGenerator
+
+Top level modules:
+	ImmediateGenerator
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/CMP8.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/CMP8.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module CMP8
+
+Top level modules:
+	CMP8
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/AND2_32BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/AND2_32BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module AND2_32BIT
+
+Top level modules:
+	AND2_32BIT
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/MPX2_32BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/MPX2_32BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MPX2_32BIT
+
+Top level modules:
+	MPX2_32BIT
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/SUB1.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/SUB1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module SUB1
+
+Top level modules:
+	SUB1
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/MPX2_16BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/MPX2_16BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MPX2_16BIT
+
+Top level modules:
+	MPX2_16BIT
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/MPX4_32BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/MPX4_32BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MPX4_32BIT
+
+Top level modules:
+	MPX4_32BIT
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/Riscv32i.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/Riscv32i.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module BranchDecoder
+
+Top level modules:
+	BranchDecoder
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/CMP1.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/CMP1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module CMP1
+
+Top level modules:
+	CMP1
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/SL_32BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/SL_32BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module SL_32BIT
+
+Top level modules:
+	SL_32BIT
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/pc.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/pc.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module BranchDecoder
+
+Top level modules:
+	BranchDecoder
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/InstructionMemory.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/InstructionMemory.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module InstructionMemory
+
+Top level modules:
+	InstructionMemory
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/XOR2_32BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/XOR2_32BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module XOR2_32BIT
+
+Top level modules:
+	XOR2_32BIT
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/DMPX2_32BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/DMPX2_32BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module DMPX2_32BIT
+
+Top level modules:
+	DMPX2_32BIT
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/ImmediateGenTypes.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/ImmediateGenTypes.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ImmediateGenTypes
+
+Top level modules:
+	ImmediateGenTypes
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/ADD16.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/ADD16.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ADD16
+
+Top level modules:
+	ADD16
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/SR_32BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/SR_32BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module SR_32BIT
+
+Top level modules:
+	SR_32BIT
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/ALU.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/ALU.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/SUB2.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/SUB2.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module SUB2
+
+Top level modules:
+	SUB2
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/ADD4.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/ADD4.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ADD4
+
+Top level modules:
+	ADD4
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/MPX32_32bit_2.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/MPX32_32bit_2.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MPX32_32bit_2
+
+Top level modules:
+	MPX32_32bit_2
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/OR32.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/OR32.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module OR32
+
+Top level modules:
+	OR32
+
+} {} {}} {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/ControlWord.v} {1 {vlog -work work {C:/Users/Luka/Desktop/AR/riscv32i processor/moduls/ControlWord.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module BranchDecoder
+
+Top level modules:
+	BranchDecoder
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/AND32.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/AND32.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module AND32
+
+Top level modules:
+	AND32
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/ADD8.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/ADD8.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ADD8
+
+Top level modules:
+	ADD8
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/SRA_SRL_32BIT.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/SRA_SRL_32BIT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module SRA_SRL_32BIT
+
+Top level modules:
+	SRA_SRL_32BIT
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/CMP32.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/CMP32.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module CMP32
+
+Top level modules:
+	CMP32
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/MPX32_32bit.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/MPX32_32bit.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MPX32_32bit
+
+Top level modules:
+	MPX32_32bit
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/MPX2.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/MPX2.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MPX2
+
+Top level modules:
+	MPX2
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/ADD1.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/ADD1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ADD1
+
+Top level modules:
+	ADD1
+
+} {} {}} C:/Users/Luka/Desktop/AR/components/modules/REG1_LD_CL_INC_DEC_SL_SR.v {1 {vlog -work work C:/Users/Luka/Desktop/AR/components/modules/REG1_LD_CL_INC_DEC_SL_SR.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG1_LD_CL_INC_DEC_SL_SR
+
+Top level modules:
+	REG1_LD_CL_INC_DEC_SL_SR
+
+} {} {}}
