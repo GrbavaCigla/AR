@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Thu Aug 13 23:36:58 2026"
+// CREATED		"Sat Aug 15 03:32:02 2026"
 
 module BranchDecoder(
 	z,
@@ -39,8 +39,8 @@ output wire	BGE;
 output wire	BLTU;
 output wire	BGEU;
 
-wire	0;
-wire	1;
+wire	jedan;
+wire	nula;
 wire	SYNTHESIZED_WIRE_0;
 wire	SYNTHESIZED_WIRE_1;
 wire	SYNTHESIZED_WIRE_2;
@@ -51,12 +51,12 @@ wire	SYNTHESIZED_WIRE_6;
 wire	SYNTHESIZED_WIRE_7;
 wire	SYNTHESIZED_WIRE_8;
 
-wire	[3:0] GDFX_TEMP_SIGNAL_7;
-wire	[3:0] GDFX_TEMP_SIGNAL_3;
 wire	[3:0] GDFX_TEMP_SIGNAL_1;
+wire	[3:0] GDFX_TEMP_SIGNAL_3;
 wire	[3:0] GDFX_TEMP_SIGNAL_11;
 wire	[3:0] GDFX_TEMP_SIGNAL_9;
 wire	[3:0] GDFX_TEMP_SIGNAL_5;
+wire	[3:0] GDFX_TEMP_SIGNAL_7;
 wire	[3:0] GDFX_TEMP_SIGNAL_0;
 wire	[3:0] GDFX_TEMP_SIGNAL_2;
 wire	[3:0] GDFX_TEMP_SIGNAL_4;
@@ -65,18 +65,18 @@ wire	[3:0] GDFX_TEMP_SIGNAL_8;
 wire	[3:0] GDFX_TEMP_SIGNAL_10;
 
 
-assign	GDFX_TEMP_SIGNAL_7 = {0,0,0,0};
-assign	GDFX_TEMP_SIGNAL_3 = {0,1,1,1};
-assign	GDFX_TEMP_SIGNAL_1 = {0,1,1,0};
-assign	GDFX_TEMP_SIGNAL_11 = {0,1,0,1};
-assign	GDFX_TEMP_SIGNAL_9 = {0,1,0,0};
-assign	GDFX_TEMP_SIGNAL_5 = {0,0,0,1};
-assign	GDFX_TEMP_SIGNAL_0 = {0,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_2 = {0,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_4 = {0,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_6 = {0,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_8 = {0,funct3[2:0]};
-assign	GDFX_TEMP_SIGNAL_10 = {0,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_1 = {nula,jedan,jedan,nula};
+assign	GDFX_TEMP_SIGNAL_3 = {nula,jedan,jedan,jedan};
+assign	GDFX_TEMP_SIGNAL_11 = {nula,jedan,nula,jedan};
+assign	GDFX_TEMP_SIGNAL_9 = {nula,jedan,nula,nula};
+assign	GDFX_TEMP_SIGNAL_5 = {nula,nula,nula,jedan};
+assign	GDFX_TEMP_SIGNAL_7 = {nula,nula,nula,nula};
+assign	GDFX_TEMP_SIGNAL_0 = {nula,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_2 = {nula,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_4 = {nula,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_6 = {nula,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_8 = {nula,funct3[2:0]};
+assign	GDFX_TEMP_SIGNAL_10 = {nula,funct3[2:0]};
 
 assign	BEQ = z & SYNTHESIZED_WIRE_0;
 
@@ -146,7 +146,7 @@ assign	SYNTHESIZED_WIRE_6 =  ~result[0];
 
 assign	BLTU = result[0] & SYNTHESIZED_WIRE_8;
 
-assign	0 = 0;
-assign	1 = 1;
+assign	jedan = 1;
+assign	nula = 0;
 
 endmodule

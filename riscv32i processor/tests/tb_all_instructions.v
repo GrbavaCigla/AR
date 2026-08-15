@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_Riscv32i;
+module tb_all_instructions;
 
 reg CLK;
 reg RESET;

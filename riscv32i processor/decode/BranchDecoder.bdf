@@ -963,12 +963,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "nula,jeadn,jedan,nula" (rect 344 1176 446 1188)(font "Arial" ))
-	(pt 432 1192)
-	(pt 336 1192)
-	(bus)
-)
-(connector
 	(text "nula,funct3[2..0]" (rect 344 1352 425 1364)(font "Arial" ))
 	(pt 328 1368)
 	(pt 424 1368)
@@ -978,6 +972,12 @@ applicable agreement for further details.
 	(text "nula,jedan,jedan,jedan" (rect 328 1368 436 1380)(font "Arial" ))
 	(pt 424 1384)
 	(pt 328 1384)
+	(bus)
+)
+(connector
+	(text "nula,jedan,jedan,nula" (rect 344 1176 446 1188)(font "Arial" ))
+	(pt 432 1192)
+	(pt 336 1192)
 	(bus)
 )
 (text "Uslovni skokovi" (rect 512 264 599 278)(font "Arial" (font_size 8)))

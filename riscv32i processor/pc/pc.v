@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 14 15:23:04 2026"
+// CREATED		"Sat Aug 15 03:34:18 2026"
 
 module pc(
 	CLK,
@@ -32,7 +32,6 @@ output wire	[31:0] PC;
 wire	nula;
 wire	SYNTHESIZED_WIRE_0;
 
-assign	SYNTHESIZED_WIRE_0 = 1;
 
 
 
@@ -51,6 +50,7 @@ REG32_LD_CL_INC_DEC	b2v_inst(
 	.A(PC));
 
 
+assign	SYNTHESIZED_WIRE_0 =  ~RESET;
 
 assign	nula = 0;
 
