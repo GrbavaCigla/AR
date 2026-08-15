@@ -14,12 +14,13 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 14 15:59:44 2026"
+// CREATED		"Sat Aug 15 03:30:44 2026"
 
 module ALUDecoder(
 	ALUOp,
 	funct3,
 	funct7,
+	INSTRUCTIONS,
 	ALUControl
 );
 
@@ -27,6 +28,7 @@ module ALUDecoder(
 input wire	[1:0] ALUOp;
 input wire	[2:0] funct3;
 input wire	[5:5] funct7;
+input wire	[5:5] INSTRUCTIONS;
 output wire	[3:0] ALUControl;
 
 wire	[3:0] ALUControl_arith;
@@ -109,8 +111,6 @@ CMP4	b2v_inst1(
 	
 	.E(is_f3_001)
 	);
-
-assign	sel_SUB = is_f3_000 & funct7;
 
 assign	sel_OR = is_f3_110;
 
@@ -218,6 +218,8 @@ CMP4	b2v_inst7(
 
 assign	sel_AND = is_f3_111;
 
+
+assign	sel_SUB = INSTRUCTIONS & is_f3_000 & funct7;
 
 assign	jedan = 1;
 assign	nula = 0;

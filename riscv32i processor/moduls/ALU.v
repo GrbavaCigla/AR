@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Thu Aug 13 15:22:49 2026"
+// CREATED		"Sat Aug 15 03:30:16 2026"
 
 module ALU(
 	A,
@@ -33,15 +33,17 @@ output wire	Z;
 output wire	N;
 output wire	[31:0] RESULT;
 
-wire	0;
 wire	[31:0] addRESULT;
 wire	[31:0] andRESULT;
 wire	jedan;
+wire	nula;
 wire	[31:0] orRESULT;
 wire	[31:0] RESULT_ALTERA_SYNTHESIZED;
 wire	[31:0] sllRESULT;
 wire	SLT;
+wire	[31:0] SLTDATA;
 wire	SLTU;
+wire	[31:0] SLTUDATA;
 wire	[31:0] sraRESULT;
 wire	[31:0] srlRESULT;
 wire	[31:0] subRESULT;
@@ -56,16 +58,16 @@ wire	[31:0] SYNTHESIZED_WIRE_6;
 wire	SYNTHESIZED_WIRE_7;
 wire	SYNTHESIZED_WIRE_8;
 
-wire	[31:0] GDFX_TEMP_SIGNAL_0;
 wire	[31:0] GDFX_TEMP_SIGNAL_1;
+wire	[31:0] GDFX_TEMP_SIGNAL_0;
 
 
-assign	GDFX_TEMP_SIGNAL_0 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,SLT};
-assign	GDFX_TEMP_SIGNAL_1 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,SLTU};
+assign	GDFX_TEMP_SIGNAL_1 = {nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,SLT};
+assign	GDFX_TEMP_SIGNAL_0 = {nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,SLTU};
 
 
 ADD32	b2v_inst(
-	.C_0(0),
+	.C_0(nula),
 	.A(A),
 	.B(B),
 	
@@ -73,7 +75,7 @@ ADD32	b2v_inst(
 
 
 SUB32	b2v_inst1(
-	.E_0(0),
+	.E_0(nula),
 	.A(A),
 	.B(B),
 	
@@ -89,7 +91,7 @@ assign	SYNTHESIZED_WIRE_2 = SYNTHESIZED_WIRE_0 & SLTU;
 
 
 SRA_SRL_32BIT	b2v_inst12(
-	.MODE(0),
+	.MODE(nula),
 	.A(A),
 	.B(B[4:0]),
 	.X(srlRESULT));
@@ -117,12 +119,15 @@ MPX16_32BIT	b2v_inst14(
 	.data5x(sllRESULT),
 	.data6x(srlRESULT),
 	.data7x(sraRESULT),
-	.data8x(GDFX_TEMP_SIGNAL_0),
-	.data9x(GDFX_TEMP_SIGNAL_1),
+	.data8x(SLTDATA),
+	.data9x(SLTUDATA),
 	.sel(ALUControl),
 	.result(RESULT_ALTERA_SYNTHESIZED));
 
 assign	N = RESULT_ALTERA_SYNTHESIZED[31];
+
+
+assign	SLTUDATA = GDFX_TEMP_SIGNAL_0;
 
 
 assign	SYNTHESIZED_WIRE_7 =  ~B[31];
@@ -135,6 +140,9 @@ assign	SYNTHESIZED_WIRE_4 =  ~A[31];
 assign	SYNTHESIZED_WIRE_5 =  ~B[31];
 
 assign	SYNTHESIZED_WIRE_8 = SYNTHESIZED_WIRE_4 & SYNTHESIZED_WIRE_5;
+
+assign	SLTDATA = GDFX_TEMP_SIGNAL_1;
+
 
 assign	SYNTHESIZED_WIRE_0 = A[31] & B[31];
 
@@ -177,7 +185,7 @@ assign	SYNTHESIZED_WIRE_3 = A[31] & SYNTHESIZED_WIRE_7;
 assign	SYNTHESIZED_WIRE_1 = SYNTHESIZED_WIRE_8 & SLTU;
 
 assign	RESULT = RESULT_ALTERA_SYNTHESIZED;
-assign	0 = 0;
 assign	jedan = 1;
+assign	nula = 0;
 
 endmodule

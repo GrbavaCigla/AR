@@ -100,7 +100,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 680 176 936 272)
+	(rect 680 168 936 264)
 	(text "ImmediateGenerator" (rect 5 0 118 14)(font "Arial" (font_size 8)))
 	(text "inst1" (rect 8 80 31 92)(font "Arial" ))
 	(port
@@ -126,42 +126,6 @@ applicable agreement for further details.
 	)
 	(drawing
 		(rectangle (rect 16 16 240 80))
-	)
-)
-(symbol
-	(rect 680 304 896 400)
-	(text "ALUDecoder" (rect 5 0 78 14)(font "Arial" (font_size 8)))
-	(text "inst" (rect 8 80 25 92)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "ALUOp[1..0]" (rect 0 0 69 14)(font "Arial" (font_size 8)))
-		(text "ALUOp[1..0]" (rect 21 27 90 41)(font "Arial" (font_size 8)))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "funct3[2..0]" (rect 0 0 64 14)(font "Arial" (font_size 8)))
-		(text "funct3[2..0]" (rect 21 43 85 57)(font "Arial" (font_size 8)))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "funct7[5]" (rect 0 0 50 14)(font "Arial" (font_size 8)))
-		(text "funct7[5]" (rect 21 59 71 73)(font "Arial" (font_size 8)))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 216 32)
-		(output)
-		(text "ALUControl[3..0]" (rect 0 0 93 14)(font "Arial" (font_size 8)))
-		(text "ALUControl[3..0]" (rect 102 27 195 41)(font "Arial" (font_size 8)))
-		(line (pt 216 32)(pt 200 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 200 80))
 	)
 )
 (symbol
@@ -1313,6 +1277,49 @@ applicable agreement for further details.
 		(line (pt 14 25)(pt 32 16))
 	)
 )
+(symbol
+	(rect 680 304 928 432)
+	(text "ALUDecoder" (rect 5 0 78 14)(font "Arial" (font_size 8)))
+	(text "inst" (rect 8 112 25 124)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "ALUOp[1..0]" (rect 0 0 69 14)(font "Arial" (font_size 8)))
+		(text "ALUOp[1..0]" (rect 21 27 90 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "funct3[2..0]" (rect 0 0 64 14)(font "Arial" (font_size 8)))
+		(text "funct3[2..0]" (rect 21 43 85 57)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "funct7[5]" (rect 0 0 50 14)(font "Arial" (font_size 8)))
+		(text "funct7[5]" (rect 21 59 71 73)(font "Arial" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "INSTRUCTIONS[5]" (rect 0 0 100 14)(font "Arial" (font_size 8)))
+		(text "INSTRUCTIONS[5]" (rect 21 75 121 89)(font "Arial" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 248 32)
+		(output)
+		(text "ALUControl[3..0]" (rect 0 0 93 14)(font "Arial" (font_size 8)))
+		(text "ALUControl[3..0]" (rect 134 27 227 41)(font "Arial" (font_size 8)))
+		(line (pt 248 32)(pt 232 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 232 112))
+	)
+)
 (connector
 	(text "RegWrite" (rect 461 200 507 212)(font "Arial" ))
 	(pt 448 216)
@@ -1576,24 +1583,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "INSTRUCTIONS[31..0]" (rect 553 192 667 204)(font "Arial" ))
-	(pt 576 208)
-	(pt 680 208)
-	(bus)
-)
-(connector
-	(text "immSrc[2..0]" (rect 591 208 654 220)(font "Arial" ))
-	(pt 576 224)
-	(pt 680 224)
-	(bus)
-)
-(connector
-	(text "IMM_OUT[31..0]" (rect 945 192 1025 204)(font "Arial" ))
-	(pt 936 208)
-	(pt 1024 208)
-	(bus)
-)
-(connector
 	(text "RESET" (rect -144 64 -109 76)(font "Arial" ))
 	(pt -104 80)
 	(pt -152 80)
@@ -1690,29 +1679,6 @@ applicable agreement for further details.
 	(pt -88 1056)
 	(pt -168 1056)
 	(bus)
-)
-(connector
-	(text "ALUControl[3..0]" (rect 902 320 984 332)(font "Arial" ))
-	(pt 896 336)
-	(pt 984 336)
-	(bus)
-)
-(connector
-	(text "ALUOp[1..0]" (rect 580 320 641 332)(font "Arial" ))
-	(pt 568 336)
-	(pt 680 336)
-	(bus)
-)
-(connector
-	(text "INSTRUCTIONS[14..12]" (rect 535 336 655 348)(font "Arial" ))
-	(pt 568 352)
-	(pt 680 352)
-	(bus)
-)
-(connector
-	(text "INSTRUCTIONS[30]" (rect 555 352 656 364)(font "Arial" ))
-	(pt 568 368)
-	(pt 680 368)
 )
 (connector
 	(text "ALUControl[3..0]" (rect 1009 536 1091 548)(font "Arial" ))
@@ -1987,6 +1953,52 @@ applicable agreement for further details.
 	(pt 552 936)
 	(pt 264 936)
 	(bus)
+)
+(connector
+	(text "INSTRUCTIONS[31..0]" (rect 553 184 667 196)(font "Arial" ))
+	(pt 576 200)
+	(pt 680 200)
+	(bus)
+)
+(connector
+	(text "immSrc[2..0]" (rect 591 200 654 212)(font "Arial" ))
+	(pt 576 216)
+	(pt 680 216)
+	(bus)
+)
+(connector
+	(text "IMM_OUT[31..0]" (rect 945 184 1025 196)(font "Arial" ))
+	(pt 936 200)
+	(pt 1024 200)
+	(bus)
+)
+(connector
+	(text "ALUControl[3..0]" (rect 934 320 1016 332)(font "Arial" ))
+	(pt 928 336)
+	(pt 1016 336)
+	(bus)
+)
+(connector
+	(text "ALUOp[1..0]" (rect 580 320 641 332)(font "Arial" ))
+	(pt 680 336)
+	(pt 568 336)
+	(bus)
+)
+(connector
+	(text "INSTRUCTIONS[30]" (rect 579 352 680 364)(font "Arial" ))
+	(pt 680 368)
+	(pt 568 368)
+)
+(connector
+	(text "INSTRUCTIONS[14..12]" (rect 575 336 695 348)(font "Arial" ))
+	(pt 680 352)
+	(pt 568 352)
+	(bus)
+)
+(connector
+	(text "INSTRUCTIONS[5]" (rect 587 368 682 380)(font "Arial" ))
+	(pt 680 384)
+	(pt 568 384)
 )
 (connector
 	(text "INSTRUCTIONS[14..12]" (rect 738 1224 858 1236)(font "Arial" ))

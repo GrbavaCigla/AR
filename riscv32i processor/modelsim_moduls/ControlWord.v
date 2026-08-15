@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 14 15:54:14 2026"
+// CREATED		"Sat Aug 15 03:32:28 2026"
 
 module ControlWord(
 	opcode,

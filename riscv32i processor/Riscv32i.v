@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 14 15:38:35 2026"
+// CREATED		"Sat Aug 15 03:35:06 2026"
 
 module Riscv32i(
 	CLK,
@@ -95,6 +95,7 @@ ALUDecoder	b2v_inst(
 	.ALUOp(ALUOp),
 	.funct3(INSTRUCTIONS[14:12]),
 	.funct7(INSTRUCTIONS[30]),
+	.INSTRUCTIONS(INSTRUCTIONS[5]),
 	.ALUControl(ALUControl));
 
 

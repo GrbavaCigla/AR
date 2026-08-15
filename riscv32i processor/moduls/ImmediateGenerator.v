@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 11 00:33:21 2026"
+// CREATED		"Sat Aug 15 03:33:22 2026"
 
 module ImmediateGenerator(
 	IMM_SRC,
@@ -27,11 +27,11 @@ input wire	[2:0] IMM_SRC;
 input wire	[31:0] INSTRUCTION;
 output wire	[31:0] IMM_OUT;
 
-wire	[31:0] SYNTHESIZED_WIRE_0;
-wire	[31:0] SYNTHESIZED_WIRE_1;
-wire	[31:0] SYNTHESIZED_WIRE_2;
-wire	[31:0] SYNTHESIZED_WIRE_3;
-wire	[31:0] SYNTHESIZED_WIRE_4;
+wire	[31:0] B_TYPE;
+wire	[31:0] I_TYPE;
+wire	[31:0] J_TYPE;
+wire	[31:0] S_TYPE;
+wire	[31:0] U_TYPE;
 
 
 
@@ -39,19 +39,19 @@ wire	[31:0] SYNTHESIZED_WIRE_4;
 
 ImmediateGenTypes	b2v_inst(
 	.INSTR(INSTRUCTION),
-	.B_TYPE(SYNTHESIZED_WIRE_2),
-	.I_TYPE(SYNTHESIZED_WIRE_4),
-	.J_TYPE(SYNTHESIZED_WIRE_0),
-	.S_TYPE(SYNTHESIZED_WIRE_3),
-	.U_TYPE(SYNTHESIZED_WIRE_1));
+	.B_TYPE(B_TYPE),
+	.I_TYPE(I_TYPE),
+	.J_TYPE(J_TYPE),
+	.S_TYPE(S_TYPE),
+	.U_TYPE(U_TYPE));
 
 
 MPX5_32bit	b2v_inst1(
-	.data0x(SYNTHESIZED_WIRE_0),
-	.data1x(SYNTHESIZED_WIRE_1),
-	.data2x(SYNTHESIZED_WIRE_2),
-	.data3x(SYNTHESIZED_WIRE_3),
-	.data4x(SYNTHESIZED_WIRE_4),
+	.data0x(I_TYPE),
+	.data1x(S_TYPE),
+	.data2x(B_TYPE),
+	.data3x(U_TYPE),
+	.data4x(J_TYPE),
 	.sel(IMM_SRC),
 	.result(IMM_OUT));
 
