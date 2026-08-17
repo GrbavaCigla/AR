@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY Riscv32i
+set_global_assignment -name TOP_LEVEL_ENTITY riscv32i_2
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:08:04  AUGUST 08, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -54,6 +54,26 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components\\decoders"
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components\\reg"
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name BDF_FILE ../components/REG/REG4_LD_CL.bdf
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_MODE_030_13b/CONST_MODE_030_13b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_CMD_WRITE_16b/CONST_CMD_WRITE_16b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_CMD_REFRESH_16b/CONST_CMD_REFRESH_16b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_CMD_READ_16b/CONST_CMD_READ_16b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_CMD_PRE_16b/CONST_CMD_PRE_16b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_CMD_PALL_16b/CONST_CMD_PALL_16b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_CMD_NOP_16b/CONST_CMD_NOP_16b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_CMD_MRS_16b/CONST_CMD_MRS_16b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_CMD_ACTIVE_16b/CONST_CMD_ACTIVE_16b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_10000_16b/CONST_10000_16b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_389_16b/CONST_389_16b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_8_16b/CONST_8_16b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_1_25b/CONST_1_25b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_3_16b/CONST_3_16b.vhd
+set_global_assignment -name VHDL_FILE ../components/CONST/CONST_0_16b/CONST_0_16b.vhd
+set_global_assignment -name BDF_FILE ../bus/BusDecoder/BusDecoder.bdf
 set_global_assignment -name BDF_FILE pc/PC_CONTROL.bdf
 set_global_assignment -name BDF_FILE ../components/REG/REG32_LD_CL_INC_DEC.bdf
 set_global_assignment -name BDF_FILE ../components/REG/REG16_LD_CL_INC_DEC.bdf
@@ -119,7 +139,12 @@ set_global_assignment -name MIF_FILE InstructionMemory/InicializationData.mif
 set_global_assignment -name QIP_FILE InstructionMemory/ROM1.qip
 set_global_assignment -name BDF_FILE InstructionMemory/InstructionMemory.bdf
 set_global_assignment -name BDF_FILE decode/BranchDecoder.bdf
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name BDF_FILE riscv32i_BusTest/riscv32i_2.bdf
+set_global_assignment -name BDF_FILE ../bus/BusFSM/BusFSM.bdf
+set_global_assignment -name BDF_FILE ../components/REG/REG25_LD_CL.bdf
+set_global_assignment -name BDF_FILE ../components/MPX/MPX2_25BIT.bdf
+set_global_assignment -name BDF_FILE ../components/MPX/MPX2_13BIT.bdf
+set_global_assignment -name BDF_FILE ../components/MPX/MPX2_2BIT.bdf
+set_global_assignment -name BDF_FILE ../components/ADD/ADD25.bdf
+set_global_assignment -name BDF_FILE ../components/TRI/TRI_16b.bdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
