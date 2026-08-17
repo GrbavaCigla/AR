@@ -1,0 +1,13 @@
+Fri Aug 14 20:03:01 Central Europe Summer Time 2026
+Trace back: can't read "Project(EchoCompileOutput)": no such element in array
+    while executing
+"lappend ProjectWriteArgs	$Project(EchoCompileOutput)"
+    (procedure "Project::saveProjectSpecificSettings" line 26)
+    invoked from within
+"Project::saveProjectSpecificSettings"
+    (procedure "quit" line 58)
+    invoked from within
+"quit"
+    (command for "WM_DELETE_WINDOW" window manager protocol)
+  <2: ::tkerror {can't read "Project(EchoCompileOutput)": no such element in array}
+  <1: ::bgerror {can't read "Project(EchoCompileOutput)": no such element in array}
