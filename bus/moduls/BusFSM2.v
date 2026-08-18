@@ -14,37 +14,32 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 18 04:41:57 2026"
+// CREATED		"Tue Aug 18 01:18:52 2026"
 
-module InstructionMemory(
-	CLK,
-	bus_wait,
-	RESET,
-	ADDRESS,
-	READDATA
+module BusFSM2(
+	mem_read,
+	mem_write,
+	bus_ready,
+	bus_wait
 );
 
 
-input wire	CLK;
-input wire	bus_wait;
-input wire	RESET;
-input wire	[31:0] ADDRESS;
-output wire	[31:0] READDATA;
+input wire	mem_read;
+input wire	mem_write;
+input wire	bus_ready;
+output wire	bus_wait;
 
 wire	SYNTHESIZED_WIRE_0;
+wire	SYNTHESIZED_WIRE_1;
 
 
 
 
-assign	SYNTHESIZED_WIRE_0 =  ~bus_wait;
+assign	SYNTHESIZED_WIRE_0 = mem_write | mem_read;
 
+assign	SYNTHESIZED_WIRE_1 =  ~bus_ready;
 
-ROM2	b2v_inst6(
-	.rden(SYNTHESIZED_WIRE_0),
-	.clock(CLK),
-	.aclr(RESET),
-	.address(ADDRESS[11:2]),
-	.q(READDATA));
+assign	bus_wait = SYNTHESIZED_WIRE_0 & SYNTHESIZED_WIRE_1;
 
 
 endmodule
