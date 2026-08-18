@@ -149,6 +149,10 @@ set_global_assignment -name QIP_FILE InstructionMemory/ROM2.qip
 set_global_assignment -name BDF_FILE ../sdram/sdram_arbiter.bdf
 set_global_assignment -name QIP_FILE ../components/MPX/MPX2_26BIT.qip
 set_global_assignment -name BDF_FILE riscv32i_BusTest/riscv32i_3.bdf
+set_global_assignment -name QIP_FILE "../vga/consts/V_WRAP(665)/V_WRAP.qip"
+set_global_assignment -name QIP_FILE "../vga/consts/VSYNC_START(637)/VSYNC_START.qip"
+set_global_assignment -name QIP_FILE "../vga/consts/VSYNC_END(643)/VSYNC_END.qip"
+set_global_assignment -name QIP_FILE "../vga/consts/VIDEO_V_END(600)/VIDEO_V_END.qip"
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\sdram"
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components\\decoders"
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components\\reg"

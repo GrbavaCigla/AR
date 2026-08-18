@@ -62,6 +62,16 @@ set_global_assignment -name EDA_TEST_BENCH_NAME tb_sdram_controller_init -sectio
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tb_sdram_controller_init
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tb_sdram_controller_init -section_id tb_sdram_controller_init
 set_global_assignment -name EDA_TEST_BENCH_FILE ../components/tests/sdram_tests/tb_sdram_controller_init.v -section_id tb_sdram_controller_init
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name BDF_FILE ../vga/Layers/Background/Layer0.bdf
+set_global_assignment -name VHDL_FILE "../vga/components/RegX & CMPX/RegisterX.vhd"
+set_global_assignment -name VHDL_FILE "../vga/components/RegX & CMPX/MultiplexerX.vhd"
+set_global_assignment -name VHDL_FILE "../vga/components/Compator & constant/ConstantX.vhd"
+set_global_assignment -name VHDL_FILE "../vga/components/Compator & constant/ComparatorX.vhd"
+set_global_assignment -name VHDL_FILE ../vga/components/ClockDivider/ClockDivider.vhd
+set_global_assignment -name BDF_FILE ../vga/VGAControler/Controller.bdf
 set_global_assignment -name BDF_FILE ../bus/BusDecoder/BusDecoder.bdf
 set_global_assignment -name BDF_FILE ../components/MPX/MPX2_32BIT.bdf
 set_global_assignment -name BDF_FILE ../components/MPX/MUX32_1.bdf
@@ -124,6 +134,20 @@ set_global_assignment -name BDF_FILE ../bus/BusFSM/BusFSM.bdf
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name BDF_FILE ../bus/BusFSM/BusFSM2.bdf
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
+set_global_assignment -name ENABLE_NCE_PIN OFF
+set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name BDF_FILE ../bus/BusFSM/BusFSM2.bdf
+set_global_assignment -name BDF_FILE ../vga/components/RisignEdge/RisingEdgeDetector.bdf
+set_global_assignment -name BDF_FILE ../vga/Layers/Background/BackgroundMain.bdf
+set_global_assignment -name BDF_FILE ../vga/Monitor/Monitor.bdf
+set_global_assignment -name BDF_FILE ../vga/Layers/Point/Point.bdf
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
