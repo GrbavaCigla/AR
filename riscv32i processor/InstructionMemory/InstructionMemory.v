@@ -14,26 +14,35 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sat Aug 15 03:33:53 2026"
+// CREATED		"Tue Aug 18 04:41:57 2026"
 
 module InstructionMemory(
 	CLK,
+	bus_wait,
+	RESET,
 	ADDRESS,
 	READDATA
 );
 
 
 input wire	CLK;
+input wire	bus_wait;
+input wire	RESET;
 input wire	[31:0] ADDRESS;
 output wire	[31:0] READDATA;
 
+wire	SYNTHESIZED_WIRE_0;
 
 
 
 
+assign	SYNTHESIZED_WIRE_0 =  ~bus_wait;
 
-ROM1	b2v_inst(
+
+ROM2	b2v_inst6(
+	.rden(SYNTHESIZED_WIRE_0),
 	.clock(CLK),
+	.aclr(RESET),
 	.address(ADDRESS[11:2]),
 	.q(READDATA));
 

@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Mon Aug 17 21:37:34 2026"
+// CREATED		"Tue Aug 18 04:11:30 2026"
 
 module riscv32i_2(
 	CLK,
@@ -27,7 +27,7 @@ module riscv32i_2(
 	sdram_cas_n,
 	sdram_we_n,
 	sdram_dqml,
-	dsram_dqmh,
+	sdram_dqmh,
 	RESULT,
 	sdram_addr,
 	sdram_ba,
@@ -45,7 +45,7 @@ output wire	sdram_ras_n;
 output wire	sdram_cas_n;
 output wire	sdram_we_n;
 output wire	sdram_dqml;
-output wire	dsram_dqmh;
+output wire	sdram_dqmh;
 output wire	[31:0] RESULT;
 output wire	[12:0] sdram_addr;
 output wire	[1:0] sdram_ba;
@@ -106,6 +106,7 @@ wire	SYNTHESIZED_WIRE_4;
 wire	[31:0] SYNTHESIZED_WIRE_5;
 wire	SYNTHESIZED_WIRE_6;
 wire	SYNTHESIZED_WIRE_7;
+wire	SYNTHESIZED_WIRE_8;
 
 wire	[3:0] GDFX_TEMP_SIGNAL_5;
 wire	[31:0] GDFX_TEMP_SIGNAL_1;
@@ -185,12 +186,6 @@ ADD32	b2v_inst14(
 	.OUT(JALR_SUM));
 
 
-InstructionMemory	b2v_inst15(
-	.CLK(CLK),
-	.ADDRESS(PC),
-	.READDATA(INSTRUCTIONS));
-
-
 MPX4_32BIT	b2v_inst16(
 	.data0x(PCplus4),
 	.data1x(PCplusIMM),
@@ -249,14 +244,6 @@ assign	nula32BITS = GDFX_TEMP_SIGNAL_4;
 
 
 
-BusFSM	b2v_inst29(
-	.mem_read(MemRead),
-	.mem_write(MemWrite),
-	.bus_ready(bus_ready),
-	.clk(CLK),
-	.bus_wait(bus_wait));
-
-
 REGFILE	b2v_inst3(
 	.REGWRITE(realRegWrite),
 	.CLK(CLK),
@@ -271,9 +258,9 @@ REGFILE	b2v_inst3(
 
 sdram_wrapper	b2v_inst30(
 	.clk(CLK),
-	.rst_n(jedan),
+	.rst_n(SYNTHESIZED_WIRE_6),
 	.wr(MemWrite),
-	.rd(SYNTHESIZED_WIRE_6),
+	.rd(SYNTHESIZED_WIRE_7),
 	.cs_sdram(cs_sdram),
 	.abus(RESULT_ALTERA_SYNTHESIZED[25:0]),
 	.ben(GDFX_TEMP_SIGNAL_5),
@@ -285,7 +272,7 @@ sdram_wrapper	b2v_inst30(
 	.sdram_cas_n(sdram_cas_n),
 	.sdram_we_n(sdram_we_n),
 	.sdram_dqml(sdram_dqml),
-	.sdram_dqmh(dsram_dqmh),
+	.sdram_dqmh(sdram_dqmh),
 	.ready_sdram(sdram_ready),
 	.dbus_sdram_rd(dbus_sdram_rd),
 	.sdram_addr(sdram_addr),
@@ -300,11 +287,28 @@ MPX2_32BIT	b2v_inst31(
 	.I1(PC),
 	.D(SYNTHESIZED_WIRE_0));
 
-assign	realRegWrite = RegWrite & SYNTHESIZED_WIRE_7;
+assign	realRegWrite = RegWrite & SYNTHESIZED_WIRE_8;
 
-assign	SYNTHESIZED_WIRE_7 =  ~bus_wait;
+assign	SYNTHESIZED_WIRE_8 =  ~bus_wait;
 
-assign	SYNTHESIZED_WIRE_6 = cs_sdram & MemWrite;
+assign	SYNTHESIZED_WIRE_7 = cs_sdram & MemRead;
+
+
+BusFSM2	b2v_inst35(
+	.mem_read(MemRead),
+	.mem_write(MemWrite),
+	.bus_ready(bus_ready),
+	.bus_wait(bus_wait));
+
+assign	SYNTHESIZED_WIRE_6 =  ~RESET;
+
+
+InstructionMemory	b2v_inst39(
+	.CLK(CLK),
+	.RESET(RESET),
+	.bus_wait(bus_wait),
+	.ADDRESS(PC),
+	.READDATA(INSTRUCTIONS));
 
 
 MPX2_32BIT	b2v_inst4(
