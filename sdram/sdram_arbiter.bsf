@@ -1,0 +1,169 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 16 16 328 240)
+	(text "sdram_arbiter" (rect 5 0 84 14)(font "Arial" (font_size 8)))
+	(text "inst" (rect 8 208 25 220)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "d_write" (rect 0 0 43 14)(font "Arial" (font_size 8)))
+		(text "d_write" (rect 21 27 64 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "d_read" (rect 0 0 40 14)(font "Arial" (font_size 8)))
+		(text "d_read" (rect 21 43 61 57)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "d_addr[25..0]" (rect 0 0 75 14)(font "Arial" (font_size 8)))
+		(text "d_addr[25..0]" (rect 21 59 96 73)(font "Arial" (font_size 8)))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "d_ben[3..0]" (rect 0 0 63 14)(font "Arial" (font_size 8)))
+		(text "d_ben[3..0]" (rect 21 75 84 89)(font "Arial" (font_size 8)))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "d_wdata[31..0]" (rect 0 0 86 14)(font "Arial" (font_size 8)))
+		(text "d_wdata[31..0]" (rect 21 91 107 105)(font "Arial" (font_size 8)))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "v_read" (rect 0 0 40 14)(font "Arial" (font_size 8)))
+		(text "v_read" (rect 21 107 61 121)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "v_addr[25..0]" (rect 0 0 75 14)(font "Arial" (font_size 8)))
+		(text "v_addr[25..0]" (rect 21 123 96 137)(font "Arial" (font_size 8)))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "CLK" (rect 0 0 23 14)(font "Arial" (font_size 8)))
+		(text "CLK" (rect 21 139 44 153)(font "Arial" (font_size 8)))
+		(line (pt 0 144)(pt 16 144))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "rst_n" (rect 0 0 29 14)(font "Arial" (font_size 8)))
+		(text "rst_n" (rect 21 155 50 169)(font "Arial" (font_size 8)))
+		(line (pt 0 160)(pt 16 160))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "sdram_ready" (rect 0 0 75 14)(font "Arial" (font_size 8)))
+		(text "sdram_ready" (rect 21 171 96 185)(font "Arial" (font_size 8)))
+		(line (pt 0 176)(pt 16 176))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "sdram_dbus_rd[31..0]" (rect 0 0 125 14)(font "Arial" (font_size 8)))
+		(text "sdram_dbus_rd[31..0]" (rect 21 187 146 201)(font "Arial" (font_size 8)))
+		(line (pt 0 192)(pt 16 192)(line_width 3))
+	)
+	(port
+		(pt 312 32)
+		(output)
+		(text "sdram_write" (rect 0 0 71 14)(font "Arial" (font_size 8)))
+		(text "sdram_write" (rect 220 27 291 41)(font "Arial" (font_size 8)))
+		(line (pt 312 32)(pt 296 32))
+	)
+	(port
+		(pt 312 48)
+		(output)
+		(text "sdram_read" (rect 0 0 68 14)(font "Arial" (font_size 8)))
+		(text "sdram_read" (rect 223 43 291 57)(font "Arial" (font_size 8)))
+		(line (pt 312 48)(pt 296 48))
+	)
+	(port
+		(pt 312 64)
+		(output)
+		(text "sdram_abus[25..0]" (rect 0 0 106 14)(font "Arial" (font_size 8)))
+		(text "sdram_abus[25..0]" (rect 185 59 291 73)(font "Arial" (font_size 8)))
+		(line (pt 312 64)(pt 296 64)(line_width 3))
+	)
+	(port
+		(pt 312 80)
+		(output)
+		(text "sdram_ben[3..0]" (rect 0 0 92 14)(font "Arial" (font_size 8)))
+		(text "sdram_ben[3..0]" (rect 199 75 291 89)(font "Arial" (font_size 8)))
+		(line (pt 312 80)(pt 296 80)(line_width 3))
+	)
+	(port
+		(pt 312 96)
+		(output)
+		(text "sdram_dbus_wr[31..0]" (rect 0 0 129 14)(font "Arial" (font_size 8)))
+		(text "sdram_dbus_wr[31..0]" (rect 162 91 291 105)(font "Arial" (font_size 8)))
+		(line (pt 312 96)(pt 296 96)(line_width 3))
+	)
+	(port
+		(pt 312 112)
+		(output)
+		(text "d_ready" (rect 0 0 47 14)(font "Arial" (font_size 8)))
+		(text "d_ready" (rect 244 107 291 121)(font "Arial" (font_size 8)))
+		(line (pt 312 112)(pt 296 112))
+	)
+	(port
+		(pt 312 128)
+		(output)
+		(text "d_rdata[31..0]" (rect 0 0 79 14)(font "Arial" (font_size 8)))
+		(text "d_rdata[31..0]" (rect 212 123 291 137)(font "Arial" (font_size 8)))
+		(line (pt 312 128)(pt 296 128)(line_width 3))
+	)
+	(port
+		(pt 312 144)
+		(output)
+		(text "v_ready" (rect 0 0 47 14)(font "Arial" (font_size 8)))
+		(text "v_ready" (rect 244 139 291 153)(font "Arial" (font_size 8)))
+		(line (pt 312 144)(pt 296 144))
+	)
+	(port
+		(pt 312 160)
+		(output)
+		(text "v_rdata[31..0]" (rect 0 0 79 14)(font "Arial" (font_size 8)))
+		(text "v_rdata[31..0]" (rect 212 155 291 169)(font "Arial" (font_size 8)))
+		(line (pt 312 160)(pt 296 160)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 296 208))
+	)
+)
