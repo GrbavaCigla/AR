@@ -39,7 +39,7 @@ applicable agreement for further details.
 	(input)
 	(rect 168 200 336 216)
 	(text "INPUT" (rect 125 0 161 13)(font "Arial" (font_size 6)))
-	(text "PX[9..0]" (rect 5 0 54 15)(font "Arial" ))
+	(text "PX[9..0]" (rect 5 0 53 15)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -55,7 +55,7 @@ applicable agreement for further details.
 	(input)
 	(rect 168 248 336 264)
 	(text "INPUT" (rect 125 0 161 13)(font "Arial" (font_size 6)))
-	(text "PY[9..0]" (rect 5 0 54 15)(font "Arial" ))
+	(text "PY[9..0]" (rect 5 0 53 15)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))

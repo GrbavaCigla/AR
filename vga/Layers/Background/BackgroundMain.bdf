@@ -174,7 +174,7 @@ applicable agreement for further details.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"const"
-		"0"
+		"255"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
@@ -200,7 +200,7 @@ applicable agreement for further details.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"const"
-		"0"
+		"255"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
