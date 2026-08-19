@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY UART_RX
+set_global_assignment -name TOP_LEVEL_ENTITY PacketParser
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:27:30  JULY 14, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -73,9 +73,6 @@ set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name BDF_FILE ../components/CMP/CMP4.bdf
 set_global_assignment -name BDF_FILE ../vga/Layers/Background/Layer0.bdf
 set_global_assignment -name VHDL_FILE "../vga/components/RegX & CMPX/RegisterX.vhd"
@@ -151,5 +148,8 @@ set_global_assignment -name BDF_FILE ../vga/Layers/Point/Point.bdf
 set_global_assignment -name BDF_FILE ../lidar/UART_RX/UART_RX.bdf
 set_global_assignment -name QIP_FILE ../lidar/BAUD_GENERATOR/BAUD_GENERATOR.qip
 set_global_assignment -name QIP_FILE ../lidar/lpm_counter/counter_8bit.qip
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name BDF_FILE ../lidar/packet_parser/PacketParser.bdf
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
