@@ -2715,17 +2715,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "nula" (rect -534 544 -514 556)(font "Arial" ))
-	(pt -440 560)
-	(pt -584 560)
-)
-(connector
-	(text "nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula" (rect -1088 528 -337 540)(font "Arial" ))
-	(pt -440 544)
-	(pt -584 544)
-	(bus)
-)
-(connector
 	(text "bus_ready" (rect -136 496 -85 508)(font "Arial" ))
 	(pt -144 512)
 	(pt -88 512)
@@ -3160,6 +3149,17 @@ applicable agreement for further details.
 	(pt -376 1072)
 	(pt -592 1072)
 	(bus)
+)
+(connector
+	(text "dbus_lidar_rd[31..0]" (rect -584 528 -488 540)(font "Arial" ))
+	(pt -440 544)
+	(pt -584 544)
+	(bus)
+)
+(connector
+	(text "lidar_ready" (rect -574 544 -520 556)(font "Arial" ))
+	(pt -440 560)
+	(pt -584 560)
 )
 (junction (pt -2220 984))
 (text "JALR_TARGET = JALR_SUM[31..1],0" (rect -2036 744 -1826 758)(font "Arial" (font_size 8)))
