@@ -17,7 +17,7 @@ module ROM2(
 
     initial begin
         $readmemh(
-            "C:/Users/Aleksandar/Documents/GitHub/AR/riscv32i processor/InstructionMemory/InicializationData.hex",
+            "InstructionMemory/InicializationData.hex",
             mem
         );
     end
