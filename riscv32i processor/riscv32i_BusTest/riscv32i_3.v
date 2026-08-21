@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 18 18:32:25 2026"
+// CREATED		"Fri Aug 21 23:10:54 2026"
 
 module riscv32i_3(
 	CLK,
@@ -74,6 +74,7 @@ wire	cs_lidar;
 wire	cs_sdram;
 wire	[31:0] d_rdata;
 wire	d_ready;
+wire	[31:0] dbus_lidar_rd;
 wire	[31:0] dbus_sdram_rd;
 wire	[31:0] IMM_OUT;
 wire	[2:0] immSrc;
@@ -83,6 +84,7 @@ wire	is_JALR;
 wire	[31:0] JALR_SUM;
 wire	jedan;
 wire	JUMP;
+wire	lidar_ready;
 wire	MemRead;
 wire	[1:0] MemToReg;
 wire	MemWrite;
@@ -104,6 +106,7 @@ wire	[31:0] sdram_dbus_wr;
 wire	sdram_read;
 wire	sdram_ready;
 wire	sdram_write;
+wire	sys_reset;
 wire	[31:0] v_rdata;
 wire	v_ready;
 wire	Z_ALTERA_SYNTHESIZED;
@@ -112,29 +115,25 @@ wire	SYNTHESIZED_WIRE_1;
 wire	SYNTHESIZED_WIRE_2;
 wire	SYNTHESIZED_WIRE_3;
 wire	SYNTHESIZED_WIRE_4;
-wire	SYNTHESIZED_WIRE_5;
+wire	[31:0] SYNTHESIZED_WIRE_5;
 wire	SYNTHESIZED_WIRE_6;
 wire	SYNTHESIZED_WIRE_7;
 wire	SYNTHESIZED_WIRE_8;
-wire	[31:0] SYNTHESIZED_WIRE_9;
-wire	SYNTHESIZED_WIRE_10;
 
-wire	[3:0] GDFX_TEMP_SIGNAL_1;
-wire	[31:0] GDFX_TEMP_SIGNAL_2;
-wire	[7:0] GDFX_TEMP_SIGNAL_6;
+wire	[3:0] GDFX_TEMP_SIGNAL_4;
 wire	[31:0] GDFX_TEMP_SIGNAL_0;
-wire	[31:0] GDFX_TEMP_SIGNAL_5;
-wire	[31:0] GDFX_TEMP_SIGNAL_4;
-wire	[7:0] GDFX_TEMP_SIGNAL_3;
+wire	[7:0] GDFX_TEMP_SIGNAL_5;
+wire	[31:0] GDFX_TEMP_SIGNAL_3;
+wire	[31:0] GDFX_TEMP_SIGNAL_2;
+wire	[7:0] GDFX_TEMP_SIGNAL_1;
 
 
-assign	GDFX_TEMP_SIGNAL_1 = {jedan,jedan,jedan,jedan};
-assign	GDFX_TEMP_SIGNAL_2 = {JALR_SUM[31:1],nula};
-assign	GDFX_TEMP_SIGNAL_6 = {nula,INSTRUCTIONS[6:0]};
-assign	GDFX_TEMP_SIGNAL_0 = {nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula};
-assign	GDFX_TEMP_SIGNAL_5 = {nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula};
-assign	GDFX_TEMP_SIGNAL_4 = {nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,jedan,nula,nula};
-assign	GDFX_TEMP_SIGNAL_3 = {nula,jedan,jedan,nula,nula,jedan,jedan,jedan};
+assign	GDFX_TEMP_SIGNAL_4 = {jedan,jedan,jedan,jedan};
+assign	GDFX_TEMP_SIGNAL_0 = {JALR_SUM[31:1],nula};
+assign	GDFX_TEMP_SIGNAL_5 = {nula,INSTRUCTIONS[6:0]};
+assign	GDFX_TEMP_SIGNAL_3 = {nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula};
+assign	GDFX_TEMP_SIGNAL_2 = {nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,nula,jedan,nula,nula};
+assign	GDFX_TEMP_SIGNAL_1 = {nula,jedan,jedan,nula,nula,jedan,jedan,jedan};
 
 
 ALUDecoder	b2v_inst(
@@ -155,9 +154,9 @@ BusDecoder	b2v_inst10(
 	.bus_wr(MemWrite),
 	.bus_rd(MemRead),
 	.sdram_ready(sdram_ready),
-	.lidar_ready(nula),
+	.lidar_ready(lidar_ready),
 	.bus_addr(RESULT_ALTERA_SYNTHESIZED),
-	.lidar_rdata(GDFX_TEMP_SIGNAL_0),
+	.lidar_rdata(dbus_lidar_rd),
 	.sdram_rdata(dbus_sdram_rd),
 	.cs_sdram(cs_sdram),
 	
@@ -179,11 +178,11 @@ MPX4_32BIT	b2v_inst12(
 	.data2x(PCplus4),
 	.data3x(nula32BITS),
 	.sel(MemToReg),
-	.result(SYNTHESIZED_WIRE_9));
+	.result(SYNTHESIZED_WIRE_5));
 
 
 pc	b2v_inst13(
-	.RESET(RESET),
+	.RESET(sys_reset),
 	.CLK(CLK),
 	.NEXT_PC(SYNTHESIZED_WIRE_0),
 	.PC(PC));
@@ -197,40 +196,17 @@ ADD32	b2v_inst14(
 	.OUT(JALR_SUM));
 
 
-sdram_arbiter	b2v_inst15(
-	.d_write(SYNTHESIZED_WIRE_1),
-	.d_read(SYNTHESIZED_WIRE_2),
-	.v_read(nula),
-	.CLK(CLK),
-	.rst_n(SYNTHESIZED_WIRE_3),
-	.sdram_ready(sdram_ready),
-	.d_addr(RESULT_ALTERA_SYNTHESIZED[25:0]),
-	.d_ben(GDFX_TEMP_SIGNAL_1),
-	.d_wdata(RS2DATA),
-	.sdram_dbus_rd(dbus_sdram_rd),
-	.v_addr(RESULT_ALTERA_SYNTHESIZED[25:0]),
-	.sdram_write(sdram_write),
-	.sdram_read(sdram_read),
-	
-	
-	
-	.sdram_abus(sdram_abus),
-	.sdram_ben(sdram_ben),
-	.sdram_dbus_wr(sdram_dbus_wr)
-	);
-
-
 MPX4_32BIT	b2v_inst16(
 	.data0x(PCplus4),
 	.data1x(PCplusIMM),
-	.data2x(GDFX_TEMP_SIGNAL_2),
+	.data2x(GDFX_TEMP_SIGNAL_0),
 	.data3x(nula32BITS),
 	.sel(pc_sel),
 	.result(NEXT_PC));
 
-assign	SYNTHESIZED_WIRE_4 = beq | blt | bne | bge | bltu | bgeu;
+assign	SYNTHESIZED_WIRE_1 = beq | blt | bne | bge | bltu | bgeu;
 
-assign	branch_taken = SYNTHESIZED_WIRE_4 & Branch;
+assign	branch_taken = SYNTHESIZED_WIRE_1 & Branch;
 
 
 ControlWord	b2v_inst19(
@@ -258,29 +234,103 @@ ALU	b2v_inst2(
 assign	pc_sel[1] = is_JALR;
 
 
-assign	SYNTHESIZED_WIRE_6 =  ~is_JALR;
+assign	SYNTHESIZED_WIRE_3 =  ~is_JALR;
 
-assign	is_JAL = JUMP & SYNTHESIZED_WIRE_5;
+assign	is_JAL = JUMP & SYNTHESIZED_WIRE_2;
 
-assign	SYNTHESIZED_WIRE_5 =  ~is_JALR;
+assign	SYNTHESIZED_WIRE_2 =  ~is_JALR;
 
-assign	pc_sel[0] = SYNTHESIZED_WIRE_6 & SYNTHESIZED_WIRE_7;
+assign	pc_sel[0] = SYNTHESIZED_WIRE_3 & SYNTHESIZED_WIRE_4;
 
-assign	SYNTHESIZED_WIRE_7 = branch_taken | is_JAL;
+assign	SYNTHESIZED_WIRE_4 = branch_taken | is_JAL;
 
-assign	_01100111 = GDFX_TEMP_SIGNAL_3;
-
-
-assign	cetiri = GDFX_TEMP_SIGNAL_4;
+assign	_01100111 = GDFX_TEMP_SIGNAL_1;
 
 
-assign	nula32BITS = GDFX_TEMP_SIGNAL_5;
+assign	cetiri = GDFX_TEMP_SIGNAL_2;
+
+
+assign	nula32BITS = GDFX_TEMP_SIGNAL_3;
 
 
 
-sdram_wrapper	b2v_inst29(
+REGFILE	b2v_inst3(
+	.REGWRITE(realRegWrite),
+	.CLK(CLK),
+	.RESET(sys_reset),
+	.RD(INSTRUCTIONS[11:7]),
+	.RS1(INSTRUCTIONS[19:15]),
+	.RS2(INSTRUCTIONS[24:20]),
+	.WRITEDATA(SYNTHESIZED_WIRE_5),
+	.RS1DATA(RS1DATA),
+	.RS2DATA(RS2DATA));
+
+
+sdram_arbiter	b2v_inst30(
+	.d_write(SYNTHESIZED_WIRE_6),
+	.d_read(SYNTHESIZED_WIRE_7),
+	.v_read(nula),
+	.CLK(CLK),
+	.rst_n(RESET),
+	.sdram_ready(sdram_ready),
+	.d_addr(RESULT_ALTERA_SYNTHESIZED[25:0]),
+	.d_ben(GDFX_TEMP_SIGNAL_4),
+	.d_wdata(RS2DATA),
+	.sdram_dbus_rd(dbus_sdram_rd),
+	.v_addr(RESULT_ALTERA_SYNTHESIZED[25:0]),
+	.sdram_write(sdram_write),
+	.sdram_read(sdram_read),
+	
+	
+	
+	.sdram_abus(sdram_abus),
+	.sdram_ben(sdram_ben),
+	.sdram_dbus_wr(sdram_dbus_wr)
+	);
+
+
+MPX2_32BIT	b2v_inst31(
+	.S(bus_wait),
+	.E(jedan),
+	.I0(NEXT_PC),
+	.I1(PC),
+	.D(SYNTHESIZED_WIRE_0));
+
+assign	realRegWrite = RegWrite & SYNTHESIZED_WIRE_8;
+
+assign	SYNTHESIZED_WIRE_8 =  ~bus_wait;
+
+
+BusFSM2	b2v_inst35(
+	.mem_read(MemRead),
+	.mem_write(MemWrite),
+	.bus_ready(bus_ready),
+	.bus_wait(bus_wait));
+
+assign	SYNTHESIZED_WIRE_7 = cs_sdram & MemRead;
+
+assign	SYNTHESIZED_WIRE_6 = cs_sdram & MemWrite;
+
+
+InstructionMemory	b2v_inst39(
+	.CLK(CLK),
+	.RESET(sys_reset),
+	.bus_wait(bus_wait),
+	.ADDRESS(PC),
+	.READDATA(INSTRUCTIONS));
+
+
+MPX2_32BIT	b2v_inst4(
+	.S(ALUSrcB),
+	.E(jedan),
+	.I0(RS2DATA),
+	.I1(IMM_OUT),
+	.D(B));
+
+
+sdram_wrapper	b2v_inst41(
 	.clk(CLK),
-	.rst_n(SYNTHESIZED_WIRE_8),
+	.rst_n(RESET),
 	.wr(sdram_write),
 	.rd(sdram_read),
 	.cs_sdram(cs_sdram),
@@ -301,60 +351,7 @@ sdram_wrapper	b2v_inst29(
 	.sdram_ba(sdram_ba)
 	);
 
-
-REGFILE	b2v_inst3(
-	.REGWRITE(realRegWrite),
-	.CLK(CLK),
-	.RESET(RESET),
-	.RD(INSTRUCTIONS[11:7]),
-	.RS1(INSTRUCTIONS[19:15]),
-	.RS2(INSTRUCTIONS[24:20]),
-	.WRITEDATA(SYNTHESIZED_WIRE_9),
-	.RS1DATA(RS1DATA),
-	.RS2DATA(RS2DATA));
-
-
-MPX2_32BIT	b2v_inst31(
-	.S(bus_wait),
-	.E(jedan),
-	.I0(NEXT_PC),
-	.I1(PC),
-	.D(SYNTHESIZED_WIRE_0));
-
-assign	realRegWrite = RegWrite & SYNTHESIZED_WIRE_10;
-
-assign	SYNTHESIZED_WIRE_10 =  ~bus_wait;
-
-
-BusFSM2	b2v_inst35(
-	.mem_read(MemRead),
-	.mem_write(MemWrite),
-	.bus_ready(bus_ready),
-	.bus_wait(bus_wait));
-
-assign	SYNTHESIZED_WIRE_3 =  ~RESET;
-
-assign	SYNTHESIZED_WIRE_2 = cs_sdram & MemRead;
-
-assign	SYNTHESIZED_WIRE_1 = cs_sdram & MemWrite;
-
-
-InstructionMemory	b2v_inst39(
-	.CLK(CLK),
-	.RESET(RESET),
-	.bus_wait(bus_wait),
-	.ADDRESS(PC),
-	.READDATA(INSTRUCTIONS));
-
-
-MPX2_32BIT	b2v_inst4(
-	.S(ALUSrcB),
-	.E(jedan),
-	.I0(RS2DATA),
-	.I1(IMM_OUT),
-	.D(B));
-
-assign	SYNTHESIZED_WIRE_8 =  ~RESET;
+assign	sys_reset =  ~RESET;
 
 
 BranchDecoder	b2v_inst5(
@@ -379,7 +376,7 @@ MPX2_32BIT	b2v_inst7(
 
 
 CMP8	b2v_inst77(
-	.A(GDFX_TEMP_SIGNAL_6),
+	.A(GDFX_TEMP_SIGNAL_5),
 	.B(_01100111),
 	
 	.E(is_JALR)
