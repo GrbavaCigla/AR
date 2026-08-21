@@ -1,0 +1,17 @@
+//KOD ZA LIDAR DETEKCIJU POKRETA
+max_difference = 0
+
+for i = 0 to 11:
+
+    diff = abs(current[i] - previous[i])
+
+    if diff > max_difference:
+        max_difference = diff
+        movement_index = i
+
+if max_difference > THRESHOLD:
+
+    movement_detected = 1
+    movement_angle =
+        start_angle +
+        movement_index × angle_step
