@@ -55,7 +55,7 @@ applicable agreement for further details.
 	(input)
 	(rect -1288 448 -1120 464)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "rx" (rect 5 0 15 12)(font "Arial" ))
+	(text "rx" (rect 5 0 14 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -3244,19 +3244,19 @@ applicable agreement for further details.
 	(pt -1104 504)
 )
 (connector
-	(text "bus_addr[31..0]" (rect -1096 472 -1020 484)(font "Arial" ))
+	(pt -1120 456)
+	(pt -1032 456)
+)
+(connector
+	(text "RESULT[31..0]" (rect -1112 472 -1038 484)(font "Arial" ))
 	(pt -1032 488)
 	(pt -1104 488)
 	(bus)
 )
 (connector
-	(text "sys_reset" (rect -1096 456 -1047 468)(font "Arial" ))
+	(text "RESET" (rect -1112 456 -1077 468)(font "Arial" ))
 	(pt -1032 472)
 	(pt -1104 472)
-)
-(connector
-	(pt -1120 456)
-	(pt -1032 456)
 )
 (junction (pt -2220 984))
 (text "JALR_TARGET = JALR_SUM[31..1],0" (rect -2036 744 -1826 758)(font "Arial" (font_size 8)))

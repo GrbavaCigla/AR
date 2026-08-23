@@ -38,6 +38,13 @@ applicable agreement for further details.
 		(line (pt 0 48)(pt 16 48))
 	)
 	(port
+		(pt 0 64)
+		(input)
+		(text "rx" (rect 0 0 11 14)(font "Arial" (font_size 8)))
+		(text "rx" (rect 21 59 32 73)(font "Arial" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
 		(pt 192 32)
 		(output)
 		(text "N" (rect 0 0 8 14)(font "Arial" (font_size 8)))
