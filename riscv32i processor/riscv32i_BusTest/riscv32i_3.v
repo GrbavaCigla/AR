@@ -14,11 +14,12 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 21 23:10:54 2026"
+// CREATED		"Sat Aug 22 23:20:21 2026"
 
 module riscv32i_3(
 	CLK,
 	RESET,
+	rx,
 	N,
 	Z,
 	sdram_cke,
@@ -37,6 +38,7 @@ module riscv32i_3(
 
 input wire	CLK;
 input wire	RESET;
+input wire	rx;
 output wire	N;
 output wire	Z;
 output wire	sdram_cke;
@@ -74,7 +76,6 @@ wire	cs_lidar;
 wire	cs_sdram;
 wire	[31:0] d_rdata;
 wire	d_ready;
-wire	[31:0] dbus_lidar_rd;
 wire	[31:0] dbus_sdram_rd;
 wire	[31:0] IMM_OUT;
 wire	[2:0] immSrc;
@@ -84,7 +85,6 @@ wire	is_JALR;
 wire	[31:0] JALR_SUM;
 wire	jedan;
 wire	JUMP;
-wire	lidar_ready;
 wire	MemRead;
 wire	[1:0] MemToReg;
 wire	MemWrite;
@@ -110,15 +110,17 @@ wire	sys_reset;
 wire	[31:0] v_rdata;
 wire	v_ready;
 wire	Z_ALTERA_SYNTHESIZED;
-wire	[31:0] SYNTHESIZED_WIRE_0;
-wire	SYNTHESIZED_WIRE_1;
-wire	SYNTHESIZED_WIRE_2;
+wire	SYNTHESIZED_WIRE_0;
+wire	[31:0] SYNTHESIZED_WIRE_1;
+wire	[31:0] SYNTHESIZED_WIRE_2;
 wire	SYNTHESIZED_WIRE_3;
 wire	SYNTHESIZED_WIRE_4;
-wire	[31:0] SYNTHESIZED_WIRE_5;
+wire	SYNTHESIZED_WIRE_5;
 wire	SYNTHESIZED_WIRE_6;
-wire	SYNTHESIZED_WIRE_7;
+wire	[31:0] SYNTHESIZED_WIRE_7;
 wire	SYNTHESIZED_WIRE_8;
+wire	SYNTHESIZED_WIRE_9;
+wire	SYNTHESIZED_WIRE_10;
 
 wire	[3:0] GDFX_TEMP_SIGNAL_4;
 wire	[31:0] GDFX_TEMP_SIGNAL_0;
@@ -154,12 +156,12 @@ BusDecoder	b2v_inst10(
 	.bus_wr(MemWrite),
 	.bus_rd(MemRead),
 	.sdram_ready(sdram_ready),
-	.lidar_ready(lidar_ready),
+	.lidar_ready(SYNTHESIZED_WIRE_0),
 	.bus_addr(RESULT_ALTERA_SYNTHESIZED),
-	.lidar_rdata(dbus_lidar_rd),
+	.lidar_rdata(SYNTHESIZED_WIRE_1),
 	.sdram_rdata(dbus_sdram_rd),
 	.cs_sdram(cs_sdram),
-	
+	.cs_lidar(cs_lidar),
 	.bus_ready(bus_ready),
 	.bus_rdata(bus_rdata));
 
@@ -178,13 +180,13 @@ MPX4_32BIT	b2v_inst12(
 	.data2x(PCplus4),
 	.data3x(nula32BITS),
 	.sel(MemToReg),
-	.result(SYNTHESIZED_WIRE_5));
+	.result(SYNTHESIZED_WIRE_7));
 
 
 pc	b2v_inst13(
 	.RESET(sys_reset),
 	.CLK(CLK),
-	.NEXT_PC(SYNTHESIZED_WIRE_0),
+	.NEXT_PC(SYNTHESIZED_WIRE_2),
 	.PC(PC));
 
 
@@ -196,6 +198,16 @@ ADD32	b2v_inst14(
 	.OUT(JALR_SUM));
 
 
+LidarBusInterface	b2v_inst15(
+	.clk(CLK),
+	.rx(rx),
+	.rst_n(RESET),
+	.cs_lidar(cs_lidar),
+	.bus_addr(RESULT_ALTERA_SYNTHESIZED),
+	.lidar_ready(SYNTHESIZED_WIRE_0),
+	.dbus_lidar_rd(SYNTHESIZED_WIRE_1));
+
+
 MPX4_32BIT	b2v_inst16(
 	.data0x(PCplus4),
 	.data1x(PCplusIMM),
@@ -204,9 +216,9 @@ MPX4_32BIT	b2v_inst16(
 	.sel(pc_sel),
 	.result(NEXT_PC));
 
-assign	SYNTHESIZED_WIRE_1 = beq | blt | bne | bge | bltu | bgeu;
+assign	SYNTHESIZED_WIRE_3 = beq | blt | bne | bge | bltu | bgeu;
 
-assign	branch_taken = SYNTHESIZED_WIRE_1 & Branch;
+assign	branch_taken = SYNTHESIZED_WIRE_3 & Branch;
 
 
 ControlWord	b2v_inst19(
@@ -234,15 +246,15 @@ ALU	b2v_inst2(
 assign	pc_sel[1] = is_JALR;
 
 
-assign	SYNTHESIZED_WIRE_3 =  ~is_JALR;
+assign	SYNTHESIZED_WIRE_5 =  ~is_JALR;
 
-assign	is_JAL = JUMP & SYNTHESIZED_WIRE_2;
+assign	is_JAL = JUMP & SYNTHESIZED_WIRE_4;
 
-assign	SYNTHESIZED_WIRE_2 =  ~is_JALR;
+assign	SYNTHESIZED_WIRE_4 =  ~is_JALR;
 
-assign	pc_sel[0] = SYNTHESIZED_WIRE_3 & SYNTHESIZED_WIRE_4;
+assign	pc_sel[0] = SYNTHESIZED_WIRE_5 & SYNTHESIZED_WIRE_6;
 
-assign	SYNTHESIZED_WIRE_4 = branch_taken | is_JAL;
+assign	SYNTHESIZED_WIRE_6 = branch_taken | is_JAL;
 
 assign	_01100111 = GDFX_TEMP_SIGNAL_1;
 
@@ -261,14 +273,14 @@ REGFILE	b2v_inst3(
 	.RD(INSTRUCTIONS[11:7]),
 	.RS1(INSTRUCTIONS[19:15]),
 	.RS2(INSTRUCTIONS[24:20]),
-	.WRITEDATA(SYNTHESIZED_WIRE_5),
+	.WRITEDATA(SYNTHESIZED_WIRE_7),
 	.RS1DATA(RS1DATA),
 	.RS2DATA(RS2DATA));
 
 
 sdram_arbiter	b2v_inst30(
-	.d_write(SYNTHESIZED_WIRE_6),
-	.d_read(SYNTHESIZED_WIRE_7),
+	.d_write(SYNTHESIZED_WIRE_8),
+	.d_read(SYNTHESIZED_WIRE_9),
 	.v_read(nula),
 	.CLK(CLK),
 	.rst_n(RESET),
@@ -294,11 +306,11 @@ MPX2_32BIT	b2v_inst31(
 	.E(jedan),
 	.I0(NEXT_PC),
 	.I1(PC),
-	.D(SYNTHESIZED_WIRE_0));
+	.D(SYNTHESIZED_WIRE_2));
 
-assign	realRegWrite = RegWrite & SYNTHESIZED_WIRE_8;
+assign	realRegWrite = RegWrite & SYNTHESIZED_WIRE_10;
 
-assign	SYNTHESIZED_WIRE_8 =  ~bus_wait;
+assign	SYNTHESIZED_WIRE_10 =  ~bus_wait;
 
 
 BusFSM2	b2v_inst35(
@@ -307,9 +319,9 @@ BusFSM2	b2v_inst35(
 	.bus_ready(bus_ready),
 	.bus_wait(bus_wait));
 
-assign	SYNTHESIZED_WIRE_7 = cs_sdram & MemRead;
+assign	SYNTHESIZED_WIRE_9 = cs_sdram & MemRead;
 
-assign	SYNTHESIZED_WIRE_6 = cs_sdram & MemWrite;
+assign	SYNTHESIZED_WIRE_8 = cs_sdram & MemWrite;
 
 
 InstructionMemory	b2v_inst39(
