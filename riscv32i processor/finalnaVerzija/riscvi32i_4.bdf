@@ -3241,6 +3241,7 @@ applicable agreement for further details.
 (text "Execute faza" (rect 2728 944 2803 958)(font "Arial" (font_size 8)))
 (text "Upis dozvoljen samo ako magistrala nije zauzeta" (rect 1880 1160 2153 1174)(font "Arial" (font_size 8)))
 (text "Odredujemo da li se pristupa Lidaru ili SdRamu" (rect 2488 1520 2749 1534)(font "Arial" (font_size 8)))
+(text "ADRESA ZA BUS" (rect 3008 1032 3108 1046)(font "Arial" (font_size 8)))
 (line (pt 384 16)(pt 2352 16))
 (rectangle (rect 112 712 1432 1432))
 (rectangle (rect 112 152 952 344))
