@@ -266,6 +266,6 @@ applicable agreement for further details.
 	(bus)
 )
 (text "na osnovu op code-a biramo koji je tip instrukcije" (rect 24 224 297 238)(font "Arial" (font_size 8)))
-(text "instrukcija koju dohvatamo iz sdRama" (rect 24 104 235 118)(font "Arial" (font_size 8)))
 (text "Immediate Generator" (rect 456 40 572 54)(font "Arial" (font_size 8)))
+(text "instrukcija koju dohvatamo iz ROM-a" (rect 24 104 228 118)(font "Arial" (font_size 8)))
 (rectangle (rect 272 64 1032 304))
