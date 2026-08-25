@@ -2121,7 +2121,7 @@ applicable agreement for further details.
 	(annotation_block (parameter)(rect 1072 2040 1254 2082))
 )
 (symbol
-	(rect 648 1432 704 1488)
+	(rect 648 1336 704 1392)
 	(text "ConstantX" (rect 5 0 55 12)(font "Arial" ))
 	(text "inst62" (rect 8 40 37 52)(font "Arial" ))
 	(port
@@ -2144,33 +2144,55 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 24 24 40 40)(fill (color 218 218 218)))
 	)
-	(annotation_block (parameter)(rect 704 1384 886 1426))
+	(annotation_block (parameter)(rect 704 1288 886 1330))
 )
 (symbol
-	(rect 648 1344 704 1400)
-	(text "ConstantX" (rect 5 0 55 12)(font "Arial" ))
-	(text "inst61" (rect 8 40 37 52)(font "Arial" ))
+	(rect 896 2104 944 2136)
+	(text "WIRE" (rect 1 0 24 10)(font "Arial" (font_size 6)))
+	(text "inst29" (rect 3 21 32 33)(font "Arial" ))
 	(port
-		(pt 56 32)
+		(pt 0 16)
+		(input)
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 14 16))
+	)
+	(port
+		(pt 48 16)
 		(output)
-		(text "DATA_OUT[size-1..0]" (rect -96 0 9 12)(font "Arial" ))
-		(text "c" (rect 25 27 30 39)(font "Arial" )(invisible))
-		(line (pt 56 32)(pt 40 32)(line_width 3))
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(line (pt 32 16)(pt 48 16))
 	)
-	(parameter
-		"size"
-		"7"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"const"
-		"0"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 24 24 40 40)(fill (color 218 218 218)))
+		(line (pt 14 7)(pt 32 16))
+		(line (pt 14 25)(pt 14 7))
+		(line (pt 14 25)(pt 32 16))
 	)
-	(annotation_block (parameter)(rect 704 1296 886 1338))
+)
+(symbol
+	(rect 1516 2104 1564 2136)
+	(text "WIRE" (rect 1 0 24 10)(font "Arial" (font_size 6)))
+	(text "inst30" (rect 3 21 32 33)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 14 16))
+	)
+	(port
+		(pt 48 16)
+		(output)
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(line (pt 32 16)(pt 48 16))
+	)
+	(drawing
+		(line (pt 14 7)(pt 32 16))
+		(line (pt 14 25)(pt 14 7))
+		(line (pt 14 25)(pt 32 16))
+	)
 )
 (connector
 	(pt 416 368)
@@ -2958,12 +2980,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "nule_7[6..0],x_offset[8..0]" (rect 728 2016 857 2028)(font "Arial" ))
-	(pt 696 2032)
-	(pt 840 2032)
-	(bus)
-)
-(connector
 	(pt 696 2008)
 	(pt 832 2008)
 	(bus)
@@ -2996,12 +3012,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "nule_7[6..0],x_offset[8..0]" (rect 1304 2016 1433 2028)(font "Arial" ))
-	(pt 1272 2032)
-	(pt 1416 2032)
-	(bus)
-)
-(connector
 	(pt 1272 2008)
 	(pt 1408 2008)
 	(bus)
@@ -3012,15 +3022,45 @@ applicable agreement for further details.
 	(pt 1416 2048)
 )
 (connector
-	(text "nule_7[6..0]" (rect 712 1360 769 1372)(font "Arial" ))
-	(pt 704 1376)
-	(pt 816 1376)
+	(text "nule_15[14..0]" (rect 712 1352 781 1364)(font "Arial" ))
+	(pt 704 1368)
+	(pt 816 1368)
 	(bus)
 )
 (connector
-	(text "nule_15[14..0]" (rect 712 1448 781 1460)(font "Arial" ))
-	(pt 704 1464)
-	(pt 816 1464)
+	(text "xVisi_7[6..0]" (rect 964 2104 1025 2116)(font "Arial" ))
+	(pt 944 2120)
+	(pt 1016 2120)
+	(bus)
+)
+(connector
+	(text "xVisi_7[6..0],x_offset[8..0]" (rect 704 2016 837 2028)(font "Arial" ))
+	(pt 696 2032)
+	(pt 840 2032)
+	(bus)
+)
+(connector
+	(text "x_offset[8],x_offset[8],x_offset[8],x_offset[8],x_offset[8],x_offset[8],x_offset[8]" (rect 540 2104 949 2116)(font "Arial" ))
+	(pt 544 2120)
+	(pt 896 2120)
+	(bus)
+)
+(connector
+	(text "yVisi_7[6..0]" (rect 1584 2104 1646 2116)(font "Arial" ))
+	(pt 1564 2120)
+	(pt 1636 2120)
+	(bus)
+)
+(connector
+	(text "y_offset[8],y_offset[8],y_offset[8],y_offset[8],y_offset[8],y_offset[8],y_offset[8]" (rect 1160 2104 1577 2116)(font "Arial" ))
+	(pt 1164 2120)
+	(pt 1516 2120)
+	(bus)
+)
+(connector
+	(text "yVisi_7[6..0],y_offset[8..0]" (rect 1304 2016 1439 2028)(font "Arial" ))
+	(pt 1272 2032)
+	(pt 1416 2032)
 	(bus)
 )
 (text "Odredjivanje kvadranta" (rect 672 248 802 262)(font "Arial" (font_size 8)))

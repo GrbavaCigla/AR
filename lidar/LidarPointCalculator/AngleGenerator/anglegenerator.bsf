@@ -21,7 +21,7 @@ applicable agreement for further details.
 (header "symbol" (version "1.2"))
 (symbol
 	(rect 16 16 272 272)
-	(text "anglegenerator" (rect 5 0 91 14)(font "Arial" (font_size 8)))
+	(text "AngleGenerator" (rect 5 0 95 14)(font "Arial" (font_size 8)))
 	(text "inst" (rect 8 240 25 252)(font "Arial" ))
 	(port
 		(pt 0 32)
