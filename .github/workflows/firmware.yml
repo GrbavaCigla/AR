@@ -1,5 +1,6 @@
 name: Build firmware
 on:
+  workflow_dispatch:
   push:
     paths:
       - "firmware/src/**/*.c"
