@@ -1,0 +1,22 @@
+name: Build firmware
+on:
+  push:
+    paths:
+      - "firmware/src/**/*.c"
+jobs:
+  firmware:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu
+      - run: |
+          cmake -S firmware -B firmware/build \
+            -DCMAKE_TOOLCHAIN_FILE=firmware/cmake/riscv32.cmake
+      - run: cmake --build firmware/build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: instructions-mif
+          path: firmware/build/instructions.mif
+          if-no-files-found: error
