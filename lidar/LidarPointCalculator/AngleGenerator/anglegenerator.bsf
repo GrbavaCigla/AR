@@ -1,0 +1,127 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 16 16 272 272)
+	(text "anglegenerator" (rect 5 0 91 14)(font "Arial" (font_size 8)))
+	(text "inst" (rect 8 240 25 252)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "start_angle[15..0]" (rect 0 0 99 14)(font "Arial" (font_size 8)))
+		(text "start_angle[15..0]" (rect 21 27 120 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "end_angle[15..0]" (rect 0 0 94 14)(font "Arial" (font_size 8)))
+		(text "end_angle[15..0]" (rect 21 43 115 57)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 256 32)
+		(output)
+		(text "angle_p0[15..0]" (rect 0 0 87 14)(font "Arial" (font_size 8)))
+		(text "angle_p0[15..0]" (rect 148 27 235 41)(font "Arial" (font_size 8)))
+		(line (pt 256 32)(pt 240 32)(line_width 3))
+	)
+	(port
+		(pt 256 48)
+		(output)
+		(text "angle_p1[15..0]" (rect 0 0 87 14)(font "Arial" (font_size 8)))
+		(text "angle_p1[15..0]" (rect 148 43 235 57)(font "Arial" (font_size 8)))
+		(line (pt 256 48)(pt 240 48)(line_width 3))
+	)
+	(port
+		(pt 256 64)
+		(output)
+		(text "angle_p2[15..0]" (rect 0 0 87 14)(font "Arial" (font_size 8)))
+		(text "angle_p2[15..0]" (rect 148 59 235 73)(font "Arial" (font_size 8)))
+		(line (pt 256 64)(pt 240 64)(line_width 3))
+	)
+	(port
+		(pt 256 80)
+		(output)
+		(text "angle_p3[15..0]" (rect 0 0 87 14)(font "Arial" (font_size 8)))
+		(text "angle_p3[15..0]" (rect 148 75 235 89)(font "Arial" (font_size 8)))
+		(line (pt 256 80)(pt 240 80)(line_width 3))
+	)
+	(port
+		(pt 256 96)
+		(output)
+		(text "angle_p4[15..0]" (rect 0 0 87 14)(font "Arial" (font_size 8)))
+		(text "angle_p4[15..0]" (rect 148 91 235 105)(font "Arial" (font_size 8)))
+		(line (pt 256 96)(pt 240 96)(line_width 3))
+	)
+	(port
+		(pt 256 112)
+		(output)
+		(text "angle_p5[15..0]" (rect 0 0 87 14)(font "Arial" (font_size 8)))
+		(text "angle_p5[15..0]" (rect 148 107 235 121)(font "Arial" (font_size 8)))
+		(line (pt 256 112)(pt 240 112)(line_width 3))
+	)
+	(port
+		(pt 256 128)
+		(output)
+		(text "angle_p6[15..0]" (rect 0 0 87 14)(font "Arial" (font_size 8)))
+		(text "angle_p6[15..0]" (rect 148 123 235 137)(font "Arial" (font_size 8)))
+		(line (pt 256 128)(pt 240 128)(line_width 3))
+	)
+	(port
+		(pt 256 144)
+		(output)
+		(text "angle_p7[15..0]" (rect 0 0 87 14)(font "Arial" (font_size 8)))
+		(text "angle_p7[15..0]" (rect 148 139 235 153)(font "Arial" (font_size 8)))
+		(line (pt 256 144)(pt 240 144)(line_width 3))
+	)
+	(port
+		(pt 256 160)
+		(output)
+		(text "angle_p8[15..0]" (rect 0 0 87 14)(font "Arial" (font_size 8)))
+		(text "angle_p8[15..0]" (rect 148 155 235 169)(font "Arial" (font_size 8)))
+		(line (pt 256 160)(pt 240 160)(line_width 3))
+	)
+	(port
+		(pt 256 176)
+		(output)
+		(text "angle_p9[15..0]" (rect 0 0 87 14)(font "Arial" (font_size 8)))
+		(text "angle_p9[15..0]" (rect 148 171 235 185)(font "Arial" (font_size 8)))
+		(line (pt 256 176)(pt 240 176)(line_width 3))
+	)
+	(port
+		(pt 256 192)
+		(output)
+		(text "angle_p1_0[15..0]" (rect 0 0 101 14)(font "Arial" (font_size 8)))
+		(text "angle_p1_0[15..0]" (rect 134 187 235 201)(font "Arial" (font_size 8)))
+		(line (pt 256 192)(pt 240 192)(line_width 3))
+	)
+	(port
+		(pt 256 208)
+		(output)
+		(text "angle_p1_1[15..0]" (rect 0 0 101 14)(font "Arial" (font_size 8)))
+		(text "angle_p1_1[15..0]" (rect 134 203 235 217)(font "Arial" (font_size 8)))
+		(line (pt 256 208)(pt 240 208)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 240 240))
+	)
+)
