@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 25 17:09:15 2026"
+// CREATED		"Wed Aug 26 00:55:01 2026"
 
 module CalculateXY(
 	clk,
@@ -48,7 +48,6 @@ wire	[15:0] nule_16;
 wire	[19:0] nule_20;
 wire	[2:0] nule_3;
 wire	[3:0] nule_4;
-wire	[6:0] nule_7;
 wire	q1;
 wire	q2;
 wire	q3;
@@ -64,10 +63,12 @@ wire	[15:0] sinus;
 wire	[32:0] x_lidar;
 wire	[8:0] x_offset;
 wire	[32:0] x_temp;
+wire	[6:0] xVisi_7;
 wire	[15:0] y;
 wire	[32:0] y_lidar;
 wire	[8:0] y_offset;
 wire	[32:0] y_temp;
+wire	[6:0] yVisi_7;
 wire	[15:0] SYNTHESIZED_WIRE_0;
 wire	SYNTHESIZED_WIRE_1;
 wire	SYNTHESIZED_WIRE_2;
@@ -95,12 +96,15 @@ wire	SYNTHESIZED_WIRE_23;
 wire	SYNTHESIZED_WIRE_24;
 wire	[15:0] SYNTHESIZED_WIRE_25;
 
-wire	[15:0] GDFX_TEMP_SIGNAL_9;
-wire	[15:0] GDFX_TEMP_SIGNAL_10;
-wire	[32:0] GDFX_TEMP_SIGNAL_8;
-wire	[16:0] GDFX_TEMP_SIGNAL_6;
-wire	[16:0] GDFX_TEMP_SIGNAL_7;
-wire	[31:0] GDFX_TEMP_SIGNAL_5;
+wire	[15:0] GDFX_TEMP_SIGNAL_13;
+wire	[6:0] GDFX_TEMP_SIGNAL_6;
+wire	[6:0] GDFX_TEMP_SIGNAL_5;
+wire	[15:0] GDFX_TEMP_SIGNAL_12;
+wire	[32:0] GDFX_TEMP_SIGNAL_11;
+wire	[32:0] GDFX_TEMP_SIGNAL_10;
+wire	[16:0] GDFX_TEMP_SIGNAL_8;
+wire	[16:0] GDFX_TEMP_SIGNAL_9;
+wire	[31:0] GDFX_TEMP_SIGNAL_7;
 wire	[31:0] GDFX_TEMP_SIGNAL_4;
 wire	[31:0] GDFX_TEMP_SIGNAL_3;
 wire	[31:0] GDFX_TEMP_SIGNAL_2;
@@ -108,12 +112,15 @@ wire	[31:0] GDFX_TEMP_SIGNAL_1;
 wire	[15:0] GDFX_TEMP_SIGNAL_0;
 
 
-assign	GDFX_TEMP_SIGNAL_9 = {nule_7[6:0],x_offset[8:0]};
-assign	GDFX_TEMP_SIGNAL_10 = {nule_7[6:0],x_offset[8:0]};
-assign	GDFX_TEMP_SIGNAL_8 = {nule_15[14:0],x_temp[32:15]};
-assign	GDFX_TEMP_SIGNAL_6 = {nula,distance[15:0]};
-assign	GDFX_TEMP_SIGNAL_7 = {nula,distance[15:0]};
-assign	GDFX_TEMP_SIGNAL_5 = {nule_20[19:0],res[31:20]};
+assign	GDFX_TEMP_SIGNAL_13 = {yVisi_7[6:0],y_offset[8:0]};
+assign	GDFX_TEMP_SIGNAL_6 = {y_offset[8],y_offset[8],y_offset[8],y_offset[8],y_offset[8],y_offset[8],y_offset[8]};
+assign	GDFX_TEMP_SIGNAL_5 = {x_offset[8],x_offset[8],x_offset[8],x_offset[8],x_offset[8],x_offset[8],x_offset[8]};
+assign	GDFX_TEMP_SIGNAL_12 = {xVisi_7[6:0],x_offset[8:0]};
+assign	GDFX_TEMP_SIGNAL_11 = {nule_15[14:0],y_temp[32:15]};
+assign	GDFX_TEMP_SIGNAL_10 = {nule_15[14:0],x_temp[32:15]};
+assign	GDFX_TEMP_SIGNAL_8 = {nula,distance[15:0]};
+assign	GDFX_TEMP_SIGNAL_9 = {nula,distance[15:0]};
+assign	GDFX_TEMP_SIGNAL_7 = {nule_20[19:0],res[31:20]};
 assign	GDFX_TEMP_SIGNAL_4 = {nule_16[15:0],y[15:0]};
 assign	GDFX_TEMP_SIGNAL_3 = {nule_16[15:0],y[15:3],nule_3[2:0]};
 assign	GDFX_TEMP_SIGNAL_2 = {nule_16[15:0],y[15:4],nule_4[3:0]};
@@ -226,6 +233,9 @@ assign	c = GDFX_TEMP_SIGNAL_3;
 assign	d = GDFX_TEMP_SIGNAL_4;
 
 
+assign	xVisi_7 = GDFX_TEMP_SIGNAL_5;
+
+
 
 CMP16	b2v_inst3(
 	.A(angle),
@@ -234,7 +244,10 @@ CMP16	b2v_inst3(
 	.E(SYNTHESIZED_WIRE_23),
 	.L(SYNTHESIZED_WIRE_19));
 
-assign	rom_sin_addr = GDFX_TEMP_SIGNAL_5;
+assign	yVisi_7 = GDFX_TEMP_SIGNAL_6;
+
+
+assign	rom_sin_addr = GDFX_TEMP_SIGNAL_7;
 
 
 
@@ -360,29 +373,33 @@ SUB16	b2v_inst50(
 
 
 MUL_32b	b2v_inst51(
-	.dataa(GDFX_TEMP_SIGNAL_6),
-	.datab(sinus)
-	);
+	.dataa(GDFX_TEMP_SIGNAL_8),
+	.datab(sinus),
+	.result(y_temp));
 
 
 MUL_32b	b2v_inst52(
-	.dataa(GDFX_TEMP_SIGNAL_7),
+	.dataa(GDFX_TEMP_SIGNAL_9),
 	.datab(cosinus),
 	.result(x_temp));
 
-assign	x_lidar = GDFX_TEMP_SIGNAL_8;
+assign	x_lidar = GDFX_TEMP_SIGNAL_10;
 
+
+assign	y_lidar = GDFX_TEMP_SIGNAL_11;
 
 
 assign	x_offset = x_lidar[12:4];
 
+
+assign	y_offset = y_lidar[12:4];
 
 
 
 ADD16	b2v_inst57(
 	.C_0(nula),
 	.A(SYNTHESIZED_WIRE_21),
-	.B(GDFX_TEMP_SIGNAL_9),
+	.B(GDFX_TEMP_SIGNAL_12),
 	
 	.OUT(x_pixel));
 
@@ -396,7 +413,7 @@ ConstantX	b2v_inst58(
 SUB16	b2v_inst59(
 	.E_0(nula),
 	.A(SYNTHESIZED_WIRE_22),
-	.B(GDFX_TEMP_SIGNAL_10),
+	.B(GDFX_TEMP_SIGNAL_13),
 	
 	.OUT(y_pixel));
 
@@ -407,12 +424,6 @@ ConstantX	b2v_inst60(
 	.DATA_OUT(SYNTHESIZED_WIRE_22));
 	defparam	b2v_inst60.const = 240;
 	defparam	b2v_inst60.size = 16;
-
-
-ConstantX	b2v_inst61(
-	.DATA_OUT(nule_7));
-	defparam	b2v_inst61.const = 0;
-	defparam	b2v_inst61.size = 7;
 
 
 ConstantX	b2v_inst62(
