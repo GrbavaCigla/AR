@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY LidarInterface
+set_global_assignment -name TOP_LEVEL_ENTITY Monitor
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:08:04  AUGUST 08, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -57,6 +57,7 @@ set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\githu
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components"
 
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name VHDL_FILE ../components/MPX/MPX2_10BIT.vhd
 set_global_assignment -name VHDL_FILE ../vga/FrameBuffer/FrameBufferRAM.vhd
 set_global_assignment -name BDF_FILE ../vga/FrameBuffer/FrameBufferWrapper.bdf
 set_global_assignment -name VHDL_FILE ../components/DECODERS/DEC3.vhd
@@ -190,8 +191,8 @@ set_global_assignment -name BDF_FILE ../lidar/LidarPointCalculator/RealXY/Calcul
 set_global_assignment -name QIP_FILE ../components/MUL/MUL_32b.qip
 set_global_assignment -name QIP_FILE ../components/MPX/MPX12_16BIT.qip
 set_global_assignment -name BDF_FILE ../lidar/LidarInterface/LidarInterface.bdf
+set_global_assignment -name SDC_FILE "sdc folder/SDC1.sdc"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name SDC_FILE "sdc folder/SDC1.sdc"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

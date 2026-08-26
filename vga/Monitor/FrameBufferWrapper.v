@@ -14,48 +14,34 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Aug 26 18:49:36 2026"
+// CREATED		"Wed Aug 26 18:41:24 2026"
 
-module BackgroundMain(
-	X,
-	Y,
-	VALID,
-	B,
-	G,
-	R
+module FrameBufferWrapper(
+	FB_WR,
+	FB_CLK,
+	FB_ADDR,
+	FB_DATA_IN,
+	FB_DATA_OUT
 );
 
 
-input wire	[9:0] X;
-input wire	[9:0] Y;
-output wire	VALID;
-output wire	[3:0] B;
-output wire	[3:0] G;
-output wire	[3:0] R;
-
-
-assign	VALID = 1;
+input wire	FB_WR;
+input wire	FB_CLK;
+input wire	[15:0] FB_ADDR;
+input wire	[7:0] FB_DATA_IN;
+output wire	[7:0] FB_DATA_OUT;
 
 
 
 
-ConstantX	b2v_inst2(
-	.DATA_OUT(G));
-	defparam	b2v_inst2.const = 0;
-	defparam	b2v_inst2.size = 4;
 
 
-ConstantX	b2v_inst6(
-	.DATA_OUT(B));
-	defparam	b2v_inst6.const = 0;
-	defparam	b2v_inst6.size = 4;
-
-
-ConstantX	b2v_inst8(
-	.DATA_OUT(R));
-	defparam	b2v_inst8.const = 0;
-	defparam	b2v_inst8.size = 4;
-
+FrameBufferRAM	b2v_inst(
+	.wren(FB_WR),
+	.clock(FB_CLK),
+	.address(FB_ADDR),
+	.data(FB_DATA_IN),
+	.q(FB_DATA_OUT));
 
 
 endmodule
