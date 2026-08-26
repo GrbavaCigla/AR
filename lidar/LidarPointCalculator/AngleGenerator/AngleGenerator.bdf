@@ -3372,6 +3372,32 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 144 80))
 	)
 )
+(symbol
+	(rect -56 568 0 624)
+	(text "ConstantX" (rect 5 0 55 12)(font "Arial" ))
+	(text "inst13" (rect 8 40 37 52)(font "Arial" ))
+	(port
+		(pt 56 32)
+		(output)
+		(text "DATA_OUT[size-1..0]" (rect -96 0 9 12)(font "Arial" ))
+		(text "c" (rect 25 27 30 39)(font "Arial" )(invisible))
+		(line (pt 56 32)(pt 40 32)(line_width 3))
+	)
+	(parameter
+		"size"
+		"10"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"const"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 24 24 40 40)(fill (color 218 218 218)))
+	)
+	(annotation_block (parameter)(rect -40 512 142 554))
+)
 (connector
 	(text "nula" (rect 104 215 116 235)(font "Arial" )(vertical))
 	(pt 120 248)
@@ -5224,6 +5250,12 @@ applicable agreement for further details.
 	(text "D[31..0]" (rect 1417 560 1457 572)(font "Arial" ))
 	(pt 1416 576)
 	(pt 1472 576)
+	(bus)
+)
+(connector
+	(text "nule_10[9..0]" (rect 8 584 71 596)(font "Arial" ))
+	(pt 0 600)
+	(pt 72 600)
 	(bus)
 )
 (junction (pt 648 80))

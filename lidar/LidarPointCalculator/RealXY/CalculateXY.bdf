@@ -3058,7 +3058,7 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "yVisi_7[6..0],y_offset[8..0]" (rect 1304 2016 1439 2028)(font "Arial" ))
+	(text "yVisi_7[6..0],y_offset[8..0]" (rect 1296 2016 1431 2028)(font "Arial" ))
 	(pt 1272 2032)
 	(pt 1416 2032)
 	(bus)
