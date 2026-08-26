@@ -71,7 +71,7 @@ applicable agreement for further details.
 	(input)
 	(rect 104 216 272 232)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "bus_wait" (rect 5 0 48 12)(font "Arial" ))
+	(text "bus_wait" (rect 5 0 47 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -85,9 +85,9 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1768 144 1944 160)
+	(rect 1768 184 1944 200)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "N" (rect 90 0 98 12)(font "Arial" ))
+	(text "bus_wr" (rect 90 0 124 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -101,9 +101,9 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1768 176 1944 192)
+	(rect 1768 216 1944 232)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "Z" (rect 90 0 97 12)(font "Arial" ))
+	(text "bus_rd" (rect 90 0 123 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -117,9 +117,25 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1768 208 1944 224)
+	(rect 1768 248 1947 264)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "RESULT[31..0]" (rect 90 0 164 12)(font "Arial" ))
+	(text "bus_wdata[31..0]" (rect 90 0 173 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 1768 152 1944 168)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "bus_addr[31..0]" (rect 90 0 166 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -2186,6 +2202,28 @@ applicable agreement for further details.
 (connector
 	(pt 1104 1040)
 	(pt 1136 1040)
+)
+(connector
+	(text "result[31..0]" (rect 1672 144 1731 156)(font "Arial" ))
+	(pt 1768 160)
+	(pt 1664 160)
+	(bus)
+)
+(connector
+	(text "MemWrite" (rect 1672 176 1721 188)(font "Arial" ))
+	(pt 1768 192)
+	(pt 1664 192)
+)
+(connector
+	(text "MemRead" (rect 1672 208 1721 220)(font "Arial" ))
+	(pt 1768 224)
+	(pt 1664 224)
+)
+(connector
+	(text "RS2DATA[31..0]" (rect 1672 240 1753 252)(font "Arial" ))
+	(pt 1768 256)
+	(pt 1664 256)
+	(bus)
 )
 (junction (pt 1104 1040))
 (text "JALR_TARGET = JALR_SUM[31..1],0" (rect 664 944 874 958)(font "Arial" (font_size 8)))
