@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Aug 26 18:46:19 2026"
+// CREATED		"Thu Aug 27 00:16:56 2026"
 
 module CalculateXY(
 	clk,
@@ -39,6 +39,7 @@ wire	cos_neg;
 wire	[15:0] cosinus;
 wire	[31:0] d;
 wire	jedan;
+wire	[15:0] late_distance;
 wire	nq1;
 wire	nq2;
 wire	nula;
@@ -96,14 +97,14 @@ wire	SYNTHESIZED_WIRE_23;
 wire	SYNTHESIZED_WIRE_24;
 wire	[15:0] SYNTHESIZED_WIRE_25;
 
+wire	[16:0] GDFX_TEMP_SIGNAL_8;
+wire	[16:0] GDFX_TEMP_SIGNAL_9;
 wire	[15:0] GDFX_TEMP_SIGNAL_13;
 wire	[6:0] GDFX_TEMP_SIGNAL_6;
 wire	[6:0] GDFX_TEMP_SIGNAL_5;
 wire	[15:0] GDFX_TEMP_SIGNAL_12;
 wire	[32:0] GDFX_TEMP_SIGNAL_11;
 wire	[32:0] GDFX_TEMP_SIGNAL_10;
-wire	[16:0] GDFX_TEMP_SIGNAL_8;
-wire	[16:0] GDFX_TEMP_SIGNAL_9;
 wire	[31:0] GDFX_TEMP_SIGNAL_7;
 wire	[31:0] GDFX_TEMP_SIGNAL_4;
 wire	[31:0] GDFX_TEMP_SIGNAL_3;
@@ -112,14 +113,14 @@ wire	[31:0] GDFX_TEMP_SIGNAL_1;
 wire	[15:0] GDFX_TEMP_SIGNAL_0;
 
 
+assign	GDFX_TEMP_SIGNAL_8 = {nula,late_distance[15:0]};
+assign	GDFX_TEMP_SIGNAL_9 = {nula,late_distance[15:0]};
 assign	GDFX_TEMP_SIGNAL_13 = {yVisi_7[6:0],y_offset[8:0]};
 assign	GDFX_TEMP_SIGNAL_6 = {y_offset[8],y_offset[8],y_offset[8],y_offset[8],y_offset[8],y_offset[8],y_offset[8]};
 assign	GDFX_TEMP_SIGNAL_5 = {x_offset[8],x_offset[8],x_offset[8],x_offset[8],x_offset[8],x_offset[8],x_offset[8]};
 assign	GDFX_TEMP_SIGNAL_12 = {xVisi_7[6:0],x_offset[8:0]};
 assign	GDFX_TEMP_SIGNAL_11 = {nule_15[14:0],y_temp[32:15]};
 assign	GDFX_TEMP_SIGNAL_10 = {nule_15[14:0],x_temp[32:15]};
-assign	GDFX_TEMP_SIGNAL_8 = {nula,distance[15:0]};
-assign	GDFX_TEMP_SIGNAL_9 = {nula,distance[15:0]};
 assign	GDFX_TEMP_SIGNAL_7 = {nule_20[19:0],res[31:20]};
 assign	GDFX_TEMP_SIGNAL_4 = {nule_16[15:0],y[15:0]};
 assign	GDFX_TEMP_SIGNAL_3 = {nule_16[15:0],y[15:3],nule_3[2:0]};
@@ -246,6 +247,14 @@ CMP16	b2v_inst3(
 
 assign	yVisi_7 = GDFX_TEMP_SIGNAL_6;
 
+
+
+REG16_LD_CL	b2v_inst31(
+	.LD(jedan),
+	.CL(nula),
+	.clk(clk),
+	.I(distance),
+	.A(late_distance));
 
 assign	rom_sin_addr = GDFX_TEMP_SIGNAL_7;
 

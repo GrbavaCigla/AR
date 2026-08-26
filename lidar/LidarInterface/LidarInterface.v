@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Aug 26 18:45:21 2026"
+// CREATED		"Thu Aug 27 00:18:40 2026"
 
 module LidarInterface(
 	clk,
@@ -151,7 +151,7 @@ REG1_LD_CL	b2v_inst21(
 REG1_LD_CL	b2v_inst22(
 	.LD(jedan),
 	.I(busy),
-	.CL(sys_reset),
+	.CL(busy_clear),
 	.clk(clk),
 	.A(pixel_valid));
 

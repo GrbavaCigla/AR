@@ -1755,11 +1755,6 @@ applicable agreement for further details.
 	(pt 784 192)
 )
 (connector
-	(text "sys_reset" (rect 736 208 785 220)(font "Arial" ))
-	(pt 784 224)
-	(pt 736 224)
-)
-(connector
 	(text "clk" (rect 744 224 758 236)(font "Arial" ))
 	(pt 784 240)
 	(pt 736 240)
@@ -2004,6 +1999,11 @@ applicable agreement for further details.
 	(pt 1928 832)
 	(pt 1848 832)
 	(bus)
+)
+(connector
+	(text "busy_clear" (rect 736 208 790 220)(font "Arial" ))
+	(pt 784 224)
+	(pt 736 224)
 )
 (text "Primitivni busy flip flop" (rect -16 136 109 150)(font "Arial" (font_size 8)))
 (text "Konstante" (rect -200 88 -143 102)(font "Arial" (font_size 8)))
