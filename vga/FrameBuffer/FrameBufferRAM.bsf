@@ -61,7 +61,7 @@ applicable agreement for further details.
 	(drawing
 		(text "8 bits" (rect 109 23 191 153)(font "Arial" )(vertical))
 		(text "65536 words" (rect 120 13 217 183)(font "Arial" )(vertical))
-		(text "Block type: M9K" (rect 48 114 164 239)(font "Arial" ))
+		(text "Block type: M10K" (rect 48 114 169 239)(font "Arial" ))
 		(line (pt 104 24)(pt 136 24))
 		(line (pt 136 24)(pt 136 96))
 		(line (pt 136 96)(pt 104 96))
