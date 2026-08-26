@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 18 14:04:45 2026"
+// CREATED		"Mon Aug 24 16:43:01 2026"
 
 module Controller(
 	CLK,
@@ -72,7 +72,7 @@ RegisterX	b2v_inst(
 
 ConstantX	b2v_inst1(
 	.DATA_OUT(SYNTHESIZED_WIRE_10));
-	defparam	b2v_inst1.const = 1039;
+	defparam	b2v_inst1.const = 799;
 	defparam	b2v_inst1.size = 11;
 
 
@@ -89,7 +89,7 @@ assign	HS = SYNTHESIZED_WIRE_3 & SYNTHESIZED_WIRE_4;
 
 ConstantX	b2v_inst12(
 	.DATA_OUT(SYNTHESIZED_WIRE_5));
-	defparam	b2v_inst12.const = 636;
+	defparam	b2v_inst12.const = 489;
 	defparam	b2v_inst12.size = 10;
 
 
@@ -104,7 +104,7 @@ ComparatorX	b2v_inst13(
 
 ConstantX	b2v_inst14(
 	.DATA_OUT(SYNTHESIZED_WIRE_6));
-	defparam	b2v_inst14.const = 642;
+	defparam	b2v_inst14.const = 492;
 	defparam	b2v_inst14.size = 10;
 
 
@@ -121,7 +121,7 @@ assign	VS = SYNTHESIZED_WIRE_7 & SYNTHESIZED_WIRE_8;
 
 ConstantX	b2v_inst17(
 	.DATA_OUT(SYNTHESIZED_WIRE_9));
-	defparam	b2v_inst17.const = 800;
+	defparam	b2v_inst17.const = 640;
 	defparam	b2v_inst17.size = 11;
 
 
@@ -136,7 +136,7 @@ ComparatorX	b2v_inst18(
 
 ConstantX	b2v_inst19(
 	.DATA_OUT(SYNTHESIZED_WIRE_11));
-	defparam	b2v_inst19.const = 600;
+	defparam	b2v_inst19.const = 480;
 	defparam	b2v_inst19.size = 10;
 
 
@@ -174,7 +174,7 @@ RegisterX	b2v_inst3(
 
 ConstantX	b2v_inst4(
 	.DATA_OUT(SYNTHESIZED_WIRE_16));
-	defparam	b2v_inst4.const = 665;
+	defparam	b2v_inst4.const = 524;
 	defparam	b2v_inst4.size = 10;
 
 
@@ -191,7 +191,7 @@ assign	SYNTHESIZED_WIRE_14 = SYNTHESIZED_WIRE_20 & SYNTHESIZED_WIRE_18;
 
 ConstantX	b2v_inst7(
 	.DATA_OUT(SYNTHESIZED_WIRE_19));
-	defparam	b2v_inst7.const = 855;
+	defparam	b2v_inst7.const = 655;
 	defparam	b2v_inst7.size = 11;
 
 
@@ -206,7 +206,7 @@ ComparatorX	b2v_inst8(
 
 ConstantX	b2v_inst9(
 	.DATA_OUT(SYNTHESIZED_WIRE_2));
-	defparam	b2v_inst9.const = 975;
+	defparam	b2v_inst9.const = 752;
 	defparam	b2v_inst9.size = 11;
 
 assign	X[9:0] = X_ALTERA_SYNTHESIZED[9:0];

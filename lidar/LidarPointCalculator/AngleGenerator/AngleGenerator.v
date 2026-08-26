@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Aug 26 00:38:44 2026"
+// CREATED		"Wed Aug 26 18:45:37 2026"
 
 module AngleGenerator(
 	end_angle,
@@ -262,6 +262,12 @@ ADD32	b2v_inst12(
 	.B(SYNTHESIZED_WIRE_19),
 	
 	.OUT(D));
+
+
+ConstantX	b2v_inst13(
+	.DATA_OUT(nule_10));
+	defparam	b2v_inst13.const = 0;
+	defparam	b2v_inst13.size = 10;
 
 
 SUB32	b2v_inst2(

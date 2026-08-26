@@ -14,26 +14,41 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 25 23:51:37 2026"
+// CREATED		"Wed Aug 26 18:45:21 2026"
 
 module LidarInterface(
 	clk,
 	rst_n,
-	rx
+	rx,
+	pixel_valid,
+	x_pixel,
+	y_pixel
 );
 
 
 input wire	clk;
 input wire	rst_n;
 input wire	rx;
+output wire	pixel_valid;
+output wire	[15:0] x_pixel;
+output wire	[15:0] y_pixel;
 
+wire	ack;
+wire	busy;
+wire	busy_clear;
 wire	cnt_en;
+wire	data_ready;
 wire	[15:0] end_angle;
+wire	is_last;
 wire	jedan;
+wire	n_busy;
+wire	n_is_last;
 wire	nula;
-wire	[7:0] point_index;
+wire	[3:0] point_index;
+wire	[7:0] q;
 wire	sclr;
 wire	[15:0] start_angle;
+wire	sys_reset;
 wire	[15:0] SYNTHESIZED_WIRE_0;
 wire	[15:0] SYNTHESIZED_WIRE_1;
 wire	SYNTHESIZED_WIRE_2;
@@ -89,20 +104,65 @@ anglegenerator	b2v_inst(
 CalculateXY	b2v_inst1(
 	.clk(clk),
 	.angle(SYNTHESIZED_WIRE_0),
-	.distance(SYNTHESIZED_WIRE_1)
+	.distance(SYNTHESIZED_WIRE_1),
+	.x_pixel(x_pixel),
+	.y_pixel(y_pixel));
+
+
+REG1_LD_CL	b2v_inst12(
+	.LD(data_ready),
+	.I(jedan),
+	.CL(busy_clear),
+	.clk(clk),
+	.A(busy));
+
+
+
+assign	busy_clear = sys_reset | ack;
+
+assign	point_index = q[3:0];
+
+
+assign	sclr = sys_reset | n_busy;
+
+assign	n_busy =  ~busy;
+
+assign	n_is_last =  ~is_last;
+
+assign	cnt_en = n_is_last & busy;
+
+
+CMP4	b2v_inst20(
+	.A(point_index),
+	.B(GDFX_TEMP_SIGNAL_0),
 	
+	.E(is_last)
 	);
 
 
+REG1_LD_CL	b2v_inst21(
+	.LD(jedan),
+	.I(is_last),
+	.CL(sys_reset),
+	.clk(clk),
+	.A(ack));
+
+
+REG1_LD_CL	b2v_inst22(
+	.LD(jedan),
+	.I(busy),
+	.CL(sys_reset),
+	.clk(clk),
+	.A(pixel_valid));
 
 
 PacketParser	b2v_inst3(
 	.clk(clk),
 	.rst_n(rst_n),
 	.byte_ready(SYNTHESIZED_WIRE_2),
-	
+	.ack(ack),
 	.rx_data(SYNTHESIZED_WIRE_3),
-	
+	.data_ready(data_ready),
 	.end_angle(end_angle),
 	.point0_dist(SYNTHESIZED_WIRE_4),
 	
@@ -146,8 +206,8 @@ MPX12_16BIT	b2v_inst4(
 	.data7x(SYNTHESIZED_WIRE_13),
 	.data8x(SYNTHESIZED_WIRE_14),
 	.data9x(SYNTHESIZED_WIRE_15),
-	.sel(point_index[3:0]),
-	.result(SYNTHESIZED_WIRE_0));
+	.sel(point_index),
+	.result(SYNTHESIZED_WIRE_1));
 
 
 MPX12_16BIT	b2v_inst5(
@@ -163,8 +223,8 @@ MPX12_16BIT	b2v_inst5(
 	.data7x(SYNTHESIZED_WIRE_25),
 	.data8x(SYNTHESIZED_WIRE_26),
 	.data9x(SYNTHESIZED_WIRE_27),
-	.sel(point_index[3:0]),
-	.result(SYNTHESIZED_WIRE_1));
+	.sel(point_index),
+	.result(SYNTHESIZED_WIRE_0));
 
 
 UART_RX	b2v_inst6(
@@ -179,15 +239,9 @@ counter_8bit	b2v_inst7(
 	.sclr(sclr),
 	.clock(clk),
 	.cnt_en(cnt_en),
-	.q(point_index));
+	.q(q));
 
-
-CMP4	b2v_inst8(
-	.A(point_index[3:0]),
-	.B(GDFX_TEMP_SIGNAL_0),
-	
-	.E(sclr)
-	);
+assign	sys_reset =  ~rst_n;
 
 assign	jedan = 1;
 assign	nula = 0;
