@@ -3,20 +3,31 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "firmware/src/**/*.c"
+      - "firmware/src/**"
+      - "firmware/cmake/**"
+      - "firmware/tools/**"
+      - "firmware/CMakeLists.txt"
+      - "firmware/linker.ld"
       - ".github/workflows/firmware.yml"
 jobs:
   firmware:
     runs-on: ubuntu-latest
+    container:
+      image: fedora:latest
     steps:
       - uses: actions/checkout@v4
       - run: |
-          sudo apt-get update
-          sudo apt-get install -y gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu
-      - run: |
-          cmake -S firmware -B firmware/build \
-            -DCMAKE_TOOLCHAIN_FILE=cmake/riscv32.cmake
-      - run: cmake --build firmware/build
+          dnf install -y \
+            cmake \
+            make \
+            gcc \
+            gcc-c++ \
+            binutils \
+            gcc-riscv64-linux-gnu \
+            binutils-riscv64-linux-gnu \
+            just
+      - run: just
+        working-directory: firmware
       - uses: actions/upload-artifact@v4
         with:
           name: instructions-mif
