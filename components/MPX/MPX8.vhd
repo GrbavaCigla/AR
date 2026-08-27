@@ -112,7 +112,7 @@ END SYN;
 -- ============================================================
 -- CNX file retrieval info
 -- ============================================================
--- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone III"
+-- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone V"
 -- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 -- Retrieval info: PRIVATE: new_diagram STRING "1"
 -- Retrieval info: LIBRARY: lpm lpm.lpm_components.all
@@ -143,6 +143,6 @@ END SYN;
 -- Retrieval info: GEN_FILE: TYPE_NORMAL MPX8.vhd TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL MPX8.inc FALSE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL MPX8.cmp TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL MPX8.bsf TRUE FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL MPX8.bsf TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL MPX8_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: lpm

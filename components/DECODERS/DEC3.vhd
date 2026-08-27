@@ -119,7 +119,7 @@ END SYN;
 -- ============================================================
 -- Retrieval info: PRIVATE: BaseDec NUMERIC "1"
 -- Retrieval info: PRIVATE: EnableInput NUMERIC "0"
--- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone III"
+-- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone V"
 -- Retrieval info: PRIVATE: LPM_PIPELINE NUMERIC "0"
 -- Retrieval info: PRIVATE: Latency NUMERIC "0"
 -- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
@@ -161,6 +161,6 @@ END SYN;
 -- Retrieval info: GEN_FILE: TYPE_NORMAL DEC3.vhd TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL DEC3.inc FALSE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL DEC3.cmp TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL DEC3.bsf TRUE FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL DEC3.bsf TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL DEC3_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: lpm
