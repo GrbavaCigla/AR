@@ -1,0 +1,10 @@
+default: clean configure build
+
+configure:
+    cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=cmake/riscv32.cmake
+
+build:
+    cmake --build build
+
+clean:
+    rm -rf build
