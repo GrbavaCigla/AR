@@ -127,7 +127,7 @@ applicable agreement for further details.
 (symbol
 	(rect 512 264 728 392)
 	(text "ROM2" (rect 90 0 133 16)(font "Arial" (font_size 10)))
-	(text "inst4" (rect 8 112 31 124)(font "Arial" ))
+	(text "inst2" (rect 8 112 31 124)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -249,19 +249,6 @@ applicable agreement for further details.
 	(pt 512 344)
 )
 (connector
-	(pt 696 408)
-	(pt 696 392)
-)
-(connector
-	(pt 680 392)
-	(pt 680 408)
-)
-(connector
-	(pt 696 408)
-	(pt 680 408)
-)
-(connector
-	(pt 680 408)
 	(pt 376 408)
+	(pt 680 408)
 )
-(junction (pt 680 408))

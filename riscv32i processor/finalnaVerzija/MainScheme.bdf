@@ -636,7 +636,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -328 88 -80 216)
+	(rect -320 120 -72 248)
 	(text "riscvi32i_4" (rect 5 0 66 14)(font "Arial" (font_size 8)))
 	(text "inst" (rect 8 112 25 124)(font "Arial" ))
 	(port
