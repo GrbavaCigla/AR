@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CEBA4F23C7
-set_global_assignment -name TOP_LEVEL_ENTITY InstructionMemory
+set_global_assignment -name TOP_LEVEL_ENTITY BusDecoder
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:08:04  AUGUST 08, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -56,6 +56,7 @@ set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\githu
 set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\components"
 
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name BDF_FILE finalnaVerzija/riscvi32i_4.bdf
 set_global_assignment -name VHDL_FILE ../components/MPX/MPX2_10BIT.vhd
 set_global_assignment -name VHDL_FILE ../vga/FrameBuffer/FrameBufferRAM.vhd
 set_global_assignment -name BDF_FILE ../vga/FrameBuffer/FrameBufferWrapper.bdf
@@ -182,7 +183,6 @@ set_global_assignment -name VHDL_FILE InstructionMemory/ROM2.vhd
 set_global_assignment -name BDF_FILE ../lidar/lidar_controller/LidarController.bdf
 set_global_assignment -name BDF_FILE ../lidar/UART_RX/UART_RX.bdf
 set_global_assignment -name BDF_FILE ../lidar/packet_parser/PacketParser.bdf
-set_global_assignment -name BDF_FILE finalnaVerzija/riscvi32i_4.bdf
 set_global_assignment -name BDF_FILE ../lidar/LidarPointCalculator/AngleGenerator/AngleGenerator.bdf
 set_global_assignment -name QIP_FILE "../lidar/LidarPointCalculator/ROM SIN/ROM_SIN.qip"
 set_global_assignment -name QIP_FILE ../components/MPX/MPX4_16BIT.qip
@@ -197,6 +197,7 @@ set_global_assignment -name QIP_FILE ../components/MPX/MPX2_10BIT.qip
 set_global_assignment -name QIP_FILE ../components/MPX/MPX2_8BIT.qip
 set_global_assignment -name QIP_FILE ../components/MPX/MPX8.qip
 set_global_assignment -name QIP_FILE ../components/DECODERS/DEC3.qip
+set_global_assignment -name QIP_FILE ../components/MPX/MPX4.qip
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

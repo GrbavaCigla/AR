@@ -14,12 +14,12 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Thu Aug 27 00:49:58 2026"
+// CREATED		"Thu Aug 27 15:27:01 2026"
 
 module riscvi32i_4(
 	CLK,
 	RESET,
-	bus_wait,
+	bus_ready,
 	bus_rdata,
 	bus_wr,
 	bus_rd,
@@ -30,7 +30,7 @@ module riscvi32i_4(
 
 input wire	CLK;
 input wire	RESET;
-input wire	bus_wait;
+input wire	bus_ready;
 input wire	[31:0] bus_rdata;
 output wire	bus_wr;
 output wire	bus_rd;
@@ -52,6 +52,7 @@ wire	bltu;
 wire	bne;
 wire	Branch;
 wire	branch_taken;
+wire	bus_wait;
 wire	[31:0] cetiri;
 wire	[31:0] IMM_OUT;
 wire	[2:0] immSrc;
@@ -113,6 +114,14 @@ ImmediateGenerator	b2v_inst1(
 	.IMM_SRC(immSrc),
 	.INSTRUCTION(INSTRUCTIONS),
 	.IMM_OUT(IMM_OUT));
+
+
+BusFSM	b2v_inst10(
+	.mem_read(MemRead),
+	.mem_write(MemWrite),
+	.bus_ready(bus_ready),
+	.clk(CLK),
+	.bus_wait(bus_wait));
 
 
 ADD32	b2v_inst11(

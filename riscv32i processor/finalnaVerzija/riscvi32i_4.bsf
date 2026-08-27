@@ -47,8 +47,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 80)
 		(input)
-		(text "bus_wait" (rect 0 0 53 14)(font "Arial" (font_size 8)))
-		(text "bus_wait" (rect 21 75 74 89)(font "Arial" (font_size 8)))
+		(text "bus_ready" (rect 0 0 61 14)(font "Arial" (font_size 8)))
+		(text "bus_ready" (rect 21 75 82 89)(font "Arial" (font_size 8)))
 		(line (pt 0 80)(pt 16 80))
 	)
 	(port
