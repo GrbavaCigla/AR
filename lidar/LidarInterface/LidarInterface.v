@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Thu Aug 27 16:29:14 2026"
+// CREATED		"Fri Aug 28 00:53:52 2026"
 
 module LidarInterface(
 	clk,
@@ -43,7 +43,6 @@ wire	n_busy;
 wire	n_is_last;
 wire	nula;
 wire	[10:0] nule_11;
-wire	pixal_valid;
 wire	pixel_valid;
 wire	[3:0] point_index;
 wire	[7:0] q;
@@ -256,7 +255,7 @@ assign	nule_11 = SYNTHESIZED_WIRE_28;
 
 assign	sys_reset =  ~rst_n;
 
-assign	lidar_ready = pixal_valid;
+assign	lidar_ready = pixel_valid;
 assign	lidar_data[31] = pixel_valid;
 assign	lidar_data[30:20] = nule_11;
 assign	lidar_data[19:10] = x_pixel[9:0];

@@ -2057,7 +2057,7 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "pixal_valid" (rect 1983 96 2034 108)(font "Arial" ))
+	(text "pixel_valid" (rect 1983 96 2034 108)(font "Arial" ))
 	(pt 1928 112)
 	(pt 2136 112)
 )
