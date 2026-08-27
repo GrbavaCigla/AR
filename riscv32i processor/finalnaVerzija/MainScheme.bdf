@@ -23,7 +23,7 @@ applicable agreement for further details.
 	(input)
 	(rect -384 -8 -216 8)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "clk" (rect 5 0 20 12)(font "Arial" ))
+	(text "clk" (rect 5 0 19 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -39,7 +39,7 @@ applicable agreement for further details.
 	(input)
 	(rect -392 24 -224 40)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "reset" (rect 5 0 30 12)(font "Arial" ))
+	(text "reset" (rect 5 0 29 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -52,7 +52,7 @@ applicable agreement for further details.
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
 )
 (symbol
-	(rect -400 448 -184 608)
+	(rect -328 360 -112 520)
 	(text "Monitor" (rect 5 0 46 14)(font "Arial" (font_size 8)))
 	(text "inst1" (rect 8 144 31 156)(font "Arial" ))
 	(port
@@ -137,7 +137,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 312 88 664 312)
+	(rect 56 56 408 280)
 	(text "sdram_arbiter" (rect 5 0 84 14)(font "Arial" (font_size 8)))
 	(text "inst2" (rect 8 205 31 217)(font "Arial" ))
 	(port
@@ -285,148 +285,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 808 376 1048 632)
-	(text "sdram_controller" (rect 5 0 100 14)(font "Arial" (font_size 8)))
-	(text "inst3" (rect 8 240 31 252)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "ADDR[24..0]" (rect 0 0 69 14)(font "Arial" (font_size 8)))
-		(text "ADDR[24..0]" (rect 21 27 90 41)(font "Arial" (font_size 8)))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "DATA_IN[15..0]" (rect 0 0 87 14)(font "Arial" (font_size 8)))
-		(text "DATA_IN[15..0]" (rect 21 43 108 57)(font "Arial" (font_size 8)))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "RD" (rect 0 0 16 14)(font "Arial" (font_size 8)))
-		(text "RD" (rect 21 59 37 73)(font "Arial" (font_size 8)))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "WR" (rect 0 0 20 14)(font "Arial" (font_size 8)))
-		(text "WR" (rect 21 75 41 89)(font "Arial" (font_size 8)))
-		(line (pt 0 80)(pt 16 80))
-	)
-	(port
-		(pt 0 96)
-		(input)
-		(text "CS" (rect 0 0 16 14)(font "Arial" (font_size 8)))
-		(text "CS" (rect 21 91 37 105)(font "Arial" (font_size 8)))
-		(line (pt 0 96)(pt 16 96))
-	)
-	(port
-		(pt 0 112)
-		(input)
-		(text "RESET" (rect 0 0 37 14)(font "Arial" (font_size 8)))
-		(text "RESET" (rect 21 107 58 121)(font "Arial" (font_size 8)))
-		(line (pt 0 112)(pt 16 112))
-	)
-	(port
-		(pt 0 128)
-		(input)
-		(text "CLK" (rect 0 0 23 14)(font "Arial" (font_size 8)))
-		(text "CLK" (rect 21 123 44 137)(font "Arial" (font_size 8)))
-		(line (pt 0 128)(pt 16 128))
-	)
-	(port
-		(pt 240 32)
-		(output)
-		(text "CKE" (rect 0 0 23 14)(font "Arial" (font_size 8)))
-		(text "CKE" (rect 196 27 219 41)(font "Arial" (font_size 8)))
-		(line (pt 240 32)(pt 224 32))
-	)
-	(port
-		(pt 240 48)
-		(output)
-		(text "CS_N" (rect 0 0 31 14)(font "Arial" (font_size 8)))
-		(text "CS_N" (rect 188 43 219 57)(font "Arial" (font_size 8)))
-		(line (pt 240 48)(pt 224 48))
-	)
-	(port
-		(pt 240 64)
-		(output)
-		(text "RAS_N" (rect 0 0 41 14)(font "Arial" (font_size 8)))
-		(text "RAS_N" (rect 178 59 219 73)(font "Arial" (font_size 8)))
-		(line (pt 240 64)(pt 224 64))
-	)
-	(port
-		(pt 240 80)
-		(output)
-		(text "CAS_N" (rect 0 0 41 14)(font "Arial" (font_size 8)))
-		(text "CAS_N" (rect 178 75 219 89)(font "Arial" (font_size 8)))
-		(line (pt 240 80)(pt 224 80))
-	)
-	(port
-		(pt 240 96)
-		(output)
-		(text "WE_N" (rect 0 0 34 14)(font "Arial" (font_size 8)))
-		(text "WE_N" (rect 185 91 219 105)(font "Arial" (font_size 8)))
-		(line (pt 240 96)(pt 224 96))
-	)
-	(port
-		(pt 240 112)
-		(output)
-		(text "BA[1..0]" (rect 0 0 46 14)(font "Arial" (font_size 8)))
-		(text "BA[1..0]" (rect 173 107 219 121)(font "Arial" (font_size 8)))
-		(line (pt 240 112)(pt 224 112)(line_width 3))
-	)
-	(port
-		(pt 240 128)
-		(output)
-		(text "A[12..0]" (rect 0 0 44 14)(font "Arial" (font_size 8)))
-		(text "A[12..0]" (rect 175 123 219 137)(font "Arial" (font_size 8)))
-		(line (pt 240 128)(pt 224 128)(line_width 3))
-	)
-	(port
-		(pt 240 160)
-		(output)
-		(text "DQML" (rect 0 0 34 14)(font "Arial" (font_size 8)))
-		(text "DQML" (rect 185 155 219 169)(font "Arial" (font_size 8)))
-		(line (pt 240 160)(pt 224 160))
-	)
-	(port
-		(pt 240 176)
-		(output)
-		(text "DQMH" (rect 0 0 35 14)(font "Arial" (font_size 8)))
-		(text "DQMH" (rect 184 171 219 185)(font "Arial" (font_size 8)))
-		(line (pt 240 176)(pt 224 176))
-	)
-	(port
-		(pt 240 192)
-		(output)
-		(text "DATA_OUT[15..0]" (rect 0 0 101 14)(font "Arial" (font_size 8)))
-		(text "DATA_OUT[15..0]" (rect 118 187 219 201)(font "Arial" (font_size 8)))
-		(line (pt 240 192)(pt 224 192)(line_width 3))
-	)
-	(port
-		(pt 240 208)
-		(output)
-		(text "ACCESS_DONE" (rect 0 0 89 14)(font "Arial" (font_size 8)))
-		(text "ACCESS_DONE" (rect 130 203 219 217)(font "Arial" (font_size 8)))
-		(line (pt 240 208)(pt 224 208))
-	)
-	(port
-		(pt 240 144)
-		(bidir)
-		(text "DQ[15..0]" (rect 0 0 53 14)(font "Arial" (font_size 8)))
-		(text "DQ[15..0]" (rect 166 139 219 153)(font "Arial" (font_size 8)))
-		(line (pt 240 144)(pt 224 144)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 224 240))
-	)
-)
-(symbol
-	(rect 512 488 776 744)
+	(rect 88 304 352 560)
 	(text "sdram_wrapper" (rect 5 0 97 14)(font "Arial" (font_size 8)))
 	(text "inst4" (rect 8 240 31 252)(font "Arial" ))
 	(port
@@ -659,7 +518,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -304 240 -144 336)
+	(rect -280 232 -120 328)
 	(text "LidarInterface" (rect 5 0 84 14)(font "Arial" (font_size 8)))
 	(text "inst7" (rect 8 80 31 92)(font "Arial" ))
 	(port
@@ -777,7 +636,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -248 80 0 208)
+	(rect -328 88 -80 216)
 	(text "riscvi32i_4" (rect 5 0 66 14)(font "Arial" (font_size 8)))
 	(text "inst" (rect 8 112 25 124)(font "Arial" ))
 	(port

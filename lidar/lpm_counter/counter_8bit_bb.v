@@ -56,7 +56,7 @@ endmodule
 // Retrieval info: PRIVATE: CarryIn NUMERIC "0"
 // Retrieval info: PRIVATE: CarryOut NUMERIC "0"
 // Retrieval info: PRIVATE: Direction NUMERIC "0"
-// Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone III"
+// Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone V"
 // Retrieval info: PRIVATE: ModulusCounter NUMERIC "0"
 // Retrieval info: PRIVATE: ModulusValue NUMERIC "0"
 // Retrieval info: PRIVATE: SCLR NUMERIC "1"
