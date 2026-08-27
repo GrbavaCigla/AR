@@ -14,12 +14,13 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Thu Aug 27 15:18:15 2026"
+// CREATED		"Thu Aug 27 16:29:14 2026"
 
 module LidarInterface(
 	clk,
 	rst_n,
 	rx,
+	lidar_ready,
 	lidar_data
 );
 
@@ -27,6 +28,7 @@ module LidarInterface(
 input wire	clk;
 input wire	rst_n;
 input wire	rx;
+output wire	lidar_ready;
 output wire	[31:0] lidar_data;
 
 wire	ack;
@@ -41,6 +43,7 @@ wire	n_busy;
 wire	n_is_last;
 wire	nula;
 wire	[10:0] nule_11;
+wire	pixal_valid;
 wire	pixel_valid;
 wire	[3:0] point_index;
 wire	[7:0] q;
@@ -77,6 +80,7 @@ wire	[15:0] SYNTHESIZED_WIRE_24;
 wire	[15:0] SYNTHESIZED_WIRE_25;
 wire	[15:0] SYNTHESIZED_WIRE_26;
 wire	[15:0] SYNTHESIZED_WIRE_27;
+wire	[10:0] SYNTHESIZED_WIRE_28;
 
 wire	[3:0] GDFX_TEMP_SIGNAL_0;
 
@@ -107,6 +111,12 @@ CalculateXY	b2v_inst1(
 	.distance(SYNTHESIZED_WIRE_1),
 	.x_pixel(x_pixel),
 	.y_pixel(y_pixel));
+
+
+ConstantX	b2v_inst10(
+	.DATA_OUT(SYNTHESIZED_WIRE_28));
+	defparam	b2v_inst10.const = 0;
+	defparam	b2v_inst10.size = 11;
 
 
 REG1_LD_CL	b2v_inst12(
@@ -241,8 +251,12 @@ counter_8bit	b2v_inst7(
 	.cnt_en(cnt_en),
 	.q(q));
 
+assign	nule_11 = SYNTHESIZED_WIRE_28;
+
+
 assign	sys_reset =  ~rst_n;
 
+assign	lidar_ready = pixal_valid;
 assign	lidar_data[31] = pixel_valid;
 assign	lidar_data[30:20] = nule_11;
 assign	lidar_data[19:10] = x_pixel[9:0];
