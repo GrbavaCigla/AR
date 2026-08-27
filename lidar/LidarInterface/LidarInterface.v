@@ -14,24 +14,20 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Thu Aug 27 00:18:40 2026"
+// CREATED		"Thu Aug 27 15:18:15 2026"
 
 module LidarInterface(
 	clk,
 	rst_n,
 	rx,
-	pixel_valid,
-	x_pixel,
-	y_pixel
+	lidar_data
 );
 
 
 input wire	clk;
 input wire	rst_n;
 input wire	rx;
-output wire	pixel_valid;
-output wire	[15:0] x_pixel;
-output wire	[15:0] y_pixel;
+output wire	[31:0] lidar_data;
 
 wire	ack;
 wire	busy;
@@ -44,11 +40,15 @@ wire	jedan;
 wire	n_busy;
 wire	n_is_last;
 wire	nula;
+wire	[10:0] nule_11;
+wire	pixel_valid;
 wire	[3:0] point_index;
 wire	[7:0] q;
 wire	sclr;
 wire	[15:0] start_angle;
 wire	sys_reset;
+wire	[15:0] x_pixel;
+wire	[15:0] y_pixel;
 wire	[15:0] SYNTHESIZED_WIRE_0;
 wire	[15:0] SYNTHESIZED_WIRE_1;
 wire	SYNTHESIZED_WIRE_2;
@@ -243,6 +243,10 @@ counter_8bit	b2v_inst7(
 
 assign	sys_reset =  ~rst_n;
 
+assign	lidar_data[31] = pixel_valid;
+assign	lidar_data[30:20] = nule_11;
+assign	lidar_data[19:10] = x_pixel[9:0];
+assign	lidar_data[9:0] = y_pixel[9:0];
 assign	jedan = 1;
 assign	nula = 0;
 
