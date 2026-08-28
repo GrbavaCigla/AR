@@ -13,8 +13,7 @@ typedef byte_t bool_t;
 #define MMIO_REG(addr) (*((volatile dword_t *)(addr)))
 
 // LiDAR
-#define LIDAR_START_ADDRESS ((dword_t)0x00000000)
-#define LIDAR_DWORD_ADDRESS LIDAR_START_ADDRESS + ((dword_t)0x00000000)
+#define LIDAR_DWORD_ADDRESS ((dword_t)0x10000000)
 
 // VGA
-#define VGA_START_ADDRESS ((dword_t)0x00000000)
+#define VGA_DWORD_ADDRESS ((dword_t)0x20000000)
