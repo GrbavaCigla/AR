@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Thu Aug 27 00:16:56 2026"
+// CREATED		"Fri Aug 28 12:58:58 2026"
 
 module CalculateXY(
 	clk,
@@ -44,17 +44,23 @@ wire	nq1;
 wire	nq2;
 wire	nula;
 wire	[9:0] nule_10;
+wire	[10:0] nule_11;
+wire	[12:0] nule_13;
 wire	[14:0] nule_15;
 wire	[15:0] nule_16;
 wire	[19:0] nule_20;
 wire	[2:0] nule_3;
 wire	[3:0] nule_4;
+wire	[4:0] nule_5;
+wire	[5:0] nule_6;
+wire	[7:0] nule_8;
 wire	q1;
 wire	q2;
 wire	q3;
 wire	q4;
 wire	[15:0] reference_angle;
 wire	[31:0] res;
+wire	[15:0] rom_address;
 wire	[15:0] rom_cos_addr;
 wire	[31:0] rom_sin_addr;
 wire	[1:0] sel;
@@ -65,7 +71,6 @@ wire	[32:0] x_lidar;
 wire	[8:0] x_offset;
 wire	[32:0] x_temp;
 wire	[6:0] xVisi_7;
-wire	[15:0] y;
 wire	[32:0] y_lidar;
 wire	[8:0] y_offset;
 wire	[32:0] y_temp;
@@ -74,67 +79,67 @@ wire	[15:0] SYNTHESIZED_WIRE_0;
 wire	SYNTHESIZED_WIRE_1;
 wire	SYNTHESIZED_WIRE_2;
 wire	SYNTHESIZED_WIRE_3;
-wire	SYNTHESIZED_WIRE_4;
+wire	[15:0] SYNTHESIZED_WIRE_4;
 wire	[15:0] SYNTHESIZED_WIRE_5;
 wire	[15:0] SYNTHESIZED_WIRE_6;
 wire	[15:0] SYNTHESIZED_WIRE_7;
 wire	[15:0] SYNTHESIZED_WIRE_8;
 wire	[15:0] SYNTHESIZED_WIRE_9;
-wire	[15:0] SYNTHESIZED_WIRE_10;
+wire	SYNTHESIZED_WIRE_10;
 wire	SYNTHESIZED_WIRE_11;
-wire	SYNTHESIZED_WIRE_12;
+wire	[15:0] SYNTHESIZED_WIRE_27;
 wire	[15:0] SYNTHESIZED_WIRE_13;
 wire	[31:0] SYNTHESIZED_WIRE_14;
 wire	[31:0] SYNTHESIZED_WIRE_15;
-wire	[15:0] SYNTHESIZED_WIRE_16;
-wire	[15:0] SYNTHESIZED_WIRE_17;
+wire	SYNTHESIZED_WIRE_16;
 wire	[15:0] SYNTHESIZED_WIRE_18;
-wire	SYNTHESIZED_WIRE_19;
-wire	SYNTHESIZED_WIRE_20;
-wire	[15:0] SYNTHESIZED_WIRE_21;
+wire	[15:0] SYNTHESIZED_WIRE_19;
+wire	[15:0] SYNTHESIZED_WIRE_20;
+wire	SYNTHESIZED_WIRE_21;
 wire	[15:0] SYNTHESIZED_WIRE_22;
-wire	SYNTHESIZED_WIRE_23;
+wire	[15:0] SYNTHESIZED_WIRE_23;
 wire	SYNTHESIZED_WIRE_24;
-wire	[15:0] SYNTHESIZED_WIRE_25;
+wire	SYNTHESIZED_WIRE_25;
+wire	[15:0] SYNTHESIZED_WIRE_26;
 
-wire	[16:0] GDFX_TEMP_SIGNAL_8;
-wire	[16:0] GDFX_TEMP_SIGNAL_9;
-wire	[15:0] GDFX_TEMP_SIGNAL_13;
-wire	[6:0] GDFX_TEMP_SIGNAL_6;
-wire	[6:0] GDFX_TEMP_SIGNAL_5;
-wire	[15:0] GDFX_TEMP_SIGNAL_12;
-wire	[32:0] GDFX_TEMP_SIGNAL_11;
-wire	[32:0] GDFX_TEMP_SIGNAL_10;
-wire	[31:0] GDFX_TEMP_SIGNAL_7;
-wire	[31:0] GDFX_TEMP_SIGNAL_4;
 wire	[31:0] GDFX_TEMP_SIGNAL_3;
 wire	[31:0] GDFX_TEMP_SIGNAL_2;
 wire	[31:0] GDFX_TEMP_SIGNAL_1;
-wire	[15:0] GDFX_TEMP_SIGNAL_0;
+wire	[31:0] GDFX_TEMP_SIGNAL_0;
+wire	[31:0] GDFX_TEMP_SIGNAL_4;
+wire	[16:0] GDFX_TEMP_SIGNAL_12;
+wire	[16:0] GDFX_TEMP_SIGNAL_13;
+wire	[15:0] GDFX_TEMP_SIGNAL_11;
+wire	[6:0] GDFX_TEMP_SIGNAL_6;
+wire	[6:0] GDFX_TEMP_SIGNAL_5;
+wire	[15:0] GDFX_TEMP_SIGNAL_10;
+wire	[32:0] GDFX_TEMP_SIGNAL_9;
+wire	[32:0] GDFX_TEMP_SIGNAL_8;
+wire	[31:0] GDFX_TEMP_SIGNAL_7;
 
 
-assign	GDFX_TEMP_SIGNAL_8 = {nula,late_distance[15:0]};
-assign	GDFX_TEMP_SIGNAL_9 = {nula,late_distance[15:0]};
-assign	GDFX_TEMP_SIGNAL_13 = {yVisi_7[6:0],y_offset[8:0]};
+assign	GDFX_TEMP_SIGNAL_3 = {nule_11[10:0],reference_angle[15:0],nule_5[4:0]};
+assign	GDFX_TEMP_SIGNAL_2 = {nule_8[7:0],reference_angle[15:0],nule_8[7:0]};
+assign	GDFX_TEMP_SIGNAL_1 = {nule_6[5:0],reference_angle[15:0],nule_10[9:0]};
+assign	GDFX_TEMP_SIGNAL_0 = {nule_3[2:0],reference_angle[15:0],nule_13[12:0]};
+assign	GDFX_TEMP_SIGNAL_4 = {nule_16[15:0],reference_angle[15:0]};
+assign	GDFX_TEMP_SIGNAL_12 = {nula,late_distance[15:0]};
+assign	GDFX_TEMP_SIGNAL_13 = {nula,late_distance[15:0]};
+assign	GDFX_TEMP_SIGNAL_11 = {yVisi_7[6:0],y_offset[8:0]};
 assign	GDFX_TEMP_SIGNAL_6 = {y_offset[8],y_offset[8],y_offset[8],y_offset[8],y_offset[8],y_offset[8],y_offset[8]};
 assign	GDFX_TEMP_SIGNAL_5 = {x_offset[8],x_offset[8],x_offset[8],x_offset[8],x_offset[8],x_offset[8],x_offset[8]};
-assign	GDFX_TEMP_SIGNAL_12 = {xVisi_7[6:0],x_offset[8:0]};
-assign	GDFX_TEMP_SIGNAL_11 = {nule_15[14:0],y_temp[32:15]};
-assign	GDFX_TEMP_SIGNAL_10 = {nule_15[14:0],x_temp[32:15]};
+assign	GDFX_TEMP_SIGNAL_10 = {xVisi_7[6:0],x_offset[8:0]};
+assign	GDFX_TEMP_SIGNAL_9 = {nule_15[14:0],y_temp[32:15]};
+assign	GDFX_TEMP_SIGNAL_8 = {nule_15[14:0],x_temp[32:15]};
 assign	GDFX_TEMP_SIGNAL_7 = {nule_20[19:0],res[31:20]};
-assign	GDFX_TEMP_SIGNAL_4 = {nule_16[15:0],y[15:0]};
-assign	GDFX_TEMP_SIGNAL_3 = {nule_16[15:0],y[15:3],nule_3[2:0]};
-assign	GDFX_TEMP_SIGNAL_2 = {nule_16[15:0],y[15:4],nule_4[3:0]};
-assign	GDFX_TEMP_SIGNAL_1 = {nule_16[15:0],y[15:10],nule_10[9:0]};
-assign	GDFX_TEMP_SIGNAL_0 = {reference_angle[15:3],nula,nula,nula};
 
 
 CMP16	b2v_inst(
 	.A(angle),
 	.B(SYNTHESIZED_WIRE_0),
-	.G(SYNTHESIZED_WIRE_12),
-	.E(SYNTHESIZED_WIRE_11),
-	.L(q1));
+	.G(SYNTHESIZED_WIRE_11),
+	.E(SYNTHESIZED_WIRE_10)
+	);
 
 
 ConstantX	b2v_inst1(
@@ -142,47 +147,53 @@ ConstantX	b2v_inst1(
 	defparam	b2v_inst1.const = 9000;
 	defparam	b2v_inst1.size = 16;
 
-assign	q3 = SYNTHESIZED_WIRE_1 & SYNTHESIZED_WIRE_2;
+assign	q3 = SYNTHESIZED_WIRE_1 & nq2;
 
-assign	SYNTHESIZED_WIRE_2 =  ~nq2;
 
-assign	q4 = SYNTHESIZED_WIRE_3 | SYNTHESIZED_WIRE_4;
+SUB32	b2v_inst11(
+	.E_0(nula),
+	.A(GDFX_TEMP_SIGNAL_0),
+	.B(GDFX_TEMP_SIGNAL_1),
+	
+	.OUT(a));
+
+assign	q4 = SYNTHESIZED_WIRE_2 | SYNTHESIZED_WIRE_3;
 
 
 MPX4_16BIT	b2v_inst13(
 	.data0x(angle),
-	.data1x(SYNTHESIZED_WIRE_5),
-	.data2x(SYNTHESIZED_WIRE_6),
-	.data3x(SYNTHESIZED_WIRE_7),
+	.data1x(SYNTHESIZED_WIRE_4),
+	.data2x(SYNTHESIZED_WIRE_5),
+	.data3x(SYNTHESIZED_WIRE_6),
 	.sel(sel),
 	.result(reference_angle));
 
 
 SUB16	b2v_inst14(
 	.E_0(nula),
-	.A(SYNTHESIZED_WIRE_8),
+	.A(SYNTHESIZED_WIRE_7),
 	.B(angle),
 	
-	.OUT(SYNTHESIZED_WIRE_5));
+	.OUT(SYNTHESIZED_WIRE_4));
 
 
 
 ConstantX	b2v_inst16(
-	.DATA_OUT(SYNTHESIZED_WIRE_8));
+	.DATA_OUT(SYNTHESIZED_WIRE_7));
 	defparam	b2v_inst16.const = 18000;
 	defparam	b2v_inst16.size = 16;
 
 
 SUB16	b2v_inst17(
 	.E_0(nula),
-	.A(SYNTHESIZED_WIRE_9),
+	.A(SYNTHESIZED_WIRE_8),
 	.B(angle),
 	
-	.OUT(SYNTHESIZED_WIRE_7));
+	.OUT(SYNTHESIZED_WIRE_6));
 
 
 ConstantX	b2v_inst18(
-	.DATA_OUT(SYNTHESIZED_WIRE_9));
+	.DATA_OUT(SYNTHESIZED_WIRE_8));
 	defparam	b2v_inst18.const = 36000;
 	defparam	b2v_inst18.size = 16;
 
@@ -190,40 +201,35 @@ ConstantX	b2v_inst18(
 SUB16	b2v_inst19(
 	.E_0(nula),
 	.A(angle),
-	.B(SYNTHESIZED_WIRE_10),
+	.B(SYNTHESIZED_WIRE_9),
 	
-	.OUT(SYNTHESIZED_WIRE_6));
+	.OUT(SYNTHESIZED_WIRE_5));
 
-assign	nq1 = SYNTHESIZED_WIRE_11 | SYNTHESIZED_WIRE_12;
+assign	nq1 = SYNTHESIZED_WIRE_10 | SYNTHESIZED_WIRE_11;
 
 
 ConstantX	b2v_inst20(
-	.DATA_OUT(SYNTHESIZED_WIRE_10));
+	.DATA_OUT(SYNTHESIZED_WIRE_9));
 	defparam	b2v_inst20.const = 18000;
 	defparam	b2v_inst20.size = 16;
 
 assign	sel[0] = q4 | q2;
 
-assign	sel[1] = q3 | q1;
+assign	sel[1] = q3 | q4;
 
 
-ROM_SIN	b2v_inst23(
-	.wren(nula),
-	.clock(clk),
-	.address(rom_sin_addr[5:0]),
-	.data(nule_16),
-	.q(sin));
-
-
-SUB16	b2v_inst24(
-	.E_0(nula),
-	.A(GDFX_TEMP_SIGNAL_0),
-	.B(reference_angle),
+CMP16	b2v_inst24(
+	.A(SYNTHESIZED_WIRE_27),
+	.B(rom_sin_addr[15:0]),
+	.G(SYNTHESIZED_WIRE_16)
 	
-	.OUT(y));
+	);
 
-assign	a = GDFX_TEMP_SIGNAL_1;
 
+ConstantX	b2v_inst25(
+	.DATA_OUT(SYNTHESIZED_WIRE_27));
+	defparam	b2v_inst25.const = 63;
+	defparam	b2v_inst25.size = 16;
 
 assign	b = GDFX_TEMP_SIGNAL_2;
 
@@ -241,9 +247,9 @@ assign	xVisi_7 = GDFX_TEMP_SIGNAL_5;
 CMP16	b2v_inst3(
 	.A(angle),
 	.B(SYNTHESIZED_WIRE_13),
-	.G(SYNTHESIZED_WIRE_24),
-	.E(SYNTHESIZED_WIRE_23),
-	.L(SYNTHESIZED_WIRE_19));
+	.G(SYNTHESIZED_WIRE_25),
+	.E(SYNTHESIZED_WIRE_24),
+	.L(SYNTHESIZED_WIRE_21));
 
 assign	yVisi_7 = GDFX_TEMP_SIGNAL_6;
 
@@ -296,11 +302,6 @@ ConstantX	b2v_inst37(
 	defparam	b2v_inst37.size = 10;
 
 
-ConstantX	b2v_inst38(
-	.DATA_OUT(nule_4));
-	defparam	b2v_inst38.const = 0;
-	defparam	b2v_inst38.size = 4;
-
 
 ConstantX	b2v_inst39(
 	.DATA_OUT(nule_3));
@@ -320,24 +321,24 @@ ConstantX	b2v_inst40(
 	defparam	b2v_inst40.size = 20;
 
 
-ROM_SIN	b2v_inst41(
-	.wren(nula),
-	.clock(clk),
-	.address(rom_cos_addr[5:0]),
-	.data(nule_16),
-	.q(cos));
+MPX2_16BIT	b2v_inst41(
+	.S(SYNTHESIZED_WIRE_16),
+	.E(jedan),
+	.I0(SYNTHESIZED_WIRE_27),
+	.I1(rom_sin_addr[15:0]),
+	.D(rom_address));
 
 
 ConstantX	b2v_inst42(
-	.DATA_OUT(SYNTHESIZED_WIRE_16));
+	.DATA_OUT(SYNTHESIZED_WIRE_18));
 	defparam	b2v_inst42.const = 63;
 	defparam	b2v_inst42.size = 16;
 
 
 SUB16	b2v_inst43(
 	.E_0(nula),
-	.A(SYNTHESIZED_WIRE_16),
-	.B(rom_sin_addr[15:0]),
+	.A(SYNTHESIZED_WIRE_18),
+	.B(rom_address),
 	
 	.OUT(rom_cos_addr));
 
@@ -346,7 +347,7 @@ MPX2_16BIT	b2v_inst44(
 	.S(sin_neg),
 	.E(jedan),
 	.I0(sin),
-	.I1(SYNTHESIZED_WIRE_17),
+	.I1(SYNTHESIZED_WIRE_19),
 	.D(sinus));
 
 
@@ -360,17 +361,17 @@ SUB16	b2v_inst48(
 	.A(nule_16),
 	.B(sin),
 	
-	.OUT(SYNTHESIZED_WIRE_17));
+	.OUT(SYNTHESIZED_WIRE_19));
 
 
 MPX2_16BIT	b2v_inst49(
 	.S(cos_neg),
 	.E(jedan),
 	.I0(cos),
-	.I1(SYNTHESIZED_WIRE_18),
+	.I1(SYNTHESIZED_WIRE_20),
 	.D(cosinus));
 
-assign	q2 = SYNTHESIZED_WIRE_19 & SYNTHESIZED_WIRE_20;
+assign	q2 = SYNTHESIZED_WIRE_21 & nq1;
 
 
 SUB16	b2v_inst50(
@@ -378,24 +379,24 @@ SUB16	b2v_inst50(
 	.A(nule_16),
 	.B(cos),
 	
-	.OUT(SYNTHESIZED_WIRE_18));
+	.OUT(SYNTHESIZED_WIRE_20));
 
 
-MUL_32b	b2v_inst51(
-	.dataa(GDFX_TEMP_SIGNAL_8),
-	.datab(sinus),
-	.result(y_temp));
+ConstantX	b2v_inst51(
+	.DATA_OUT(nule_13));
+	defparam	b2v_inst51.const = 0;
+	defparam	b2v_inst51.size = 13;
 
 
-MUL_32b	b2v_inst52(
-	.dataa(GDFX_TEMP_SIGNAL_9),
-	.datab(cosinus),
-	.result(x_temp));
+ConstantX	b2v_inst52(
+	.DATA_OUT(nule_6));
+	defparam	b2v_inst52.const = 0;
+	defparam	b2v_inst52.size = 6;
 
-assign	x_lidar = GDFX_TEMP_SIGNAL_10;
+assign	x_lidar = GDFX_TEMP_SIGNAL_8;
 
 
-assign	y_lidar = GDFX_TEMP_SIGNAL_11;
+assign	y_lidar = GDFX_TEMP_SIGNAL_9;
 
 
 assign	x_offset = x_lidar[12:4];
@@ -407,32 +408,36 @@ assign	y_offset = y_lidar[12:4];
 
 ADD16	b2v_inst57(
 	.C_0(nula),
-	.A(SYNTHESIZED_WIRE_21),
-	.B(GDFX_TEMP_SIGNAL_12),
+	.A(SYNTHESIZED_WIRE_22),
+	.B(GDFX_TEMP_SIGNAL_10),
 	
 	.OUT(x_pixel));
 
 
 ConstantX	b2v_inst58(
-	.DATA_OUT(SYNTHESIZED_WIRE_21));
+	.DATA_OUT(SYNTHESIZED_WIRE_22));
 	defparam	b2v_inst58.const = 320;
 	defparam	b2v_inst58.size = 16;
 
 
 SUB16	b2v_inst59(
 	.E_0(nula),
-	.A(SYNTHESIZED_WIRE_22),
-	.B(GDFX_TEMP_SIGNAL_13),
+	.A(SYNTHESIZED_WIRE_23),
+	.B(GDFX_TEMP_SIGNAL_11),
 	
 	.OUT(y_pixel));
 
-assign	SYNTHESIZED_WIRE_20 =  ~nq1;
-
 
 ConstantX	b2v_inst60(
-	.DATA_OUT(SYNTHESIZED_WIRE_22));
+	.DATA_OUT(SYNTHESIZED_WIRE_23));
 	defparam	b2v_inst60.const = 240;
 	defparam	b2v_inst60.size = 16;
+
+
+ConstantX	b2v_inst61(
+	.DATA_OUT(nule_8));
+	defparam	b2v_inst61.const = 0;
+	defparam	b2v_inst61.size = 8;
 
 
 ConstantX	b2v_inst62(
@@ -440,19 +445,59 @@ ConstantX	b2v_inst62(
 	defparam	b2v_inst62.const = 0;
 	defparam	b2v_inst62.size = 15;
 
-assign	nq2 = SYNTHESIZED_WIRE_23 | SYNTHESIZED_WIRE_24;
+
+ROM_SIN	b2v_inst63(
+	.wren(nula),
+	.clock(clk),
+	.address(rom_address[5:0]),
+	.data(nule_16),
+	.q(sin));
+
+
+ROM_SIN	b2v_inst64(
+	.wren(nula),
+	.clock(clk),
+	.address(rom_cos_addr[5:0]),
+	.data(nule_16),
+	.q(cos));
+
+
+MUL_32b	b2v_inst65(
+	.dataa(GDFX_TEMP_SIGNAL_12),
+	.datab(cosinus),
+	.result(x_temp));
+
+
+MUL_32b	b2v_inst66(
+	.dataa(GDFX_TEMP_SIGNAL_13),
+	.datab(sinus),
+	.result(y_temp));
+
+
+ConstantX	b2v_inst67(
+	.DATA_OUT(nule_11));
+	defparam	b2v_inst67.const = 0;
+	defparam	b2v_inst67.size = 11;
+
+
+ConstantX	b2v_inst68(
+	.DATA_OUT(nule_5));
+	defparam	b2v_inst68.const = 0;
+	defparam	b2v_inst68.size = 5;
+
+assign	nq2 = SYNTHESIZED_WIRE_24 | SYNTHESIZED_WIRE_25;
 
 
 CMP16	b2v_inst8(
 	.A(angle),
-	.B(SYNTHESIZED_WIRE_25),
-	.G(SYNTHESIZED_WIRE_4),
-	.E(SYNTHESIZED_WIRE_3),
+	.B(SYNTHESIZED_WIRE_26),
+	.G(SYNTHESIZED_WIRE_3),
+	.E(SYNTHESIZED_WIRE_2),
 	.L(SYNTHESIZED_WIRE_1));
 
 
 ConstantX	b2v_inst9(
-	.DATA_OUT(SYNTHESIZED_WIRE_25));
+	.DATA_OUT(SYNTHESIZED_WIRE_26));
 	defparam	b2v_inst9.const = 27000;
 	defparam	b2v_inst9.size = 16;
 
