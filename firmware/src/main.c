@@ -1,10 +1,12 @@
 #include "common.h"
-#include "vga.h"
 #include "lidar.h"
+#include "vga.h"
 
 void _start(void) {
+    register bool_t previous_half = 0;
+
     while (1) {
-        dword_t raw;
+        register dword_t raw;
 
         do {
             raw = LIDAR_DWORD;
@@ -12,7 +14,11 @@ void _start(void) {
 
         register word_t x = LIDAR_GET_X(raw);
         register word_t y = LIDAR_GET_Y(raw);
-        
-        // TODO: Send to VGA
+        register bool_t current_half = (y >= 240);
+
+        (previous_half && !current_half) && VGA_SWAP();
+        previous_half = current_half;
+
+        VGA_WRITE_PIXEL(x, y, 1);
     }
 }

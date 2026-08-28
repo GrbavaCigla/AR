@@ -18,6 +18,7 @@ target_include_directories(firmware PRIVATE
 )
 
 target_compile_options(firmware PRIVATE
+    -O2
     -march=rv32i
     -mabi=ilp32
     -nostdlib
@@ -72,3 +73,10 @@ add_custom_target(mif ALL
     DEPENDS "${MIF_OUT}"
 )
 
+add_custom_command(
+    TARGET mif POST_BUILD
+    COMMAND "${CMAKE_COMMAND}" -E copy_if_different
+            "${MIF_OUT}"
+            "${CMAKE_CURRENT_SOURCE_DIR}/../riscv32i processor/InstructionMemory/InicializationData.mif"
+    VERBATIM
+)
