@@ -135,7 +135,7 @@ applicable agreement for further details.
 	(input)
 	(rect 104 400 272 416)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "FB_SEL" (rect 5 0 46 12)(font "Arial" ))
+	(text "FB_SEL" (rect 5 0 45 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -988,8 +988,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 96)
 		(input)
-		(text "SEL" (rect 0 0 22 14)(font "Arial" (font_size 8)))
-		(text "SEL" (rect 21 91 43 105)(font "Arial" (font_size 8)))
+		(text "FB_SEL" (rect 0 0 44 14)(font "Arial" (font_size 8)))
+		(text "FB_SEL" (rect 21 91 65 105)(font "Arial" (font_size 8)))
 		(line (pt 0 96)(pt 16 96))
 	)
 	(port
