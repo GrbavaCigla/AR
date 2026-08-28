@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 28 00:53:52 2026"
+// CREATED		"Fri Aug 28 14:40:43 2026"
 
 module LidarInterface(
 	clk,
@@ -44,6 +44,7 @@ wire	n_is_last;
 wire	nula;
 wire	[10:0] nule_11;
 wire	pixel_valid;
+wire	pixel_valid_cl;
 wire	[3:0] point_index;
 wire	[7:0] q;
 wire	sclr;
@@ -118,6 +119,7 @@ ConstantX	b2v_inst10(
 	defparam	b2v_inst10.size = 11;
 
 
+
 REG1_LD_CL	b2v_inst12(
 	.LD(data_ready),
 	.I(jedan),
@@ -138,7 +140,7 @@ assign	n_busy =  ~busy;
 
 assign	n_is_last =  ~is_last;
 
-assign	cnt_en = n_is_last & busy;
+assign	cnt_en = n_is_last & pixel_valid;
 
 
 CMP4	b2v_inst20(

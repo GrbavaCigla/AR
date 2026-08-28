@@ -1272,6 +1272,39 @@ applicable agreement for further details.
 	)
 	(annotation_block (parameter)(rect 72 616 254 658))
 )
+(symbol
+	(rect 776 320 840 368)
+	(text "OR2" (rect 1 0 19 10)(font "Arial" (font_size 6)))
+	(text "inst11" (rect 3 37 32 49)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(line (pt 0 32)(pt 15 32))
+	)
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 15 16))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(line (pt 48 24)(pt 64 24))
+	)
+	(drawing
+		(line (pt 14 36)(pt 25 36))
+		(line (pt 14 13)(pt 25 13))
+		(arc (pt 7 29)(pt 7 19)(rect -14 8 19 41))
+		(arc (pt 49 24)(pt 25 13)(rect -6 13 57 76))
+		(arc (pt 25 35)(pt 49 24)(rect -6 -27 57 36))
+	)
+)
 (connector
 	(text "<<__$DEF_ALIAS665>>" (rect 1824 795 1836 913)(font "Arial" )(vertical)(invisible))
 	(pt 1848 800)
@@ -1696,11 +1729,6 @@ applicable agreement for further details.
 	(pt 96 480)
 )
 (connector
-	(text "busy" (rect -51 536 -27 548)(font "Arial" ))
-	(pt -80 552)
-	(pt -8 552)
-)
-(connector
 	(text "clk" (rect 136 496 150 508)(font "Arial" ))
 	(pt 136 512)
 	(pt 216 512)
@@ -2035,11 +2063,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "busy_clear" (rect 736 208 790 220)(font "Arial" ))
-	(pt 784 224)
-	(pt 736 224)
-)
-(connector
 	(text "pixel_valid,nule_11[10..0],x_pixel[9..0],y_pixel[9..0]" (rect 1920 64 2173 76)(font "Arial" ))
 	(pt 2136 80)
 	(pt 1928 80)
@@ -2061,6 +2084,31 @@ applicable agreement for further details.
 	(pt 1928 112)
 	(pt 2136 112)
 )
+(connector
+	(text "pixel_valid" (rect -59 536 -8 548)(font "Arial" ))
+	(pt -80 552)
+	(pt -8 552)
+)
+(connector
+	(text "pixel_valid_cl" (rect 848 328 914 340)(font "Arial" ))
+	(pt 840 344)
+	(pt 880 344)
+)
+(connector
+	(text "is_last" (rect 734 320 765 332)(font "Arial" ))
+	(pt 776 336)
+	(pt 728 336)
+)
+(connector
+	(text "sys_reset" (rect 737 336 786 348)(font "Arial" ))
+	(pt 776 352)
+	(pt 728 352)
+)
+(connector
+	(text "busy_clear" (rect 720 208 774 220)(font "Arial" ))
+	(pt 784 224)
+	(pt 736 224)
+)
 (text "Primitivni busy flip flop" (rect -16 136 109 150)(font "Arial" (font_size 8)))
 (text "Konstante" (rect -200 88 -143 102)(font "Arial" (font_size 8)))
 (text "Invertovani signali" (rect 256 128 357 142)(font "Arial" (font_size 8)))
@@ -2080,6 +2128,7 @@ applicable agreement for further details.
 (text "ove komponente su validni za upis u frame buffer" (rect 720 528 1000 542)(font "Arial" (font_size 8)))
 (text "stvarni opseg pixela je [9..0] tj 10 bita" (rect 2288 440 2498 454)(font "Arial" (font_size 8)))
 (text "izlazni lidar_data => pixel_valid, 0..0, x[9..0],y[9..0]" (rect 2136 48 2420 62)(font "Arial" (font_size 8)))
+(text "ovo mora da se proveri ako koci 12. tacka!" (rect 912 344 1151 358)(font "Arial" (font_size 8)))
 (rectangle (rect -96 152 176 368))
 (rectangle (rect -216 88 -128 160))
 (rectangle (rect 208 152 400 368))
