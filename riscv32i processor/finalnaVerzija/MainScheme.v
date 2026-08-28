@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 28 00:58:39 2026"
+// CREATED		"Fri Aug 28 01:52:34 2026"
 
 module MainScheme(
 	clk,
@@ -29,6 +29,7 @@ module MainScheme(
 	sdram_dqmh,
 	hs,
 	vs,
+	sdram_clk,
 	B,
 	G,
 	R,
@@ -50,6 +51,7 @@ output wire	sdram_dqml;
 output wire	sdram_dqmh;
 output wire	hs;
 output wire	vs;
+output wire	sdram_clk;
 output wire	[3:0] B;
 output wire	[3:0] G;
 output wire	[3:0] R;
@@ -79,6 +81,7 @@ wire	vga_ready;
 wire	[9:0] XIN;
 wire	[9:0] YIN;
 
+assign	sdram_clk = clk;
 wire	[3:0] GDFX_TEMP_SIGNAL_0;
 
 
