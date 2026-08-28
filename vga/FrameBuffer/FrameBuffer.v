@@ -14,12 +14,13 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Aug 26 18:41:10 2026"
+// CREATED		"Fri Aug 28 20:34:51 2026"
 
 module FrameBuffer(
 	clk,
 	SET_PIXEL,
 	SET_BIT,
+	FB_SEL,
 	FB_ADDR,
 	FB_DIN,
 	X,
@@ -33,6 +34,7 @@ module FrameBuffer(
 input wire	clk;
 input wire	SET_PIXEL;
 input wire	SET_BIT;
+input wire	FB_SEL;
 input wire	[15:0] FB_ADDR;
 input wire	[7:0] FB_DIN;
 input wire	[9:0] X;
@@ -77,6 +79,7 @@ assign	GDFX_TEMP_SIGNAL_1 = {Y[9:0],zero,zero,zero,zero,zero,zero};
 FrameBufferWrapper	b2v_inst(
 	.FB_WR(WR),
 	.FB_CLK(clk),
+	.FB_SEL(FB_SEL),
 	.FB_ADDR(PIXEL_ADDR),
 	.FB_DATA_IN(NEW_DATA),
 	.FB_DATA_OUT(OUT_ALTERA_SYNTHESIZED));

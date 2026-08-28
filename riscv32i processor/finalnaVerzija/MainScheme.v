@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 28 01:52:34 2026"
+// CREATED		"Fri Aug 28 20:27:59 2026"
 
 module MainScheme(
 	clk,
@@ -68,6 +68,7 @@ wire	bus_wr;
 wire	cs_lidar;
 wire	cs_sdram;
 wire	cs_vga;
+wire	FB_SEL;
 wire	jedan;
 wire	[31:0] lidar_rdata;
 wire	lidar_ready;
@@ -103,6 +104,7 @@ Monitor	b2v_inst1(
 	.clk(clk),
 	.SET_PIXEL(SET_PIXEL),
 	.SET_BIT(SET_BIT),
+	.FB_SEL(FB_SEL),
 	.XIN(XIN),
 	.YIN(YIN),
 	.hs(hs),
@@ -119,6 +121,19 @@ LidarInterface	b2v_inst10(
 	.rx(rx),
 	.lidar_ready(lidar_ready),
 	.lidar_data(lidar_rdata));
+
+
+VgaBusInterface	b2v_inst2(
+	.cs_vga(cs_vga),
+	.bus_wr(bus_wr),
+	.bus_wdata(bus_wdata),
+	.SET_PIXEL(SET_PIXEL),
+	.SET_BIT(SET_BIT),
+	.SEL(FB_SEL),
+	.vga_ready(vga_ready),
+	.vga_rdata(vga_rdata),
+	.XIN(XIN),
+	.YIN(YIN));
 
 
 sdram_wrapper	b2v_inst4(
@@ -144,18 +159,6 @@ sdram_wrapper	b2v_inst4(
 	.sdram_ba(sdram_ba)
 	);
 
-
-
-VgaBusInterface	b2v_inst6(
-	.cs_vga(cs_vga),
-	.bus_wr(bus_wr),
-	.bus_wdata(bus_wdata),
-	.SET_PIXEL(SET_PIXEL),
-	.SET_BIT(SET_BIT),
-	.vga_ready(vga_ready),
-	.vga_rdata(vga_rdata),
-	.XIN(XIN),
-	.YIN(YIN));
 
 
 BusDecoder	b2v_inst9(
