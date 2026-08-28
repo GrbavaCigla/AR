@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Aug 26 18:45:45 2026"
+// CREATED		"Fri Aug 28 14:31:05 2026"
 
 module PacketParser(
 	clk,
@@ -147,6 +147,7 @@ wire	[15:0] point8_int_ALTERA_SYNTHESIZED;
 wire	[15:0] point9_dist_ALTERA_SYNTHESIZED;
 wire	[15:0] point9_int_ALTERA_SYNTHESIZED;
 wire	[15:0] prev_byte;
+wire	[15:0] prev_byte_le;
 wire	[15:0] speed_ALTERA_SYNTHESIZED;
 wire	speed_end;
 wire	[15:0] start_angle_ALTERA_SYNTHESIZED;
@@ -506,6 +507,12 @@ REG1_LD_CL	b2v_inst134(
 
 assign	SYNTHESIZED_WIRE_3 = sys_reset | ack;
 
+assign	prev_byte[15:8] = prev_byte_le[7:0];
+
+
+assign	prev_byte[7:0] = prev_byte[15:8];
+
+
 
 REG8_LD_CL	b2v_inst14(
 	.LD(speed_end),
@@ -563,7 +570,15 @@ REG8_LD_CL	b2v_inst200(
 	.CL(sys_reset),
 	.clk(clk),
 	.I(rx_data),
-	.A(prev_byte[7:0]));
+	.A(prev_byte_le[7:0]));
+
+
+REG8_LD_CL	b2v_inst201(
+	.LD(byte_ready),
+	.CL(sys_reset),
+	.clk(clk),
+	.I(prev_byte_le[7:0]),
+	.A(prev_byte_le[15:8]));
 
 assign	SYNTHESIZED_WIRE_7 =  ~in_packet;
 
@@ -592,7 +607,7 @@ CMP8	b2v_inst24(
 
 ConstantX	b2v_inst25(
 	.DATA_OUT(SYNTHESIZED_WIRE_9));
-	defparam	b2v_inst25.const = 1;
+	defparam	b2v_inst25.const = 0;
 	defparam	b2v_inst25.size = 8;
 
 
@@ -1006,7 +1021,7 @@ CMP8	b2v_inst80(
 
 ConstantX	b2v_inst81(
 	.DATA_OUT(SYNTHESIZED_WIRE_41));
-	defparam	b2v_inst81.const = 46;
+	defparam	b2v_inst81.const = 45;
 	defparam	b2v_inst81.size = 8;
 
 

@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Aug 26 18:45:53 2026"
+// CREATED		"Fri Aug 28 14:13:26 2026"
 
 module UART_RX(
 	clk,
@@ -76,7 +76,6 @@ wire	[7:0] SYNTHESIZED_WIRE_12;
 wire	[7:0] SYNTHESIZED_WIRE_13;
 wire	[7:0] SYNTHESIZED_WIRE_14;
 wire	[3:0] SYNTHESIZED_WIRE_15;
-wire	SYNTHESIZED_WIRE_16;
 
 wire	[3:0] GDFX_TEMP_SIGNAL_0;
 
@@ -119,8 +118,6 @@ counter_8bit	b2v_inst14(
 	.q(bit_pos));
 
 assign	SYNTHESIZED_WIRE_3 = busy & baud_tick;
-
-assign	SYNTHESIZED_WIRE_16 =  ~busy;
 
 
 CMP8	b2v_inst17(
@@ -383,7 +380,7 @@ assign	sys_reset =  ~rst_n;
 
 assign	SYNTHESIZED_WIRE_1 = frame_done | sys_reset;
 
-assign	SYNTHESIZED_WIRE_2 = SYNTHESIZED_WIRE_16 | sys_reset;
+assign	SYNTHESIZED_WIRE_2 = frame_done | sys_reset;
 
 assign	clr_baud = sys_reset | baud_tick;
 
