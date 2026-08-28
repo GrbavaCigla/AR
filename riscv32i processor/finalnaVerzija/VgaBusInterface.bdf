@@ -133,7 +133,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 384 296 560 312)
+	(rect 384 352 560 368)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "vga_ready" (rect 90 0 143 12)(font "Arial" ))
 	(pt 0 8)
@@ -149,7 +149,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 384 328 561 344)
+	(rect 384 384 561 400)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "vga_rdata[31..0]" (rect 90 0 171 12)(font "Arial" ))
 	(pt 0 8)
@@ -163,8 +163,24 @@ applicable agreement for further details.
 		(line (pt 78 12)(pt 82 8))
 	)
 )
+(pin
+	(output)
+	(rect 384 296 560 312)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "SEL" (rect 90 0 110 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
 (symbol
-	(rect 304 288 336 304)
+	(rect 304 344 336 360)
 	(text "VCC" (rect 7 0 27 10)(font "Arial" (font_size 6)))
 	(text "inst1" (rect 3 5 26 17)(font "Arial" )(invisible))
 	(port
@@ -179,7 +195,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 304 336 336 368)
+	(rect 304 392 336 424)
 	(text "GND" (rect 8 16 29 26)(font "Arial" (font_size 6)))
 	(text "inst2" (rect 3 21 26 33)(font "Arial" )(invisible))
 	(port
@@ -240,16 +256,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 384 304)
-	(pt 320 304)
-)
-(connector
-	(text "<<__$DEF_ALIAS1620>>" (rect 320 320 443 332)(font "Arial" )(invisible))
-	(pt 320 336)
-	(pt 384 336)
-	(bus)
-)
-(connector
 	(text "cs_vga" (rect 187 152 223 164)(font "Arial" ))
 	(pt 184 168)
 	(pt 224 168)
@@ -267,4 +273,19 @@ applicable agreement for further details.
 	(text "bus_wdata[31]" (rect 304 192 374 204)(font "Arial" ))
 	(pt 384 208)
 	(pt 288 208)
+)
+(connector
+	(pt 384 360)
+	(pt 320 360)
+)
+(connector
+	(text "<<__$DEF_ALIAS1620>>" (rect 320 376 443 388)(font "Arial" )(invisible))
+	(pt 320 392)
+	(pt 384 392)
+	(bus)
+)
+(connector
+	(text "bus_wdata[30]" (rect 296 288 366 300)(font "Arial" ))
+	(pt 384 304)
+	(pt 288 304)
 )
