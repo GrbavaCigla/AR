@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 28 00:55:38 2026"
+// CREATED		"Fri Aug 28 20:57:11 2026"
 
 module VgaBusInterface(
 	cs_vga,
@@ -23,6 +23,7 @@ module VgaBusInterface(
 	SET_PIXEL,
 	SET_BIT,
 	vga_ready,
+	SEL,
 	vga_rdata,
 	XIN,
 	YIN
@@ -35,6 +36,7 @@ input wire	[31:0] bus_wdata;
 output wire	SET_PIXEL;
 output wire	SET_BIT;
 output wire	vga_ready;
+output wire	SEL;
 output wire	[31:0] vga_rdata;
 output wire	[9:0] XIN;
 output wire	[9:0] YIN;
@@ -42,6 +44,7 @@ output wire	[9:0] YIN;
 
 assign	SET_BIT = bus_wdata[31];
 assign	vga_ready = 1;
+assign	SEL = bus_wdata[30];
 assign	vga_rdata = 32'b00000000000000000000000000000000;
 assign	XIN = bus_wdata[9:0];
 assign	YIN = bus_wdata[19:10];

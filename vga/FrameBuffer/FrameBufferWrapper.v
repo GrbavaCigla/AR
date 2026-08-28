@@ -14,11 +14,12 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Aug 26 18:41:24 2026"
+// CREATED		"Fri Aug 28 20:35:03 2026"
 
 module FrameBufferWrapper(
 	FB_WR,
 	FB_CLK,
+	FB_SEL,
 	FB_ADDR,
 	FB_DATA_IN,
 	FB_DATA_OUT
@@ -27,21 +28,62 @@ module FrameBufferWrapper(
 
 input wire	FB_WR;
 input wire	FB_CLK;
+input wire	FB_SEL;
 input wire	[15:0] FB_ADDR;
 input wire	[7:0] FB_DATA_IN;
 output wire	[7:0] FB_DATA_OUT;
 
+wire	NSEL;
+reg	SEL;
+wire	SYNTHESIZED_WIRE_0;
+wire	SYNTHESIZED_WIRE_1;
+wire	SYNTHESIZED_WIRE_2;
+wire	[7:0] SYNTHESIZED_WIRE_3;
+wire	[7:0] SYNTHESIZED_WIRE_4;
 
 
 
 
 
-FrameBufferRAM	b2v_inst(
-	.wren(FB_WR),
+always@(posedge FB_CLK)
+begin
+	SEL <= SEL ^ SYNTHESIZED_WIRE_0;
+end
+
+
+FrameBufferRAM	b2v_inst100(
+	.wren(SYNTHESIZED_WIRE_1),
 	.clock(FB_CLK),
 	.address(FB_ADDR),
 	.data(FB_DATA_IN),
-	.q(FB_DATA_OUT));
+	.q(SYNTHESIZED_WIRE_4));
+
+
+FrameBufferRAM	b2v_inst101(
+	.wren(SYNTHESIZED_WIRE_2),
+	.clock(FB_CLK),
+	.address(FB_ADDR),
+	.data(FB_DATA_IN),
+	.q(SYNTHESIZED_WIRE_3));
+
+
+MPX2_8BIT	b2v_inst2(
+	.sel(NSEL),
+	.data0x(SYNTHESIZED_WIRE_3),
+	.data1x(SYNTHESIZED_WIRE_4),
+	.result(FB_DATA_OUT));
+
+assign	SYNTHESIZED_WIRE_1 = FB_WR & SEL;
+
+assign	SYNTHESIZED_WIRE_2 = FB_WR & NSEL;
+
+
+RisingEdgeDetector	b2v_inst6(
+	.IN(FB_SEL),
+	.CLK(FB_CLK),
+	.OUT(SYNTHESIZED_WIRE_0));
+
+assign	NSEL =  ~SEL;
 
 
 endmodule
