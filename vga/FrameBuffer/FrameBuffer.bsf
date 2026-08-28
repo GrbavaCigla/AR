@@ -20,9 +20,9 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 224 176)
+	(rect 16 16 224 208)
 	(text "FrameBuffer" (rect 5 0 76 14)(font "Arial" (font_size 8)))
-	(text "inst" (rect 8 144 25 156)(font "Arial" ))
+	(text "inst" (rect 8 176 25 188)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -73,6 +73,13 @@ applicable agreement for further details.
 		(line (pt 0 128)(pt 16 128))
 	)
 	(port
+		(pt 0 144)
+		(input)
+		(text "FB_SEL" (rect 0 0 44 14)(font "Arial" (font_size 8)))
+		(text "FB_SEL" (rect 21 139 65 153)(font "Arial" (font_size 8)))
+		(line (pt 0 144)(pt 16 144))
+	)
+	(port
 		(pt 208 32)
 		(output)
 		(text "OUT[7..0]" (rect 0 0 53 14)(font "Arial" (font_size 8)))
@@ -94,6 +101,6 @@ applicable agreement for further details.
 		(line (pt 208 64)(pt 192 64))
 	)
 	(drawing
-		(rectangle (rect 16 16 192 144))
+		(rectangle (rect 16 16 192 176))
 	)
 )

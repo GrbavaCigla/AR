@@ -59,6 +59,13 @@ applicable agreement for further details.
 		(line (pt 0 96)(pt 16 96)(line_width 3))
 	)
 	(port
+		(pt 0 112)
+		(input)
+		(text "FB_SEL" (rect 0 0 44 14)(font "Arial" (font_size 8)))
+		(text "FB_SEL" (rect 21 107 65 121)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
 		(pt 216 32)
 		(output)
 		(text "R[3..0]" (rect 0 0 36 14)(font "Arial" (font_size 8)))

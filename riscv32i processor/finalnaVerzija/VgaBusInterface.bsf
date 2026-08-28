@@ -75,16 +75,23 @@ applicable agreement for further details.
 	(port
 		(pt 248 96)
 		(output)
-		(text "vga_ready" (rect 0 0 61 14)(font "Arial" (font_size 8)))
-		(text "vga_ready" (rect 166 91 227 105)(font "Arial" (font_size 8)))
+		(text "SEL" (rect 0 0 22 14)(font "Arial" (font_size 8)))
+		(text "SEL" (rect 205 91 227 105)(font "Arial" (font_size 8)))
 		(line (pt 248 96)(pt 232 96))
 	)
 	(port
 		(pt 248 112)
 		(output)
+		(text "vga_ready" (rect 0 0 61 14)(font "Arial" (font_size 8)))
+		(text "vga_ready" (rect 166 107 227 121)(font "Arial" (font_size 8)))
+		(line (pt 248 112)(pt 232 112))
+	)
+	(port
+		(pt 248 128)
+		(output)
 		(text "vga_rdata[31..0]" (rect 0 0 93 14)(font "Arial" (font_size 8)))
-		(text "vga_rdata[31..0]" (rect 134 107 227 121)(font "Arial" (font_size 8)))
-		(line (pt 248 112)(pt 232 112)(line_width 3))
+		(text "vga_rdata[31..0]" (rect 134 123 227 137)(font "Arial" (font_size 8)))
+		(line (pt 248 128)(pt 232 128)(line_width 3))
 	)
 	(drawing
 		(rectangle (rect 16 16 232 144))
