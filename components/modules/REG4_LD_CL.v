@@ -14,60 +14,60 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 28 14:15:58 2026"
+// CREATED		"Sat Aug 29 13:42:30 2026"
 
-module VgaTest(
-	CLK,
-	HS,
-	VS,
-	B,
-	G,
-	R
+module REG4_LD_CL(
+	CL,
+	clk,
+	LD,
+	I,
+	A
 );
 
 
-input wire	CLK;
-output wire	HS;
-output wire	VS;
-output wire	[3:0] B;
-output wire	[3:0] G;
-output wire	[3:0] R;
+input wire	CL;
+input wire	clk;
+input wire	LD;
+input wire	[3:0] I;
+output wire	[3:0] A;
 
-reg	vga_clk;
-wire	SYNTHESIZED_WIRE_0;
-wire	SYNTHESIZED_WIRE_5;
-wire	[0:9] SYNTHESIZED_WIRE_6;
-
-assign	SYNTHESIZED_WIRE_5 = 0;
-assign	SYNTHESIZED_WIRE_6 = 0;
+wire	[3:0] A_ALTERA_SYNTHESIZED;
 
 
 
 
-always@(posedge CLK)
-begin
-	begin
-	vga_clk <= SYNTHESIZED_WIRE_0;
-	end
-end
+
+REG1_LD_CL	b2v_inst6(
+	.LD(LD),
+	.I(I[0]),
+	.CL(CL),
+	.clk(clk),
+	.A(A_ALTERA_SYNTHESIZED[0]));
 
 
-Monitor	b2v_inst1(
-	.clk(vga_clk),
-	.SET_PIXEL(SYNTHESIZED_WIRE_5),
-	.SET_BIT(SYNTHESIZED_WIRE_5),
-	.XIN(SYNTHESIZED_WIRE_6),
-	.YIN(SYNTHESIZED_WIRE_6),
-	.hs(HS),
-	.vs(VS),
-	
-	.B(B),
-	.G(G),
-	.R(R));
+REG1_LD_CL	b2v_inst7(
+	.LD(LD),
+	.I(I[1]),
+	.CL(CL),
+	.clk(clk),
+	.A(A_ALTERA_SYNTHESIZED[1]));
 
 
+REG1_LD_CL	b2v_inst8(
+	.LD(LD),
+	.I(I[2]),
+	.CL(CL),
+	.clk(clk),
+	.A(A_ALTERA_SYNTHESIZED[2]));
 
-assign	SYNTHESIZED_WIRE_0 =  ~vga_clk;
 
+REG1_LD_CL	b2v_inst9(
+	.LD(LD),
+	.I(I[3]),
+	.CL(CL),
+	.clk(clk),
+	.A(A_ALTERA_SYNTHESIZED[3]));
+
+assign	A = A_ALTERA_SYNTHESIZED;
 
 endmodule

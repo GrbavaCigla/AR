@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sat Aug 29 10:33:09 2026"
+// CREATED		"Sat Aug 29 16:22:09 2026"
 
 module Monitor(
 	SET_PIXEL,
@@ -63,19 +63,25 @@ wire	SYNTHESIZED_WIRE_0;
 wire	[3:0] SYNTHESIZED_WIRE_1;
 wire	[3:0] SYNTHESIZED_WIRE_2;
 wire	[3:0] SYNTHESIZED_WIRE_3;
+wire	SYNTHESIZED_WIRE_4;
+wire	SYNTHESIZED_WIRE_5;
+wire	SYNTHESIZED_WIRE_6;
 
+assign	SYNTHESIZED_WIRE_4 = 0;
+assign	SYNTHESIZED_WIRE_5 = 0;
+assign	SYNTHESIZED_WIRE_6 = 0;
 
 
 
 
 ConstantX	b2v_inst(
 	.DATA_OUT(PR));
-	defparam	b2v_inst.const = 255;
+	defparam	b2v_inst.const = 15;
 	defparam	b2v_inst.size = 4;
 
 
 FrameBuffer	b2v_inst1(
-	.clk(vga_clk),
+	.clk(clk),
 	.SET_PIXEL(SET_PIXEL_ACTUAL),
 	.SET_BIT(SET_BIT),
 	.FB_SEL(FB_SEL),
@@ -83,16 +89,16 @@ FrameBuffer	b2v_inst1(
 	
 	.X(ACTUAL_X),
 	.Y(ACTUAL_Y),
-	.PIXEL_ON(v),
+	
 	.WR_PIXEL(PIXEL_CHANGED)
 	);
 
 
 ClockDivider	b2v_inst10(
-	.CLK_IN(clk),
-	.CLK_OUT(vga_clk));
-	defparam	b2v_inst10.period_in_MHz = 50;
-	defparam	b2v_inst10.period_out_ns = 40;
+	
+	.CLK_IN(clk)
+	
+	);
 
 
 MPX2_10BIT	b2v_inst100(
@@ -101,15 +107,38 @@ MPX2_10BIT	b2v_inst100(
 	.data1x(XIN),
 	.result(ACTUAL_X));
 
+
 assign	SET_PIXEL_ACTUAL = SET_PIXEL & SYNTHESIZED_WIRE_0;
 
 assign	SYNTHESIZED_WIRE_0 =  ~display;
 
+
+Controller2	b2v_inst17(
+	.CLK(clk),
+	.HS(hs),
+	.VS(vs),
+	.DISPLAY(display),
+	.X(controllerX),
+	.Y(controllerY));
+
+
+
 assign	R = SYNTHESIZED_WIRE_1 & {display,display,display,display};
 
 
+
+ConstantX	b2v_inst29(
+	.DATA_OUT(PG));
+	defparam	b2v_inst29.const = 0;
+	defparam	b2v_inst29.size = 4;
+
 assign	B = SYNTHESIZED_WIRE_2 & {display,display,display,display};
 
+
+ConstantX	b2v_inst30(
+	.DATA_OUT(PB));
+	defparam	b2v_inst30.const = 0;
+	defparam	b2v_inst30.size = 4;
 
 assign	G = SYNTHESIZED_WIRE_3 & {display,display,display,display};
 
@@ -118,13 +147,13 @@ BackgroundMain	b2v_inst5(
 	.X(controllerX),
 	.Y(controllerY),
 	
-	
-	
+	.B(BB),
+	.G(BG),
 	.R(BR));
 
 
 MultiplexerX	b2v_inst6(
-	.S(v),
+	.S(SYNTHESIZED_WIRE_4),
 	.I0(BR),
 	.I1(PR),
 	.Y(SYNTHESIZED_WIRE_1));
@@ -132,17 +161,17 @@ MultiplexerX	b2v_inst6(
 
 
 MultiplexerX	b2v_inst7(
-	.S(v),
-	.I0(BR),
-	.I1(PR),
+	.S(SYNTHESIZED_WIRE_5),
+	.I0(BG),
+	.I1(PG),
 	.Y(SYNTHESIZED_WIRE_3));
 	defparam	b2v_inst7.size = 4;
 
 
 MultiplexerX	b2v_inst8(
-	.S(v),
-	.I0(BR),
-	.I1(PR),
+	.S(SYNTHESIZED_WIRE_6),
+	.I0(BB),
+	.I1(PB),
 	.Y(SYNTHESIZED_WIRE_2));
 	defparam	b2v_inst8.size = 4;
 
@@ -153,14 +182,6 @@ MPX2_10BIT	b2v_inst9(
 	.data1x(YIN),
 	.result(ACTUAL_Y));
 
-
-Controller	b2v_inst99(
-	.CLK(vga_clk),
-	.HS(hs),
-	.VS(vs),
-	.DISPLAY(display),
-	.X(controllerX),
-	.Y(controllerY));
 
 
 endmodule

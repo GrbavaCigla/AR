@@ -1,0 +1,177 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+# Date created = 13:33:05  August 29, 2026
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		VgaTest1_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CEBA4F23C7
+set_global_assignment -name TOP_LEVEL_ENTITY VgaTest
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "13:33:05  AUGUST 29, 2026"
+set_global_assignment -name LAST_QUARTUS_VERSION 13.1
+set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar\\vga"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_A7 -to B[3]
+set_location_assignment PIN_A8 -to B[2]
+set_location_assignment PIN_B7 -to B[1]
+set_location_assignment PIN_B6 -to B[0]
+set_location_assignment PIN_M9 -to CLK
+set_location_assignment PIN_J8 -to G[3]
+set_location_assignment PIN_J7 -to G[2]
+set_location_assignment PIN_K7 -to G[1]
+set_location_assignment PIN_L7 -to G[0]
+set_location_assignment PIN_H8 -to HS
+set_location_assignment PIN_A5 -to R[3]
+set_location_assignment PIN_C9 -to R[2]
+set_location_assignment PIN_B10 -to R[1]
+set_location_assignment PIN_A9 -to R[0]
+set_location_assignment PIN_G8 -to VS
+set_location_assignment PIN_AA2 -to LED0
+set_global_assignment -name BDF_FILE ../../vga/VGAControler/Controller.bdf
+set_global_assignment -name BDF_FILE ../../vga/Monitor/Monitor.bdf
+set_global_assignment -name BDF_FILE ../../vga/models/RisingEdgeDetector.bdf
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG4_LD_CL.v
+set_global_assignment -name VERILOG_FILE ../../vga/models/FrameBufferWrapper.v
+set_global_assignment -name VERILOG_FILE ../../vga/models/FrameBuffer.v
+set_global_assignment -name VERILOG_FILE ../../vga/models/RegisterX.v
+set_global_assignment -name VERILOG_FILE ../../vga/models/Point.v
+set_global_assignment -name VERILOG_FILE ../../vga/models/MultiplexerX.v
+set_global_assignment -name VERILOG_FILE ../../vga/models/FrameBufferRAM.v
+set_global_assignment -name VERILOG_FILE ../../vga/models/ConstantX.v
+set_global_assignment -name VERILOG_FILE ../../vga/models/ComparatorX.v
+set_global_assignment -name VERILOG_FILE ../../vga/models/ClockDivider_ns.v
+set_global_assignment -name VERILOG_FILE ../../vga/models/ClockDivider_div2.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_MODE_030_13b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_CMD_WRITE_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_CMD_REFRESH_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_CMD_READ_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_CMD_PRE_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_CMD_PALL_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_CMD_NOP_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_CMD_MRS_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_CMD_ACTIVE_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_10000_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_389_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_8_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_3_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_1_25b.v
+set_global_assignment -name VERILOG_FILE ../../components/CONST/moduls/CONST_0_16b.v
+set_global_assignment -name BDF_FILE VgaTest.bdf
+set_global_assignment -name VERILOG_FILE ../../components/modules/XOR2_32BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/TRI_16b.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/SUB32.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/SUB16.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/SUB8.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/SUB4.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/SUB2.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/SUB1.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/SRA_SRL_32BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/SR5_32BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/SR_32BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/SL5_32BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/SL_32BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/ROM1.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG32_LD_CL_INC_DEC_SL_SR.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG32_LD_CL_INC_DEC.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG32_LD_CL.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG25_LD_CL.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG16_LD_CL_INC_DEC_SL_SR.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG16_LD_CL_INC_DEC.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG16_LD_CL.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG8_LD_CL_INC_DEC_SL_SR.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG8_LD_CL_INC_DEC.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG8_LD_CL.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG1_LD_CL_INC_DEC_SL_SR.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG1_LD_CL_INC_DEC.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/REG1_LD_CL.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/RAM2.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/OR32.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/OR16.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/OR2_32BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MUL_32b.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX32_32bit_2.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX32_32bit.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX16_32BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX12_16BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX8.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX5_32bit.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX4_32BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX4_16BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX4_4bit.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX4.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX2_32BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX2_26BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX2_25BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX2_16BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX2_13BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX2_10BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX2_8BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX2_2BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/MPX2.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/DMPX2_32BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/DMPX2.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/DEC5.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/DEC3.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/CMP32.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/CMP16.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/CMP8.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/CMP4.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/CMP1.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/AND32.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/AND16.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/AND2_32BIT.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/ADD32.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/ADD25.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/ADD16.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/ADD8.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/ADD4.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/ADD2.v
+set_global_assignment -name VERILOG_FILE ../../components/modules/ADD1.v
+set_global_assignment -name BDF_FILE ../../vga/Layers/Background/BackgroundMain.bdf
+set_global_assignment -name BDF_FILE output_files/Controller2.bdf
+set_global_assignment -name BDF_FILE Controller2.bdf
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
