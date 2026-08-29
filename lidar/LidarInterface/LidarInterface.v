@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 28 14:40:43 2026"
+// CREATED		"Sat Aug 29 11:36:12 2026"
 
 module LidarInterface(
 	clk,
@@ -88,7 +88,7 @@ wire	[3:0] GDFX_TEMP_SIGNAL_0;
 assign	GDFX_TEMP_SIGNAL_0 = {jedan,nula,jedan,jedan};
 
 
-anglegenerator	b2v_inst(
+AngleGenerator	b2v_inst(
 	.end_angle(end_angle),
 	.start_angle(start_angle),
 	.angle_p0(SYNTHESIZED_WIRE_16),

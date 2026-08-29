@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 28 14:31:05 2026"
+// CREATED		"Sat Aug 29 12:55:02 2026"
 
 module PacketParser(
 	clk,
@@ -381,8 +381,6 @@ REG8_LD_CL	b2v_inst119(
 	.I(prev_byte[7:0]),
 	.A(point8_dist_ALTERA_SYNTHESIZED[7:0]));
 
-assign	verlen_fail = SYNTHESIZED_WIRE_1 & SYNTHESIZED_WIRE_2 & byte_ready;
-
 
 REG8_LD_CL	b2v_inst120(
 	.LD(p8_int),
@@ -463,7 +461,7 @@ REG8_LD_CL	b2v_inst129(
 	.I(prev_byte[7:0]),
 	.A(point10_int_ALTERA_SYNTHESIZED[7:0]));
 
-assign	SYNTHESIZED_WIRE_1 =  ~verlen_match;
+assign	SYNTHESIZED_WIRE_2 =  ~verlen_match;
 
 
 REG8_LD_CL	b2v_inst130(
@@ -501,17 +499,19 @@ REG8_LD_CL	b2v_inst133(
 REG1_LD_CL	b2v_inst134(
 	.LD(pkt_done),
 	.I(jedan),
-	.CL(SYNTHESIZED_WIRE_3),
+	.CL(SYNTHESIZED_WIRE_1),
 	.clk(clk),
 	.A(data_ready_ALTERA_SYNTHESIZED));
 
-assign	SYNTHESIZED_WIRE_3 = sys_reset | ack;
+assign	SYNTHESIZED_WIRE_1 = sys_reset | ack;
 
 assign	prev_byte[15:8] = prev_byte_le[7:0];
 
 
-assign	prev_byte[7:0] = prev_byte[15:8];
+assign	prev_byte[7:0] = prev_byte_le[15:8];
 
+
+assign	verlen_fail = SYNTHESIZED_WIRE_2 & in_packet & SYNTHESIZED_WIRE_3 & byte_ready;
 
 
 REG8_LD_CL	b2v_inst14(
@@ -601,7 +601,7 @@ CMP8	b2v_inst24(
 	.A(byte_pos),
 	.B(SYNTHESIZED_WIRE_9),
 	
-	.E(SYNTHESIZED_WIRE_2)
+	.E(SYNTHESIZED_WIRE_3)
 	);
 
 
