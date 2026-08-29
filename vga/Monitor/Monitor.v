@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 28 20:33:29 2026"
+// CREATED		"Sat Aug 29 10:33:09 2026"
 
 module Monitor(
 	SET_PIXEL,
@@ -58,6 +58,7 @@ wire	[3:0] PG;
 wire	[3:0] PR;
 wire	SET_PIXEL_ACTUAL;
 wire	v;
+wire	vga_clk;
 wire	SYNTHESIZED_WIRE_0;
 wire	[3:0] SYNTHESIZED_WIRE_1;
 wire	[3:0] SYNTHESIZED_WIRE_2;
@@ -74,7 +75,7 @@ ConstantX	b2v_inst(
 
 
 FrameBuffer	b2v_inst1(
-	.clk(clk),
+	.clk(vga_clk),
 	.SET_PIXEL(SET_PIXEL_ACTUAL),
 	.SET_BIT(SET_BIT),
 	.FB_SEL(FB_SEL),
@@ -85,6 +86,13 @@ FrameBuffer	b2v_inst1(
 	.PIXEL_ON(v),
 	.WR_PIXEL(PIXEL_CHANGED)
 	);
+
+
+ClockDivider	b2v_inst10(
+	.CLK_IN(clk),
+	.CLK_OUT(vga_clk));
+	defparam	b2v_inst10.period_in_MHz = 50;
+	defparam	b2v_inst10.period_out_ns = 40;
 
 
 MPX2_10BIT	b2v_inst100(
@@ -147,7 +155,7 @@ MPX2_10BIT	b2v_inst9(
 
 
 Controller	b2v_inst99(
-	.CLK(clk),
+	.CLK(vga_clk),
 	.HS(hs),
 	.VS(vs),
 	.DISPLAY(display),
