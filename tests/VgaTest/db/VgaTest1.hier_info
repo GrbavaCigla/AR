@@ -1,0 +1,3972 @@
+|VgaTest
+HS <= Monitor:inst.hs
+CLK => Monitor:inst.clk
+CLK => Controller:inst6.CLK
+VS <= Monitor:inst.vs
+LED0 <= x[9].DB_MAX_OUTPUT_PORT_TYPE
+B[0] <= Monitor:inst.B[0]
+B[1] <= Monitor:inst.B[1]
+B[2] <= Monitor:inst.B[2]
+B[3] <= Monitor:inst.B[3]
+G[0] <= Monitor:inst.G[0]
+G[1] <= Monitor:inst.G[1]
+G[2] <= Monitor:inst.G[2]
+G[3] <= Monitor:inst.G[3]
+R[0] <= Monitor:inst.R[0]
+R[1] <= Monitor:inst.R[1]
+R[2] <= Monitor:inst.R[2]
+R[3] <= Monitor:inst.R[3]
+
+
+|VgaTest|Monitor:inst
+hs <= Controller:inst99.HS
+clk => Controller:inst99.CLK
+clk => FrameBuffer:inst1.clk
+clk => ClockDivider:inst10.CLK_IN
+vs <= Controller:inst99.VS
+PIXEL_CHANGED <= FrameBuffer:inst1.WR_PIXEL
+SET_PIXEL => inst13.IN0
+SET_BIT => FrameBuffer:inst1.SET_BIT
+FB_SEL => FrameBuffer:inst1.FB_SEL
+XIN[0] => MPX2_10BIT:inst100.data1x[0]
+XIN[1] => MPX2_10BIT:inst100.data1x[1]
+XIN[2] => MPX2_10BIT:inst100.data1x[2]
+XIN[3] => MPX2_10BIT:inst100.data1x[3]
+XIN[4] => MPX2_10BIT:inst100.data1x[4]
+XIN[5] => MPX2_10BIT:inst100.data1x[5]
+XIN[6] => MPX2_10BIT:inst100.data1x[6]
+XIN[7] => MPX2_10BIT:inst100.data1x[7]
+XIN[8] => MPX2_10BIT:inst100.data1x[8]
+XIN[9] => MPX2_10BIT:inst100.data1x[9]
+YIN[0] => MPX2_10BIT:inst9.data1x[0]
+YIN[1] => MPX2_10BIT:inst9.data1x[1]
+YIN[2] => MPX2_10BIT:inst9.data1x[2]
+YIN[3] => MPX2_10BIT:inst9.data1x[3]
+YIN[4] => MPX2_10BIT:inst9.data1x[4]
+YIN[5] => MPX2_10BIT:inst9.data1x[5]
+YIN[6] => MPX2_10BIT:inst9.data1x[6]
+YIN[7] => MPX2_10BIT:inst9.data1x[7]
+YIN[8] => MPX2_10BIT:inst9.data1x[8]
+YIN[9] => MPX2_10BIT:inst9.data1x[9]
+B[0] <= inst3[0].DB_MAX_OUTPUT_PORT_TYPE
+B[1] <= inst3[1].DB_MAX_OUTPUT_PORT_TYPE
+B[2] <= inst3[2].DB_MAX_OUTPUT_PORT_TYPE
+B[3] <= inst3[3].DB_MAX_OUTPUT_PORT_TYPE
+G[0] <= inst4[0].DB_MAX_OUTPUT_PORT_TYPE
+G[1] <= inst4[1].DB_MAX_OUTPUT_PORT_TYPE
+G[2] <= inst4[2].DB_MAX_OUTPUT_PORT_TYPE
+G[3] <= inst4[3].DB_MAX_OUTPUT_PORT_TYPE
+R[0] <= inst2[0].DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= inst2[1].DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= inst2[2].DB_MAX_OUTPUT_PORT_TYPE
+R[3] <= inst2[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|Controller:inst99
+HS <= inst11.DB_MAX_OUTPUT_PORT_TYPE
+CLK => RegisterX:inst.CLK
+CLK => RegisterX:inst3.CLK
+X[0] <= RegisterX:inst.DATA_OUT[0]
+X[1] <= RegisterX:inst.DATA_OUT[1]
+X[2] <= RegisterX:inst.DATA_OUT[2]
+X[3] <= RegisterX:inst.DATA_OUT[3]
+X[4] <= RegisterX:inst.DATA_OUT[4]
+X[5] <= RegisterX:inst.DATA_OUT[5]
+X[6] <= RegisterX:inst.DATA_OUT[6]
+X[7] <= RegisterX:inst.DATA_OUT[7]
+X[8] <= RegisterX:inst.DATA_OUT[8]
+X[9] <= RegisterX:inst.DATA_OUT[9]
+VS <= inst16.DB_MAX_OUTPUT_PORT_TYPE
+Y[0] <= RegisterX:inst3.DATA_OUT[0]
+Y[1] <= RegisterX:inst3.DATA_OUT[1]
+Y[2] <= RegisterX:inst3.DATA_OUT[2]
+Y[3] <= RegisterX:inst3.DATA_OUT[3]
+Y[4] <= RegisterX:inst3.DATA_OUT[4]
+Y[5] <= RegisterX:inst3.DATA_OUT[5]
+Y[6] <= RegisterX:inst3.DATA_OUT[6]
+Y[7] <= RegisterX:inst3.DATA_OUT[7]
+Y[8] <= RegisterX:inst3.DATA_OUT[8]
+Y[9] <= RegisterX:inst3.DATA_OUT[9]
+DISPLAY <= inst21.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ComparatorX:inst10
+A[0] => Equal0.IN10
+A[0] => LessThan0.IN11
+A[0] => LessThan1.IN11
+A[1] => Equal0.IN9
+A[1] => LessThan0.IN10
+A[1] => LessThan1.IN10
+A[2] => Equal0.IN8
+A[2] => LessThan0.IN9
+A[2] => LessThan1.IN9
+A[3] => Equal0.IN7
+A[3] => LessThan0.IN8
+A[3] => LessThan1.IN8
+A[4] => Equal0.IN6
+A[4] => LessThan0.IN7
+A[4] => LessThan1.IN7
+A[5] => Equal0.IN5
+A[5] => LessThan0.IN6
+A[5] => LessThan1.IN6
+A[6] => Equal0.IN4
+A[6] => LessThan0.IN5
+A[6] => LessThan1.IN5
+A[7] => Equal0.IN3
+A[7] => LessThan0.IN4
+A[7] => LessThan1.IN4
+A[8] => Equal0.IN2
+A[8] => LessThan0.IN3
+A[8] => LessThan1.IN3
+A[9] => Equal0.IN1
+A[9] => LessThan0.IN2
+A[9] => LessThan1.IN2
+A[10] => Equal0.IN0
+A[10] => LessThan0.IN1
+A[10] => LessThan1.IN1
+B[0] => Equal0.IN21
+B[0] => LessThan0.IN22
+B[0] => LessThan1.IN22
+B[1] => Equal0.IN20
+B[1] => LessThan0.IN21
+B[1] => LessThan1.IN21
+B[2] => Equal0.IN19
+B[2] => LessThan0.IN20
+B[2] => LessThan1.IN20
+B[3] => Equal0.IN18
+B[3] => LessThan0.IN19
+B[3] => LessThan1.IN19
+B[4] => Equal0.IN17
+B[4] => LessThan0.IN18
+B[4] => LessThan1.IN18
+B[5] => Equal0.IN16
+B[5] => LessThan0.IN17
+B[5] => LessThan1.IN17
+B[6] => Equal0.IN15
+B[6] => LessThan0.IN16
+B[6] => LessThan1.IN16
+B[7] => Equal0.IN14
+B[7] => LessThan0.IN15
+B[7] => LessThan1.IN15
+B[8] => Equal0.IN13
+B[8] => LessThan0.IN14
+B[8] => LessThan1.IN14
+B[9] => Equal0.IN12
+B[9] => LessThan0.IN13
+B[9] => LessThan1.IN13
+B[10] => Equal0.IN11
+B[10] => LessThan0.IN12
+B[10] => LessThan1.IN12
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|Controller:inst99|RegisterX:inst
+CLK => DATA_OUT[0]~reg0.CLK
+CLK => DATA_OUT[1]~reg0.CLK
+CLK => DATA_OUT[2]~reg0.CLK
+CLK => DATA_OUT[3]~reg0.CLK
+CLK => DATA_OUT[4]~reg0.CLK
+CLK => DATA_OUT[5]~reg0.CLK
+CLK => DATA_OUT[6]~reg0.CLK
+CLK => DATA_OUT[7]~reg0.CLK
+CLK => DATA_OUT[8]~reg0.CLK
+CLK => DATA_OUT[9]~reg0.CLK
+CLK => DATA_OUT[10]~reg0.CLK
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DATA_IN[0] => DATA_OUT.DATAB
+DATA_IN[1] => DATA_OUT.DATAB
+DATA_IN[2] => DATA_OUT.DATAB
+DATA_IN[3] => DATA_OUT.DATAB
+DATA_IN[4] => DATA_OUT.DATAB
+DATA_IN[5] => DATA_OUT.DATAB
+DATA_IN[6] => DATA_OUT.DATAB
+DATA_IN[7] => DATA_OUT.DATAB
+DATA_IN[8] => DATA_OUT.DATAB
+DATA_IN[9] => DATA_OUT.DATAB
+DATA_IN[10] => DATA_OUT.DATAB
+DATA_OUT[0] <= DATA_OUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[1] <= DATA_OUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[2] <= DATA_OUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[3] <= DATA_OUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[4] <= DATA_OUT[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[5] <= DATA_OUT[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[6] <= DATA_OUT[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[7] <= DATA_OUT[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[8] <= DATA_OUT[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[9] <= DATA_OUT[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[10] <= DATA_OUT[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ComparatorX:inst2
+A[0] => Equal0.IN10
+A[0] => LessThan0.IN11
+A[0] => LessThan1.IN11
+A[1] => Equal0.IN9
+A[1] => LessThan0.IN10
+A[1] => LessThan1.IN10
+A[2] => Equal0.IN8
+A[2] => LessThan0.IN9
+A[2] => LessThan1.IN9
+A[3] => Equal0.IN7
+A[3] => LessThan0.IN8
+A[3] => LessThan1.IN8
+A[4] => Equal0.IN6
+A[4] => LessThan0.IN7
+A[4] => LessThan1.IN7
+A[5] => Equal0.IN5
+A[5] => LessThan0.IN6
+A[5] => LessThan1.IN6
+A[6] => Equal0.IN4
+A[6] => LessThan0.IN5
+A[6] => LessThan1.IN5
+A[7] => Equal0.IN3
+A[7] => LessThan0.IN4
+A[7] => LessThan1.IN4
+A[8] => Equal0.IN2
+A[8] => LessThan0.IN3
+A[8] => LessThan1.IN3
+A[9] => Equal0.IN1
+A[9] => LessThan0.IN2
+A[9] => LessThan1.IN2
+A[10] => Equal0.IN0
+A[10] => LessThan0.IN1
+A[10] => LessThan1.IN1
+B[0] => Equal0.IN21
+B[0] => LessThan0.IN22
+B[0] => LessThan1.IN22
+B[1] => Equal0.IN20
+B[1] => LessThan0.IN21
+B[1] => LessThan1.IN21
+B[2] => Equal0.IN19
+B[2] => LessThan0.IN20
+B[2] => LessThan1.IN20
+B[3] => Equal0.IN18
+B[3] => LessThan0.IN19
+B[3] => LessThan1.IN19
+B[4] => Equal0.IN17
+B[4] => LessThan0.IN18
+B[4] => LessThan1.IN18
+B[5] => Equal0.IN16
+B[5] => LessThan0.IN17
+B[5] => LessThan1.IN17
+B[6] => Equal0.IN15
+B[6] => LessThan0.IN16
+B[6] => LessThan1.IN16
+B[7] => Equal0.IN14
+B[7] => LessThan0.IN15
+B[7] => LessThan1.IN15
+B[8] => Equal0.IN13
+B[8] => LessThan0.IN14
+B[8] => LessThan1.IN14
+B[9] => Equal0.IN12
+B[9] => LessThan0.IN13
+B[9] => LessThan1.IN13
+B[10] => Equal0.IN11
+B[10] => LessThan0.IN12
+B[10] => LessThan1.IN12
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ConstantX:inst1
+DATA_OUT[0] <= <VCC>
+DATA_OUT[1] <= <VCC>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+DATA_OUT[4] <= <VCC>
+DATA_OUT[5] <= <GND>
+DATA_OUT[6] <= <GND>
+DATA_OUT[7] <= <GND>
+DATA_OUT[8] <= <VCC>
+DATA_OUT[9] <= <VCC>
+DATA_OUT[10] <= <GND>
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ConstantX:inst9
+DATA_OUT[0] <= <GND>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <GND>
+DATA_OUT[3] <= <GND>
+DATA_OUT[4] <= <VCC>
+DATA_OUT[5] <= <VCC>
+DATA_OUT[6] <= <VCC>
+DATA_OUT[7] <= <VCC>
+DATA_OUT[8] <= <GND>
+DATA_OUT[9] <= <VCC>
+DATA_OUT[10] <= <GND>
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ComparatorX:inst8
+A[0] => Equal0.IN10
+A[0] => LessThan0.IN11
+A[0] => LessThan1.IN11
+A[1] => Equal0.IN9
+A[1] => LessThan0.IN10
+A[1] => LessThan1.IN10
+A[2] => Equal0.IN8
+A[2] => LessThan0.IN9
+A[2] => LessThan1.IN9
+A[3] => Equal0.IN7
+A[3] => LessThan0.IN8
+A[3] => LessThan1.IN8
+A[4] => Equal0.IN6
+A[4] => LessThan0.IN7
+A[4] => LessThan1.IN7
+A[5] => Equal0.IN5
+A[5] => LessThan0.IN6
+A[5] => LessThan1.IN6
+A[6] => Equal0.IN4
+A[6] => LessThan0.IN5
+A[6] => LessThan1.IN5
+A[7] => Equal0.IN3
+A[7] => LessThan0.IN4
+A[7] => LessThan1.IN4
+A[8] => Equal0.IN2
+A[8] => LessThan0.IN3
+A[8] => LessThan1.IN3
+A[9] => Equal0.IN1
+A[9] => LessThan0.IN2
+A[9] => LessThan1.IN2
+A[10] => Equal0.IN0
+A[10] => LessThan0.IN1
+A[10] => LessThan1.IN1
+B[0] => Equal0.IN21
+B[0] => LessThan0.IN22
+B[0] => LessThan1.IN22
+B[1] => Equal0.IN20
+B[1] => LessThan0.IN21
+B[1] => LessThan1.IN21
+B[2] => Equal0.IN19
+B[2] => LessThan0.IN20
+B[2] => LessThan1.IN20
+B[3] => Equal0.IN18
+B[3] => LessThan0.IN19
+B[3] => LessThan1.IN19
+B[4] => Equal0.IN17
+B[4] => LessThan0.IN18
+B[4] => LessThan1.IN18
+B[5] => Equal0.IN16
+B[5] => LessThan0.IN17
+B[5] => LessThan1.IN17
+B[6] => Equal0.IN15
+B[6] => LessThan0.IN16
+B[6] => LessThan1.IN16
+B[7] => Equal0.IN14
+B[7] => LessThan0.IN15
+B[7] => LessThan1.IN15
+B[8] => Equal0.IN13
+B[8] => LessThan0.IN14
+B[8] => LessThan1.IN14
+B[9] => Equal0.IN12
+B[9] => LessThan0.IN13
+B[9] => LessThan1.IN13
+B[10] => Equal0.IN11
+B[10] => LessThan0.IN12
+B[10] => LessThan1.IN12
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ConstantX:inst7
+DATA_OUT[0] <= <VCC>
+DATA_OUT[1] <= <VCC>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+DATA_OUT[4] <= <GND>
+DATA_OUT[5] <= <GND>
+DATA_OUT[6] <= <GND>
+DATA_OUT[7] <= <VCC>
+DATA_OUT[8] <= <GND>
+DATA_OUT[9] <= <VCC>
+DATA_OUT[10] <= <GND>
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ComparatorX:inst15
+A[0] => Equal0.IN9
+A[0] => LessThan0.IN10
+A[0] => LessThan1.IN10
+A[1] => Equal0.IN8
+A[1] => LessThan0.IN9
+A[1] => LessThan1.IN9
+A[2] => Equal0.IN7
+A[2] => LessThan0.IN8
+A[2] => LessThan1.IN8
+A[3] => Equal0.IN6
+A[3] => LessThan0.IN7
+A[3] => LessThan1.IN7
+A[4] => Equal0.IN5
+A[4] => LessThan0.IN6
+A[4] => LessThan1.IN6
+A[5] => Equal0.IN4
+A[5] => LessThan0.IN5
+A[5] => LessThan1.IN5
+A[6] => Equal0.IN3
+A[6] => LessThan0.IN4
+A[6] => LessThan1.IN4
+A[7] => Equal0.IN2
+A[7] => LessThan0.IN3
+A[7] => LessThan1.IN3
+A[8] => Equal0.IN1
+A[8] => LessThan0.IN2
+A[8] => LessThan1.IN2
+A[9] => Equal0.IN0
+A[9] => LessThan0.IN1
+A[9] => LessThan1.IN1
+B[0] => Equal0.IN19
+B[0] => LessThan0.IN20
+B[0] => LessThan1.IN20
+B[1] => Equal0.IN18
+B[1] => LessThan0.IN19
+B[1] => LessThan1.IN19
+B[2] => Equal0.IN17
+B[2] => LessThan0.IN18
+B[2] => LessThan1.IN18
+B[3] => Equal0.IN16
+B[3] => LessThan0.IN17
+B[3] => LessThan1.IN17
+B[4] => Equal0.IN15
+B[4] => LessThan0.IN16
+B[4] => LessThan1.IN16
+B[5] => Equal0.IN14
+B[5] => LessThan0.IN15
+B[5] => LessThan1.IN15
+B[6] => Equal0.IN13
+B[6] => LessThan0.IN14
+B[6] => LessThan1.IN14
+B[7] => Equal0.IN12
+B[7] => LessThan0.IN13
+B[7] => LessThan1.IN13
+B[8] => Equal0.IN11
+B[8] => LessThan0.IN12
+B[8] => LessThan1.IN12
+B[9] => Equal0.IN10
+B[9] => LessThan0.IN11
+B[9] => LessThan1.IN11
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|Controller:inst99|RegisterX:inst3
+CLK => DATA_OUT[0]~reg0.CLK
+CLK => DATA_OUT[1]~reg0.CLK
+CLK => DATA_OUT[2]~reg0.CLK
+CLK => DATA_OUT[3]~reg0.CLK
+CLK => DATA_OUT[4]~reg0.CLK
+CLK => DATA_OUT[5]~reg0.CLK
+CLK => DATA_OUT[6]~reg0.CLK
+CLK => DATA_OUT[7]~reg0.CLK
+CLK => DATA_OUT[8]~reg0.CLK
+CLK => DATA_OUT[9]~reg0.CLK
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DATA_IN[0] => DATA_OUT.DATAB
+DATA_IN[1] => DATA_OUT.DATAB
+DATA_IN[2] => DATA_OUT.DATAB
+DATA_IN[3] => DATA_OUT.DATAB
+DATA_IN[4] => DATA_OUT.DATAB
+DATA_IN[5] => DATA_OUT.DATAB
+DATA_IN[6] => DATA_OUT.DATAB
+DATA_IN[7] => DATA_OUT.DATAB
+DATA_IN[8] => DATA_OUT.DATAB
+DATA_IN[9] => DATA_OUT.DATAB
+DATA_OUT[0] <= DATA_OUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[1] <= DATA_OUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[2] <= DATA_OUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[3] <= DATA_OUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[4] <= DATA_OUT[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[5] <= DATA_OUT[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[6] <= DATA_OUT[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[7] <= DATA_OUT[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[8] <= DATA_OUT[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[9] <= DATA_OUT[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ComparatorX:inst5
+A[0] => Equal0.IN9
+A[0] => LessThan0.IN10
+A[0] => LessThan1.IN10
+A[1] => Equal0.IN8
+A[1] => LessThan0.IN9
+A[1] => LessThan1.IN9
+A[2] => Equal0.IN7
+A[2] => LessThan0.IN8
+A[2] => LessThan1.IN8
+A[3] => Equal0.IN6
+A[3] => LessThan0.IN7
+A[3] => LessThan1.IN7
+A[4] => Equal0.IN5
+A[4] => LessThan0.IN6
+A[4] => LessThan1.IN6
+A[5] => Equal0.IN4
+A[5] => LessThan0.IN5
+A[5] => LessThan1.IN5
+A[6] => Equal0.IN3
+A[6] => LessThan0.IN4
+A[6] => LessThan1.IN4
+A[7] => Equal0.IN2
+A[7] => LessThan0.IN3
+A[7] => LessThan1.IN3
+A[8] => Equal0.IN1
+A[8] => LessThan0.IN2
+A[8] => LessThan1.IN2
+A[9] => Equal0.IN0
+A[9] => LessThan0.IN1
+A[9] => LessThan1.IN1
+B[0] => Equal0.IN19
+B[0] => LessThan0.IN20
+B[0] => LessThan1.IN20
+B[1] => Equal0.IN18
+B[1] => LessThan0.IN19
+B[1] => LessThan1.IN19
+B[2] => Equal0.IN17
+B[2] => LessThan0.IN18
+B[2] => LessThan1.IN18
+B[3] => Equal0.IN16
+B[3] => LessThan0.IN17
+B[3] => LessThan1.IN17
+B[4] => Equal0.IN15
+B[4] => LessThan0.IN16
+B[4] => LessThan1.IN16
+B[5] => Equal0.IN14
+B[5] => LessThan0.IN15
+B[5] => LessThan1.IN15
+B[6] => Equal0.IN13
+B[6] => LessThan0.IN14
+B[6] => LessThan1.IN14
+B[7] => Equal0.IN12
+B[7] => LessThan0.IN13
+B[7] => LessThan1.IN13
+B[8] => Equal0.IN11
+B[8] => LessThan0.IN12
+B[8] => LessThan1.IN12
+B[9] => Equal0.IN10
+B[9] => LessThan0.IN11
+B[9] => LessThan1.IN11
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ConstantX:inst4
+DATA_OUT[0] <= <GND>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+DATA_OUT[4] <= <GND>
+DATA_OUT[5] <= <GND>
+DATA_OUT[6] <= <GND>
+DATA_OUT[7] <= <GND>
+DATA_OUT[8] <= <GND>
+DATA_OUT[9] <= <VCC>
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ConstantX:inst14
+DATA_OUT[0] <= <GND>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+DATA_OUT[4] <= <GND>
+DATA_OUT[5] <= <VCC>
+DATA_OUT[6] <= <VCC>
+DATA_OUT[7] <= <VCC>
+DATA_OUT[8] <= <VCC>
+DATA_OUT[9] <= <GND>
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ComparatorX:inst13
+A[0] => Equal0.IN9
+A[0] => LessThan0.IN10
+A[0] => LessThan1.IN10
+A[1] => Equal0.IN8
+A[1] => LessThan0.IN9
+A[1] => LessThan1.IN9
+A[2] => Equal0.IN7
+A[2] => LessThan0.IN8
+A[2] => LessThan1.IN8
+A[3] => Equal0.IN6
+A[3] => LessThan0.IN7
+A[3] => LessThan1.IN7
+A[4] => Equal0.IN5
+A[4] => LessThan0.IN6
+A[4] => LessThan1.IN6
+A[5] => Equal0.IN4
+A[5] => LessThan0.IN5
+A[5] => LessThan1.IN5
+A[6] => Equal0.IN3
+A[6] => LessThan0.IN4
+A[6] => LessThan1.IN4
+A[7] => Equal0.IN2
+A[7] => LessThan0.IN3
+A[7] => LessThan1.IN3
+A[8] => Equal0.IN1
+A[8] => LessThan0.IN2
+A[8] => LessThan1.IN2
+A[9] => Equal0.IN0
+A[9] => LessThan0.IN1
+A[9] => LessThan1.IN1
+B[0] => Equal0.IN19
+B[0] => LessThan0.IN20
+B[0] => LessThan1.IN20
+B[1] => Equal0.IN18
+B[1] => LessThan0.IN19
+B[1] => LessThan1.IN19
+B[2] => Equal0.IN17
+B[2] => LessThan0.IN18
+B[2] => LessThan1.IN18
+B[3] => Equal0.IN16
+B[3] => LessThan0.IN17
+B[3] => LessThan1.IN17
+B[4] => Equal0.IN15
+B[4] => LessThan0.IN16
+B[4] => LessThan1.IN16
+B[5] => Equal0.IN14
+B[5] => LessThan0.IN15
+B[5] => LessThan1.IN15
+B[6] => Equal0.IN13
+B[6] => LessThan0.IN14
+B[6] => LessThan1.IN14
+B[7] => Equal0.IN12
+B[7] => LessThan0.IN13
+B[7] => LessThan1.IN13
+B[8] => Equal0.IN11
+B[8] => LessThan0.IN12
+B[8] => LessThan1.IN12
+B[9] => Equal0.IN10
+B[9] => LessThan0.IN11
+B[9] => LessThan1.IN11
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ConstantX:inst12
+DATA_OUT[0] <= <VCC>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <GND>
+DATA_OUT[3] <= <VCC>
+DATA_OUT[4] <= <GND>
+DATA_OUT[5] <= <VCC>
+DATA_OUT[6] <= <VCC>
+DATA_OUT[7] <= <VCC>
+DATA_OUT[8] <= <VCC>
+DATA_OUT[9] <= <GND>
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ComparatorX:inst20
+A[0] => Equal0.IN9
+A[0] => LessThan0.IN10
+A[0] => LessThan1.IN10
+A[1] => Equal0.IN8
+A[1] => LessThan0.IN9
+A[1] => LessThan1.IN9
+A[2] => Equal0.IN7
+A[2] => LessThan0.IN8
+A[2] => LessThan1.IN8
+A[3] => Equal0.IN6
+A[3] => LessThan0.IN7
+A[3] => LessThan1.IN7
+A[4] => Equal0.IN5
+A[4] => LessThan0.IN6
+A[4] => LessThan1.IN6
+A[5] => Equal0.IN4
+A[5] => LessThan0.IN5
+A[5] => LessThan1.IN5
+A[6] => Equal0.IN3
+A[6] => LessThan0.IN4
+A[6] => LessThan1.IN4
+A[7] => Equal0.IN2
+A[7] => LessThan0.IN3
+A[7] => LessThan1.IN3
+A[8] => Equal0.IN1
+A[8] => LessThan0.IN2
+A[8] => LessThan1.IN2
+A[9] => Equal0.IN0
+A[9] => LessThan0.IN1
+A[9] => LessThan1.IN1
+B[0] => Equal0.IN19
+B[0] => LessThan0.IN20
+B[0] => LessThan1.IN20
+B[1] => Equal0.IN18
+B[1] => LessThan0.IN19
+B[1] => LessThan1.IN19
+B[2] => Equal0.IN17
+B[2] => LessThan0.IN18
+B[2] => LessThan1.IN18
+B[3] => Equal0.IN16
+B[3] => LessThan0.IN17
+B[3] => LessThan1.IN17
+B[4] => Equal0.IN15
+B[4] => LessThan0.IN16
+B[4] => LessThan1.IN16
+B[5] => Equal0.IN14
+B[5] => LessThan0.IN15
+B[5] => LessThan1.IN15
+B[6] => Equal0.IN13
+B[6] => LessThan0.IN14
+B[6] => LessThan1.IN14
+B[7] => Equal0.IN12
+B[7] => LessThan0.IN13
+B[7] => LessThan1.IN13
+B[8] => Equal0.IN11
+B[8] => LessThan0.IN12
+B[8] => LessThan1.IN12
+B[9] => Equal0.IN10
+B[9] => LessThan0.IN11
+B[9] => LessThan1.IN11
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ConstantX:inst19
+DATA_OUT[0] <= <GND>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <GND>
+DATA_OUT[3] <= <GND>
+DATA_OUT[4] <= <GND>
+DATA_OUT[5] <= <VCC>
+DATA_OUT[6] <= <VCC>
+DATA_OUT[7] <= <VCC>
+DATA_OUT[8] <= <VCC>
+DATA_OUT[9] <= <GND>
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ComparatorX:inst18
+A[0] => Equal0.IN10
+A[0] => LessThan0.IN11
+A[0] => LessThan1.IN11
+A[1] => Equal0.IN9
+A[1] => LessThan0.IN10
+A[1] => LessThan1.IN10
+A[2] => Equal0.IN8
+A[2] => LessThan0.IN9
+A[2] => LessThan1.IN9
+A[3] => Equal0.IN7
+A[3] => LessThan0.IN8
+A[3] => LessThan1.IN8
+A[4] => Equal0.IN6
+A[4] => LessThan0.IN7
+A[4] => LessThan1.IN7
+A[5] => Equal0.IN5
+A[5] => LessThan0.IN6
+A[5] => LessThan1.IN6
+A[6] => Equal0.IN4
+A[6] => LessThan0.IN5
+A[6] => LessThan1.IN5
+A[7] => Equal0.IN3
+A[7] => LessThan0.IN4
+A[7] => LessThan1.IN4
+A[8] => Equal0.IN2
+A[8] => LessThan0.IN3
+A[8] => LessThan1.IN3
+A[9] => Equal0.IN1
+A[9] => LessThan0.IN2
+A[9] => LessThan1.IN2
+A[10] => Equal0.IN0
+A[10] => LessThan0.IN1
+A[10] => LessThan1.IN1
+B[0] => Equal0.IN21
+B[0] => LessThan0.IN22
+B[0] => LessThan1.IN22
+B[1] => Equal0.IN20
+B[1] => LessThan0.IN21
+B[1] => LessThan1.IN21
+B[2] => Equal0.IN19
+B[2] => LessThan0.IN20
+B[2] => LessThan1.IN20
+B[3] => Equal0.IN18
+B[3] => LessThan0.IN19
+B[3] => LessThan1.IN19
+B[4] => Equal0.IN17
+B[4] => LessThan0.IN18
+B[4] => LessThan1.IN18
+B[5] => Equal0.IN16
+B[5] => LessThan0.IN17
+B[5] => LessThan1.IN17
+B[6] => Equal0.IN15
+B[6] => LessThan0.IN16
+B[6] => LessThan1.IN16
+B[7] => Equal0.IN14
+B[7] => LessThan0.IN15
+B[7] => LessThan1.IN15
+B[8] => Equal0.IN13
+B[8] => LessThan0.IN14
+B[8] => LessThan1.IN14
+B[9] => Equal0.IN12
+B[9] => LessThan0.IN13
+B[9] => LessThan1.IN13
+B[10] => Equal0.IN11
+B[10] => LessThan0.IN12
+B[10] => LessThan1.IN12
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|Controller:inst99|ConstantX:inst17
+DATA_OUT[0] <= <GND>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <GND>
+DATA_OUT[3] <= <GND>
+DATA_OUT[4] <= <GND>
+DATA_OUT[5] <= <GND>
+DATA_OUT[6] <= <GND>
+DATA_OUT[7] <= <VCC>
+DATA_OUT[8] <= <GND>
+DATA_OUT[9] <= <VCC>
+DATA_OUT[10] <= <GND>
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1
+clk => clk.IN3
+SET_PIXEL => LD_BIT_SELECT.IN1
+SET_BIT => SET_BIT.IN1
+FB_SEL => FB_SEL.IN1
+FB_ADDR[0] => ~NO_FANOUT~
+FB_ADDR[1] => ~NO_FANOUT~
+FB_ADDR[2] => ~NO_FANOUT~
+FB_ADDR[3] => ~NO_FANOUT~
+FB_ADDR[4] => ~NO_FANOUT~
+FB_ADDR[5] => ~NO_FANOUT~
+FB_ADDR[6] => ~NO_FANOUT~
+FB_ADDR[7] => ~NO_FANOUT~
+FB_ADDR[8] => ~NO_FANOUT~
+FB_ADDR[9] => ~NO_FANOUT~
+FB_ADDR[10] => ~NO_FANOUT~
+FB_ADDR[11] => ~NO_FANOUT~
+FB_ADDR[12] => ~NO_FANOUT~
+FB_ADDR[13] => ~NO_FANOUT~
+FB_ADDR[14] => ~NO_FANOUT~
+FB_ADDR[15] => ~NO_FANOUT~
+FB_DIN[0] => ~NO_FANOUT~
+FB_DIN[1] => ~NO_FANOUT~
+FB_DIN[2] => ~NO_FANOUT~
+FB_DIN[3] => ~NO_FANOUT~
+FB_DIN[4] => ~NO_FANOUT~
+FB_DIN[5] => ~NO_FANOUT~
+FB_DIN[6] => ~NO_FANOUT~
+FB_DIN[7] => ~NO_FANOUT~
+X[0] => GDFX_TEMP_SIGNAL_2[0].IN1
+X[1] => GDFX_TEMP_SIGNAL_2[1].IN1
+X[2] => GDFX_TEMP_SIGNAL_2[2].IN1
+X[3] => GDFX_TEMP_SIGNAL_3[0].IN1
+X[4] => GDFX_TEMP_SIGNAL_3[1].IN1
+X[5] => GDFX_TEMP_SIGNAL_3[2].IN1
+X[6] => GDFX_TEMP_SIGNAL_3[3].IN1
+X[7] => GDFX_TEMP_SIGNAL_3[4].IN1
+X[8] => GDFX_TEMP_SIGNAL_3[5].IN1
+X[9] => GDFX_TEMP_SIGNAL_3[6].IN1
+Y[0] => GDFX_TEMP_SIGNAL_1[6].IN2
+Y[1] => GDFX_TEMP_SIGNAL_1[7].IN2
+Y[2] => GDFX_TEMP_SIGNAL_1[8].IN2
+Y[3] => GDFX_TEMP_SIGNAL_1[9].IN2
+Y[4] => GDFX_TEMP_SIGNAL_1[10].IN2
+Y[5] => GDFX_TEMP_SIGNAL_1[11].IN2
+Y[6] => GDFX_TEMP_SIGNAL_1[12].IN2
+Y[7] => GDFX_TEMP_SIGNAL_1[13].IN2
+Y[8] => GDFX_TEMP_SIGNAL_1[14].IN2
+Y[9] => GDFX_TEMP_SIGNAL_1[15].IN2
+PIXEL_ON <= MPX8:b2v_inst4.result
+WR_PIXEL <= WR_PIXEL.DB_MAX_OUTPUT_PORT_TYPE
+OUT[0] <= OUT_ALTERA_SYNTHESIZED[0].DB_MAX_OUTPUT_PORT_TYPE
+OUT[1] <= OUT_ALTERA_SYNTHESIZED[1].DB_MAX_OUTPUT_PORT_TYPE
+OUT[2] <= OUT_ALTERA_SYNTHESIZED[2].DB_MAX_OUTPUT_PORT_TYPE
+OUT[3] <= OUT_ALTERA_SYNTHESIZED[3].DB_MAX_OUTPUT_PORT_TYPE
+OUT[4] <= OUT_ALTERA_SYNTHESIZED[4].DB_MAX_OUTPUT_PORT_TYPE
+OUT[5] <= OUT_ALTERA_SYNTHESIZED[5].DB_MAX_OUTPUT_PORT_TYPE
+OUT[6] <= OUT_ALTERA_SYNTHESIZED[6].DB_MAX_OUTPUT_PORT_TYPE
+OUT[7] <= OUT_ALTERA_SYNTHESIZED[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|FrameBufferWrapper:b2v_inst
+FB_WR => SYNTHESIZED_WIRE_1.IN1
+FB_WR => SYNTHESIZED_WIRE_2.IN0
+FB_CLK => FB_CLK.IN3
+FB_SEL => FB_SEL.IN1
+FB_ADDR[0] => FB_ADDR[0].IN2
+FB_ADDR[1] => FB_ADDR[1].IN2
+FB_ADDR[2] => FB_ADDR[2].IN2
+FB_ADDR[3] => FB_ADDR[3].IN2
+FB_ADDR[4] => FB_ADDR[4].IN2
+FB_ADDR[5] => FB_ADDR[5].IN2
+FB_ADDR[6] => FB_ADDR[6].IN2
+FB_ADDR[7] => FB_ADDR[7].IN2
+FB_ADDR[8] => FB_ADDR[8].IN2
+FB_ADDR[9] => FB_ADDR[9].IN2
+FB_ADDR[10] => FB_ADDR[10].IN2
+FB_ADDR[11] => FB_ADDR[11].IN2
+FB_ADDR[12] => FB_ADDR[12].IN2
+FB_ADDR[13] => FB_ADDR[13].IN2
+FB_ADDR[14] => FB_ADDR[14].IN2
+FB_ADDR[15] => FB_ADDR[15].IN2
+FB_DATA_IN[0] => FB_DATA_IN[0].IN2
+FB_DATA_IN[1] => FB_DATA_IN[1].IN2
+FB_DATA_IN[2] => FB_DATA_IN[2].IN2
+FB_DATA_IN[3] => FB_DATA_IN[3].IN2
+FB_DATA_IN[4] => FB_DATA_IN[4].IN2
+FB_DATA_IN[5] => FB_DATA_IN[5].IN2
+FB_DATA_IN[6] => FB_DATA_IN[6].IN2
+FB_DATA_IN[7] => FB_DATA_IN[7].IN2
+FB_DATA_OUT[0] <= MPX2_8BIT:b2v_inst2.result
+FB_DATA_OUT[1] <= MPX2_8BIT:b2v_inst2.result
+FB_DATA_OUT[2] <= MPX2_8BIT:b2v_inst2.result
+FB_DATA_OUT[3] <= MPX2_8BIT:b2v_inst2.result
+FB_DATA_OUT[4] <= MPX2_8BIT:b2v_inst2.result
+FB_DATA_OUT[5] <= MPX2_8BIT:b2v_inst2.result
+FB_DATA_OUT[6] <= MPX2_8BIT:b2v_inst2.result
+FB_DATA_OUT[7] <= MPX2_8BIT:b2v_inst2.result
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|FrameBufferWrapper:b2v_inst|FrameBufferRAM:b2v_inst100
+address[0] => mem.waddr_a[0].DATAIN
+address[0] => mem.WADDR
+address[0] => mem.RADDR
+address[1] => mem.waddr_a[1].DATAIN
+address[1] => mem.WADDR1
+address[1] => mem.RADDR1
+address[2] => mem.waddr_a[2].DATAIN
+address[2] => mem.WADDR2
+address[2] => mem.RADDR2
+address[3] => mem.waddr_a[3].DATAIN
+address[3] => mem.WADDR3
+address[3] => mem.RADDR3
+address[4] => mem.waddr_a[4].DATAIN
+address[4] => mem.WADDR4
+address[4] => mem.RADDR4
+address[5] => mem.waddr_a[5].DATAIN
+address[5] => mem.WADDR5
+address[5] => mem.RADDR5
+address[6] => mem.waddr_a[6].DATAIN
+address[6] => mem.WADDR6
+address[6] => mem.RADDR6
+address[7] => mem.waddr_a[7].DATAIN
+address[7] => mem.WADDR7
+address[7] => mem.RADDR7
+address[8] => mem.waddr_a[8].DATAIN
+address[8] => mem.WADDR8
+address[8] => mem.RADDR8
+address[9] => mem.waddr_a[9].DATAIN
+address[9] => mem.WADDR9
+address[9] => mem.RADDR9
+address[10] => mem.waddr_a[10].DATAIN
+address[10] => mem.WADDR10
+address[10] => mem.RADDR10
+address[11] => mem.waddr_a[11].DATAIN
+address[11] => mem.WADDR11
+address[11] => mem.RADDR11
+address[12] => mem.waddr_a[12].DATAIN
+address[12] => mem.WADDR12
+address[12] => mem.RADDR12
+address[13] => mem.waddr_a[13].DATAIN
+address[13] => mem.WADDR13
+address[13] => mem.RADDR13
+address[14] => mem.waddr_a[14].DATAIN
+address[14] => mem.WADDR14
+address[14] => mem.RADDR14
+address[15] => mem.waddr_a[15].DATAIN
+address[15] => mem.WADDR15
+address[15] => mem.RADDR15
+clock => mem.we_a.CLK
+clock => mem.waddr_a[15].CLK
+clock => mem.waddr_a[14].CLK
+clock => mem.waddr_a[13].CLK
+clock => mem.waddr_a[12].CLK
+clock => mem.waddr_a[11].CLK
+clock => mem.waddr_a[10].CLK
+clock => mem.waddr_a[9].CLK
+clock => mem.waddr_a[8].CLK
+clock => mem.waddr_a[7].CLK
+clock => mem.waddr_a[6].CLK
+clock => mem.waddr_a[5].CLK
+clock => mem.waddr_a[4].CLK
+clock => mem.waddr_a[3].CLK
+clock => mem.waddr_a[2].CLK
+clock => mem.waddr_a[1].CLK
+clock => mem.waddr_a[0].CLK
+clock => mem.data_a[7].CLK
+clock => mem.data_a[6].CLK
+clock => mem.data_a[5].CLK
+clock => mem.data_a[4].CLK
+clock => mem.data_a[3].CLK
+clock => mem.data_a[2].CLK
+clock => mem.data_a[1].CLK
+clock => mem.data_a[0].CLK
+clock => q[0]~reg0.CLK
+clock => q[1]~reg0.CLK
+clock => q[2]~reg0.CLK
+clock => q[3]~reg0.CLK
+clock => q[4]~reg0.CLK
+clock => q[5]~reg0.CLK
+clock => q[6]~reg0.CLK
+clock => q[7]~reg0.CLK
+clock => mem.CLK0
+data[0] => q.DATAB
+data[0] => mem.data_a[0].DATAIN
+data[0] => mem.DATAIN
+data[1] => q.DATAB
+data[1] => mem.data_a[1].DATAIN
+data[1] => mem.DATAIN1
+data[2] => q.DATAB
+data[2] => mem.data_a[2].DATAIN
+data[2] => mem.DATAIN2
+data[3] => q.DATAB
+data[3] => mem.data_a[3].DATAIN
+data[3] => mem.DATAIN3
+data[4] => q.DATAB
+data[4] => mem.data_a[4].DATAIN
+data[4] => mem.DATAIN4
+data[5] => q.DATAB
+data[5] => mem.data_a[5].DATAIN
+data[5] => mem.DATAIN5
+data[6] => q.DATAB
+data[6] => mem.data_a[6].DATAIN
+data[6] => mem.DATAIN6
+data[7] => q.DATAB
+data[7] => mem.data_a[7].DATAIN
+data[7] => mem.DATAIN7
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => mem.we_a.DATAIN
+wren => mem.WE
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|FrameBufferWrapper:b2v_inst|FrameBufferRAM:b2v_inst101
+address[0] => mem.waddr_a[0].DATAIN
+address[0] => mem.WADDR
+address[0] => mem.RADDR
+address[1] => mem.waddr_a[1].DATAIN
+address[1] => mem.WADDR1
+address[1] => mem.RADDR1
+address[2] => mem.waddr_a[2].DATAIN
+address[2] => mem.WADDR2
+address[2] => mem.RADDR2
+address[3] => mem.waddr_a[3].DATAIN
+address[3] => mem.WADDR3
+address[3] => mem.RADDR3
+address[4] => mem.waddr_a[4].DATAIN
+address[4] => mem.WADDR4
+address[4] => mem.RADDR4
+address[5] => mem.waddr_a[5].DATAIN
+address[5] => mem.WADDR5
+address[5] => mem.RADDR5
+address[6] => mem.waddr_a[6].DATAIN
+address[6] => mem.WADDR6
+address[6] => mem.RADDR6
+address[7] => mem.waddr_a[7].DATAIN
+address[7] => mem.WADDR7
+address[7] => mem.RADDR7
+address[8] => mem.waddr_a[8].DATAIN
+address[8] => mem.WADDR8
+address[8] => mem.RADDR8
+address[9] => mem.waddr_a[9].DATAIN
+address[9] => mem.WADDR9
+address[9] => mem.RADDR9
+address[10] => mem.waddr_a[10].DATAIN
+address[10] => mem.WADDR10
+address[10] => mem.RADDR10
+address[11] => mem.waddr_a[11].DATAIN
+address[11] => mem.WADDR11
+address[11] => mem.RADDR11
+address[12] => mem.waddr_a[12].DATAIN
+address[12] => mem.WADDR12
+address[12] => mem.RADDR12
+address[13] => mem.waddr_a[13].DATAIN
+address[13] => mem.WADDR13
+address[13] => mem.RADDR13
+address[14] => mem.waddr_a[14].DATAIN
+address[14] => mem.WADDR14
+address[14] => mem.RADDR14
+address[15] => mem.waddr_a[15].DATAIN
+address[15] => mem.WADDR15
+address[15] => mem.RADDR15
+clock => mem.we_a.CLK
+clock => mem.waddr_a[15].CLK
+clock => mem.waddr_a[14].CLK
+clock => mem.waddr_a[13].CLK
+clock => mem.waddr_a[12].CLK
+clock => mem.waddr_a[11].CLK
+clock => mem.waddr_a[10].CLK
+clock => mem.waddr_a[9].CLK
+clock => mem.waddr_a[8].CLK
+clock => mem.waddr_a[7].CLK
+clock => mem.waddr_a[6].CLK
+clock => mem.waddr_a[5].CLK
+clock => mem.waddr_a[4].CLK
+clock => mem.waddr_a[3].CLK
+clock => mem.waddr_a[2].CLK
+clock => mem.waddr_a[1].CLK
+clock => mem.waddr_a[0].CLK
+clock => mem.data_a[7].CLK
+clock => mem.data_a[6].CLK
+clock => mem.data_a[5].CLK
+clock => mem.data_a[4].CLK
+clock => mem.data_a[3].CLK
+clock => mem.data_a[2].CLK
+clock => mem.data_a[1].CLK
+clock => mem.data_a[0].CLK
+clock => q[0]~reg0.CLK
+clock => q[1]~reg0.CLK
+clock => q[2]~reg0.CLK
+clock => q[3]~reg0.CLK
+clock => q[4]~reg0.CLK
+clock => q[5]~reg0.CLK
+clock => q[6]~reg0.CLK
+clock => q[7]~reg0.CLK
+clock => mem.CLK0
+data[0] => q.DATAB
+data[0] => mem.data_a[0].DATAIN
+data[0] => mem.DATAIN
+data[1] => q.DATAB
+data[1] => mem.data_a[1].DATAIN
+data[1] => mem.DATAIN1
+data[2] => q.DATAB
+data[2] => mem.data_a[2].DATAIN
+data[2] => mem.DATAIN2
+data[3] => q.DATAB
+data[3] => mem.data_a[3].DATAIN
+data[3] => mem.DATAIN3
+data[4] => q.DATAB
+data[4] => mem.data_a[4].DATAIN
+data[4] => mem.DATAIN4
+data[5] => q.DATAB
+data[5] => mem.data_a[5].DATAIN
+data[5] => mem.DATAIN5
+data[6] => q.DATAB
+data[6] => mem.data_a[6].DATAIN
+data[6] => mem.DATAIN6
+data[7] => q.DATAB
+data[7] => mem.data_a[7].DATAIN
+data[7] => mem.DATAIN7
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => q.OUTPUTSELECT
+wren => mem.we_a.DATAIN
+wren => mem.WE
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|FrameBufferWrapper:b2v_inst|MPX2_8BIT:b2v_inst2
+data0x[0] => result.DATAA
+data0x[1] => result.DATAA
+data0x[2] => result.DATAA
+data0x[3] => result.DATAA
+data0x[4] => result.DATAA
+data0x[5] => result.DATAA
+data0x[6] => result.DATAA
+data0x[7] => result.DATAA
+data1x[0] => result.DATAB
+data1x[1] => result.DATAB
+data1x[2] => result.DATAB
+data1x[3] => result.DATAB
+data1x[4] => result.DATAB
+data1x[5] => result.DATAB
+data1x[6] => result.DATAB
+data1x[7] => result.DATAB
+sel[0] => Decoder0.IN0
+result[0] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[4] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[5] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[6] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[7] <= result.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|FrameBufferWrapper:b2v_inst|RisingEdgeDetector:b2v_inst6
+OUT <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+CLK => inst.CLK
+CLK => inst1.CLK
+IN => inst.DATAIN
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+A[8] => A[8].IN1
+A[9] => A[9].IN1
+A[10] => A[10].IN1
+A[11] => A[11].IN1
+A[12] => A[12].IN1
+A[13] => A[13].IN1
+A[14] => A[14].IN1
+A[15] => A[15].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+B[8] => B[8].IN1
+B[9] => B[9].IN1
+B[10] => B[10].IN1
+B[11] => B[11].IN1
+B[12] => B[12].IN1
+B[13] => B[13].IN1
+B[14] => B[14].IN1
+B[15] => B[15].IN1
+C <= ADD8:b2v_inst3.C
+OUT[0] <= ADD8:b2v_inst.OUT
+OUT[1] <= ADD8:b2v_inst.OUT
+OUT[2] <= ADD8:b2v_inst.OUT
+OUT[3] <= ADD8:b2v_inst.OUT
+OUT[4] <= ADD8:b2v_inst.OUT
+OUT[5] <= ADD8:b2v_inst.OUT
+OUT[6] <= ADD8:b2v_inst.OUT
+OUT[7] <= ADD8:b2v_inst.OUT
+OUT[8] <= ADD8:b2v_inst3.OUT
+OUT[9] <= ADD8:b2v_inst3.OUT
+OUT[10] <= ADD8:b2v_inst3.OUT
+OUT[11] <= ADD8:b2v_inst3.OUT
+OUT[12] <= ADD8:b2v_inst3.OUT
+OUT[13] <= ADD8:b2v_inst3.OUT
+OUT[14] <= ADD8:b2v_inst3.OUT
+OUT[15] <= ADD8:b2v_inst3.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+C <= ADD4:b2v_inst1.C
+OUT[0] <= ADD4:b2v_inst.OUT
+OUT[1] <= ADD4:b2v_inst.OUT
+OUT[2] <= ADD4:b2v_inst.OUT
+OUT[3] <= ADD4:b2v_inst.OUT
+OUT[4] <= ADD4:b2v_inst1.OUT
+OUT[5] <= ADD4:b2v_inst1.OUT
+OUT[6] <= ADD4:b2v_inst1.OUT
+OUT[7] <= ADD4:b2v_inst1.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C <= ADD2:b2v_inst1.C
+OUT[0] <= ADD2:b2v_inst.OUT
+OUT[1] <= ADD2:b2v_inst.OUT
+OUT[2] <= ADD2:b2v_inst1.OUT
+OUT[3] <= ADD2:b2v_inst1.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst|ADD2:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst|ADD2:b2v_inst|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst|ADD2:b2v_inst|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst|ADD2:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst|ADD2:b2v_inst1|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst|ADD2:b2v_inst1|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C <= ADD2:b2v_inst1.C
+OUT[0] <= ADD2:b2v_inst.OUT
+OUT[1] <= ADD2:b2v_inst.OUT
+OUT[2] <= ADD2:b2v_inst1.OUT
+OUT[3] <= ADD2:b2v_inst1.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst1|ADD2:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst1|ADD2:b2v_inst|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst1|ADD2:b2v_inst|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst1|ADD2:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst1|ADD2:b2v_inst1|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst|ADD4:b2v_inst1|ADD2:b2v_inst1|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+C <= ADD4:b2v_inst1.C
+OUT[0] <= ADD4:b2v_inst.OUT
+OUT[1] <= ADD4:b2v_inst.OUT
+OUT[2] <= ADD4:b2v_inst.OUT
+OUT[3] <= ADD4:b2v_inst.OUT
+OUT[4] <= ADD4:b2v_inst1.OUT
+OUT[5] <= ADD4:b2v_inst1.OUT
+OUT[6] <= ADD4:b2v_inst1.OUT
+OUT[7] <= ADD4:b2v_inst1.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C <= ADD2:b2v_inst1.C
+OUT[0] <= ADD2:b2v_inst.OUT
+OUT[1] <= ADD2:b2v_inst.OUT
+OUT[2] <= ADD2:b2v_inst1.OUT
+OUT[3] <= ADD2:b2v_inst1.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst|ADD2:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst|ADD2:b2v_inst|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst|ADD2:b2v_inst|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst|ADD2:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst|ADD2:b2v_inst1|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst|ADD2:b2v_inst1|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C <= ADD2:b2v_inst1.C
+OUT[0] <= ADD2:b2v_inst.OUT
+OUT[1] <= ADD2:b2v_inst.OUT
+OUT[2] <= ADD2:b2v_inst1.OUT
+OUT[3] <= ADD2:b2v_inst1.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst1|ADD2:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst1|ADD2:b2v_inst|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst1|ADD2:b2v_inst|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst1|ADD2:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst1|ADD2:b2v_inst1|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst1|ADD8:b2v_inst3|ADD4:b2v_inst1|ADD2:b2v_inst1|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG8_LD_CL:b2v_inst10
+CL => CL.IN8
+clk => clk.IN8
+LD => LD.IN8
+I[0] => I[0].IN1
+I[1] => I[1].IN1
+I[2] => I[2].IN1
+I[3] => I[3].IN1
+I[4] => I[4].IN1
+I[5] => I[5].IN1
+I[6] => I[6].IN1
+I[7] => I[7].IN1
+A[0] <= REG1_LD_CL:b2v_inst6.A
+A[1] <= REG1_LD_CL:b2v_inst7.A
+A[2] <= REG1_LD_CL:b2v_inst8.A
+A[3] <= REG1_LD_CL:b2v_inst9.A
+A[4] <= REG1_LD_CL:b2v_inst10.A
+A[5] <= REG1_LD_CL:b2v_inst11.A
+A[6] <= REG1_LD_CL:b2v_inst12.A
+A[7] <= REG1_LD_CL:b2v_inst13.A
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG8_LD_CL:b2v_inst10|REG1_LD_CL:b2v_inst10
+CL => SYNTHESIZED_WIRE_0.IN0
+clk => A_ALTERA_SYNTHESIZED.CLK
+LD => SYNTHESIZED_WIRE_1.IN0
+LD => SYNTHESIZED_WIRE_0.IN1
+I => SYNTHESIZED_WIRE_1.IN1
+A <= A_ALTERA_SYNTHESIZED.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG8_LD_CL:b2v_inst10|REG1_LD_CL:b2v_inst11
+CL => SYNTHESIZED_WIRE_0.IN0
+clk => A_ALTERA_SYNTHESIZED.CLK
+LD => SYNTHESIZED_WIRE_1.IN0
+LD => SYNTHESIZED_WIRE_0.IN1
+I => SYNTHESIZED_WIRE_1.IN1
+A <= A_ALTERA_SYNTHESIZED.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG8_LD_CL:b2v_inst10|REG1_LD_CL:b2v_inst12
+CL => SYNTHESIZED_WIRE_0.IN0
+clk => A_ALTERA_SYNTHESIZED.CLK
+LD => SYNTHESIZED_WIRE_1.IN0
+LD => SYNTHESIZED_WIRE_0.IN1
+I => SYNTHESIZED_WIRE_1.IN1
+A <= A_ALTERA_SYNTHESIZED.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG8_LD_CL:b2v_inst10|REG1_LD_CL:b2v_inst13
+CL => SYNTHESIZED_WIRE_0.IN0
+clk => A_ALTERA_SYNTHESIZED.CLK
+LD => SYNTHESIZED_WIRE_1.IN0
+LD => SYNTHESIZED_WIRE_0.IN1
+I => SYNTHESIZED_WIRE_1.IN1
+A <= A_ALTERA_SYNTHESIZED.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG8_LD_CL:b2v_inst10|REG1_LD_CL:b2v_inst6
+CL => SYNTHESIZED_WIRE_0.IN0
+clk => A_ALTERA_SYNTHESIZED.CLK
+LD => SYNTHESIZED_WIRE_1.IN0
+LD => SYNTHESIZED_WIRE_0.IN1
+I => SYNTHESIZED_WIRE_1.IN1
+A <= A_ALTERA_SYNTHESIZED.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG8_LD_CL:b2v_inst10|REG1_LD_CL:b2v_inst7
+CL => SYNTHESIZED_WIRE_0.IN0
+clk => A_ALTERA_SYNTHESIZED.CLK
+LD => SYNTHESIZED_WIRE_1.IN0
+LD => SYNTHESIZED_WIRE_0.IN1
+I => SYNTHESIZED_WIRE_1.IN1
+A <= A_ALTERA_SYNTHESIZED.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG8_LD_CL:b2v_inst10|REG1_LD_CL:b2v_inst8
+CL => SYNTHESIZED_WIRE_0.IN0
+clk => A_ALTERA_SYNTHESIZED.CLK
+LD => SYNTHESIZED_WIRE_1.IN0
+LD => SYNTHESIZED_WIRE_0.IN1
+I => SYNTHESIZED_WIRE_1.IN1
+A <= A_ALTERA_SYNTHESIZED.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG8_LD_CL:b2v_inst10|REG1_LD_CL:b2v_inst9
+CL => SYNTHESIZED_WIRE_0.IN0
+clk => A_ALTERA_SYNTHESIZED.CLK
+LD => SYNTHESIZED_WIRE_1.IN0
+LD => SYNTHESIZED_WIRE_0.IN1
+I => SYNTHESIZED_WIRE_1.IN1
+A <= A_ALTERA_SYNTHESIZED.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG4_LD_CL:b2v_inst11
+CL => CL.IN4
+clk => clk.IN4
+LD => LD.IN4
+I[0] => I[0].IN1
+I[1] => I[1].IN1
+I[2] => I[2].IN1
+I[3] => I[3].IN1
+A[0] <= REG1_LD_CL:b2v_inst6.A
+A[1] <= REG1_LD_CL:b2v_inst7.A
+A[2] <= REG1_LD_CL:b2v_inst8.A
+A[3] <= REG1_LD_CL:b2v_inst9.A
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG4_LD_CL:b2v_inst11|REG1_LD_CL:b2v_inst6
+CL => SYNTHESIZED_WIRE_0.IN0
+clk => A_ALTERA_SYNTHESIZED.CLK
+LD => SYNTHESIZED_WIRE_1.IN0
+LD => SYNTHESIZED_WIRE_0.IN1
+I => SYNTHESIZED_WIRE_1.IN1
+A <= A_ALTERA_SYNTHESIZED.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG4_LD_CL:b2v_inst11|REG1_LD_CL:b2v_inst7
+CL => SYNTHESIZED_WIRE_0.IN0
+clk => A_ALTERA_SYNTHESIZED.CLK
+LD => SYNTHESIZED_WIRE_1.IN0
+LD => SYNTHESIZED_WIRE_0.IN1
+I => SYNTHESIZED_WIRE_1.IN1
+A <= A_ALTERA_SYNTHESIZED.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG4_LD_CL:b2v_inst11|REG1_LD_CL:b2v_inst8
+CL => SYNTHESIZED_WIRE_0.IN0
+clk => A_ALTERA_SYNTHESIZED.CLK
+LD => SYNTHESIZED_WIRE_1.IN0
+LD => SYNTHESIZED_WIRE_0.IN1
+I => SYNTHESIZED_WIRE_1.IN1
+A <= A_ALTERA_SYNTHESIZED.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|REG4_LD_CL:b2v_inst11|REG1_LD_CL:b2v_inst9
+CL => SYNTHESIZED_WIRE_0.IN0
+clk => A_ALTERA_SYNTHESIZED.CLK
+LD => SYNTHESIZED_WIRE_1.IN0
+LD => SYNTHESIZED_WIRE_0.IN1
+I => SYNTHESIZED_WIRE_1.IN1
+A <= A_ALTERA_SYNTHESIZED.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|DEC3:b2v_inst16
+data[0] => Equal0.IN2
+data[0] => Equal1.IN0
+data[0] => Equal2.IN2
+data[0] => Equal3.IN1
+data[0] => Equal4.IN2
+data[0] => Equal5.IN1
+data[0] => Equal6.IN2
+data[0] => Equal7.IN2
+data[1] => Equal0.IN1
+data[1] => Equal1.IN2
+data[1] => Equal2.IN0
+data[1] => Equal3.IN0
+data[1] => Equal4.IN1
+data[1] => Equal5.IN2
+data[1] => Equal6.IN1
+data[1] => Equal7.IN1
+data[2] => Equal0.IN0
+data[2] => Equal1.IN1
+data[2] => Equal2.IN1
+data[2] => Equal3.IN2
+data[2] => Equal4.IN0
+data[2] => Equal5.IN0
+data[2] => Equal6.IN0
+data[2] => Equal7.IN0
+eq0 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+eq1 <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+eq2 <= Equal2.DB_MAX_OUTPUT_PORT_TYPE
+eq3 <= Equal3.DB_MAX_OUTPUT_PORT_TYPE
+eq4 <= Equal4.DB_MAX_OUTPUT_PORT_TYPE
+eq5 <= Equal5.DB_MAX_OUTPUT_PORT_TYPE
+eq6 <= Equal6.DB_MAX_OUTPUT_PORT_TYPE
+eq7 <= Equal7.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+A[8] => A[8].IN1
+A[9] => A[9].IN1
+A[10] => A[10].IN1
+A[11] => A[11].IN1
+A[12] => A[12].IN1
+A[13] => A[13].IN1
+A[14] => A[14].IN1
+A[15] => A[15].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+B[8] => B[8].IN1
+B[9] => B[9].IN1
+B[10] => B[10].IN1
+B[11] => B[11].IN1
+B[12] => B[12].IN1
+B[13] => B[13].IN1
+B[14] => B[14].IN1
+B[15] => B[15].IN1
+C <= ADD8:b2v_inst3.C
+OUT[0] <= ADD8:b2v_inst.OUT
+OUT[1] <= ADD8:b2v_inst.OUT
+OUT[2] <= ADD8:b2v_inst.OUT
+OUT[3] <= ADD8:b2v_inst.OUT
+OUT[4] <= ADD8:b2v_inst.OUT
+OUT[5] <= ADD8:b2v_inst.OUT
+OUT[6] <= ADD8:b2v_inst.OUT
+OUT[7] <= ADD8:b2v_inst.OUT
+OUT[8] <= ADD8:b2v_inst3.OUT
+OUT[9] <= ADD8:b2v_inst3.OUT
+OUT[10] <= ADD8:b2v_inst3.OUT
+OUT[11] <= ADD8:b2v_inst3.OUT
+OUT[12] <= ADD8:b2v_inst3.OUT
+OUT[13] <= ADD8:b2v_inst3.OUT
+OUT[14] <= ADD8:b2v_inst3.OUT
+OUT[15] <= ADD8:b2v_inst3.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+C <= ADD4:b2v_inst1.C
+OUT[0] <= ADD4:b2v_inst.OUT
+OUT[1] <= ADD4:b2v_inst.OUT
+OUT[2] <= ADD4:b2v_inst.OUT
+OUT[3] <= ADD4:b2v_inst.OUT
+OUT[4] <= ADD4:b2v_inst1.OUT
+OUT[5] <= ADD4:b2v_inst1.OUT
+OUT[6] <= ADD4:b2v_inst1.OUT
+OUT[7] <= ADD4:b2v_inst1.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C <= ADD2:b2v_inst1.C
+OUT[0] <= ADD2:b2v_inst.OUT
+OUT[1] <= ADD2:b2v_inst.OUT
+OUT[2] <= ADD2:b2v_inst1.OUT
+OUT[3] <= ADD2:b2v_inst1.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst|ADD2:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst|ADD2:b2v_inst|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst|ADD2:b2v_inst|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst|ADD2:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst|ADD2:b2v_inst1|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst|ADD2:b2v_inst1|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C <= ADD2:b2v_inst1.C
+OUT[0] <= ADD2:b2v_inst.OUT
+OUT[1] <= ADD2:b2v_inst.OUT
+OUT[2] <= ADD2:b2v_inst1.OUT
+OUT[3] <= ADD2:b2v_inst1.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst1|ADD2:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst1|ADD2:b2v_inst|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst1|ADD2:b2v_inst|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst1|ADD2:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst1|ADD2:b2v_inst1|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst|ADD4:b2v_inst1|ADD2:b2v_inst1|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+C <= ADD4:b2v_inst1.C
+OUT[0] <= ADD4:b2v_inst.OUT
+OUT[1] <= ADD4:b2v_inst.OUT
+OUT[2] <= ADD4:b2v_inst.OUT
+OUT[3] <= ADD4:b2v_inst.OUT
+OUT[4] <= ADD4:b2v_inst1.OUT
+OUT[5] <= ADD4:b2v_inst1.OUT
+OUT[6] <= ADD4:b2v_inst1.OUT
+OUT[7] <= ADD4:b2v_inst1.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C <= ADD2:b2v_inst1.C
+OUT[0] <= ADD2:b2v_inst.OUT
+OUT[1] <= ADD2:b2v_inst.OUT
+OUT[2] <= ADD2:b2v_inst1.OUT
+OUT[3] <= ADD2:b2v_inst1.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst|ADD2:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst|ADD2:b2v_inst|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst|ADD2:b2v_inst|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst|ADD2:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst|ADD2:b2v_inst1|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst|ADD2:b2v_inst1|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C <= ADD2:b2v_inst1.C
+OUT[0] <= ADD2:b2v_inst.OUT
+OUT[1] <= ADD2:b2v_inst.OUT
+OUT[2] <= ADD2:b2v_inst1.OUT
+OUT[3] <= ADD2:b2v_inst1.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst1|ADD2:b2v_inst
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst1|ADD2:b2v_inst|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst1|ADD2:b2v_inst|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst1|ADD2:b2v_inst1
+C_0 => C_0.IN1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+C <= ADD1:b2v_inst2.C
+OUT[0] <= ADD1:b2v_inst.OUT
+OUT[1] <= ADD1:b2v_inst2.OUT
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst1|ADD2:b2v_inst1|ADD1:b2v_inst
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|ADD16:b2v_inst2|ADD8:b2v_inst3|ADD4:b2v_inst1|ADD2:b2v_inst1|ADD1:b2v_inst2
+A => SYNTHESIZED_WIRE_3.IN0
+A => SYNTHESIZED_WIRE_2.IN0
+A => SYNTHESIZED_WIRE_0.IN0
+A => SYNTHESIZED_WIRE_6.IN0
+A => SYNTHESIZED_WIRE_4.IN0
+B => SYNTHESIZED_WIRE_1.IN0
+B => SYNTHESIZED_WIRE_6.IN1
+B => SYNTHESIZED_WIRE_2.IN1
+B => SYNTHESIZED_WIRE_3.IN1
+B => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_1.IN1
+C_0 => SYNTHESIZED_WIRE_4.IN1
+C_0 => SYNTHESIZED_WIRE_5.IN1
+C_0 => SYNTHESIZED_WIRE_0.IN1
+C_0 => SYNTHESIZED_WIRE_3.IN1
+C_0 => SYNTHESIZED_WIRE_6.IN1
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+OUT <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|MPX2_8BIT:b2v_inst22
+data0x[0] => result.DATAA
+data0x[1] => result.DATAA
+data0x[2] => result.DATAA
+data0x[3] => result.DATAA
+data0x[4] => result.DATAA
+data0x[5] => result.DATAA
+data0x[6] => result.DATAA
+data0x[7] => result.DATAA
+data1x[0] => result.DATAB
+data1x[1] => result.DATAB
+data1x[2] => result.DATAB
+data1x[3] => result.DATAB
+data1x[4] => result.DATAB
+data1x[5] => result.DATAB
+data1x[6] => result.DATAB
+data1x[7] => result.DATAB
+sel[0] => Decoder0.IN0
+result[0] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[4] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[5] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[6] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[7] <= result.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|FrameBuffer:inst1|MPX8:b2v_inst4
+data0 => Mux0.IN0
+data1 => Mux0.IN1
+data2 => Mux0.IN2
+data3 => Mux0.IN3
+data4 => Mux0.IN4
+data5 => Mux0.IN5
+data6 => Mux0.IN6
+data7 => Mux0.IN7
+sel[0] => Mux0.IN10
+sel[1] => Mux0.IN9
+sel[2] => Mux0.IN8
+result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|MPX2_10BIT:inst100
+data0x[0] => result.DATAA
+data0x[1] => result.DATAA
+data0x[2] => result.DATAA
+data0x[3] => result.DATAA
+data0x[4] => result.DATAA
+data0x[5] => result.DATAA
+data0x[6] => result.DATAA
+data0x[7] => result.DATAA
+data0x[8] => result.DATAA
+data0x[9] => result.DATAA
+data1x[0] => result.DATAB
+data1x[1] => result.DATAB
+data1x[2] => result.DATAB
+data1x[3] => result.DATAB
+data1x[4] => result.DATAB
+data1x[5] => result.DATAB
+data1x[6] => result.DATAB
+data1x[7] => result.DATAB
+data1x[8] => result.DATAB
+data1x[9] => result.DATAB
+sel[0] => Decoder0.IN0
+result[0] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[4] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[5] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[6] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[7] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[8] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[9] <= result.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|MPX2_10BIT:inst9
+data0x[0] => result.DATAA
+data0x[1] => result.DATAA
+data0x[2] => result.DATAA
+data0x[3] => result.DATAA
+data0x[4] => result.DATAA
+data0x[5] => result.DATAA
+data0x[6] => result.DATAA
+data0x[7] => result.DATAA
+data0x[8] => result.DATAA
+data0x[9] => result.DATAA
+data1x[0] => result.DATAB
+data1x[1] => result.DATAB
+data1x[2] => result.DATAB
+data1x[3] => result.DATAB
+data1x[4] => result.DATAB
+data1x[5] => result.DATAB
+data1x[6] => result.DATAB
+data1x[7] => result.DATAB
+data1x[8] => result.DATAB
+data1x[9] => result.DATAB
+sel[0] => Decoder0.IN0
+result[0] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[4] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[5] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[6] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[7] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[8] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[9] <= result.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|MultiplexerX:inst8
+I0[0] => Y.DATAA
+I0[1] => Y.DATAA
+I0[2] => Y.DATAA
+I0[3] => Y.DATAA
+I1[0] => Y.DATAB
+I1[1] => Y.DATAB
+I1[2] => Y.DATAB
+I1[3] => Y.DATAB
+S => Y.OUTPUTSELECT
+S => Y.OUTPUTSELECT
+S => Y.OUTPUTSELECT
+S => Y.OUTPUTSELECT
+Y[0] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[1] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[2] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[3] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|BackgroundMain:inst5
+VALID <= <VCC>
+B[0] <= ConstantX:inst6.DATA_OUT[0]
+B[1] <= ConstantX:inst6.DATA_OUT[1]
+B[2] <= ConstantX:inst6.DATA_OUT[2]
+B[3] <= ConstantX:inst6.DATA_OUT[3]
+G[0] <= ConstantX:inst2.DATA_OUT[0]
+G[1] <= ConstantX:inst2.DATA_OUT[1]
+G[2] <= ConstantX:inst2.DATA_OUT[2]
+G[3] <= ConstantX:inst2.DATA_OUT[3]
+R[0] <= ConstantX:inst8.DATA_OUT[0]
+R[1] <= ConstantX:inst8.DATA_OUT[1]
+R[2] <= ConstantX:inst8.DATA_OUT[2]
+R[3] <= ConstantX:inst8.DATA_OUT[3]
+X[0] => ~NO_FANOUT~
+X[1] => ~NO_FANOUT~
+X[2] => ~NO_FANOUT~
+X[3] => ~NO_FANOUT~
+X[4] => ~NO_FANOUT~
+X[5] => ~NO_FANOUT~
+X[6] => ~NO_FANOUT~
+X[7] => ~NO_FANOUT~
+X[8] => ~NO_FANOUT~
+X[9] => ~NO_FANOUT~
+Y[0] => ~NO_FANOUT~
+Y[1] => ~NO_FANOUT~
+Y[2] => ~NO_FANOUT~
+Y[3] => ~NO_FANOUT~
+Y[4] => ~NO_FANOUT~
+Y[5] => ~NO_FANOUT~
+Y[6] => ~NO_FANOUT~
+Y[7] => ~NO_FANOUT~
+Y[8] => ~NO_FANOUT~
+Y[9] => ~NO_FANOUT~
+
+
+|VgaTest|Monitor:inst|BackgroundMain:inst5|ConstantX:inst6
+DATA_OUT[0] <= <VCC>
+DATA_OUT[1] <= <VCC>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+
+
+|VgaTest|Monitor:inst|BackgroundMain:inst5|ConstantX:inst2
+DATA_OUT[0] <= <VCC>
+DATA_OUT[1] <= <VCC>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+
+
+|VgaTest|Monitor:inst|BackgroundMain:inst5|ConstantX:inst8
+DATA_OUT[0] <= <VCC>
+DATA_OUT[1] <= <VCC>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+
+
+|VgaTest|Monitor:inst|ConstantX:inst30
+DATA_OUT[0] <= <GND>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <GND>
+DATA_OUT[3] <= <GND>
+
+
+|VgaTest|Monitor:inst|MultiplexerX:inst7
+I0[0] => Y.DATAA
+I0[1] => Y.DATAA
+I0[2] => Y.DATAA
+I0[3] => Y.DATAA
+I1[0] => Y.DATAB
+I1[1] => Y.DATAB
+I1[2] => Y.DATAB
+I1[3] => Y.DATAB
+S => Y.OUTPUTSELECT
+S => Y.OUTPUTSELECT
+S => Y.OUTPUTSELECT
+S => Y.OUTPUTSELECT
+Y[0] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[1] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[2] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[3] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|ConstantX:inst29
+DATA_OUT[0] <= <GND>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <GND>
+DATA_OUT[3] <= <GND>
+
+
+|VgaTest|Monitor:inst|MultiplexerX:inst6
+I0[0] => Y.DATAA
+I0[1] => Y.DATAA
+I0[2] => Y.DATAA
+I0[3] => Y.DATAA
+I1[0] => Y.DATAB
+I1[1] => Y.DATAB
+I1[2] => Y.DATAB
+I1[3] => Y.DATAB
+S => Y.OUTPUTSELECT
+S => Y.OUTPUTSELECT
+S => Y.OUTPUTSELECT
+S => Y.OUTPUTSELECT
+Y[0] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[1] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[2] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[3] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|ConstantX:inst
+DATA_OUT[0] <= <VCC>
+DATA_OUT[1] <= <VCC>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+
+
+|VgaTest|Monitor:inst|ClockDivider:inst10
+CLK_IN => CLK_OUT~reg0.CLK
+CLK_IN => cnt[0].CLK
+CLK_IN => cnt[1].CLK
+CLK_IN => cnt[2].CLK
+CLK_IN => cnt[3].CLK
+CLK_IN => cnt[4].CLK
+CLK_IN => cnt[5].CLK
+CLK_IN => cnt[6].CLK
+CLK_IN => cnt[7].CLK
+CLK_IN => cnt[8].CLK
+CLK_IN => cnt[9].CLK
+CLK_IN => cnt[10].CLK
+CLK_IN => cnt[11].CLK
+CLK_IN => cnt[12].CLK
+CLK_IN => cnt[13].CLK
+CLK_IN => cnt[14].CLK
+CLK_IN => cnt[15].CLK
+CLK_IN => cnt[16].CLK
+CLK_IN => cnt[17].CLK
+CLK_IN => cnt[18].CLK
+CLK_IN => cnt[19].CLK
+CLK_IN => cnt[20].CLK
+CLK_IN => cnt[21].CLK
+CLK_IN => cnt[22].CLK
+CLK_IN => cnt[23].CLK
+CLK_IN => cnt[24].CLK
+CLK_IN => cnt[25].CLK
+CLK_IN => cnt[26].CLK
+CLK_IN => cnt[27].CLK
+CLK_IN => cnt[28].CLK
+CLK_IN => cnt[29].CLK
+CLK_IN => cnt[30].CLK
+CLK_IN => cnt[31].CLK
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => CLK_OUT.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => CLK_OUT.OUTPUTSELECT
+CLK_OUT <= CLK_OUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Monitor:inst|ClockDivider:inst11
+CLK_IN => CLK_OUT~reg0.CLK
+CLK_IN => cnt[0].CLK
+CLK_IN => cnt[1].CLK
+CLK_IN => cnt[2].CLK
+CLK_IN => cnt[3].CLK
+CLK_IN => cnt[4].CLK
+CLK_IN => cnt[5].CLK
+CLK_IN => cnt[6].CLK
+CLK_IN => cnt[7].CLK
+CLK_IN => cnt[8].CLK
+CLK_IN => cnt[9].CLK
+CLK_IN => cnt[10].CLK
+CLK_IN => cnt[11].CLK
+CLK_IN => cnt[12].CLK
+CLK_IN => cnt[13].CLK
+CLK_IN => cnt[14].CLK
+CLK_IN => cnt[15].CLK
+CLK_IN => cnt[16].CLK
+CLK_IN => cnt[17].CLK
+CLK_IN => cnt[18].CLK
+CLK_IN => cnt[19].CLK
+CLK_IN => cnt[20].CLK
+CLK_IN => cnt[21].CLK
+CLK_IN => cnt[22].CLK
+CLK_IN => cnt[23].CLK
+CLK_IN => cnt[24].CLK
+CLK_IN => cnt[25].CLK
+CLK_IN => cnt[26].CLK
+CLK_IN => cnt[27].CLK
+CLK_IN => cnt[28].CLK
+CLK_IN => cnt[29].CLK
+CLK_IN => cnt[30].CLK
+CLK_IN => cnt[31].CLK
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => cnt.OUTPUTSELECT
+RST => CLK_OUT.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => cnt.OUTPUTSELECT
+PAUSE => CLK_OUT.OUTPUTSELECT
+CLK_OUT <= CLK_OUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Controller:inst6
+HS <= inst11.DB_MAX_OUTPUT_PORT_TYPE
+CLK => RegisterX:inst.CLK
+CLK => RegisterX:inst3.CLK
+X[0] <= RegisterX:inst.DATA_OUT[0]
+X[1] <= RegisterX:inst.DATA_OUT[1]
+X[2] <= RegisterX:inst.DATA_OUT[2]
+X[3] <= RegisterX:inst.DATA_OUT[3]
+X[4] <= RegisterX:inst.DATA_OUT[4]
+X[5] <= RegisterX:inst.DATA_OUT[5]
+X[6] <= RegisterX:inst.DATA_OUT[6]
+X[7] <= RegisterX:inst.DATA_OUT[7]
+X[8] <= RegisterX:inst.DATA_OUT[8]
+X[9] <= RegisterX:inst.DATA_OUT[9]
+VS <= inst16.DB_MAX_OUTPUT_PORT_TYPE
+Y[0] <= RegisterX:inst3.DATA_OUT[0]
+Y[1] <= RegisterX:inst3.DATA_OUT[1]
+Y[2] <= RegisterX:inst3.DATA_OUT[2]
+Y[3] <= RegisterX:inst3.DATA_OUT[3]
+Y[4] <= RegisterX:inst3.DATA_OUT[4]
+Y[5] <= RegisterX:inst3.DATA_OUT[5]
+Y[6] <= RegisterX:inst3.DATA_OUT[6]
+Y[7] <= RegisterX:inst3.DATA_OUT[7]
+Y[8] <= RegisterX:inst3.DATA_OUT[8]
+Y[9] <= RegisterX:inst3.DATA_OUT[9]
+DISPLAY <= inst21.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Controller:inst6|ComparatorX:inst10
+A[0] => Equal0.IN10
+A[0] => LessThan0.IN11
+A[0] => LessThan1.IN11
+A[1] => Equal0.IN9
+A[1] => LessThan0.IN10
+A[1] => LessThan1.IN10
+A[2] => Equal0.IN8
+A[2] => LessThan0.IN9
+A[2] => LessThan1.IN9
+A[3] => Equal0.IN7
+A[3] => LessThan0.IN8
+A[3] => LessThan1.IN8
+A[4] => Equal0.IN6
+A[4] => LessThan0.IN7
+A[4] => LessThan1.IN7
+A[5] => Equal0.IN5
+A[5] => LessThan0.IN6
+A[5] => LessThan1.IN6
+A[6] => Equal0.IN4
+A[6] => LessThan0.IN5
+A[6] => LessThan1.IN5
+A[7] => Equal0.IN3
+A[7] => LessThan0.IN4
+A[7] => LessThan1.IN4
+A[8] => Equal0.IN2
+A[8] => LessThan0.IN3
+A[8] => LessThan1.IN3
+A[9] => Equal0.IN1
+A[9] => LessThan0.IN2
+A[9] => LessThan1.IN2
+A[10] => Equal0.IN0
+A[10] => LessThan0.IN1
+A[10] => LessThan1.IN1
+B[0] => Equal0.IN21
+B[0] => LessThan0.IN22
+B[0] => LessThan1.IN22
+B[1] => Equal0.IN20
+B[1] => LessThan0.IN21
+B[1] => LessThan1.IN21
+B[2] => Equal0.IN19
+B[2] => LessThan0.IN20
+B[2] => LessThan1.IN20
+B[3] => Equal0.IN18
+B[3] => LessThan0.IN19
+B[3] => LessThan1.IN19
+B[4] => Equal0.IN17
+B[4] => LessThan0.IN18
+B[4] => LessThan1.IN18
+B[5] => Equal0.IN16
+B[5] => LessThan0.IN17
+B[5] => LessThan1.IN17
+B[6] => Equal0.IN15
+B[6] => LessThan0.IN16
+B[6] => LessThan1.IN16
+B[7] => Equal0.IN14
+B[7] => LessThan0.IN15
+B[7] => LessThan1.IN15
+B[8] => Equal0.IN13
+B[8] => LessThan0.IN14
+B[8] => LessThan1.IN14
+B[9] => Equal0.IN12
+B[9] => LessThan0.IN13
+B[9] => LessThan1.IN13
+B[10] => Equal0.IN11
+B[10] => LessThan0.IN12
+B[10] => LessThan1.IN12
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Controller:inst6|RegisterX:inst
+CLK => DATA_OUT[0]~reg0.CLK
+CLK => DATA_OUT[1]~reg0.CLK
+CLK => DATA_OUT[2]~reg0.CLK
+CLK => DATA_OUT[3]~reg0.CLK
+CLK => DATA_OUT[4]~reg0.CLK
+CLK => DATA_OUT[5]~reg0.CLK
+CLK => DATA_OUT[6]~reg0.CLK
+CLK => DATA_OUT[7]~reg0.CLK
+CLK => DATA_OUT[8]~reg0.CLK
+CLK => DATA_OUT[9]~reg0.CLK
+CLK => DATA_OUT[10]~reg0.CLK
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DATA_IN[0] => DATA_OUT.DATAB
+DATA_IN[1] => DATA_OUT.DATAB
+DATA_IN[2] => DATA_OUT.DATAB
+DATA_IN[3] => DATA_OUT.DATAB
+DATA_IN[4] => DATA_OUT.DATAB
+DATA_IN[5] => DATA_OUT.DATAB
+DATA_IN[6] => DATA_OUT.DATAB
+DATA_IN[7] => DATA_OUT.DATAB
+DATA_IN[8] => DATA_OUT.DATAB
+DATA_IN[9] => DATA_OUT.DATAB
+DATA_IN[10] => DATA_OUT.DATAB
+DATA_OUT[0] <= DATA_OUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[1] <= DATA_OUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[2] <= DATA_OUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[3] <= DATA_OUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[4] <= DATA_OUT[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[5] <= DATA_OUT[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[6] <= DATA_OUT[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[7] <= DATA_OUT[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[8] <= DATA_OUT[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[9] <= DATA_OUT[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[10] <= DATA_OUT[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Controller:inst6|ComparatorX:inst2
+A[0] => Equal0.IN10
+A[0] => LessThan0.IN11
+A[0] => LessThan1.IN11
+A[1] => Equal0.IN9
+A[1] => LessThan0.IN10
+A[1] => LessThan1.IN10
+A[2] => Equal0.IN8
+A[2] => LessThan0.IN9
+A[2] => LessThan1.IN9
+A[3] => Equal0.IN7
+A[3] => LessThan0.IN8
+A[3] => LessThan1.IN8
+A[4] => Equal0.IN6
+A[4] => LessThan0.IN7
+A[4] => LessThan1.IN7
+A[5] => Equal0.IN5
+A[5] => LessThan0.IN6
+A[5] => LessThan1.IN6
+A[6] => Equal0.IN4
+A[6] => LessThan0.IN5
+A[6] => LessThan1.IN5
+A[7] => Equal0.IN3
+A[7] => LessThan0.IN4
+A[7] => LessThan1.IN4
+A[8] => Equal0.IN2
+A[8] => LessThan0.IN3
+A[8] => LessThan1.IN3
+A[9] => Equal0.IN1
+A[9] => LessThan0.IN2
+A[9] => LessThan1.IN2
+A[10] => Equal0.IN0
+A[10] => LessThan0.IN1
+A[10] => LessThan1.IN1
+B[0] => Equal0.IN21
+B[0] => LessThan0.IN22
+B[0] => LessThan1.IN22
+B[1] => Equal0.IN20
+B[1] => LessThan0.IN21
+B[1] => LessThan1.IN21
+B[2] => Equal0.IN19
+B[2] => LessThan0.IN20
+B[2] => LessThan1.IN20
+B[3] => Equal0.IN18
+B[3] => LessThan0.IN19
+B[3] => LessThan1.IN19
+B[4] => Equal0.IN17
+B[4] => LessThan0.IN18
+B[4] => LessThan1.IN18
+B[5] => Equal0.IN16
+B[5] => LessThan0.IN17
+B[5] => LessThan1.IN17
+B[6] => Equal0.IN15
+B[6] => LessThan0.IN16
+B[6] => LessThan1.IN16
+B[7] => Equal0.IN14
+B[7] => LessThan0.IN15
+B[7] => LessThan1.IN15
+B[8] => Equal0.IN13
+B[8] => LessThan0.IN14
+B[8] => LessThan1.IN14
+B[9] => Equal0.IN12
+B[9] => LessThan0.IN13
+B[9] => LessThan1.IN13
+B[10] => Equal0.IN11
+B[10] => LessThan0.IN12
+B[10] => LessThan1.IN12
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Controller:inst6|ConstantX:inst1
+DATA_OUT[0] <= <VCC>
+DATA_OUT[1] <= <VCC>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+DATA_OUT[4] <= <VCC>
+DATA_OUT[5] <= <GND>
+DATA_OUT[6] <= <GND>
+DATA_OUT[7] <= <GND>
+DATA_OUT[8] <= <VCC>
+DATA_OUT[9] <= <VCC>
+DATA_OUT[10] <= <GND>
+
+
+|VgaTest|Controller:inst6|ConstantX:inst9
+DATA_OUT[0] <= <GND>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <GND>
+DATA_OUT[3] <= <GND>
+DATA_OUT[4] <= <VCC>
+DATA_OUT[5] <= <VCC>
+DATA_OUT[6] <= <VCC>
+DATA_OUT[7] <= <VCC>
+DATA_OUT[8] <= <GND>
+DATA_OUT[9] <= <VCC>
+DATA_OUT[10] <= <GND>
+
+
+|VgaTest|Controller:inst6|ComparatorX:inst8
+A[0] => Equal0.IN10
+A[0] => LessThan0.IN11
+A[0] => LessThan1.IN11
+A[1] => Equal0.IN9
+A[1] => LessThan0.IN10
+A[1] => LessThan1.IN10
+A[2] => Equal0.IN8
+A[2] => LessThan0.IN9
+A[2] => LessThan1.IN9
+A[3] => Equal0.IN7
+A[3] => LessThan0.IN8
+A[3] => LessThan1.IN8
+A[4] => Equal0.IN6
+A[4] => LessThan0.IN7
+A[4] => LessThan1.IN7
+A[5] => Equal0.IN5
+A[5] => LessThan0.IN6
+A[5] => LessThan1.IN6
+A[6] => Equal0.IN4
+A[6] => LessThan0.IN5
+A[6] => LessThan1.IN5
+A[7] => Equal0.IN3
+A[7] => LessThan0.IN4
+A[7] => LessThan1.IN4
+A[8] => Equal0.IN2
+A[8] => LessThan0.IN3
+A[8] => LessThan1.IN3
+A[9] => Equal0.IN1
+A[9] => LessThan0.IN2
+A[9] => LessThan1.IN2
+A[10] => Equal0.IN0
+A[10] => LessThan0.IN1
+A[10] => LessThan1.IN1
+B[0] => Equal0.IN21
+B[0] => LessThan0.IN22
+B[0] => LessThan1.IN22
+B[1] => Equal0.IN20
+B[1] => LessThan0.IN21
+B[1] => LessThan1.IN21
+B[2] => Equal0.IN19
+B[2] => LessThan0.IN20
+B[2] => LessThan1.IN20
+B[3] => Equal0.IN18
+B[3] => LessThan0.IN19
+B[3] => LessThan1.IN19
+B[4] => Equal0.IN17
+B[4] => LessThan0.IN18
+B[4] => LessThan1.IN18
+B[5] => Equal0.IN16
+B[5] => LessThan0.IN17
+B[5] => LessThan1.IN17
+B[6] => Equal0.IN15
+B[6] => LessThan0.IN16
+B[6] => LessThan1.IN16
+B[7] => Equal0.IN14
+B[7] => LessThan0.IN15
+B[7] => LessThan1.IN15
+B[8] => Equal0.IN13
+B[8] => LessThan0.IN14
+B[8] => LessThan1.IN14
+B[9] => Equal0.IN12
+B[9] => LessThan0.IN13
+B[9] => LessThan1.IN13
+B[10] => Equal0.IN11
+B[10] => LessThan0.IN12
+B[10] => LessThan1.IN12
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Controller:inst6|ConstantX:inst7
+DATA_OUT[0] <= <VCC>
+DATA_OUT[1] <= <VCC>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+DATA_OUT[4] <= <GND>
+DATA_OUT[5] <= <GND>
+DATA_OUT[6] <= <GND>
+DATA_OUT[7] <= <VCC>
+DATA_OUT[8] <= <GND>
+DATA_OUT[9] <= <VCC>
+DATA_OUT[10] <= <GND>
+
+
+|VgaTest|Controller:inst6|ComparatorX:inst15
+A[0] => Equal0.IN9
+A[0] => LessThan0.IN10
+A[0] => LessThan1.IN10
+A[1] => Equal0.IN8
+A[1] => LessThan0.IN9
+A[1] => LessThan1.IN9
+A[2] => Equal0.IN7
+A[2] => LessThan0.IN8
+A[2] => LessThan1.IN8
+A[3] => Equal0.IN6
+A[3] => LessThan0.IN7
+A[3] => LessThan1.IN7
+A[4] => Equal0.IN5
+A[4] => LessThan0.IN6
+A[4] => LessThan1.IN6
+A[5] => Equal0.IN4
+A[5] => LessThan0.IN5
+A[5] => LessThan1.IN5
+A[6] => Equal0.IN3
+A[6] => LessThan0.IN4
+A[6] => LessThan1.IN4
+A[7] => Equal0.IN2
+A[7] => LessThan0.IN3
+A[7] => LessThan1.IN3
+A[8] => Equal0.IN1
+A[8] => LessThan0.IN2
+A[8] => LessThan1.IN2
+A[9] => Equal0.IN0
+A[9] => LessThan0.IN1
+A[9] => LessThan1.IN1
+B[0] => Equal0.IN19
+B[0] => LessThan0.IN20
+B[0] => LessThan1.IN20
+B[1] => Equal0.IN18
+B[1] => LessThan0.IN19
+B[1] => LessThan1.IN19
+B[2] => Equal0.IN17
+B[2] => LessThan0.IN18
+B[2] => LessThan1.IN18
+B[3] => Equal0.IN16
+B[3] => LessThan0.IN17
+B[3] => LessThan1.IN17
+B[4] => Equal0.IN15
+B[4] => LessThan0.IN16
+B[4] => LessThan1.IN16
+B[5] => Equal0.IN14
+B[5] => LessThan0.IN15
+B[5] => LessThan1.IN15
+B[6] => Equal0.IN13
+B[6] => LessThan0.IN14
+B[6] => LessThan1.IN14
+B[7] => Equal0.IN12
+B[7] => LessThan0.IN13
+B[7] => LessThan1.IN13
+B[8] => Equal0.IN11
+B[8] => LessThan0.IN12
+B[8] => LessThan1.IN12
+B[9] => Equal0.IN10
+B[9] => LessThan0.IN11
+B[9] => LessThan1.IN11
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Controller:inst6|RegisterX:inst3
+CLK => DATA_OUT[0]~reg0.CLK
+CLK => DATA_OUT[1]~reg0.CLK
+CLK => DATA_OUT[2]~reg0.CLK
+CLK => DATA_OUT[3]~reg0.CLK
+CLK => DATA_OUT[4]~reg0.CLK
+CLK => DATA_OUT[5]~reg0.CLK
+CLK => DATA_OUT[6]~reg0.CLK
+CLK => DATA_OUT[7]~reg0.CLK
+CLK => DATA_OUT[8]~reg0.CLK
+CLK => DATA_OUT[9]~reg0.CLK
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+LD => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+CL => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+INC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DEC => DATA_OUT.OUTPUTSELECT
+DATA_IN[0] => DATA_OUT.DATAB
+DATA_IN[1] => DATA_OUT.DATAB
+DATA_IN[2] => DATA_OUT.DATAB
+DATA_IN[3] => DATA_OUT.DATAB
+DATA_IN[4] => DATA_OUT.DATAB
+DATA_IN[5] => DATA_OUT.DATAB
+DATA_IN[6] => DATA_OUT.DATAB
+DATA_IN[7] => DATA_OUT.DATAB
+DATA_IN[8] => DATA_OUT.DATAB
+DATA_IN[9] => DATA_OUT.DATAB
+DATA_OUT[0] <= DATA_OUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[1] <= DATA_OUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[2] <= DATA_OUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[3] <= DATA_OUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[4] <= DATA_OUT[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[5] <= DATA_OUT[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[6] <= DATA_OUT[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[7] <= DATA_OUT[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[8] <= DATA_OUT[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[9] <= DATA_OUT[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Controller:inst6|ComparatorX:inst5
+A[0] => Equal0.IN9
+A[0] => LessThan0.IN10
+A[0] => LessThan1.IN10
+A[1] => Equal0.IN8
+A[1] => LessThan0.IN9
+A[1] => LessThan1.IN9
+A[2] => Equal0.IN7
+A[2] => LessThan0.IN8
+A[2] => LessThan1.IN8
+A[3] => Equal0.IN6
+A[3] => LessThan0.IN7
+A[3] => LessThan1.IN7
+A[4] => Equal0.IN5
+A[4] => LessThan0.IN6
+A[4] => LessThan1.IN6
+A[5] => Equal0.IN4
+A[5] => LessThan0.IN5
+A[5] => LessThan1.IN5
+A[6] => Equal0.IN3
+A[6] => LessThan0.IN4
+A[6] => LessThan1.IN4
+A[7] => Equal0.IN2
+A[7] => LessThan0.IN3
+A[7] => LessThan1.IN3
+A[8] => Equal0.IN1
+A[8] => LessThan0.IN2
+A[8] => LessThan1.IN2
+A[9] => Equal0.IN0
+A[9] => LessThan0.IN1
+A[9] => LessThan1.IN1
+B[0] => Equal0.IN19
+B[0] => LessThan0.IN20
+B[0] => LessThan1.IN20
+B[1] => Equal0.IN18
+B[1] => LessThan0.IN19
+B[1] => LessThan1.IN19
+B[2] => Equal0.IN17
+B[2] => LessThan0.IN18
+B[2] => LessThan1.IN18
+B[3] => Equal0.IN16
+B[3] => LessThan0.IN17
+B[3] => LessThan1.IN17
+B[4] => Equal0.IN15
+B[4] => LessThan0.IN16
+B[4] => LessThan1.IN16
+B[5] => Equal0.IN14
+B[5] => LessThan0.IN15
+B[5] => LessThan1.IN15
+B[6] => Equal0.IN13
+B[6] => LessThan0.IN14
+B[6] => LessThan1.IN14
+B[7] => Equal0.IN12
+B[7] => LessThan0.IN13
+B[7] => LessThan1.IN13
+B[8] => Equal0.IN11
+B[8] => LessThan0.IN12
+B[8] => LessThan1.IN12
+B[9] => Equal0.IN10
+B[9] => LessThan0.IN11
+B[9] => LessThan1.IN11
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Controller:inst6|ConstantX:inst4
+DATA_OUT[0] <= <GND>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+DATA_OUT[4] <= <GND>
+DATA_OUT[5] <= <GND>
+DATA_OUT[6] <= <GND>
+DATA_OUT[7] <= <GND>
+DATA_OUT[8] <= <GND>
+DATA_OUT[9] <= <VCC>
+
+
+|VgaTest|Controller:inst6|ConstantX:inst14
+DATA_OUT[0] <= <GND>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+DATA_OUT[4] <= <GND>
+DATA_OUT[5] <= <VCC>
+DATA_OUT[6] <= <VCC>
+DATA_OUT[7] <= <VCC>
+DATA_OUT[8] <= <VCC>
+DATA_OUT[9] <= <GND>
+
+
+|VgaTest|Controller:inst6|ComparatorX:inst13
+A[0] => Equal0.IN9
+A[0] => LessThan0.IN10
+A[0] => LessThan1.IN10
+A[1] => Equal0.IN8
+A[1] => LessThan0.IN9
+A[1] => LessThan1.IN9
+A[2] => Equal0.IN7
+A[2] => LessThan0.IN8
+A[2] => LessThan1.IN8
+A[3] => Equal0.IN6
+A[3] => LessThan0.IN7
+A[3] => LessThan1.IN7
+A[4] => Equal0.IN5
+A[4] => LessThan0.IN6
+A[4] => LessThan1.IN6
+A[5] => Equal0.IN4
+A[5] => LessThan0.IN5
+A[5] => LessThan1.IN5
+A[6] => Equal0.IN3
+A[6] => LessThan0.IN4
+A[6] => LessThan1.IN4
+A[7] => Equal0.IN2
+A[7] => LessThan0.IN3
+A[7] => LessThan1.IN3
+A[8] => Equal0.IN1
+A[8] => LessThan0.IN2
+A[8] => LessThan1.IN2
+A[9] => Equal0.IN0
+A[9] => LessThan0.IN1
+A[9] => LessThan1.IN1
+B[0] => Equal0.IN19
+B[0] => LessThan0.IN20
+B[0] => LessThan1.IN20
+B[1] => Equal0.IN18
+B[1] => LessThan0.IN19
+B[1] => LessThan1.IN19
+B[2] => Equal0.IN17
+B[2] => LessThan0.IN18
+B[2] => LessThan1.IN18
+B[3] => Equal0.IN16
+B[3] => LessThan0.IN17
+B[3] => LessThan1.IN17
+B[4] => Equal0.IN15
+B[4] => LessThan0.IN16
+B[4] => LessThan1.IN16
+B[5] => Equal0.IN14
+B[5] => LessThan0.IN15
+B[5] => LessThan1.IN15
+B[6] => Equal0.IN13
+B[6] => LessThan0.IN14
+B[6] => LessThan1.IN14
+B[7] => Equal0.IN12
+B[7] => LessThan0.IN13
+B[7] => LessThan1.IN13
+B[8] => Equal0.IN11
+B[8] => LessThan0.IN12
+B[8] => LessThan1.IN12
+B[9] => Equal0.IN10
+B[9] => LessThan0.IN11
+B[9] => LessThan1.IN11
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Controller:inst6|ConstantX:inst12
+DATA_OUT[0] <= <VCC>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <GND>
+DATA_OUT[3] <= <VCC>
+DATA_OUT[4] <= <GND>
+DATA_OUT[5] <= <VCC>
+DATA_OUT[6] <= <VCC>
+DATA_OUT[7] <= <VCC>
+DATA_OUT[8] <= <VCC>
+DATA_OUT[9] <= <GND>
+
+
+|VgaTest|Controller:inst6|ComparatorX:inst20
+A[0] => Equal0.IN9
+A[0] => LessThan0.IN10
+A[0] => LessThan1.IN10
+A[1] => Equal0.IN8
+A[1] => LessThan0.IN9
+A[1] => LessThan1.IN9
+A[2] => Equal0.IN7
+A[2] => LessThan0.IN8
+A[2] => LessThan1.IN8
+A[3] => Equal0.IN6
+A[3] => LessThan0.IN7
+A[3] => LessThan1.IN7
+A[4] => Equal0.IN5
+A[4] => LessThan0.IN6
+A[4] => LessThan1.IN6
+A[5] => Equal0.IN4
+A[5] => LessThan0.IN5
+A[5] => LessThan1.IN5
+A[6] => Equal0.IN3
+A[6] => LessThan0.IN4
+A[6] => LessThan1.IN4
+A[7] => Equal0.IN2
+A[7] => LessThan0.IN3
+A[7] => LessThan1.IN3
+A[8] => Equal0.IN1
+A[8] => LessThan0.IN2
+A[8] => LessThan1.IN2
+A[9] => Equal0.IN0
+A[9] => LessThan0.IN1
+A[9] => LessThan1.IN1
+B[0] => Equal0.IN19
+B[0] => LessThan0.IN20
+B[0] => LessThan1.IN20
+B[1] => Equal0.IN18
+B[1] => LessThan0.IN19
+B[1] => LessThan1.IN19
+B[2] => Equal0.IN17
+B[2] => LessThan0.IN18
+B[2] => LessThan1.IN18
+B[3] => Equal0.IN16
+B[3] => LessThan0.IN17
+B[3] => LessThan1.IN17
+B[4] => Equal0.IN15
+B[4] => LessThan0.IN16
+B[4] => LessThan1.IN16
+B[5] => Equal0.IN14
+B[5] => LessThan0.IN15
+B[5] => LessThan1.IN15
+B[6] => Equal0.IN13
+B[6] => LessThan0.IN14
+B[6] => LessThan1.IN14
+B[7] => Equal0.IN12
+B[7] => LessThan0.IN13
+B[7] => LessThan1.IN13
+B[8] => Equal0.IN11
+B[8] => LessThan0.IN12
+B[8] => LessThan1.IN12
+B[9] => Equal0.IN10
+B[9] => LessThan0.IN11
+B[9] => LessThan1.IN11
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Controller:inst6|ConstantX:inst19
+DATA_OUT[0] <= <GND>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <GND>
+DATA_OUT[3] <= <GND>
+DATA_OUT[4] <= <GND>
+DATA_OUT[5] <= <VCC>
+DATA_OUT[6] <= <VCC>
+DATA_OUT[7] <= <VCC>
+DATA_OUT[8] <= <VCC>
+DATA_OUT[9] <= <GND>
+
+
+|VgaTest|Controller:inst6|ComparatorX:inst18
+A[0] => Equal0.IN10
+A[0] => LessThan0.IN11
+A[0] => LessThan1.IN11
+A[1] => Equal0.IN9
+A[1] => LessThan0.IN10
+A[1] => LessThan1.IN10
+A[2] => Equal0.IN8
+A[2] => LessThan0.IN9
+A[2] => LessThan1.IN9
+A[3] => Equal0.IN7
+A[3] => LessThan0.IN8
+A[3] => LessThan1.IN8
+A[4] => Equal0.IN6
+A[4] => LessThan0.IN7
+A[4] => LessThan1.IN7
+A[5] => Equal0.IN5
+A[5] => LessThan0.IN6
+A[5] => LessThan1.IN6
+A[6] => Equal0.IN4
+A[6] => LessThan0.IN5
+A[6] => LessThan1.IN5
+A[7] => Equal0.IN3
+A[7] => LessThan0.IN4
+A[7] => LessThan1.IN4
+A[8] => Equal0.IN2
+A[8] => LessThan0.IN3
+A[8] => LessThan1.IN3
+A[9] => Equal0.IN1
+A[9] => LessThan0.IN2
+A[9] => LessThan1.IN2
+A[10] => Equal0.IN0
+A[10] => LessThan0.IN1
+A[10] => LessThan1.IN1
+B[0] => Equal0.IN21
+B[0] => LessThan0.IN22
+B[0] => LessThan1.IN22
+B[1] => Equal0.IN20
+B[1] => LessThan0.IN21
+B[1] => LessThan1.IN21
+B[2] => Equal0.IN19
+B[2] => LessThan0.IN20
+B[2] => LessThan1.IN20
+B[3] => Equal0.IN18
+B[3] => LessThan0.IN19
+B[3] => LessThan1.IN19
+B[4] => Equal0.IN17
+B[4] => LessThan0.IN18
+B[4] => LessThan1.IN18
+B[5] => Equal0.IN16
+B[5] => LessThan0.IN17
+B[5] => LessThan1.IN17
+B[6] => Equal0.IN15
+B[6] => LessThan0.IN16
+B[6] => LessThan1.IN16
+B[7] => Equal0.IN14
+B[7] => LessThan0.IN15
+B[7] => LessThan1.IN15
+B[8] => Equal0.IN13
+B[8] => LessThan0.IN14
+B[8] => LessThan1.IN14
+B[9] => Equal0.IN12
+B[9] => LessThan0.IN13
+B[9] => LessThan1.IN13
+B[10] => Equal0.IN11
+B[10] => LessThan0.IN12
+B[10] => LessThan1.IN12
+EQ <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaTest|Controller:inst6|ConstantX:inst17
+DATA_OUT[0] <= <GND>
+DATA_OUT[1] <= <GND>
+DATA_OUT[2] <= <GND>
+DATA_OUT[3] <= <GND>
+DATA_OUT[4] <= <GND>
+DATA_OUT[5] <= <GND>
+DATA_OUT[6] <= <GND>
+DATA_OUT[7] <= <VCC>
+DATA_OUT[8] <= <GND>
+DATA_OUT[9] <= <VCC>
+DATA_OUT[10] <= <GND>
+
+

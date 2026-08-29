@@ -14,48 +14,54 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sat Aug 29 13:57:46 2026"
+// CREATED		"Sat Aug 29 13:26:37 2026"
 
-module BackgroundMain(
-	X,
-	Y,
-	VALID,
+module ADD25(
+	C_0,
+	A,
 	B,
-	G,
-	R
+	C,
+	OUT
 );
 
 
-input wire	[9:0] X;
-input wire	[9:0] Y;
-output wire	VALID;
-output wire	[3:0] B;
-output wire	[3:0] G;
-output wire	[3:0] R;
+input wire	C_0;
+input wire	[24:0] A;
+input wire	[24:0] B;
+output wire	C;
+output wire	[24:0] OUT;
+
+wire	[24:0] OUT_ALTERA_SYNTHESIZED;
+wire	SYNTHESIZED_WIRE_0;
+wire	SYNTHESIZED_WIRE_1;
 
 
-assign	VALID = 1;
 
 
 
-
-ConstantX	b2v_inst2(
-	.DATA_OUT(G));
-	defparam	b2v_inst2.const = 15;
-	defparam	b2v_inst2.size = 4;
-
-
-ConstantX	b2v_inst6(
-	.DATA_OUT(B));
-	defparam	b2v_inst6.const = 15;
-	defparam	b2v_inst6.size = 4;
+ADD16	b2v_inst(
+	.C_0(C_0),
+	.A(A[15:0]),
+	.B(B[15:0]),
+	.C(SYNTHESIZED_WIRE_0),
+	.OUT(OUT_ALTERA_SYNTHESIZED[15:0]));
 
 
-ConstantX	b2v_inst8(
-	.DATA_OUT(R));
-	defparam	b2v_inst8.const = 15;
-	defparam	b2v_inst8.size = 4;
+ADD8	b2v_inst1(
+	.C_0(SYNTHESIZED_WIRE_0),
+	.A(A[23:16]),
+	.B(B[23:16]),
+	.C(SYNTHESIZED_WIRE_1),
+	.OUT(OUT_ALTERA_SYNTHESIZED[23:16]));
 
 
+ADD1	b2v_inst2(
+	.A(A[24]),
+	.B(B[24]),
+	.C_0(SYNTHESIZED_WIRE_1),
+	.OUT(OUT_ALTERA_SYNTHESIZED[24]),
+	.C(C));
+
+assign	OUT = OUT_ALTERA_SYNTHESIZED;
 
 endmodule

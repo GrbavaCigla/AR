@@ -14,48 +14,52 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sat Aug 29 13:57:46 2026"
+// CREATED		"Sat Aug 29 13:29:34 2026"
 
-module BackgroundMain(
-	X,
-	Y,
-	VALID,
-	B,
-	G,
-	R
+module REG25_LD_CL(
+	LD,
+	CLK,
+	CL,
+	I,
+	A
 );
 
 
-input wire	[9:0] X;
-input wire	[9:0] Y;
-output wire	VALID;
-output wire	[3:0] B;
-output wire	[3:0] G;
-output wire	[3:0] R;
+input wire	LD;
+input wire	CLK;
+input wire	CL;
+input wire	[24:0] I;
+output wire	[24:0] A;
 
-
-assign	VALID = 1;
-
+wire	[24:0] A_ALTERA_SYNTHESIZED;
 
 
 
-ConstantX	b2v_inst2(
-	.DATA_OUT(G));
-	defparam	b2v_inst2.const = 15;
-	defparam	b2v_inst2.size = 4;
 
 
-ConstantX	b2v_inst6(
-	.DATA_OUT(B));
-	defparam	b2v_inst6.const = 15;
-	defparam	b2v_inst6.size = 4;
+REG16_LD_CL	b2v_inst(
+	.LD(LD),
+	.CL(CL),
+	.clk(CLK),
+	.I(I[15:0]),
+	.A(A_ALTERA_SYNTHESIZED[15:0]));
 
 
-ConstantX	b2v_inst8(
-	.DATA_OUT(R));
-	defparam	b2v_inst8.const = 15;
-	defparam	b2v_inst8.size = 4;
+REG8_LD_CL	b2v_inst1(
+	.LD(LD),
+	.CL(CL),
+	.clk(CLK),
+	.I(I[23:16]),
+	.A(A_ALTERA_SYNTHESIZED[23:16]));
 
 
+REG1_LD_CL	b2v_inst2(
+	.LD(LD),
+	.I(I[24]),
+	.CL(CL),
+	.clk(CLK),
+	.A(A_ALTERA_SYNTHESIZED[24]));
+
+assign	A = A_ALTERA_SYNTHESIZED;
 
 endmodule

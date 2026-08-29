@@ -148,7 +148,7 @@ applicable agreement for further details.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"const"
-		"0"
+		"15"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
@@ -157,7 +157,7 @@ applicable agreement for further details.
 	(annotation_block (parameter)(rect 704 208 886 250))
 )
 (symbol
-	(rect 920 328 976 384)
+	(rect 928 328 984 384)
 	(text "ConstantX" (rect 5 0 55 12)(font "Arial" ))
 	(text "inst2" (rect 8 40 31 52)(font "Arial" ))
 	(port
@@ -174,13 +174,13 @@ applicable agreement for further details.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"const"
-		"0"
+		"15"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 24 24 40 40)(fill (color 218 218 218)))
 	)
-	(annotation_block (parameter)(rect 704 320 886 362))
+	(annotation_block (parameter)(rect 696 320 878 362))
 )
 (symbol
 	(rect 920 432 976 488)
@@ -200,7 +200,7 @@ applicable agreement for further details.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"const"
-		"0"
+		"15"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
@@ -222,12 +222,12 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 976 360)
-	(pt 1096 360)
+	(pt 976 464)
+	(pt 1104 464)
 	(bus)
 )
 (connector
-	(pt 976 464)
-	(pt 1104 464)
+	(pt 1096 360)
+	(pt 984 360)
 	(bus)
 )

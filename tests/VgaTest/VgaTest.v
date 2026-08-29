@@ -14,48 +14,65 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sat Aug 29 13:57:46 2026"
+// CREATED		"Sat Aug 29 15:16:04 2026"
 
-module BackgroundMain(
-	X,
-	Y,
-	VALID,
+module VgaTest(
+	CLK,
+	HS,
+	VS,
+	LED0,
 	B,
 	G,
 	R
 );
 
 
-input wire	[9:0] X;
-input wire	[9:0] Y;
-output wire	VALID;
+input wire	CLK;
+output wire	HS;
+output wire	VS;
+output wire	LED0;
 output wire	[3:0] B;
 output wire	[3:0] G;
 output wire	[3:0] R;
 
+wire	[9:0] x;
+wire	SYNTHESIZED_WIRE_5;
+wire	SYNTHESIZED_WIRE_2;
+wire	[0:9] SYNTHESIZED_WIRE_6;
 
-assign	VALID = 1;
-
-
-
-
-ConstantX	b2v_inst2(
-	.DATA_OUT(G));
-	defparam	b2v_inst2.const = 15;
-	defparam	b2v_inst2.size = 4;
+assign	SYNTHESIZED_WIRE_5 = 0;
+assign	SYNTHESIZED_WIRE_2 = 0;
+assign	SYNTHESIZED_WIRE_6 = 0;
 
 
-ConstantX	b2v_inst6(
-	.DATA_OUT(B));
-	defparam	b2v_inst6.const = 15;
-	defparam	b2v_inst6.size = 4;
 
 
-ConstantX	b2v_inst8(
-	.DATA_OUT(R));
-	defparam	b2v_inst8.const = 15;
-	defparam	b2v_inst8.size = 4;
+Monitor	b2v_inst(
+	.clk(CLK),
+	.SET_PIXEL(SYNTHESIZED_WIRE_5),
+	.SET_BIT(SYNTHESIZED_WIRE_5),
+	.FB_SEL(SYNTHESIZED_WIRE_2),
+	.XIN(SYNTHESIZED_WIRE_6),
+	.YIN(SYNTHESIZED_WIRE_6),
+	.hs(HS),
+	.vs(VS),
+	
+	.B(B),
+	.G(G),
+	.R(R));
 
 
+
+
+
+Controller	b2v_inst6(
+	.CLK(CLK),
+	
+	
+	
+	.X(x)
+	);
+
+assign	LED0 = x[9];
 
 endmodule
