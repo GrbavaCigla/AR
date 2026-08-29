@@ -857,7 +857,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 992 728 1144 816)
+	(rect 1160 728 1312 816)
 	(text "ClockDivider" (rect 5 0 68 12)(font "Arial" ))
 	(text "inst10" (rect 24 72 53 84)(font "Arial" ))
 	(port
@@ -912,7 +912,7 @@ applicable agreement for further details.
 		(line (pt 112 80)(pt 128 80)(color 0 0 0)(line_width 2))
 		(rectangle (rect 16 16 136 88))
 	)
-	(annotation_block (parameter)(rect 1144 680 1349 722))
+	(annotation_block (parameter)(rect 1312 680 1517 722))
 )
 (connector
 	(text "hs" (rect 537 112 548 124)(font "Arial" ))
@@ -1188,14 +1188,14 @@ applicable agreement for further details.
 	(pt 408 752)
 )
 (connector
-	(text "clk" (rect 944 760 958 772)(font "Arial" ))
-	(pt 992 776)
-	(pt 936 776)
+	(text "clk" (rect 1112 760 1126 772)(font "Arial" ))
+	(pt 1160 776)
+	(pt 1104 776)
 )
 (connector
-	(text "vga_clk" (rect 1152 760 1190 772)(font "Arial" ))
-	(pt 1144 776)
-	(pt 1216 776)
+	(text "vga_clk" (rect 1320 760 1358 772)(font "Arial" ))
+	(pt 1312 776)
+	(pt 1384 776)
 )
 (connector
 	(text "vga_clk" (rect 356 80 394 92)(font "Arial" ))
@@ -1214,7 +1214,9 @@ applicable agreement for further details.
 (text "ulaz/izlaz pinovi i konstante" (rect 48 40 202 54)(font "Arial" (font_size 8)))
 (text "handshake - pixel promenjen" (rect 736 680 898 694)(font "Arial" (font_size 8)))
 (text "za sada bez potrebe da se upisuju i citaju cele reci u frame buffer, moze se dodati" (rect 352 808 819 822)(font "Arial" (font_size 8)))
+(text "40ns -> 25MHz, smanjujemo clk klok na pola kako bismo dobili 60Hz " (rect 952 696 1334 710)(font "Arial" (font_size 8)))
 (rectangle (rect 24 32 280 832))
 (rectangle (rect 296 32 904 240))
 (rectangle (rect 920 32 1576 664))
 (rectangle (rect 296 256 904 832))
+(rectangle (rect 920 680 1576 832))

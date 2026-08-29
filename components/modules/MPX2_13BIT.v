@@ -14,24 +14,24 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sat Aug 29 10:43:39 2026"
+// CREATED		"Sat Aug 29 10:42:56 2026"
 
-module MPX2_32BIT(
-	E,
+module MPX2_13BIT(
 	S,
+	E,
 	I0,
 	I1,
 	D
 );
 
 
-input wire	E;
 input wire	S;
-input wire	[31:0] I0;
-input wire	[31:0] I1;
-output wire	[31:0] D;
+input wire	E;
+input wire	[12:0] I0;
+input wire	[12:0] I1;
+output wire	[12:0] D;
 
-wire	[31:0] D_ALTERA_SYNTHESIZED;
+wire	[12:0] D_ALTERA_SYNTHESIZED;
 
 
 
@@ -77,62 +77,6 @@ MPX2	b2v_inst12(
 	.D(D_ALTERA_SYNTHESIZED[12]));
 
 
-MPX2	b2v_inst13(
-	.I0(I0[13]),
-	.I1(I1[13]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[13]));
-
-
-MPX2	b2v_inst14(
-	.I0(I0[14]),
-	.I1(I1[14]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[14]));
-
-
-MPX2	b2v_inst15(
-	.I0(I0[15]),
-	.I1(I1[15]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[15]));
-
-
-MPX2	b2v_inst16(
-	.I0(I0[16]),
-	.I1(I1[16]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[16]));
-
-
-MPX2	b2v_inst17(
-	.I0(I0[17]),
-	.I1(I1[17]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[17]));
-
-
-MPX2	b2v_inst18(
-	.I0(I0[18]),
-	.I1(I1[18]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[18]));
-
-
-MPX2	b2v_inst19(
-	.I0(I0[19]),
-	.I1(I1[19]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[19]));
-
-
 MPX2	b2v_inst2(
 	.I0(I0[2]),
 	.I1(I1[2]),
@@ -141,108 +85,12 @@ MPX2	b2v_inst2(
 	.D(D_ALTERA_SYNTHESIZED[2]));
 
 
-MPX2	b2v_inst20(
-	.I0(I0[20]),
-	.I1(I1[20]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[20]));
-
-
-MPX2	b2v_inst21(
-	.I0(I0[21]),
-	.I1(I1[21]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[21]));
-
-
-MPX2	b2v_inst22(
-	.I0(I0[22]),
-	.I1(I1[22]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[22]));
-
-
-MPX2	b2v_inst23(
-	.I0(I0[23]),
-	.I1(I1[23]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[23]));
-
-
-MPX2	b2v_inst24(
-	.I0(I0[24]),
-	.I1(I1[24]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[24]));
-
-
-MPX2	b2v_inst25(
-	.I0(I0[25]),
-	.I1(I1[25]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[25]));
-
-
-MPX2	b2v_inst26(
-	.I0(I0[26]),
-	.I1(I1[26]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[26]));
-
-
-MPX2	b2v_inst27(
-	.I0(I0[27]),
-	.I1(I1[27]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[27]));
-
-
-MPX2	b2v_inst28(
-	.I0(I0[28]),
-	.I1(I1[28]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[28]));
-
-
-MPX2	b2v_inst29(
-	.I0(I0[29]),
-	.I1(I1[29]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[29]));
-
-
 MPX2	b2v_inst3(
 	.I0(I0[3]),
 	.I1(I1[3]),
 	.S(S),
 	.E(E),
 	.D(D_ALTERA_SYNTHESIZED[3]));
-
-
-MPX2	b2v_inst30(
-	.I0(I0[30]),
-	.I1(I1[30]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[30]));
-
-
-MPX2	b2v_inst31(
-	.I0(I0[31]),
-	.I1(I1[31]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[31]));
 
 
 MPX2	b2v_inst4(

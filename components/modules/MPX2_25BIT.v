@@ -14,9 +14,9 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sat Aug 29 10:43:39 2026"
+// CREATED		"Sat Aug 29 10:43:18 2026"
 
-module MPX2_32BIT(
+module MPX2_25BIT(
 	E,
 	S,
 	I0,
@@ -27,11 +27,11 @@ module MPX2_32BIT(
 
 input wire	E;
 input wire	S;
-input wire	[31:0] I0;
-input wire	[31:0] I1;
-output wire	[31:0] D;
+input wire	[24:0] I0;
+input wire	[24:0] I1;
+output wire	[24:0] D;
 
-wire	[31:0] D_ALTERA_SYNTHESIZED;
+wire	[24:0] D_ALTERA_SYNTHESIZED;
 
 
 
@@ -181,68 +181,12 @@ MPX2	b2v_inst24(
 	.D(D_ALTERA_SYNTHESIZED[24]));
 
 
-MPX2	b2v_inst25(
-	.I0(I0[25]),
-	.I1(I1[25]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[25]));
-
-
-MPX2	b2v_inst26(
-	.I0(I0[26]),
-	.I1(I1[26]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[26]));
-
-
-MPX2	b2v_inst27(
-	.I0(I0[27]),
-	.I1(I1[27]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[27]));
-
-
-MPX2	b2v_inst28(
-	.I0(I0[28]),
-	.I1(I1[28]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[28]));
-
-
-MPX2	b2v_inst29(
-	.I0(I0[29]),
-	.I1(I1[29]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[29]));
-
-
 MPX2	b2v_inst3(
 	.I0(I0[3]),
 	.I1(I1[3]),
 	.S(S),
 	.E(E),
 	.D(D_ALTERA_SYNTHESIZED[3]));
-
-
-MPX2	b2v_inst30(
-	.I0(I0[30]),
-	.I1(I1[30]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[30]));
-
-
-MPX2	b2v_inst31(
-	.I0(I0[31]),
-	.I1(I1[31]),
-	.S(S),
-	.E(E),
-	.D(D_ALTERA_SYNTHESIZED[31]));
 
 
 MPX2	b2v_inst4(

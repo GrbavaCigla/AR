@@ -14,37 +14,44 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sat Aug 29 10:42:44 2026"
+// CREATED		"Sat Aug 29 10:43:28 2026"
 
-module MPX2(
+module MPX2_2BIT(
+	S,
 	E,
 	I0,
 	I1,
-	S,
 	D
 );
 
 
-input wire	E;
-input wire	I0;
-input wire	I1;
 input wire	S;
-output wire	D;
+input wire	E;
+input wire	[1:0] I0;
+input wire	[1:0] I1;
+output wire	[1:0] D;
 
-wire	nS;
-wire	SYNTHESIZED_WIRE_0;
-wire	SYNTHESIZED_WIRE_1;
+wire	[1:0] D_ALTERA_SYNTHESIZED;
 
 
 
 
-assign	D = SYNTHESIZED_WIRE_0 | SYNTHESIZED_WIRE_1;
 
-assign	SYNTHESIZED_WIRE_0 = I1 & E & S;
+MPX2	b2v_inst0(
+	.I0(I0[0]),
+	.I1(I1[0]),
+	.S(S),
+	.E(E),
+	.D(D_ALTERA_SYNTHESIZED[0]));
 
-assign	SYNTHESIZED_WIRE_1 = I0 & E & nS;
 
-assign	nS =  ~S;
+MPX2	b2v_inst1(
+	.I0(I0[1]),
+	.I1(I1[1]),
+	.S(S),
+	.E(E),
+	.D(D_ALTERA_SYNTHESIZED[1]));
 
+assign	D = D_ALTERA_SYNTHESIZED;
 
 endmodule
