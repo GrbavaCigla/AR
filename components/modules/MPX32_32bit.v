@@ -1,63 +1,51 @@
-// ============================================================
-// File Name: MPX32_32bit.v
-// Verilog equivalent of MPX32_32bit.vhd (Altera LPM_MUX megafunction)
-//
-// 32-to-1 multiplexer, 32-bit wide
-//   sel = 0  -> result = data0x
-//   sel = 1  -> result = data1x
-//   ...
-//   sel = 31 -> result = data31x
-// ============================================================
-
 module MPX32_32bit (
-    input  wire [31:0] data0x,
-    input  wire [31:0] data1x,
-    input  wire [31:0] data2x,
-    input  wire [31:0] data3x,
-    input  wire [31:0] data4x,
-    input  wire [31:0] data5x,
-    input  wire [31:0] data6x,
-    input  wire [31:0] data7x,
-    input  wire [31:0] data8x,
-    input  wire [31:0] data9x,
-    input  wire [31:0] data10x,
-    input  wire [31:0] data11x,
-    input  wire [31:0] data12x,
-    input  wire [31:0] data13x,
-    input  wire [31:0] data14x,
-    input  wire [31:0] data15x,
-    input  wire [31:0] data16x,
-    input  wire [31:0] data17x,
-    input  wire [31:0] data18x,
-    input  wire [31:0] data19x,
-    input  wire [31:0] data20x,
-    input  wire [31:0] data21x,
-    input  wire [31:0] data22x,
-    input  wire [31:0] data23x,
-    input  wire [31:0] data24x,
-    input  wire [31:0] data25x,
-    input  wire [31:0] data26x,
-    input  wire [31:0] data27x,
-    input  wire [31:0] data28x,
-    input  wire [31:0] data29x,
-    input  wire [31:0] data30x,
-    input  wire [31:0] data31x,
-    input  wire [4:0]  sel,
-    output reg  [31:0] result
+    input [31:0] data0x,
+    input [31:0] data1x,
+    input [31:0] data2x,
+    input [31:0] data3x,
+    input [31:0] data4x,
+    input [31:0] data5x,
+    input [31:0] data6x,
+    input [31:0] data7x,
+    input [31:0] data8x,
+    input [31:0] data9x,
+    input [31:0] data10x,
+    input [31:0] data11x,
+    input [31:0] data12x,
+    input [31:0] data13x,
+    input [31:0] data14x,
+    input [31:0] data15x,
+    input [31:0] data16x,
+    input [31:0] data17x,
+    input [31:0] data18x,
+    input [31:0] data19x,
+    input [31:0] data20x,
+    input [31:0] data21x,
+    input [31:0] data22x,
+    input [31:0] data23x,
+    input [31:0] data24x,
+    input [31:0] data25x,
+    input [31:0] data26x,
+    input [31:0] data27x,
+    input [31:0] data28x,
+    input [31:0] data29x,
+    input [31:0] data30x,
+    input [31:0] data31x,
+    input [4:0] sel,
+    output reg [31:0] result
 );
-
-    always @(*) begin
+    always @* begin
         case (sel)
-            5'd0:  result = data0x;
-            5'd1:  result = data1x;
-            5'd2:  result = data2x;
-            5'd3:  result = data3x;
-            5'd4:  result = data4x;
-            5'd5:  result = data5x;
-            5'd6:  result = data6x;
-            5'd7:  result = data7x;
-            5'd8:  result = data8x;
-            5'd9:  result = data9x;
+            5'd0: result = data0x;
+            5'd1: result = data1x;
+            5'd2: result = data2x;
+            5'd3: result = data3x;
+            5'd4: result = data4x;
+            5'd5: result = data5x;
+            5'd6: result = data6x;
+            5'd7: result = data7x;
+            5'd8: result = data8x;
+            5'd9: result = data9x;
             5'd10: result = data10x;
             5'd11: result = data11x;
             5'd12: result = data12x;
@@ -80,8 +68,7 @@ module MPX32_32bit (
             5'd29: result = data29x;
             5'd30: result = data30x;
             5'd31: result = data31x;
-            default: result = 32'bx;
+            default: result = {32{1'b0}};
         endcase
     end
-
 endmodule

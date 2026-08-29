@@ -14,12 +14,13 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Aug 26 18:43:20 2026"
+// CREATED		"Sat Aug 29 10:33:09 2026"
 
 module Monitor(
 	SET_PIXEL,
 	SET_BIT,
 	clk,
+	FB_SEL,
 	XIN,
 	YIN,
 	hs,
@@ -34,6 +35,7 @@ module Monitor(
 input wire	SET_PIXEL;
 input wire	SET_BIT;
 input wire	clk;
+input wire	FB_SEL;
 input wire	[9:0] XIN;
 input wire	[9:0] YIN;
 output wire	hs;
@@ -56,6 +58,7 @@ wire	[3:0] PG;
 wire	[3:0] PR;
 wire	SET_PIXEL_ACTUAL;
 wire	v;
+wire	vga_clk;
 wire	SYNTHESIZED_WIRE_0;
 wire	[3:0] SYNTHESIZED_WIRE_1;
 wire	[3:0] SYNTHESIZED_WIRE_2;
@@ -71,6 +74,27 @@ ConstantX	b2v_inst(
 	defparam	b2v_inst.size = 4;
 
 
+FrameBuffer	b2v_inst1(
+	.clk(vga_clk),
+	.SET_PIXEL(SET_PIXEL_ACTUAL),
+	.SET_BIT(SET_BIT),
+	.FB_SEL(FB_SEL),
+	
+	
+	.X(ACTUAL_X),
+	.Y(ACTUAL_Y),
+	.PIXEL_ON(v),
+	.WR_PIXEL(PIXEL_CHANGED)
+	);
+
+
+ClockDivider	b2v_inst10(
+	.CLK_IN(clk),
+	.CLK_OUT(vga_clk));
+	defparam	b2v_inst10.period_in_MHz = 50;
+	defparam	b2v_inst10.period_out_ns = 40;
+
+
 MPX2_10BIT	b2v_inst100(
 	.sel(SET_PIXEL_ACTUAL),
 	.data0x(controllerX),
@@ -80,19 +104,6 @@ MPX2_10BIT	b2v_inst100(
 assign	SET_PIXEL_ACTUAL = SET_PIXEL & SYNTHESIZED_WIRE_0;
 
 assign	SYNTHESIZED_WIRE_0 =  ~display;
-
-
-FrameBuffer	b2v_inst16(
-	.clk(clk),
-	.SET_PIXEL(SET_PIXEL_ACTUAL),
-	.SET_BIT(SET_BIT),
-	
-	
-	.X(ACTUAL_X),
-	.Y(ACTUAL_Y),
-	.PIXEL_ON(v),
-	.WR_PIXEL(PIXEL_CHANGED)
-	);
 
 assign	R = SYNTHESIZED_WIRE_1 & {display,display,display,display};
 
@@ -144,7 +155,7 @@ MPX2_10BIT	b2v_inst9(
 
 
 Controller	b2v_inst99(
-	.CLK(clk),
+	.CLK(vga_clk),
 	.HS(hs),
 	.VS(vs),
 	.DISPLAY(display),
