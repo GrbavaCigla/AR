@@ -1,0 +1,143 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+# Date created = 14:13:21  August 30, 2026
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		CPU_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CEBA4F23C7
+set_global_assignment -name TOP_LEVEL_ENTITY CPUTest
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:13:21  AUGUST 30, 2026"
+set_global_assignment -name LAST_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name BDF_FILE ../../components/REG/REG32_LD_CL_INC_DEC_SL_SR.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG32_LD_CL_INC_DEC.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG32_LD_CL.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG25_LD_CL.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG16_LD_CL_INC_DEC_SL_SR.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG16_LD_CL_INC_DEC.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG16_LD_CL.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG8_LD_CL_INC_DEC_SL_SR.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG8_LD_CL_INC_DEC.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG8_LD_CL.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG4_LD_CL.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG1_LD_CL_INC_DEC_SL_SR.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG1_LD_CL_INC_DEC.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG1_LD_CL.bdf
+set_global_assignment -name BDF_FILE ../../components/MPX/MUX32_1.bdf
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX32_32bit_2.vhd
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX32_32bit.vhd
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX16_32BIT.vhd
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX12_16BIT.vhd
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX8.vhd
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX5_32bit.vhd
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX4_16BIT.vhd
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX4.vhd
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX2_26BIT.vhd
+set_global_assignment -name BDF_FILE ../../components/MPX/MPX2_25BIT.bdf
+set_global_assignment -name BDF_FILE ../../components/MPX/MPX2_13BIT.bdf
+set_global_assignment -name BDF_FILE ../../components/MPX/MPX2.bdf
+set_global_assignment -name BDF_FILE ../../components/CMP/CMP4.bdf
+set_global_assignment -name BDF_FILE ../../components/CMP/CMP1.bdf
+set_global_assignment -name VHDL_FILE "../../vga/components/Compator & constant/ConstantX.vhd"
+set_global_assignment -name BDF_FILE "../../riscv32i processor/decode/ControlWord.bdf"
+set_global_assignment -name BDF_FILE "../../riscv32i processor/decode/BranchDecoder.bdf"
+set_global_assignment -name BDF_FILE "../../riscv32i processor/decode/ALUDecoder.bdf"
+set_global_assignment -name BDF_FILE "../../riscv32i processor/DataMemory/DataMemory.bdf"
+set_global_assignment -name BDF_FILE "../../riscv32i processor/ALU/ALU.bdf"
+set_global_assignment -name BDF_FILE "../../riscv32i processor/finalnaVerzija/riscvi32i_4.bdf"
+set_global_assignment -name BDF_FILE "../../riscv32i processor/ImmediateGenerator/ImmediateGenTypes.bdf"
+set_global_assignment -name BDF_FILE "../../riscv32i processor/ImmediateGenerator/ImmediateGenerator.bdf"
+set_global_assignment -name BDF_FILE "../../riscv32i processor/regfile/REGFILE.bdf"
+set_global_assignment -name BDF_FILE "../../riscv32i processor/pc/pc.bdf"
+set_global_assignment -name BDF_FILE "../../riscv32i processor/InstructionMemory/InstructionMemory.bdf"
+set_global_assignment -name QIP_FILE "../../components/ROM ZA CPU/ROM_CPU.qip"
+set_global_assignment -name BDF_FILE "InstructionMemory version2/InstrctionMemory2.bdf"
+set_global_assignment -name BDF_FILE "InstructionMemory version2/riscv32iTest.bdf"
+set_global_assignment -name BDF_FILE CPUTest.bdf
+set_global_assignment -name QIP_FILE "../../riscv32i processor/DataMemory/RAM2.qip"
+set_global_assignment -name BDF_FILE ../../components/MPX/MPX2_32BIT.bdf
+set_global_assignment -name BDF_FILE ../../components/MPX/MPX2_16BIT.bdf
+set_global_assignment -name BDF_FILE ../../components/MPX/MPX2_2BIT.bdf
+set_global_assignment -name BDF_FILE ../../components/CMP/CMP16.bdf
+set_global_assignment -name BDF_FILE ../../components/CMP/CMP8.bdf
+set_global_assignment -name BDF_FILE ../../components/SHIFT/SRA_SRL_32BIT.bdf
+set_global_assignment -name BDF_FILE ../../components/SHIFT/SR5_32BIT.bdf
+set_global_assignment -name BDF_FILE ../../components/SHIFT/SR_32BIT.bdf
+set_global_assignment -name BDF_FILE ../../components/SHIFT/SL5_32BIT.bdf
+set_global_assignment -name BDF_FILE ../../components/SHIFT/SL_32BIT.bdf
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX4_4bit.vhd
+set_global_assignment -name BDF_FILE ../../components/ADD/ADD32.bdf
+set_global_assignment -name BDF_FILE ../../components/ADD/ADD25.bdf
+set_global_assignment -name BDF_FILE ../../components/ADD/ADD16.bdf
+set_global_assignment -name BDF_FILE ../../components/ADD/ADD8.bdf
+set_global_assignment -name BDF_FILE ../../components/ADD/ADD4.bdf
+set_global_assignment -name BDF_FILE ../../components/ADD/ADD2.bdf
+set_global_assignment -name BDF_FILE ../../components/ADD/ADD1.bdf
+set_global_assignment -name BDF_FILE ../../components/AND/AND32.bdf
+set_global_assignment -name BDF_FILE ../../components/AND/AND16.bdf
+set_global_assignment -name BDF_FILE ../../components/AND/AND2_32BIT.bdf
+set_global_assignment -name BDF_FILE ../../components/DECODERS/DEC5.bdf
+set_global_assignment -name VHDL_FILE ../../components/DECODERS/DEC3.vhd
+set_global_assignment -name BDF_FILE ../../components/OR/OR32.bdf
+set_global_assignment -name BDF_FILE ../../components/OR/OR16.bdf
+set_global_assignment -name BDF_FILE ../../components/OR/OR2_32BIT.bdf
+set_global_assignment -name BDF_FILE ../../bus/BusFSM/BusFSM2.bdf
+set_global_assignment -name BDF_FILE ../../components/SUB/SUB32.bdf
+set_global_assignment -name BDF_FILE ../../components/SUB/SUB16.bdf
+set_global_assignment -name BDF_FILE ../../components/SUB/SUB8.bdf
+set_global_assignment -name BDF_FILE ../../components/SUB/SUB4.bdf
+set_global_assignment -name BDF_FILE ../../components/SUB/SUB2.bdf
+set_global_assignment -name BDF_FILE ../../components/SUB/SUB1.bdf
+set_global_assignment -name BDF_FILE ../../components/CMP/CMP32.bdf
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX4_32BIT.vhd
+set_global_assignment -name BDF_FILE ../../components/XOR/XOR2_32BIT.bdf
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_M9 -to clk
+set_location_assignment PIN_U7 -to reset
+set_location_assignment PIN_AA2 -to LED0
+set_location_assignment PIN_AA1 -to LED1
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
