@@ -71,7 +71,7 @@ applicable agreement for further details.
 	(input)
 	(rect 104 216 272 232)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "bus_ready" (rect 5 0 57 12)(font "Arial" ))
+	(text "bus_ready" (rect 5 0 56 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -1451,9 +1451,9 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 2024 1304 2216 1432)
-	(text "BusFSM" (rect 5 0 52 14)(font "Arial" (font_size 8)))
-	(text "inst10" (rect 8 109 37 121)(font "Arial" ))
+	(rect 2024 1304 2192 1400)
+	(text "BusFSM2" (rect 5 0 59 14)(font "Arial" (font_size 8)))
+	(text "inst10" (rect 8 80 37 92)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -1476,21 +1476,14 @@ applicable agreement for further details.
 		(line (pt 0 64)(pt 16 64))
 	)
 	(port
-		(pt 0 80)
-		(input)
-		(text "clk" (rect 0 0 15 14)(font "Arial" (font_size 8)))
-		(text "clk" (rect 21 75 36 89)(font "Arial" (font_size 8)))
-		(line (pt 0 80)(pt 16 80))
-	)
-	(port
-		(pt 192 32)
+		(pt 168 32)
 		(output)
 		(text "bus_wait" (rect 0 0 53 14)(font "Arial" (font_size 8)))
-		(text "bus_wait" (rect 111 27 164 41)(font "Arial" (font_size 8)))
-		(line (pt 192 32)(pt 176 32))
+		(text "bus_wait" (rect 94 27 147 41)(font "Arial" (font_size 8)))
+		(line (pt 168 32)(pt 152 32))
 	)
 	(drawing
-		(rectangle (rect 16 16 176 112))
+		(rectangle (rect 16 16 152 80))
 	)
 )
 (connector
@@ -2269,16 +2262,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "clk" (rect 1960 1368 1974 1380)(font "Arial" ))
-	(pt 2024 1384)
-	(pt 1952 1384)
-)
-(connector
-	(text "bus_wait" (rect 2224 1320 2266 1332)(font "Arial" ))
-	(pt 2216 1336)
-	(pt 2288 1336)
-)
-(connector
 	(text "MemRead" (rect 1964 1320 2013 1332)(font "Arial" ))
 	(pt 2024 1336)
 	(pt 1952 1336)
@@ -2292,6 +2275,11 @@ applicable agreement for further details.
 	(text "bus_ready" (rect 1965 1352 2016 1364)(font "Arial" ))
 	(pt 2024 1368)
 	(pt 1952 1368)
+)
+(connector
+	(text "bus_wait" (rect 2224 1320 2266 1332)(font "Arial" ))
+	(pt 2192 1336)
+	(pt 2288 1336)
 )
 (junction (pt 1104 1040))
 (text "JALR_TARGET = JALR_SUM[31..1],0" (rect 664 944 874 958)(font "Arial" (font_size 8)))

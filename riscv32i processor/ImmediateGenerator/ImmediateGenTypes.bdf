@@ -23,7 +23,7 @@ applicable agreement for further details.
 	(input)
 	(rect -32 48 136 64)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "INSTR[31..0]" (rect 5 0 70 12)(font "Arial" ))
+	(text "INSTR[31..0]" (rect 5 0 69 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -133,23 +133,6 @@ applicable agreement for further details.
 	)
 )
 (connector
-	(text "0" (rect 56 355 68 360)(font "Arial" )(vertical))
-	(pt 72 376)
-	(pt 72 328)
-)
-(connector
-	(text "INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[7], INSTR[30..25], INSTR[11..8], 0" (rect -32 184 1356 196)(font "Arial" ))
-	(pt 944 208)
-	(pt 192 208)
-	(bus)
-)
-(connector
-	(text "INSTR[31..12], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0" (rect -32 216 194 228)(font "Arial" ))
-	(pt 944 240)
-	(pt 192 240)
-	(bus)
-)
-(connector
 	(text "INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31],INSTR[31], INSTR[30..20]" (rect -29 96 1277 108)(font "Arial" ))
 	(pt 192 128)
 	(pt 936 128)
@@ -162,9 +145,26 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[19..12],INSTR[20],INSTR[30..21],0" (rect -32 248 843 260)(font "Arial" ))
+	(text "nula" (rect 57 354 69 374)(font "Arial" )(vertical))
+	(pt 72 376)
+	(pt 72 328)
+)
+(connector
+	(text "INSTR[31..12], nula, nula, nula, nula, nula, nula, nula, nula,nula, nula, nula, nula" (rect -32 216 360 228)(font "Arial" ))
+	(pt 944 240)
+	(pt 192 240)
+	(bus)
+)
+(connector
+	(text "INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[31],INSTR[19..12],INSTR[20],INSTR[30..21],nula" (rect -32 248 857 260)(font "Arial" ))
 	(pt 944 272)
 	(pt 192 272)
+	(bus)
+)
+(connector
+	(text "INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[31], INSTR[7], INSTR[30..25], INSTR[11..8], nula" (rect -32 184 1371 196)(font "Arial" ))
+	(pt 944 208)
+	(pt 192 208)
 	(bus)
 )
 (text "I-tip (ADDI, LW, JALR):" (rect 248 360 376 374)(font "Arial" (font_size 8)))
@@ -178,5 +178,5 @@ applicable agreement for further details.
 (text "J-tip (JAL):" (rect 248 552 310 566)(font "Arial" (font_size 8)))
 (text "12 x INSTR[31], INSTR[19..12], INSTR[20], INSTR[30..21], 0 — (12b ext + 8b + 1b + 10b + 1b zero = 32b)" (rect 256 576 828 590)(font "Arial" (font_size 8)))
 (text "TABELA ZNACENJA SVAKOG ADRESIRANJA" (rect 384 328 647 342)(font "Arial" (font_size 8)))
-(rectangle (rect -40 80 1168 304))
+(rectangle (rect -24 80 1184 304))
 (rectangle (rect 240 352 752 608))

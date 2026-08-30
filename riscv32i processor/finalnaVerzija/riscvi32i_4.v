@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Thu Aug 27 15:27:01 2026"
+// CREATED		"Sun Aug 30 13:49:35 2026"
 
 module riscvi32i_4(
 	CLK,
@@ -116,11 +116,10 @@ ImmediateGenerator	b2v_inst1(
 	.IMM_OUT(IMM_OUT));
 
 
-BusFSM	b2v_inst10(
+BusFSM2	b2v_inst10(
 	.mem_read(MemRead),
 	.mem_write(MemWrite),
 	.bus_ready(bus_ready),
-	.clk(CLK),
 	.bus_wait(bus_wait));
 
 
