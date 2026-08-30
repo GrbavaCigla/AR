@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="VgaTest2_1">
+		<CBX_INST_ENTRY INSTANCE_NAME="|VgaTest2_1|Monitor:inst|FrameBuffer:inst1|DEC3:inst16|lpm_decode:LPM_DECODE_component" CBX_FILE_NAME="decode_04f.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|VgaTest2_1|Monitor:inst|FrameBuffer:inst1|FrameBufferWrapper:inst|FrameBufferRAM:inst100|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_ru24.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|VgaTest2_1|Monitor:inst|FrameBuffer:inst1|FrameBufferWrapper:inst|FrameBufferRAM:inst101|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_ru24.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|VgaTest2_1|Monitor:inst|FrameBuffer:inst1|FrameBufferWrapper:inst|MPX2_8BIT:inst2|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_b0e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|VgaTest2_1|Monitor:inst|FrameBuffer:inst1|MPX2_8BIT:inst22|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_b0e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|VgaTest2_1|Monitor:inst|FrameBuffer:inst1|MPX8:inst4|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_c0e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|VgaTest2_1|Monitor:inst|MPX2_10BIT:inst100|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_k1e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|VgaTest2_1|Monitor:inst|MPX2_10BIT:inst9|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_k1e.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
