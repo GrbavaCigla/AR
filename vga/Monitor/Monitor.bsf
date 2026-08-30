@@ -107,6 +107,13 @@ applicable agreement for further details.
 		(text "B[3..0]" (rect 159 107 195 121)(font "Arial" (font_size 8)))
 		(line (pt 216 112)(pt 200 112)(line_width 3))
 	)
+	(port
+		(pt 216 128)
+		(output)
+		(text "OUT[7..0]" (rect 0 0 53 14)(font "Arial" (font_size 8)))
+		(text "OUT[7..0]" (rect 142 123 195 137)(font "Arial" (font_size 8)))
+		(line (pt 216 128)(pt 200 128)(line_width 3))
+	)
 	(drawing
 		(rectangle (rect 16 16 200 144))
 	)
