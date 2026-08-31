@@ -1,14 +1,5 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="CPU">
-		<CBX_INST_ENTRY INSTANCE_NAME="|CPUTest|riscv32iTest:inst|ALUDecoder:inst|MPX4_4bit:inst40|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_a0e.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|CPUTest|riscv32iTest:inst|MPX4_32BIT:inst12|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_r1e.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|CPUTest|riscv32iTest:inst|MPX4_32BIT:inst16|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_r1e.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|CPUTest|riscv32iTest:inst|REGFILE:inst3|MPX32_32bit_2:inst66|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_f3e.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|CPUTest|RAM2:inst1|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_o1v3.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|CPUTest|riscv32iTest:inst|ALU:inst2|MPX16_32BIT:inst14|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_g3e.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|CPUTest|riscv32iTest:inst|InstrctionMemory2:inst15|ROM_CPU:inst1|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_e764.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|CPUTest|riscv32iTest:inst|REGFILE:inst3|MPX32_32bit:inst39|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_f3e.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|CPUTest|riscv32iTest:inst|ImmediateGenerator:inst1|MPX5_32bit:inst1|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_t1e.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
