@@ -50,9 +50,6 @@ set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name SEARCH_PATH "c:\\users\\korisnik\\desktop\\ar\\tests"
-set_global_assignment -name SEARCH_PATH "c:\\users\\korisnik\\desktop\\ar\\components"
-set_global_assignment -name SEARCH_PATH "c:\\users\\korisnik\\desktop\\ar\\sdram"
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
@@ -123,6 +120,11 @@ set_location_assignment PIN_U11 -to sdram_addr[2]
 set_location_assignment PIN_T8 -to sdram_addr[1]
 set_location_assignment PIN_W8 -to sdram_addr[0]
 set_location_assignment PIN_AB11 -to sdram_clk
+set_global_assignment -name SEARCH_PATH "c:\\users\\korisnik\\desktop\\ar\\vga\\components"
+set_global_assignment -name SEARCH_PATH "c:\\users\\korisnik\\desktop\\ar\\tests"
+set_global_assignment -name SEARCH_PATH "c:\\users\\korisnik\\desktop\\ar\\components"
+set_global_assignment -name SEARCH_PATH "c:\\users\\korisnik\\desktop\\ar\\sdram"
+set_global_assignment -name BDF_FILE ../../vga/components/RisignEdge/RisingEdgeDetector.bdf
 set_global_assignment -name VHDL_FILE ../SevenSegmentInterfaceDEC.vhd
 set_global_assignment -name VHDL_FILE ../Binary2BCD.vhd
 set_global_assignment -name BDF_FILE ../../components/ADD/ADD16.bdf
