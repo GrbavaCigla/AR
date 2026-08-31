@@ -1,6 +1,6 @@
 |SDRAM_TEST
 HEX00 <= SevenSegmentInterfaceDEC:inst20.a
-KEY_READ => RisingEdgeDetector:inst11.IN
+KEY_READ => inst13.IN0
 clk => RisingEdgeDetector:inst11.CLK
 clk => RisingEdgeDetector:inst9.CLK
 clk => REG1_LD_CL:inst23.clk
@@ -8,8 +8,8 @@ clk => sdram_wrapper:inst.clk
 clk => RisingEdgeDetector:inst10.CLK
 clk => REG32_LD_CL:inst26.clk
 clk => sdram_clk.DATAIN
-reset => RisingEdgeDetector:inst9.IN
-KEY_WRITE => RisingEdgeDetector:inst10.IN
+reset => inst1.IN0
+KEY_WRITE => inst12.IN0
 SW[0] => MPX2_26BIT:inst6.sel
 SW[0] => MPX2_26BIT:inst4.sel
 SW[0] => MPX4_32BIT:inst2.sel[0]
