@@ -196,7 +196,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 576 152 736 248)
+	(rect 576 168 736 264)
 	(text "ADD16" (rect 5 0 45 14)(font "Arial" (font_size 8)))
 	(text "inst1" (rect 8 80 31 92)(font "Arial" ))
 	(port
@@ -239,7 +239,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 784 136 944 232)
+	(rect 784 152 944 248)
 	(text "ADD16" (rect 5 0 45 14)(font "Arial" (font_size 8)))
 	(text "inst2" (rect 8 80 31 92)(font "Arial" ))
 	(port
@@ -1003,53 +1003,48 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 256 112))
 	)
 )
-(connector
-	(text "zero" (rect 528 200 548 212)(font "Arial" ))
-	(pt 520 216)
-	(pt 576 216)
-)
-(connector
-	(text "Y[9..0],zero,zero,zero,zero,zero,zero" (rect 392 184 567 196)(font "Arial" ))
-	(pt 576 200)
-	(pt 384 200)
-	(bus)
-)
-(connector
-	(text "zero,zero,Y[9..0],zero,zero,zero,zero" (rect 392 168 567 180)(font "Arial" ))
-	(pt 576 184)
-	(pt 384 184)
-	(bus)
-)
-(connector
-	(pt 736 184)
-	(pt 784 184)
-	(bus)
-)
-(connector
-	(pt 784 200)
-	(pt 736 200)
-)
-(connector
-	(pt 784 168)
-	(pt 760 168)
-	(bus)
-)
-(connector
-	(pt 760 168)
-	(pt 760 136)
-	(bus)
-)
-(connector
-	(text "PIXEL_ADDR[15..0]" (rect 969 152 1068 164)(font "Arial" ))
-	(pt 944 168)
-	(pt 1016 168)
-	(bus)
-)
-(connector
-	(text "zero,zero,zero,zero,zero,zero,zero,zero,zero,X[9..3]" (rect 528 120 772 132)(font "Arial" ))
-	(pt 512 136)
-	(pt 760 136)
-	(bus)
+(symbol
+	(rect 576 56 736 152)
+	(text "ADD16" (rect 5 0 45 14)(font "Arial" (font_size 8)))
+	(text "inst15" (rect 8 80 37 92)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "A[15..0]" (rect 0 0 44 14)(font "Arial" (font_size 8)))
+		(text "A[15..0]" (rect 21 27 65 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "B[15..0]" (rect 0 0 43 14)(font "Arial" (font_size 8)))
+		(text "B[15..0]" (rect 21 43 64 57)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "C_0" (rect 0 0 22 14)(font "Arial" (font_size 8)))
+		(text "C_0" (rect 21 59 43 73)(font "Arial" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 160 32)
+		(output)
+		(text "OUT[15..0]" (rect 0 0 60 14)(font "Arial" (font_size 8)))
+		(text "OUT[15..0]" (rect 79 27 139 41)(font "Arial" (font_size 8)))
+		(line (pt 160 32)(pt 144 32)(line_width 3))
+	)
+	(port
+		(pt 160 48)
+		(output)
+		(text "C" (rect 0 0 8 14)(font "Arial" (font_size 8)))
+		(text "C" (rect 131 43 139 57)(font "Arial" (font_size 8)))
+		(line (pt 160 48)(pt 144 48))
+	)
+	(drawing
+		(rectangle (rect 16 16 144 80))
+	)
 )
 (connector
 	(text "clk" (rect 416 416 430 428)(font "Arial" ))
@@ -1064,34 +1059,6 @@ applicable agreement for further details.
 (connector
 	(pt 432 416)
 	(pt 448 416)
-)
-(connector
-	(text "OUT[7..0]" (rect 1528 104 1576 116)(font "Arial" ))
-	(pt 1520 120)
-	(pt 1624 120)
-	(bus)
-)
-(connector
-	(text "NEW_DATA[7..0]" (rect 1144 104 1230 116)(font "Arial" ))
-	(pt 1136 120)
-	(pt 1248 120)
-	(bus)
-)
-(connector
-	(text "WR" (rect 1144 120 1162 132)(font "Arial" ))
-	(pt 1136 136)
-	(pt 1248 136)
-)
-(connector
-	(text "PIXEL_ADDR[15..0]" (rect 1145 136 1244 148)(font "Arial" ))
-	(pt 1136 152)
-	(pt 1248 152)
-	(bus)
-)
-(connector
-	(text "clk" (rect 1144 152 1158 164)(font "Arial" ))
-	(pt 1136 168)
-	(pt 1248 168)
 )
 (connector
 	(text "LD_BIT_SELECT" (rect 856 344 939 356)(font "Arial" ))
@@ -1390,6 +1357,98 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
+	(text "zero" (rect 528 216 548 228)(font "Arial" ))
+	(pt 520 232)
+	(pt 576 232)
+)
+(connector
+	(text "Y[9..0],zero,zero,zero,zero,zero,zero" (rect 392 200 567 212)(font "Arial" ))
+	(pt 576 216)
+	(pt 384 216)
+	(bus)
+)
+(connector
+	(text "zero,Y[9..0],zero,zero,zero,zero,zero" (rect 392 184 567 196)(font "Arial" ))
+	(pt 576 200)
+	(pt 384 200)
+	(bus)
+)
+(connector
+	(pt 760 184)
+	(pt 784 184)
+	(bus)
+)
+(connector
+	(text "PIXEL_ADDR[15..0]" (rect 969 168 1068 180)(font "Arial" ))
+	(pt 944 184)
+	(pt 1016 184)
+	(bus)
+)
+(connector
+	(pt 736 200)
+	(pt 784 200)
+	(bus)
+)
+(connector
+	(pt 736 216)
+	(pt 784 216)
+)
+(connector
+	(pt 736 88)
+	(pt 760 88)
+	(bus)
+)
+(connector
+	(pt 760 88)
+	(pt 760 184)
+	(bus)
+)
+(connector
+	(text "zero,zero,zero,zero,zero,zero,zero,zero,zero,X[9..3]" (rect 360 88 604 100)(font "Arial" ))
+	(pt 360 104)
+	(pt 576 104)
+	(bus)
+)
+(connector
+	(text "zero,zero,zero,zero,Y[9..0],zero,zero" (rect 367 72 542 84)(font "Arial" ))
+	(pt 576 88)
+	(pt 360 88)
+	(bus)
+)
+(connector
+	(text "zero" (rect 520 104 540 116)(font "Arial" ))
+	(pt 576 120)
+	(pt 512 120)
+)
+(connector
+	(text "OUT[7..0]" (rect 1528 104 1576 116)(font "Arial" ))
+	(pt 1520 120)
+	(pt 1624 120)
+	(bus)
+)
+(connector
+	(text "NEW_DATA[7..0]" (rect 1144 104 1230 116)(font "Arial" ))
+	(pt 1136 120)
+	(pt 1248 120)
+	(bus)
+)
+(connector
+	(text "WR" (rect 1144 120 1162 132)(font "Arial" ))
+	(pt 1136 136)
+	(pt 1248 136)
+)
+(connector
+	(text "PIXEL_ADDR[15..0]" (rect 1145 136 1244 148)(font "Arial" ))
+	(pt 1136 152)
+	(pt 1248 152)
+	(bus)
+)
+(connector
+	(text "clk" (rect 1144 152 1158 164)(font "Arial" ))
+	(pt 1136 168)
+	(pt 1248 168)
+)
+(connector
 	(text "FB_SEL" (rect 1144 168 1184 180)(font "Arial" ))
 	(pt 1248 184)
 	(pt 1136 184)
@@ -1398,9 +1457,8 @@ applicable agreement for further details.
 (junction (pt 576 416))
 (junction (pt 704 416))
 (junction (pt 432 368))
-(text "Y * 80 + X / 8" (rect 832 240 907 254)(font "Arial" (font_size 8)))
 (text "ulazi/izlazi" (rect 96 48 153 62)(font "Arial" (font_size 8)))
-(text "racunanje adrese na osnovu x i y koordinata" (rect 384 64 637 78)(font "Arial" (font_size 8)))
+(text "racunanje adrese na osnovu x i y koordinata" (rect 872 40 1125 54)(font "Arial" (font_size 8)))
 (text "tajming - read, modify, write" (rect 352 296 510 310)(font "Arial" (font_size 8)))
 (text "BIT_SELECT registar" (rect 944 304 1060 318)(font "Arial" (font_size 8)))
 (text "OLD_DATA registar" (rect 1296 304 1409 318)(font "Arial" (font_size 8)))
@@ -1409,6 +1467,7 @@ applicable agreement for further details.
 (text "GET_PIXEL logika" (rect 360 528 457 542)(font "Arial" (font_size 8)))
 (text "SET/RESET PIXEL logika" (rect 856 528 990 542)(font "Arial" (font_size 8)))
 (text "za sad redundantni" (rect 96 184 205 198)(font "Arial" (font_size 8)))
+(text "Y * 100 + X / 8" (rect 832 256 914 270)(font "Arial" (font_size 8)))
 (rectangle (rect 64 40 328 912))
 (rectangle (rect 344 40 1096 272))
 (rectangle (rect 344 288 808 496))
