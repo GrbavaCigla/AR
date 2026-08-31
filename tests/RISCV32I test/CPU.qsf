@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CEBA4F23C7
-set_global_assignment -name TOP_LEVEL_ENTITY CPUTest
+set_global_assignment -name TOP_LEVEL_ENTITY CPU_KVADRAT_TEST
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:13:21  AUGUST 30, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -50,13 +50,24 @@ set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_M9 -to clk
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
-set_location_assignment PIN_M9 -to clk
-set_location_assignment PIN_AA2 -to LED0
-set_location_assignment PIN_AA1 -to LED1
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX2_8BIT.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_389_16b/CONST_389_16b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_10000_16b/CONST_10000_16b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_3_16b/CONST_3_16b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_1_25b/CONST_1_25b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_0_16b/CONST_0_16b.vhd
+set_global_assignment -name VHDL_FILE ../../vga/components/ClockDivider/ClockDivider.vhd
+set_global_assignment -name VHDL_FILE ../../components/MPX/MPX2_10BIT.vhd
+set_global_assignment -name BDF_FILE ../../vga/FrameBuffer/FrameBufferWrapper.bdf
+set_global_assignment -name VHDL_FILE ../../vga/FrameBuffer/FrameBufferRAM.vhd
+set_global_assignment -name BDF_FILE ../../vga/FrameBuffer/FrameBuffer.bdf
+set_global_assignment -name VERILOG_FILE ../../sdram/sdram_wrapper.v
+set_global_assignment -name VERILOG_FILE ../../sdram/sdram_controller.v
 set_global_assignment -name BDF_FILE ../../vga/components/RisignEdge/RisingEdgeDetector.bdf
 set_global_assignment -name BDF_FILE ../../components/REG/REG32_LD_CL_INC_DEC_SL_SR.bdf
 set_global_assignment -name BDF_FILE ../../components/REG/REG32_LD_CL_INC_DEC.bdf
@@ -140,5 +151,81 @@ set_global_assignment -name BDF_FILE ../../components/SUB/SUB1.bdf
 set_global_assignment -name BDF_FILE ../../components/CMP/CMP32.bdf
 set_global_assignment -name VHDL_FILE ../../components/MPX/MPX4_32BIT.vhd
 set_global_assignment -name BDF_FILE ../../components/XOR/XOR2_32BIT.bdf
+set_global_assignment -name BDF_FILE CPU_KVADRAT_TEST.bdf
+set_global_assignment -name VERILOG_FILE ../../bus/BusDecoder/BusDecoder.v
+set_global_assignment -name VHDL_FILE "../../vga/components/RegX & CMPX/RegisterX.vhd"
+set_global_assignment -name VHDL_FILE "../../vga/components/RegX & CMPX/MultiplexerX.vhd"
+set_global_assignment -name VHDL_FILE "../../vga/components/Compator & constant/ComparatorX.vhd"
+set_global_assignment -name BDF_FILE ../../vga/Monitor/Monitor.bdf
+set_global_assignment -name BDF_FILE ../../vga/VGAControler/Controller2.bdf
+set_global_assignment -name BDF_FILE ../../vga/Layers/Background/BackgroundMain.bdf
+set_global_assignment -name BDF_FILE "../../riscv32i processor/finalnaVerzija/VgaBusInterface.bdf"
+set_global_assignment -name BDF_FILE ../../lidar/packet_parser/PacketParser.bdf
+set_global_assignment -name BDF_FILE ../../lidar/UART_RX/UART_RX.bdf
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_MODE_030_13b/CONST_MODE_030_13b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_CMD_WRITE_16b/CONST_CMD_WRITE_16b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_CMD_REFRESH_16b/CONST_CMD_REFRESH_16b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_CMD_READ_16b/CONST_CMD_READ_16b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_CMD_PRE_16b/CONST_CMD_PRE_16b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_CMD_PALL_16b/CONST_CMD_PALL_16b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_CMD_NOP_16b/CONST_CMD_NOP_16b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_CMD_MRS_16b/CONST_CMD_MRS_16b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_8_16b/CONST_8_16b.vhd
+set_global_assignment -name VHDL_FILE ../../components/CONST/CONST_CMD_ACTIVE_16b/CONST_CMD_ACTIVE_16b.vhd
+set_global_assignment -name BDF_FILE ../../components/TRI/TRI_16b.bdf
+set_location_assignment PIN_G8 -to vs
+set_location_assignment PIN_U13 -to reset
+set_location_assignment PIN_N16 -to rx
+set_location_assignment PIN_A7 -to B[3]
+set_location_assignment PIN_A8 -to B[2]
+set_location_assignment PIN_B7 -to B[1]
+set_location_assignment PIN_B6 -to B[0]
+set_location_assignment PIN_J8 -to G[3]
+set_location_assignment PIN_J7 -to G[2]
+set_location_assignment PIN_K7 -to G[1]
+set_location_assignment PIN_L7 -to G[0]
+set_location_assignment PIN_H8 -to hs
+set_location_assignment PIN_A5 -to R[3]
+set_location_assignment PIN_C9 -to R[2]
+set_location_assignment PIN_B10 -to R[1]
+set_location_assignment PIN_A9 -to R[0]
+set_location_assignment PIN_R7 -to sdram_addr[12]
+set_location_assignment PIN_P6 -to sdram_addr[11]
+set_location_assignment PIN_U8 -to sdram_addr[10]
+set_location_assignment PIN_R5 -to sdram_addr[9]
+set_location_assignment PIN_P8 -to sdram_addr[8]
+set_location_assignment PIN_P7 -to sdram_addr[7]
+set_location_assignment PIN_P12 -to sdram_addr[6]
+set_location_assignment PIN_AB10 -to sdram_addr[5]
+set_location_assignment PIN_N6 -to sdram_addr[4]
+set_location_assignment PIN_Y10 -to sdram_addr[3]
+set_location_assignment PIN_U11 -to sdram_addr[2]
+set_location_assignment PIN_T8 -to sdram_addr[1]
+set_location_assignment PIN_W8 -to sdram_addr[0]
+set_location_assignment PIN_AB7 -to sdram_ba[1]
+set_location_assignment PIN_T7 -to sdram_ba[0]
+set_location_assignment PIN_V6 -to sdram_cas_n
+set_location_assignment PIN_R6 -to sdram_cke
+set_location_assignment PIN_AB11 -to sdram_clk
+set_location_assignment PIN_U6 -to sdram_cs_n
+set_location_assignment PIN_T9 -to sdram_dq[15]
+set_location_assignment PIN_U10 -to sdram_dq[14]
+set_location_assignment PIN_V9 -to sdram_dq[13]
+set_location_assignment PIN_V10 -to sdram_dq[12]
+set_location_assignment PIN_AA7 -to sdram_dq[11]
+set_location_assignment PIN_AA8 -to sdram_dq[10]
+set_location_assignment PIN_AB8 -to sdram_dq[9]
+set_location_assignment PIN_AA9 -to sdram_dq[8]
+set_location_assignment PIN_AA12 -to sdram_dq[7]
+set_location_assignment PIN_R12 -to sdram_dq[6]
+set_location_assignment PIN_R11 -to sdram_dq[5]
+set_location_assignment PIN_R10 -to sdram_dq[4]
+set_location_assignment PIN_Y11 -to sdram_dq[3]
+set_location_assignment PIN_R9 -to sdram_dq[2]
+set_location_assignment PIN_T10 -to sdram_dq[1]
+set_location_assignment PIN_Y9 -to sdram_dq[0]
+set_location_assignment PIN_N8 -to sdram_dqmh
+set_location_assignment PIN_U12 -to sdram_dqml
+set_location_assignment PIN_AB6 -to sdram_ras_n
+set_location_assignment PIN_AB5 -to sdram_we_n
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_location_assignment PIN_U7 -to resetBtn0
