@@ -1,5 +1,5 @@
--- MIF za FrameBufferRAM: gornja polovina ekrana (Y=0..239, adrese 0x0000..0x4AFF) = FF (svi pikseli upaljeni)
--- donja polovina i neiskoriscen deo RAM-a (0x4B00..0xFFFF) = 00
+-- MIF za FrameBufferRAM: gornja polovina ekrana (Y=0..299, adrese 0x0000..0x752F) = FF (svi pikseli upaljeni)
+-- donja polovina i neiskoriscen deo RAM-a (0x7530..0xFFFF) = 00
 
 WIDTH=8;
 DEPTH=65536;
@@ -8,6 +8,6 @@ ADDRESS_RADIX=HEX;
 DATA_RADIX=HEX;
 
 CONTENT BEGIN
-[0000..4AFF] : FF;
-[4B00..FFFF] : 00;
+[0000..752F] : FF;
+[7530..FFFF] : 00;
 END;
