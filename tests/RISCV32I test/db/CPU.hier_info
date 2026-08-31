@@ -1,8 +1,9 @@
 |CPUTest
 LED0 <= inst9.DB_MAX_OUTPUT_PORT_TYPE
 clk => riscv32iTest:inst.CLK
+clk => RisingEdgeDetector:inst3.CLK
 clk => RAM2:inst1.clock
-reset => riscv32iTest:inst.RESET
+resetBtn0 => RisingEdgeDetector:inst3.IN
 LED1 <= inst13.DB_MAX_OUTPUT_PORT_TYPE
 
 
@@ -653,11 +654,11 @@ DATA_OUT[31] <= <GND>
 
 |CPUTest|riscv32iTest:inst
 bus_wr <= MemWrite.DB_MAX_OUTPUT_PORT_TYPE
-CLK => InstrctionMemory2:inst15.bus_wait
+bus_ready => BusFSM2:inst10.bus_ready
+CLK => InstrctionMemory2:inst15.CLK
 CLK => pc:inst13.CLK
 CLK => REGFILE:inst3.CLK
 RESET => inst42.IN0
-bus_ready => BusFSM2:inst10.bus_ready
 bus_rdata[0] => MPX4_32BIT:inst12.data1x[0]
 bus_rdata[1] => MPX4_32BIT:inst12.data1x[1]
 bus_rdata[2] => MPX4_32BIT:inst12.data1x[2]
@@ -65485,6 +65486,13 @@ E <= inst6.DB_MAX_OUTPUT_PORT_TYPE
 Ei_1 => inst6.IN1
 L <= inst5.DB_MAX_OUTPUT_PORT_TYPE
 Li_1 => inst10.IN1
+
+
+|CPUTest|RisingEdgeDetector:inst3
+OUT <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+CLK => inst.CLK
+CLK => inst1.CLK
+IN => inst.DATAIN
 
 
 |CPUTest|RAM2:inst1

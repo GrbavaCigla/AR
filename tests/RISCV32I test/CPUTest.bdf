@@ -40,7 +40,7 @@ applicable agreement for further details.
 	(input)
 	(rect 48 64 216 80)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "reset" (rect 5 0 29 12)(font "Arial" ))
+	(text "resetBtn0" (rect 5 0 53 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -72,7 +72,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 800 824 976 840)
+	(rect 1008 760 1184 776)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "LED1" (rect 90 0 117 12)(font "Arial" ))
 	(pt 0 8)
@@ -85,7 +85,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 976 840 1040 856))
+	(annotation_block (location)(rect 1184 776 1248 792))
 )
 (symbol
 	(rect 232 144 480 272)
@@ -656,6 +656,92 @@ applicable agreement for further details.
 	)
 	(annotation_block (parameter)(rect 384 600 595 642))
 )
+(symbol
+	(rect 256 40 352 136)
+	(text "RisingEdgeDetector" (rect 5 0 115 14)(font "Arial" (font_size 8)))
+	(text "inst3" (rect 8 80 31 92)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN" (rect 0 0 10 14)(font "Arial" (font_size 8)))
+		(text "IN" (rect 21 27 31 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "CLK" (rect 0 0 23 14)(font "Arial" (font_size 8)))
+		(text "CLK" (rect 21 43 44 57)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 96 32)
+		(output)
+		(text "OUT" (rect 0 0 24 14)(font "Arial" (font_size 8)))
+		(text "OUT" (rect 51 27 75 41)(font "Arial" (font_size 8)))
+		(line (pt 96 32)(pt 80 32))
+	)
+	(drawing
+		(rectangle (rect 16 16 80 80))
+	)
+)
+(symbol
+	(rect 856 752 920 800)
+	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
+	(text "inst15" (rect 3 37 32 49)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 14 16))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(line (pt 0 32)(pt 14 32))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(line (pt 42 24)(pt 64 24))
+	)
+	(drawing
+		(line (pt 14 12)(pt 30 12))
+		(line (pt 14 37)(pt 31 37))
+		(line (pt 14 12)(pt 14 37))
+		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
+	)
+)
+(symbol
+	(rect 776 688 824 720)
+	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
+	(text "inst16" (rect 3 21 32 33)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 13 16))
+	)
+	(port
+		(pt 48 16)
+		(output)
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(line (pt 39 16)(pt 48 16))
+	)
+	(drawing
+		(line (pt 13 25)(pt 13 7))
+		(line (pt 13 7)(pt 31 16))
+		(line (pt 13 25)(pt 31 16))
+		(circle (rect 31 12 39 20))
+	)
+)
 (connector
 	(text "clk" (rect 632 224 646 236)(font "Arial" ))
 	(pt 680 240)
@@ -825,10 +911,6 @@ applicable agreement for further details.
 	(pt 784 600)
 )
 (connector
-	(pt 880 600)
-	(pt 904 600)
-)
-(connector
 	(text "addr[31..0]" (rect 417 816 470 828)(font "Arial" ))
 	(pt 504 832)
 	(pt 400 832)
@@ -893,10 +975,6 @@ applicable agreement for further details.
 	(pt 704 784)
 )
 (connector
-	(pt 776 832)
-	(pt 800 832)
-)
-(connector
 	(text "reset" (rect 90 176 114 188)(font "Arial" ))
 	(pt 232 192)
 	(pt 72 192)
@@ -906,6 +984,81 @@ applicable agreement for further details.
 	(pt 440 432)
 	(bus)
 )
+(connector
+	(pt 216 72)
+	(pt 256 72)
+)
+(connector
+	(text "reset" (rect 360 56 384 68)(font "Arial" ))
+	(pt 352 72)
+	(pt 400 72)
+)
+(connector
+	(text "clk" (rect 224 72 238 84)(font "Arial" ))
+	(pt 256 88)
+	(pt 216 88)
+)
+(connector
+	(pt 832 832)
+	(pt 776 832)
+)
+(connector
+	(pt 856 784)
+	(pt 832 784)
+)
+(connector
+	(pt 832 784)
+	(pt 832 832)
+)
+(connector
+	(pt 856 768)
+	(pt 840 768)
+)
+(connector
+	(pt 840 704)
+	(pt 840 768)
+)
+(connector
+	(pt 840 704)
+	(pt 824 704)
+)
+(connector
+	(pt 776 704)
+	(pt 752 704)
+)
+(connector
+	(pt 752 704)
+	(pt 752 680)
+)
+(connector
+	(pt 888 680)
+	(pt 752 680)
+)
+(connector
+	(pt 888 680)
+	(pt 888 600)
+)
+(connector
+	(pt 880 600)
+	(pt 888 600)
+)
+(connector
+	(pt 888 600)
+	(pt 904 600)
+)
+(connector
+	(pt 920 776)
+	(pt 968 776)
+)
+(connector
+	(pt 968 776)
+	(pt 968 768)
+)
+(connector
+	(pt 968 768)
+	(pt 1008 768)
+)
+(junction (pt 888 600))
 (text "pass" (rect 1096 592 1124 606)(font "Arial" (font_size 8)))
 (text "fail" (rect 960 792 976 806)(font "Arial" (font_size 8)))
 (text "SVE je podeseno vec u .mif fajlu za ovaj projekat potrebno je kliknuti samo compile i proviriti za dugme da li treba mozda rising edge ili ne na pocetku obavezno restartovati" (rect 424 24 1388 38)(font "Arial" (font_size 8)))
