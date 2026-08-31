@@ -1,0 +1,13 @@
+
+
+C:/Users/Luka/Desktop/AR PROJEKAT/AR/components/ROM ZA CPU/ROM_CPU.vhd
+
+Aug 31 03PM:26:22>: The following design file, which has identical name but a different extension 
+from the specified variation file, already exists in the working directory:
+
+ROM_CPU.v
+
+This may create a conflict of design files and/or lead to undesirable side
+effects.
+
+Is it OK to continue file generation?
