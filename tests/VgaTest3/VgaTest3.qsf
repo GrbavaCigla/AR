@@ -53,6 +53,22 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_AA2 -to PIXEL_CHANGED
+set_location_assignment PIN_L1 -to OUT[7]
+set_location_assignment PIN_L2 -to OUT[6]
+set_location_assignment PIN_U1 -to OUT[5]
+set_location_assignment PIN_U2 -to OUT[4]
+set_location_assignment PIN_N1 -to OUT[3]
+set_location_assignment PIN_N2 -to OUT[2]
+set_location_assignment PIN_Y3 -to OUT[1]
+set_location_assignment PIN_W2 -to OUT[0]
+set_location_assignment PIN_U7 -to BTN
+set_location_assignment PIN_AA1 -to v
+set_location_assignment PIN_U21 -to SET_PIXEL
+set_global_assignment -name BDF_FILE ../../vga/components/PixelAddrCalculator/PixelAddrCalculator.bdf
+set_global_assignment -name BDF_FILE ../../components/REG/REG10_LD_CL.bdf
+set_global_assignment -name BDF_FILE ../../components/MPX/MPX2_16BIT.bdf
 set_global_assignment -name BDF_FILE ../../vga/components/RisignEdge/RisingEdgeDetector.bdf
 set_global_assignment -name VHDL_FILE "../../vga/components/RegX & CMPX/RegisterX.vhd"
 set_global_assignment -name VHDL_FILE "../../vga/components/RegX & CMPX/MultiplexerX.vhd"
@@ -93,17 +109,20 @@ set_global_assignment -name BDF_FILE ../../vga/FrameBuffer/FrameBuffer.bdf
 set_global_assignment -name BDF_FILE ../../vga/VGAControler/Controller2.bdf
 set_global_assignment -name BDF_FILE ../../vga/VGAControler/Controller.bdf
 set_global_assignment -name VHDL_FILE ../../components/MPX/MPX2_8BIT.vhd
-set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
-set_location_assignment PIN_AA2 -to PIXEL_CHANGED
-set_location_assignment PIN_L1 -to OUT[7]
-set_location_assignment PIN_L2 -to OUT[6]
-set_location_assignment PIN_U1 -to OUT[5]
-set_location_assignment PIN_U2 -to OUT[4]
-set_location_assignment PIN_N1 -to OUT[3]
-set_location_assignment PIN_N2 -to OUT[2]
-set_location_assignment PIN_Y3 -to OUT[1]
-set_location_assignment PIN_W2 -to OUT[0]
-set_location_assignment PIN_U7 -to BTN
-set_location_assignment PIN_AA1 -to v
-set_location_assignment PIN_U21 -to SET_PIXEL
+set_global_assignment -name BDF_FILE ../../components/MPX/MPX2.bdf
+set_location_assignment PIN_A7 -to B[3]
+set_location_assignment PIN_A8 -to B[2]
+set_location_assignment PIN_B7 -to B[1]
+set_location_assignment PIN_B6 -to B[0]
+set_location_assignment PIN_M9 -to CLK
+set_location_assignment PIN_J8 -to G[3]
+set_location_assignment PIN_J7 -to G[2]
+set_location_assignment PIN_K7 -to G[1]
+set_location_assignment PIN_L7 -to G[0]
+set_location_assignment PIN_H8 -to HS
+set_location_assignment PIN_A5 -to R[3]
+set_location_assignment PIN_C9 -to R[2]
+set_location_assignment PIN_B10 -to R[1]
+set_location_assignment PIN_A9 -to R[0]
+set_location_assignment PIN_G8 -to VS
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
