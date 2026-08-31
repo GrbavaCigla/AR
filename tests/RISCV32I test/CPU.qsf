@@ -53,6 +53,11 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_M9 -to clk
+set_location_assignment PIN_AA2 -to LED0
+set_location_assignment PIN_AA1 -to LED1
+set_global_assignment -name BDF_FILE ../../vga/components/RisignEdge/RisingEdgeDetector.bdf
 set_global_assignment -name BDF_FILE ../../components/REG/REG32_LD_CL_INC_DEC_SL_SR.bdf
 set_global_assignment -name BDF_FILE ../../components/REG/REG32_LD_CL_INC_DEC.bdf
 set_global_assignment -name BDF_FILE ../../components/REG/REG32_LD_CL.bdf
@@ -135,9 +140,5 @@ set_global_assignment -name BDF_FILE ../../components/SUB/SUB1.bdf
 set_global_assignment -name BDF_FILE ../../components/CMP/CMP32.bdf
 set_global_assignment -name VHDL_FILE ../../components/MPX/MPX4_32BIT.vhd
 set_global_assignment -name BDF_FILE ../../components/XOR/XOR2_32BIT.bdf
-set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
-set_location_assignment PIN_M9 -to clk
-set_location_assignment PIN_U7 -to reset
-set_location_assignment PIN_AA2 -to LED0
-set_location_assignment PIN_AA1 -to LED1
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_location_assignment PIN_U7 -to resetBtn0
