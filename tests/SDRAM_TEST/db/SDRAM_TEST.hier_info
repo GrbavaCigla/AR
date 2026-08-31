@@ -1,15 +1,15 @@
 |SDRAM_TEST
 HEX00 <= SevenSegmentInterfaceDEC:inst20.a
-KEY_READ => inst12.IN0
-reset => inst1.IN0
-clk => REG1_LD_CL:inst19.clk
-clk => REG1_LD_CL:inst16.clk
+KEY_READ => RisingEdgeDetector:inst11.IN
+clk => RisingEdgeDetector:inst11.CLK
+clk => RisingEdgeDetector:inst9.CLK
 clk => REG1_LD_CL:inst23.clk
 clk => sdram_wrapper:inst.clk
-clk => REG1_LD_CL:inst13.clk
+clk => RisingEdgeDetector:inst10.CLK
 clk => REG32_LD_CL:inst26.clk
 clk => sdram_clk.DATAIN
-KEY_WRITE => inst99.IN0
+reset => RisingEdgeDetector:inst9.IN
+KEY_WRITE => RisingEdgeDetector:inst10.IN
 SW[0] => MPX2_26BIT:inst6.sel
 SW[0] => MPX2_26BIT:inst4.sel
 SW[0] => MPX4_32BIT:inst2.sel[0]
@@ -785,22 +785,18 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|SDRAM_TEST|REG1_LD_CL:inst16
-A <= inst.DB_MAX_OUTPUT_PORT_TYPE
-clk => inst.CLK
-LD => inst13.IN0
-LD => inst1.IN0
-CL => inst11.IN0
-I => inst1.IN1
+|SDRAM_TEST|RisingEdgeDetector:inst11
+OUT <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+CLK => inst.CLK
+CLK => inst1.CLK
+IN => inst.DATAIN
 
 
-|SDRAM_TEST|REG1_LD_CL:inst19
-A <= inst.DB_MAX_OUTPUT_PORT_TYPE
-clk => inst.CLK
-LD => inst13.IN0
-LD => inst1.IN0
-CL => inst11.IN0
-I => inst1.IN1
+|SDRAM_TEST|RisingEdgeDetector:inst9
+OUT <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+CLK => inst.CLK
+CLK => inst1.CLK
+IN => inst.DATAIN
 
 
 |SDRAM_TEST|sdram_wrapper:inst
@@ -12651,13 +12647,11 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|SDRAM_TEST|REG1_LD_CL:inst13
-A <= inst.DB_MAX_OUTPUT_PORT_TYPE
-clk => inst.CLK
-LD => inst13.IN0
-LD => inst1.IN0
-CL => inst11.IN0
-I => inst1.IN1
+|SDRAM_TEST|RisingEdgeDetector:inst10
+OUT <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+CLK => inst.CLK
+CLK => inst1.CLK
+IN => inst.DATAIN
 
 
 |SDRAM_TEST|MPX2_26BIT:inst5
