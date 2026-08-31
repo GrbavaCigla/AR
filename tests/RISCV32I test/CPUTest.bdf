@@ -55,7 +55,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 888 512 1064 528)
+	(rect 904 592 1080 608)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "LED0" (rect 90 0 117 12)(font "Arial" ))
 	(pt 0 8)
@@ -68,11 +68,11 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1064 528 1128 544))
+	(annotation_block (location)(rect 1080 608 1144 624))
 )
 (pin
 	(output)
-	(rect 784 744 960 760)
+	(rect 800 824 976 840)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "LED1" (rect 90 0 117 12)(font "Arial" ))
 	(pt 0 8)
@@ -85,7 +85,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 960 760 1024 776))
+	(annotation_block (location)(rect 976 840 1040 856))
 )
 (symbol
 	(rect 232 144 480 272)
@@ -264,7 +264,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 352 320 408 376)
+	(rect 360 400 416 456)
 	(text "ConstantX" (rect 5 0 55 12)(font "Arial" ))
 	(text "inst4" (rect 8 40 31 52)(font "Arial" ))
 	(port
@@ -287,36 +287,10 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 24 24 40 40)(fill (color 218 218 218)))
 	)
-	(annotation_block (parameter)(rect 408 272 590 314))
+	(annotation_block (parameter)(rect 416 352 598 394))
 )
 (symbol
-	(rect 312 568 368 624)
-	(text "ConstantX" (rect 5 0 55 12)(font "Arial" ))
-	(text "inst5" (rect 8 40 31 52)(font "Arial" ))
-	(port
-		(pt 56 32)
-		(output)
-		(text "DATA_OUT[size-1..0]" (rect -96 0 9 12)(font "Arial" ))
-		(text "c" (rect 25 27 30 39)(font "Arial" )(invisible))
-		(line (pt 56 32)(pt 40 32)(line_width 3))
-	)
-	(parameter
-		"size"
-		"32"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"const"
-		"3221338334"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 24 24 40 40)(fill (color 218 218 218)))
-	)
-	(annotation_block (parameter)(rect 368 520 579 562))
-)
-(symbol
-	(rect 480 368 576 464)
+	(rect 496 448 592 544)
 	(text "CMP32" (rect 5 0 43 14)(font "Arial" (font_size 8)))
 	(text "inst6" (rect 8 80 31 92)(font "Arial" ))
 	(port
@@ -359,7 +333,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 488 584 584 680)
+	(rect 504 664 600 760)
 	(text "CMP32" (rect 5 0 43 14)(font "Arial" (font_size 8)))
 	(text "inst7" (rect 8 80 31 92)(font "Arial" ))
 	(port
@@ -402,7 +376,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 672 520 736 568)
+	(rect 688 600 752 648)
 	(text "AND3" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst8" (rect 3 37 26 49)(font "Arial" ))
 	(port
@@ -441,7 +415,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 800 496 864 576)
+	(rect 816 576 880 656)
 	(text "DFF" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst9" (rect 3 68 26 80)(font "Arial" ))
 	(port
@@ -491,7 +465,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 752 464 784 480)
+	(rect 768 544 800 560)
 	(text "VCC" (rect 7 0 27 10)(font "Arial" (font_size 6)))
 	(text "inst10" (rect 3 5 32 17)(font "Arial" )(invisible))
 	(port
@@ -506,7 +480,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 488 720 584 816)
+	(rect 504 800 600 896)
 	(text "CMP32" (rect 5 0 43 14)(font "Arial" (font_size 8)))
 	(text "inst11" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -549,7 +523,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 296 744 352 800)
+	(rect 312 824 368 880)
 	(text "ConstantX" (rect 5 0 55 12)(font "Arial" ))
 	(text "inst12" (rect 8 40 37 52)(font "Arial" ))
 	(port
@@ -572,10 +546,10 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 24 24 40 40)(fill (color 218 218 218)))
 	)
-	(annotation_block (parameter)(rect 344 680 526 722))
+	(annotation_block (parameter)(rect 360 760 542 802))
 )
 (symbol
-	(rect 696 728 760 808)
+	(rect 712 808 776 888)
 	(text "DFF" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst13" (rect 3 68 32 80)(font "Arial" ))
 	(port
@@ -625,7 +599,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 608 744 672 792)
+	(rect 624 824 688 872)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst14" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -655,6 +629,32 @@ applicable agreement for further details.
 		(line (pt 14 12)(pt 14 37))
 		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
 	)
+)
+(symbol
+	(rect 328 648 384 704)
+	(text "ConstantX" (rect 5 0 55 12)(font "Arial" ))
+	(text "inst5" (rect 8 40 31 52)(font "Arial" ))
+	(port
+		(pt 56 32)
+		(output)
+		(text "DATA_OUT[size-1..0]" (rect -96 0 9 12)(font "Arial" ))
+		(text "c" (rect 25 27 30 39)(font "Arial" )(invisible))
+		(line (pt 56 32)(pt 40 32)(line_width 3))
+	)
+	(parameter
+		"size"
+		"32"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"const"
+		"3221340382"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 24 24 40 40)(fill (color 218 218 218)))
+	)
+	(annotation_block (parameter)(rect 384 600 595 642))
 )
 (connector
 	(text "clk" (rect 632 224 646 236)(font "Arial" ))
@@ -730,83 +730,78 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 480 400)
-	(pt 424 400)
+	(pt 496 480)
+	(pt 440 480)
 	(bus)
 )
 (connector
-	(pt 424 400)
-	(pt 424 352)
+	(pt 440 480)
+	(pt 440 432)
 	(bus)
 )
 (connector
-	(pt 424 352)
-	(pt 408 352)
+	(text "addr[31..0]" (rect 386 480 439 492)(font "Arial" ))
+	(pt 496 496)
+	(pt 368 496)
 	(bus)
 )
 (connector
-	(text "addr[31..0]" (rect 370 400 423 412)(font "Arial" ))
-	(pt 480 416)
-	(pt 352 416)
+	(pt 504 696)
+	(pt 448 696)
 	(bus)
 )
 (connector
-	(pt 488 616)
-	(pt 432 616)
+	(pt 448 696)
+	(pt 448 680)
 	(bus)
 )
 (connector
-	(pt 432 616)
-	(pt 432 600)
+	(pt 448 680)
+	(pt 384 680)
 	(bus)
 )
 (connector
-	(pt 432 600)
-	(pt 368 600)
+	(text "data[31..0]" (rect 384 696 437 708)(font "Arial" ))
+	(pt 504 712)
+	(pt 344 712)
 	(bus)
 )
 (connector
-	(text "data[31..0]" (rect 368 616 421 628)(font "Arial" ))
-	(pt 488 632)
-	(pt 328 632)
-	(bus)
+	(pt 688 616)
+	(pt 632 616)
 )
 (connector
-	(pt 672 536)
-	(pt 616 536)
+	(pt 632 496)
+	(pt 632 616)
 )
 (connector
-	(pt 616 416)
-	(pt 616 536)
+	(pt 632 496)
+	(pt 592 496)
 )
 (connector
-	(pt 616 416)
-	(pt 576 416)
+	(pt 688 624)
+	(pt 632 624)
 )
 (connector
-	(pt 672 544)
-	(pt 616 544)
+	(pt 632 624)
+	(pt 632 712)
 )
 (connector
-	(pt 616 544)
-	(pt 616 632)
+	(pt 632 712)
+	(pt 600 712)
 )
 (connector
-	(pt 616 632)
-	(pt 584 632)
+	(pt 688 632)
+	(pt 664 632)
 )
 (connector
-	(pt 672 552)
-	(pt 648 552)
+	(pt 664 632)
+	(pt 664 672)
 )
 (connector
-	(pt 648 552)
-	(pt 648 592)
-)
-(connector
-	(text "bus_wr" (rect 656 576 690 588)(font "Arial" ))
-	(pt 648 592)
-	(pt 688 592)
+	(text "bus_wr" (rect 672 656 706 668)(font "Arial" ))
+	(pt 664 672)
+	(pt 704 672)
 )
 (connector
 	(text "bus_wr" (rect 522 176 556 188)(font "Arial" ))
@@ -814,98 +809,103 @@ applicable agreement for further details.
 	(pt 480 192)
 )
 (connector
-	(pt 736 544)
-	(pt 776 544)
+	(pt 752 624)
+	(pt 792 624)
 )
 (connector
-	(pt 776 544)
-	(pt 776 536)
+	(pt 792 624)
+	(pt 792 616)
 )
 (connector
-	(pt 776 536)
-	(pt 800 536)
+	(pt 792 616)
+	(pt 816 616)
 )
 (connector
-	(pt 800 520)
-	(pt 768 520)
+	(pt 816 600)
+	(pt 784 600)
 )
 (connector
-	(pt 864 520)
-	(pt 888 520)
+	(pt 880 600)
+	(pt 904 600)
 )
 (connector
-	(text "addr[31..0]" (rect 401 736 454 748)(font "Arial" ))
-	(pt 488 752)
-	(pt 384 752)
+	(text "addr[31..0]" (rect 417 816 470 828)(font "Arial" ))
+	(pt 504 832)
+	(pt 400 832)
 	(bus)
 )
 (connector
-	(pt 352 776)
-	(pt 432 776)
+	(pt 368 856)
+	(pt 448 856)
 	(bus)
 )
 (connector
-	(pt 432 776)
-	(pt 432 768)
+	(pt 448 856)
+	(pt 448 848)
 	(bus)
 )
 (connector
-	(pt 432 768)
-	(pt 488 768)
+	(pt 448 848)
+	(pt 504 848)
 	(bus)
 )
 (connector
-	(pt 672 768)
-	(pt 696 768)
+	(pt 688 848)
+	(pt 712 848)
 )
 (connector
-	(pt 584 768)
-	(pt 592 768)
+	(pt 600 848)
+	(pt 608 848)
 )
 (connector
-	(pt 592 768)
-	(pt 592 760)
+	(pt 608 848)
+	(pt 608 840)
 )
 (connector
-	(pt 592 760)
-	(pt 608 760)
+	(pt 608 840)
+	(pt 624 840)
 )
 (connector
-	(pt 608 776)
-	(pt 600 776)
+	(pt 624 856)
+	(pt 616 856)
 )
 (connector
-	(pt 600 776)
-	(pt 600 808)
+	(pt 616 856)
+	(pt 616 888)
 )
 (connector
-	(text "bus_wr" (rect 608 792 642 804)(font "Arial" ))
-	(pt 600 808)
-	(pt 648 808)
+	(text "bus_wr" (rect 624 872 658 884)(font "Arial" ))
+	(pt 616 888)
+	(pt 664 888)
 )
 (connector
-	(text "j" (rect 752 502 764 504)(font "Arial" )(vertical))
-	(pt 768 520)
-	(pt 768 480)
+	(text "j" (rect 768 582 780 584)(font "Arial" )(vertical))
+	(pt 784 600)
+	(pt 784 560)
 )
 (connector
-	(pt 696 752)
-	(pt 688 752)
+	(pt 712 832)
+	(pt 704 832)
 )
 (connector
-	(text "j" (rect 672 734 684 736)(font "Arial" )(vertical))
-	(pt 688 752)
-	(pt 688 704)
+	(text "j" (rect 688 814 700 816)(font "Arial" )(vertical))
+	(pt 704 832)
+	(pt 704 784)
 )
 (connector
-	(pt 760 752)
-	(pt 784 752)
+	(pt 776 832)
+	(pt 800 832)
 )
 (connector
 	(text "reset" (rect 90 176 114 188)(font "Arial" ))
 	(pt 232 192)
 	(pt 72 192)
 )
-(text "pass" (rect 1080 512 1108 526)(font "Arial" (font_size 8)))
-(text "fail" (rect 944 712 960 726)(font "Arial" (font_size 8)))
+(connector
+	(pt 416 432)
+	(pt 440 432)
+	(bus)
+)
+(text "pass" (rect 1096 592 1124 606)(font "Arial" (font_size 8)))
+(text "fail" (rect 960 792 976 806)(font "Arial" (font_size 8)))
 (text "SVE je podeseno vec u .mif fajlu za ovaj projekat potrebno je kliknuti samo compile i proviriti za dugme da li treba mozda rising edge ili ne na pocetku obavezno restartovati" (rect 424 24 1388 38)(font "Arial" (font_size 8)))
