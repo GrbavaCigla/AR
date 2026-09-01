@@ -14,33 +14,43 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Fri Aug 28 20:35:03 2026"
+// CREATED		"Tue Sep 01 19:30:37 2026"
 
 module FrameBufferWrapper(
 	FB_WR,
 	FB_CLK,
 	FB_SEL,
-	FB_ADDR,
+	FB_ADDR_RD,
+	FB_ADDR_WR,
 	FB_DATA_IN,
-	FB_DATA_OUT
+	FB_DATA_OUT,
+	FB_WR_DATA
 );
 
 
 input wire	FB_WR;
 input wire	FB_CLK;
 input wire	FB_SEL;
-input wire	[15:0] FB_ADDR;
+input wire	[15:0] FB_ADDR_RD;
+input wire	[15:0] FB_ADDR_WR;
 input wire	[7:0] FB_DATA_IN;
 output wire	[7:0] FB_DATA_OUT;
+output wire	[7:0] FB_WR_DATA;
 
+wire	[15:0] FB_ADDR;
 wire	NSEL;
+wire	[7:0] Q0;
+wire	[7:0] Q1;
 reg	SEL;
 wire	SYNTHESIZED_WIRE_0;
 wire	SYNTHESIZED_WIRE_1;
 wire	SYNTHESIZED_WIRE_2;
-wire	[7:0] SYNTHESIZED_WIRE_3;
-wire	[7:0] SYNTHESIZED_WIRE_4;
+wire	[15:0] SYNTHESIZED_WIRE_3;
+wire	SYNTHESIZED_WIRE_4;
+wire	SYNTHESIZED_WIRE_5;
 
+assign	SYNTHESIZED_WIRE_1 = 1;
+assign	SYNTHESIZED_WIRE_5 = 1;
 
 
 
@@ -51,31 +61,47 @@ begin
 end
 
 
+MPX2_16BIT	b2v_inst10(
+	.S(SEL),
+	.E(SYNTHESIZED_WIRE_1),
+	.I0(FB_ADDR_WR),
+	.I1(FB_ADDR_RD),
+	.D(FB_ADDR));
+
+
 FrameBufferRAM	b2v_inst100(
-	.wren(SYNTHESIZED_WIRE_1),
+	.wren(SYNTHESIZED_WIRE_2),
 	.clock(FB_CLK),
-	.address(FB_ADDR),
+	.address(SYNTHESIZED_WIRE_3),
 	.data(FB_DATA_IN),
-	.q(SYNTHESIZED_WIRE_4));
+	.q(Q0));
 
 
 FrameBufferRAM	b2v_inst101(
-	.wren(SYNTHESIZED_WIRE_2),
+	.wren(SYNTHESIZED_WIRE_4),
 	.clock(FB_CLK),
 	.address(FB_ADDR),
 	.data(FB_DATA_IN),
-	.q(SYNTHESIZED_WIRE_3));
+	.q(Q1));
+
 
 
 MPX2_8BIT	b2v_inst2(
 	.sel(NSEL),
-	.data0x(SYNTHESIZED_WIRE_3),
-	.data1x(SYNTHESIZED_WIRE_4),
+	.data0x(Q1),
+	.data1x(Q0),
 	.result(FB_DATA_OUT));
 
-assign	SYNTHESIZED_WIRE_1 = FB_WR & SEL;
+assign	SYNTHESIZED_WIRE_2 = FB_WR & SEL;
 
-assign	SYNTHESIZED_WIRE_2 = FB_WR & NSEL;
+assign	SYNTHESIZED_WIRE_4 = FB_WR & NSEL;
+
+
+MPX2_8BIT	b2v_inst5(
+	.sel(SEL),
+	.data0x(Q1),
+	.data1x(Q0),
+	.result(FB_WR_DATA));
 
 
 RisingEdgeDetector	b2v_inst6(
@@ -84,6 +110,15 @@ RisingEdgeDetector	b2v_inst6(
 	.OUT(SYNTHESIZED_WIRE_0));
 
 assign	NSEL =  ~SEL;
+
+
+MPX2_16BIT	b2v_inst8(
+	.S(NSEL),
+	.E(SYNTHESIZED_WIRE_5),
+	.I0(FB_ADDR_WR),
+	.I1(FB_ADDR_RD),
+	.D(SYNTHESIZED_WIRE_3));
+
 
 
 endmodule

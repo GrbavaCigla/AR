@@ -1551,6 +1551,23 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 200 96))
 	)
 )
+(symbol
+	(rect 688 784 720 816)
+	(text "GND" (rect 8 16 29 26)(font "Arial" (font_size 6)))
+	(text "inst3" (rect 3 21 26 33)(font "Arial" )(invisible))
+	(port
+		(pt 16 0)
+		(output)
+		(text "1" (rect 18 0 23 12)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 18 0 23 12)(font "Courier New" (bold))(invisible))
+		(line (pt 16 8)(pt 16 0))
+	)
+	(drawing
+		(line (pt 8 8)(pt 16 16))
+		(line (pt 16 16)(pt 24 8))
+		(line (pt 8 8)(pt 24 8))
+	)
+)
 (connector
 	(pt 1064 504)
 	(pt 1824 504)
@@ -2200,6 +2217,15 @@ applicable agreement for further details.
 	(pt 1192 632)
 	(pt 1040 632)
 	(bus)
+)
+(connector
+	(pt 704 784)
+	(pt 704 776)
+)
+(connector
+	(text "nula123" (rect 745 760 782 772)(font "Arial" ))
+	(pt 704 776)
+	(pt 816 776)
 )
 (text "PERIFERIJE" (rect 1320 168 1382 182)(font "Arial" (font_size 8)))
 (text "VGA KONTROLER" (rect 1072 176 1177 190)(font "Arial" (font_size 8)))
