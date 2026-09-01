@@ -2405,6 +2405,144 @@ applicable agreement for further details.
 	)
 	(annotation_block (parameter)(rect 696 1792 878 1834))
 )
+(symbol
+	(rect 864 2464 1024 2560)
+	(text "ADD16" (rect 5 0 45 14)(font "Arial" (font_size 8)))
+	(text "inst6" (rect 8 80 31 92)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "A[15..0]" (rect 0 0 44 14)(font "Arial" (font_size 8)))
+		(text "A[15..0]" (rect 21 27 65 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "B[15..0]" (rect 0 0 43 14)(font "Arial" (font_size 8)))
+		(text "B[15..0]" (rect 21 43 64 57)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "C_0" (rect 0 0 22 14)(font "Arial" (font_size 8)))
+		(text "C_0" (rect 21 59 43 73)(font "Arial" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 160 32)
+		(output)
+		(text "OUT[15..0]" (rect 0 0 60 14)(font "Arial" (font_size 8)))
+		(text "OUT[15..0]" (rect 79 27 139 41)(font "Arial" (font_size 8)))
+		(line (pt 160 32)(pt 144 32)(line_width 3))
+	)
+	(port
+		(pt 160 48)
+		(output)
+		(text "C" (rect 0 0 8 14)(font "Arial" (font_size 8)))
+		(text "C" (rect 131 43 139 57)(font "Arial" (font_size 8)))
+		(line (pt 160 48)(pt 144 48))
+	)
+	(drawing
+		(rectangle (rect 16 16 144 80))
+	)
+)
+(symbol
+	(rect 616 2480 672 2536)
+	(text "ConstantX" (rect 5 0 55 12)(font "Arial" ))
+	(text "inst23" (rect 8 40 37 52)(font "Arial" ))
+	(port
+		(pt 56 32)
+		(output)
+		(text "DATA_OUT[size-1..0]" (rect -96 0 9 12)(font "Arial" ))
+		(text "c" (rect 25 27 30 39)(font "Arial" )(invisible))
+		(line (pt 56 32)(pt 40 32)(line_width 3))
+	)
+	(parameter
+		"size"
+		"16"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"const"
+		"80"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 24 24 40 40)(fill (color 218 218 218)))
+	)
+	(annotation_block (parameter)(rect 672 2432 854 2474))
+)
+(symbol
+	(rect 1416 2464 1576 2560)
+	(text "ADD16" (rect 5 0 45 14)(font "Arial" (font_size 8)))
+	(text "inst69" (rect 8 80 37 92)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "A[15..0]" (rect 0 0 44 14)(font "Arial" (font_size 8)))
+		(text "A[15..0]" (rect 21 27 65 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "B[15..0]" (rect 0 0 43 14)(font "Arial" (font_size 8)))
+		(text "B[15..0]" (rect 21 43 64 57)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "C_0" (rect 0 0 22 14)(font "Arial" (font_size 8)))
+		(text "C_0" (rect 21 59 43 73)(font "Arial" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 160 32)
+		(output)
+		(text "OUT[15..0]" (rect 0 0 60 14)(font "Arial" (font_size 8)))
+		(text "OUT[15..0]" (rect 79 27 139 41)(font "Arial" (font_size 8)))
+		(line (pt 160 32)(pt 144 32)(line_width 3))
+	)
+	(port
+		(pt 160 48)
+		(output)
+		(text "C" (rect 0 0 8 14)(font "Arial" (font_size 8)))
+		(text "C" (rect 131 43 139 57)(font "Arial" (font_size 8)))
+		(line (pt 160 48)(pt 144 48))
+	)
+	(drawing
+		(rectangle (rect 16 16 144 80))
+	)
+)
+(symbol
+	(rect 1168 2480 1224 2536)
+	(text "ConstantX" (rect 5 0 55 12)(font "Arial" ))
+	(text "inst70" (rect 8 40 37 52)(font "Arial" ))
+	(port
+		(pt 56 32)
+		(output)
+		(text "DATA_OUT[size-1..0]" (rect -96 0 9 12)(font "Arial" ))
+		(text "c" (rect 25 27 30 39)(font "Arial" )(invisible))
+		(line (pt 56 32)(pt 40 32)(line_width 3))
+	)
+	(parameter
+		"size"
+		"16"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"const"
+		"60"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 24 24 40 40)(fill (color 218 218 218)))
+	)
+	(annotation_block (parameter)(rect 1224 2432 1406 2474))
+)
 (connector
 	(pt 416 368)
 	(pt 488 368)
@@ -3394,6 +3532,38 @@ applicable agreement for further details.
 	(pt 1344 1648)
 	(bus)
 )
+(connector
+	(text "nula" (rect 696 2512 716 2524)(font "Arial" ))
+	(pt 864 2528)
+	(pt 688 2528)
+)
+(connector
+	(pt 864 2512)
+	(pt 672 2512)
+	(bus)
+)
+(connector
+	(text "x_pixel[15..0]" (rect 704 2480 770 2492)(font "Arial" ))
+	(pt 864 2496)
+	(pt 696 2496)
+	(bus)
+)
+(connector
+	(text "nula" (rect 1248 2512 1268 2524)(font "Arial" ))
+	(pt 1416 2528)
+	(pt 1240 2528)
+)
+(connector
+	(pt 1416 2512)
+	(pt 1224 2512)
+	(bus)
+)
+(connector
+	(text "y_pixel[15..0]" (rect 1256 2480 1323 2492)(font "Arial" ))
+	(pt 1416 2496)
+	(pt 1248 2496)
+	(bus)
+)
 (junction (pt 1192 1648))
 (text "Odredjivanje kvadranta" (rect 672 248 802 262)(font "Arial" (font_size 8)))
 (text "0" (rect 704 376 711 390)(font "Arial" (font_size 8)))
@@ -3417,6 +3587,7 @@ applicable agreement for further details.
 (text "01" (rect 720 592 734 606)(font "Arial" (font_size 8)))
 (text "10" (rect 720 616 734 630)(font "Arial" (font_size 8)))
 (text "11" (rect 720 640 734 654)(font "Arial" (font_size 8)))
+(text "Centriranje na ekran 600*800" (rect 976 2448 1141 2462)(font "Arial" (font_size 8)))
 (rectangle (rect 168 280 1408 656))
 (rectangle (rect 912 1192 2008 1880))
 (rectangle (rect 1456 1208 1840 1272))
