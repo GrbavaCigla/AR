@@ -45,6 +45,20 @@ applicable agreement for further details.
 		(line (pt 0 64)(pt 16 64))
 	)
 	(port
+		(pt 0 80)
+		(input)
+		(text "PIXEL_CHANGED" (rect 0 0 97 14)(font "Arial" (font_size 8)))
+		(text "PIXEL_CHANGED" (rect 21 75 118 89)(font "Arial" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "clk" (rect 0 0 15 14)(font "Arial" (font_size 8)))
+		(text "clk" (rect 21 91 36 105)(font "Arial" (font_size 8)))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
 		(pt 248 32)
 		(output)
 		(text "SET_PIXEL" (rect 0 0 61 14)(font "Arial" (font_size 8)))
