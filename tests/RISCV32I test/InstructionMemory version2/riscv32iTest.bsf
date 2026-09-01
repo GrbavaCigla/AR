@@ -79,6 +79,13 @@ applicable agreement for further details.
 		(text "bus_wdata[31..0]" (rect 127 75 227 89)(font "Arial" (font_size 8)))
 		(line (pt 248 80)(pt 232 80)(line_width 3))
 	)
+	(port
+		(pt 248 96)
+		(output)
+		(text "PC[31..0]" (rect 0 0 50 14)(font "Arial" (font_size 8)))
+		(text "PC[31..0]" (rect 177 91 227 105)(font "Arial" (font_size 8)))
+		(line (pt 248 96)(pt 232 96)(line_width 3))
+	)
 	(drawing
 		(rectangle (rect 16 16 232 112))
 	)
