@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sat Aug 29 16:22:09 2026"
+// CREATED		"Tue Sep 01 18:41:43 2026"
 
 module Monitor(
 	SET_PIXEL,
@@ -26,8 +26,10 @@ module Monitor(
 	hs,
 	vs,
 	PIXEL_CHANGED,
+	v,
 	B,
 	G,
+	OUT,
 	R
 );
 
@@ -41,8 +43,10 @@ input wire	[9:0] YIN;
 output wire	hs;
 output wire	vs;
 output wire	PIXEL_CHANGED;
+output wire	v;
 output wire	[3:0] B;
 output wire	[3:0] G;
+output wire	[7:0] OUT;
 output wire	[3:0] R;
 
 wire	[9:0] ACTUAL_X;
@@ -57,41 +61,28 @@ wire	[3:0] PB;
 wire	[3:0] PG;
 wire	[3:0] PR;
 wire	SET_PIXEL_ACTUAL;
-wire	v;
+wire	v_ALTERA_SYNTHESIZED;
 wire	vga_clk;
+wire	[9:0] X;
+wire	[9:0] Y;
+wire	zero;
 wire	SYNTHESIZED_WIRE_0;
 wire	[3:0] SYNTHESIZED_WIRE_1;
 wire	[3:0] SYNTHESIZED_WIRE_2;
 wire	[3:0] SYNTHESIZED_WIRE_3;
-wire	SYNTHESIZED_WIRE_4;
-wire	SYNTHESIZED_WIRE_5;
-wire	SYNTHESIZED_WIRE_6;
 
-assign	SYNTHESIZED_WIRE_4 = 0;
-assign	SYNTHESIZED_WIRE_5 = 0;
-assign	SYNTHESIZED_WIRE_6 = 0;
+wire	[15:0] GDFX_TEMP_SIGNAL_1;
+wire	[15:0] GDFX_TEMP_SIGNAL_0;
 
 
+assign	GDFX_TEMP_SIGNAL_1 = {zero,zero,zero,zero,zero,zero,Y[9:0]};
+assign	GDFX_TEMP_SIGNAL_0 = {zero,zero,zero,zero,zero,zero,X[9:0]};
 
 
 ConstantX	b2v_inst(
 	.DATA_OUT(PR));
 	defparam	b2v_inst.const = 15;
 	defparam	b2v_inst.size = 4;
-
-
-FrameBuffer	b2v_inst1(
-	.clk(clk),
-	.SET_PIXEL(SET_PIXEL_ACTUAL),
-	.SET_BIT(SET_BIT),
-	.FB_SEL(FB_SEL),
-	
-	
-	.X(ACTUAL_X),
-	.Y(ACTUAL_Y),
-	
-	.WR_PIXEL(PIXEL_CHANGED)
-	);
 
 
 ClockDivider	b2v_inst10(
@@ -104,13 +95,44 @@ ClockDivider	b2v_inst10(
 MPX2_10BIT	b2v_inst100(
 	.sel(SET_PIXEL_ACTUAL),
 	.data0x(controllerX),
-	.data1x(XIN),
-	.result(ACTUAL_X));
+	.data1x(XIN)
+	);
 
+
+REG16_LD_CL	b2v_inst11(
+	
+	
+	.clk(clk),
+	.I(GDFX_TEMP_SIGNAL_0)
+	);
+
+
+REG16_LD_CL	b2v_inst12(
+	
+	
+	.clk(clk),
+	.I(GDFX_TEMP_SIGNAL_1)
+	);
 
 assign	SET_PIXEL_ACTUAL = SET_PIXEL & SYNTHESIZED_WIRE_0;
 
 assign	SYNTHESIZED_WIRE_0 =  ~display;
+
+
+FrameBuffer	b2v_inst15(
+	.clk(clk),
+	.SET_PIXEL(SET_PIXEL),
+	.SET_BIT(SET_BIT),
+	.FB_SEL(FB_SEL),
+	
+	
+	.X_RD(controllerX),
+	.X_WR(XIN),
+	.Y_RD(controllerY),
+	.Y_WR(YIN),
+	.PIXEL_ON(v_ALTERA_SYNTHESIZED),
+	.WR_PIXEL(PIXEL_CHANGED),
+	.OUT(OUT));
 
 
 Controller2	b2v_inst17(
@@ -121,10 +143,7 @@ Controller2	b2v_inst17(
 	.X(controllerX),
 	.Y(controllerY));
 
-
-
 assign	R = SYNTHESIZED_WIRE_1 & {display,display,display,display};
-
 
 
 ConstantX	b2v_inst29(
@@ -153,7 +172,7 @@ BackgroundMain	b2v_inst5(
 
 
 MultiplexerX	b2v_inst6(
-	.S(SYNTHESIZED_WIRE_4),
+	.S(v_ALTERA_SYNTHESIZED),
 	.I0(BR),
 	.I1(PR),
 	.Y(SYNTHESIZED_WIRE_1));
@@ -161,7 +180,7 @@ MultiplexerX	b2v_inst6(
 
 
 MultiplexerX	b2v_inst7(
-	.S(SYNTHESIZED_WIRE_5),
+	.S(v_ALTERA_SYNTHESIZED),
 	.I0(BG),
 	.I1(PG),
 	.Y(SYNTHESIZED_WIRE_3));
@@ -169,7 +188,7 @@ MultiplexerX	b2v_inst7(
 
 
 MultiplexerX	b2v_inst8(
-	.S(SYNTHESIZED_WIRE_6),
+	.S(v_ALTERA_SYNTHESIZED),
 	.I0(BB),
 	.I1(PB),
 	.Y(SYNTHESIZED_WIRE_2));
@@ -179,9 +198,9 @@ MultiplexerX	b2v_inst8(
 MPX2_10BIT	b2v_inst9(
 	.sel(SET_PIXEL_ACTUAL),
 	.data0x(controllerY),
-	.data1x(YIN),
-	.result(ACTUAL_Y));
+	.data1x(YIN)
+	);
 
-
+assign	v = v_ALTERA_SYNTHESIZED;
 
 endmodule
