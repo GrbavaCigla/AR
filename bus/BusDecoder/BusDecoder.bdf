@@ -135,7 +135,7 @@ applicable agreement for further details.
 	(input)
 	(rect 304 304 480 320)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
-	(text "vga_rdata[31..0]" (rect 5 0 87 12)(font "Arial" ))
+	(text "vga_rdata[31..0]" (rect 5 0 86 12)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 92 12)(pt 117 12))
@@ -151,7 +151,7 @@ applicable agreement for further details.
 	(input)
 	(rect 312 328 480 344)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "vga_ready" (rect 5 0 59 12)(font "Arial" ))
+	(text "vga_ready" (rect 5 0 58 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -959,16 +959,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "sdram_ready" (rect 574 760 638 772)(font "Arial" ))
-	(pt 560 776)
-	(pt 704 776)
-)
-(connector
-	(text "lidar_ready" (rect 566 776 620 788)(font "Arial" ))
-	(pt 560 792)
-	(pt 704 792)
-)
-(connector
 	(text "vga_ready" (rect 567 744 620 756)(font "Arial" ))
 	(pt 704 760)
 	(pt 560 760)
@@ -1010,6 +1000,16 @@ applicable agreement for further details.
 (connector
 	(pt 528 744)
 	(pt 528 752)
+)
+(connector
+	(text "sdram_ready" (rect 566 776 630 788)(font "Arial" ))
+	(pt 560 792)
+	(pt 704 792)
+)
+(connector
+	(text "lidar_ready" (rect 574 760 628 772)(font "Arial" ))
+	(pt 560 776)
+	(pt 704 776)
 )
 (text "BUS DECODER" (rect 696 32 780 46)(font "Arial" (font_size 8)))
 (text "Adresni prostor" (rect 240 360 329 374)(font "Arial" (font_size 8)))

@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Mon Aug 31 15:04:53 2026"
+// CREATED		"Tue Sep 01 11:40:27 2026"
 
 module riscv32iTest(
 	CLK,
@@ -24,7 +24,8 @@ module riscv32iTest(
 	bus_wr,
 	bus_rd,
 	bus_addr,
-	bus_wdata
+	bus_wdata,
+	PC
 );
 
 
@@ -36,6 +37,7 @@ output wire	bus_wr;
 output wire	bus_rd;
 output wire	[31:0] bus_addr;
 output wire	[31:0] bus_wdata;
+output wire	[31:0] PC;
 
 wire	[7:0] _01100111;
 wire	[31:0] A;
@@ -69,7 +71,7 @@ wire	N;
 wire	[31:0] NEXT_PC;
 wire	nula;
 wire	[31:0] nula32BITS;
-wire	[31:0] PC;
+wire	[31:0] PC_ALTERA_SYNTHESIZED;
 wire	[1:0] pc_sel;
 wire	[31:0] PCplus4;
 wire	[31:0] PCplusIMM;
@@ -125,7 +127,7 @@ BusFSM2	b2v_inst10(
 
 ADD32	b2v_inst11(
 	.C_0(nula),
-	.A(PC),
+	.A(PC_ALTERA_SYNTHESIZED),
 	.B(IMM_OUT),
 	
 	.OUT(PCplusIMM));
@@ -144,7 +146,7 @@ pc	b2v_inst13(
 	.RESET(sys_reset),
 	.CLK(CLK),
 	.NEXT_PC(SYNTHESIZED_WIRE_0),
-	.PC(PC));
+	.PC(PC_ALTERA_SYNTHESIZED));
 
 
 ADD32	b2v_inst14(
@@ -159,7 +161,7 @@ InstrctionMemory2	b2v_inst15(
 	.bus_wait(bus_wait),
 	.CLK(CLK),
 	.RESET(sys_reset),
-	.ADDRESS(PC),
+	.ADDRESS(PC_ALTERA_SYNTHESIZED),
 	.READDATA(INSTRUCTIONS));
 
 
@@ -237,7 +239,7 @@ MPX2_32BIT	b2v_inst31(
 	.S(bus_wait),
 	.E(jedan),
 	.I0(NEXT_PC),
-	.I1(PC),
+	.I1(PC_ALTERA_SYNTHESIZED),
 	.D(SYNTHESIZED_WIRE_0));
 
 assign	realRegWrite = RegWrite & SYNTHESIZED_WIRE_6;
@@ -272,7 +274,7 @@ MPX2_32BIT	b2v_inst7(
 	.S(ALUSrcA),
 	.E(jedan),
 	.I0(RS1DATA),
-	.I1(PC),
+	.I1(PC_ALTERA_SYNTHESIZED),
 	.D(A));
 
 
@@ -286,7 +288,7 @@ CMP8	b2v_inst77(
 
 ADD32	b2v_inst8(
 	.C_0(nula),
-	.A(PC),
+	.A(PC_ALTERA_SYNTHESIZED),
 	.B(cetiri),
 	
 	.OUT(PCplus4));
@@ -296,6 +298,7 @@ assign	bus_wr = MemWrite;
 assign	bus_rd = MemRead;
 assign	bus_addr = RESULT;
 assign	bus_wdata = RS2DATA;
+assign	PC = PC_ALTERA_SYNTHESIZED;
 assign	jedan = 1;
 assign	nula = 0;
 
