@@ -11,3 +11,15 @@ This may create a conflict of design files and/or lead to undesirable side
 effects.
 
 Is it OK to continue file generation?
+
+C:/Users/Luka/Desktop/AR PROJEKAT/AR/components/ROM ZA CPU/ROM_CPU.vhd
+
+Sep 02 03PM:33:20>: The following design file, which has identical name but a different extension 
+from the specified variation file, already exists in the working directory:
+
+ROM_CPU.v
+
+This may create a conflict of design files and/or lead to undesirable side
+effects.
+
+Is it OK to continue file generation?
