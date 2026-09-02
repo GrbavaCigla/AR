@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sat Aug 29 13:57:46 2026"
+// CREATED		"Wed Sep 02 13:58:20 2026"
 
 module BackgroundMain(
 	X,
@@ -53,7 +53,7 @@ ConstantX	b2v_inst6(
 
 ConstantX	b2v_inst8(
 	.DATA_OUT(R));
-	defparam	b2v_inst8.const = 15;
+	defparam	b2v_inst8.const = 0;
 	defparam	b2v_inst8.size = 4;
 
 

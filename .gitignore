@@ -29,6 +29,8 @@
 # ignore Quartus II generated files
 *_generation_script*
 *_inst.vhd
+**/db/
+**/incremental_db/
 *.bak
 *.cmp
 *.done

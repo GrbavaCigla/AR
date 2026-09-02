@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Sep 01 18:40:23 2026"
+// CREATED		"Wed Sep 02 15:39:26 2026"
 
 module CPU_KVADRAT_TEST(
 	clk,
@@ -110,8 +110,10 @@ wire	bus_wr;
 wire	cs_lidar;
 wire	cs_sdram;
 wire	cs_vga;
+wire	[7:0] debug_code;
 wire	FB_SEL;
 wire	jedan;
+wire	nula123;
 wire	[31:0] pc;
 wire	PIXEL_CHANGED;
 wire	[31:0] sdram_rdata;
@@ -125,6 +127,7 @@ wire	[9:0] YIN;
 wire	[3:0] SYNTHESIZED_WIRE_0;
 wire	[3:0] SYNTHESIZED_WIRE_1;
 wire	[3:0] SYNTHESIZED_WIRE_2;
+wire	SYNTHESIZED_WIRE_3;
 
 assign	sdram_clk = clk;
 wire	[3:0] GDFX_TEMP_SIGNAL_0;
@@ -141,29 +144,22 @@ riscv32iTest	b2v_inst(
 	.bus_wr(bus_wr),
 	.bus_rd(bus_rd),
 	.bus_addr(bus_addr),
-	.bus_wdata(bus_wdata),
-	.PC(pc));
+	.bus_wdata(bus_wdata)
+	);
 
 
-Monitor	b2v_inst1(
+VGADebug	b2v_inst10(
 	.clk(clk),
-	.SET_PIXEL(SET_PIXEL),
-	.SET_BIT(SET_BIT),
-	.FB_SEL(FB_SEL),
-	.XIN(XIN),
-	.YIN(YIN),
-	
-	.hs(hs),
-	.vs(vs),
-	
-	.B(B),
-	.G(G),
-	
-	.R(R));
+	.reset(reset),
+	.bus_wr(bus_wr),
+	.cs_vga(cs_vga),
+	.bus_addr(bus_addr),
+	.bus_wdata(bus_wdata),
+	.debug_code(debug_code));
 
 
 Binary2BCD	b2v_inst191(
-	.input(pc[7:0]),
+	.input(debug_code),
 	.bcd_hundreds(SYNTHESIZED_WIRE_2),
 	.bcd_tens(SYNTHESIZED_WIRE_1),
 	.bcd_units(SYNTHESIZED_WIRE_0));
@@ -176,7 +172,7 @@ VgaBusInterface	b2v_inst2(
 	.SET_PIXEL(SET_PIXEL),
 	.SET_BIT(SET_BIT),
 	.SEL(FB_SEL),
-	.vga_ready(vga_ready),
+	
 	.vga_rdata(vga_rdata),
 	.XIN(XIN),
 	.YIN(YIN));
@@ -224,6 +220,7 @@ SevenSegmentInterfaceDEC	b2v_inst22(
 	);
 
 
+
 sdram_wrapper	b2v_inst4(
 	.clk(clk),
 	.rst_n(reset),
@@ -248,13 +245,15 @@ sdram_wrapper	b2v_inst4(
 	);
 
 
+assign	SYNTHESIZED_WIRE_3 = FB_SEL | PIXEL_CHANGED;
+
 
 BusDecoder	b2v_inst7(
 	.bus_wr(bus_wr),
 	.bus_rd(bus_rd),
 	.sdram_ready(sdram_ready),
 	
-	.vga_ready(vga_ready),
+	.vga_ready(SYNTHESIZED_WIRE_3),
 	.bus_addr(bus_addr),
 	
 	.sdram_rdata(sdram_rdata),
@@ -265,6 +264,25 @@ BusDecoder	b2v_inst7(
 	.bus_ready(bus_ready),
 	.bus_rdata(bus_rdata));
 
+
+Monitor	b2v_inst8(
+	.clk(clk),
+	.SET_PIXEL(SET_PIXEL),
+	.SET_BIT(SET_BIT),
+	.FB_SEL(FB_SEL),
+	.RESET(reset),
+	.XIN(XIN),
+	.YIN(YIN),
+	
+	.hs(hs),
+	.vs(vs),
+	.PIXEL_CHANGED(PIXEL_CHANGED),
+	.B(B),
+	.G(G),
+	
+	.R(R));
+
 assign	jedan = 1;
+assign	nula123 = 0;
 
 endmodule

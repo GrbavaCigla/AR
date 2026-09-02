@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Aug 11 00:33:02 2026"
+// CREATED		"Wed Sep 02 13:49:34 2026"
 
 module ImmediateGenTypes(
 	INSTR,
@@ -32,6 +32,11 @@ output wire	[31:0] I_TYPE;
 output wire	[31:0] J_TYPE;
 output wire	[31:0] S_TYPE;
 output wire	[31:0] U_TYPE;
+
+wire	nula;
+
+
+
 
 
 assign	B_TYPE[31] = INSTR[31];
@@ -57,8 +62,7 @@ assign	B_TYPE[12] = INSTR[31];
 assign	B_TYPE[11] = INSTR[7];
 assign	B_TYPE[10:5] = INSTR[30:25];
 assign	B_TYPE[4:1] = INSTR[11:8];
-assign	B_TYPE[0] = 1'b0;
-
+assign	B_TYPE[0] = nula;
 assign	I_TYPE[31] = INSTR[31];
 assign	I_TYPE[30] = INSTR[31];
 assign	I_TYPE[29] = INSTR[31];
@@ -81,7 +85,6 @@ assign	I_TYPE[13] = INSTR[31];
 assign	I_TYPE[12] = INSTR[31];
 assign	I_TYPE[11] = INSTR[31];
 assign	I_TYPE[10:0] = INSTR[30:20];
-
 assign	J_TYPE[31] = INSTR[31];
 assign	J_TYPE[30] = INSTR[31];
 assign	J_TYPE[29] = INSTR[31];
@@ -97,8 +100,7 @@ assign	J_TYPE[20] = INSTR[31];
 assign	J_TYPE[19:12] = INSTR[19:12];
 assign	J_TYPE[11] = INSTR[20];
 assign	J_TYPE[10:1] = INSTR[30:21];
-assign	J_TYPE[0] = 1'b0;
-
+assign	J_TYPE[0] = nula;
 assign	S_TYPE[31] = INSTR[31];
 assign	S_TYPE[30] = INSTR[31];
 assign	S_TYPE[29] = INSTR[31];
@@ -122,8 +124,19 @@ assign	S_TYPE[12] = INSTR[31];
 assign	S_TYPE[11] = INSTR[31];
 assign	S_TYPE[10:5] = INSTR[30:25];
 assign	S_TYPE[4:0] = INSTR[11:7];
-
 assign	U_TYPE[31:12] = INSTR[31:12];
-assign	U_TYPE[11:0] = 12'b0;
+assign	U_TYPE[11] = nula;
+assign	U_TYPE[10] = nula;
+assign	U_TYPE[9] = nula;
+assign	U_TYPE[8] = nula;
+assign	U_TYPE[7] = nula;
+assign	U_TYPE[6] = nula;
+assign	U_TYPE[5] = nula;
+assign	U_TYPE[4] = nula;
+assign	U_TYPE[3] = nula;
+assign	U_TYPE[2] = nula;
+assign	U_TYPE[1] = nula;
+assign	U_TYPE[0] = nula;
+assign	nula = 0;
 
 endmodule

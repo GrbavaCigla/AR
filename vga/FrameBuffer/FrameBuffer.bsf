@@ -94,6 +94,13 @@ applicable agreement for further details.
 		(line (pt 0 176)(pt 16 176))
 	)
 	(port
+		(pt 0 192)
+		(input)
+		(text "RESET" (rect 0 0 37 14)(font "Arial" (font_size 8)))
+		(text "RESET" (rect 21 187 58 201)(font "Arial" (font_size 8)))
+		(line (pt 0 192)(pt 16 192))
+	)
+	(port
 		(pt 208 32)
 		(output)
 		(text "OUT[7..0]" (rect 0 0 53 14)(font "Arial" (font_size 8)))

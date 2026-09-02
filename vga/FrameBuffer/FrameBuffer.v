@@ -14,13 +14,14 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Sep 01 19:30:01 2026"
+// CREATED		"Wed Sep 02 14:49:13 2026"
 
 module FrameBuffer(
 	clk,
 	SET_PIXEL,
 	SET_BIT,
 	FB_SEL,
+	RESET,
 	FB_ADDR,
 	FB_DIN,
 	X_RD,
@@ -37,6 +38,7 @@ input wire	clk;
 input wire	SET_PIXEL;
 input wire	SET_BIT;
 input wire	FB_SEL;
+input wire	RESET;
 input wire	[15:0] FB_ADDR;
 input wire	[7:0] FB_DIN;
 input wire	[9:0] X_RD;
@@ -77,17 +79,6 @@ wire	[3:0] GDFX_TEMP_SIGNAL_0;
 
 
 assign	GDFX_TEMP_SIGNAL_0 = {zero,X_WR[2:0]};
-
-
-FrameBufferWrapper	b2v_inst(
-	.FB_WR(WR),
-	.FB_CLK(clk),
-	.FB_SEL(FB_SEL),
-	.FB_ADDR_RD(ADDR_RD),
-	.FB_ADDR_WR(ADDR_WR),
-	.FB_DATA_IN(NEW_DATA),
-	.FB_DATA_OUT(OUT_ALTERA_SYNTHESIZED),
-	.FB_WR_DATA(WR_DATA));
 
 
 PixelAddrCalculator	b2v_inst1(
@@ -198,6 +189,18 @@ MPX2_10BIT	b2v_inst24(
 	.data0x(SYNTHESIZED_WIRE_4),
 	.data1x(Y_WR),
 	.result(Y_WR_ACTUAL));
+
+
+FrameBufferWrapper	b2v_inst25(
+	.RESET(RESET),
+	.FB_WR(WR),
+	.FB_CLK(clk),
+	.FB_SEL(FB_SEL),
+	.FB_ADDR_RD(ADDR_RD),
+	.FB_ADDR_WR(ADDR_WR),
+	.FB_DATA_IN(NEW_DATA),
+	.FB_DATA_OUT(OUT_ALTERA_SYNTHESIZED),
+	.FB_WR_DATA(WR_DATA));
 
 
 always@(posedge clk)

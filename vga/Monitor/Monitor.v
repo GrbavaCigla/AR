@@ -14,13 +14,14 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Sep 01 19:29:48 2026"
+// CREATED		"Wed Sep 02 14:47:23 2026"
 
 module Monitor(
 	SET_PIXEL,
 	SET_BIT,
 	clk,
 	FB_SEL,
+	RESET,
 	XIN,
 	YIN,
 	hs,
@@ -38,6 +39,7 @@ input wire	SET_PIXEL;
 input wire	SET_BIT;
 input wire	clk;
 input wire	FB_SEL;
+input wire	RESET;
 input wire	[9:0] XIN;
 input wire	[9:0] YIN;
 output wire	hs;
@@ -85,6 +87,23 @@ ConstantX	b2v_inst(
 	defparam	b2v_inst.size = 4;
 
 
+FrameBuffer	b2v_inst1(
+	.clk(clk),
+	.SET_PIXEL(SET_PIXEL),
+	.SET_BIT(SET_BIT),
+	.FB_SEL(FB_SEL),
+	.RESET(RESET),
+	
+	
+	.X_RD(controllerX),
+	.X_WR(XIN),
+	.Y_RD(controllerY),
+	.Y_WR(YIN),
+	.PIXEL_ON(v_ALTERA_SYNTHESIZED),
+	.WR_PIXEL(PIXEL_CHANGED),
+	.OUT(OUT));
+
+
 ClockDivider	b2v_inst10(
 	
 	.CLK_IN(clk)
@@ -117,22 +136,6 @@ REG16_LD_CL	b2v_inst12(
 assign	SET_PIXEL_ACTUAL = SET_PIXEL & SYNTHESIZED_WIRE_0;
 
 assign	SYNTHESIZED_WIRE_0 =  ~display;
-
-
-FrameBuffer	b2v_inst15(
-	.clk(clk),
-	.SET_PIXEL(SET_PIXEL),
-	.SET_BIT(SET_BIT),
-	.FB_SEL(FB_SEL),
-	
-	
-	.X_RD(controllerX),
-	.X_WR(XIN),
-	.Y_RD(controllerY),
-	.Y_WR(YIN),
-	.PIXEL_ON(v_ALTERA_SYNTHESIZED),
-	.WR_PIXEL(PIXEL_CHANGED),
-	.OUT(OUT));
 
 
 Controller2	b2v_inst17(

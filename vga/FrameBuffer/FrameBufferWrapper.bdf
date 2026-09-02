@@ -87,7 +87,7 @@ applicable agreement for further details.
 	(input)
 	(rect 80 184 280 200)
 	(text "INPUT" (rect 157 0 185 10)(font "Arial" (font_size 6)))
-	(text "FB_ADDR_RD[15..0]" (rect 5 0 112 12)(font "Arial" ))
+	(text "FB_ADDR_RD[15..0]" (rect 5 0 111 12)(font "Arial" ))
 	(pt 200 8)
 	(drawing
 		(line (pt 116 12)(pt 141 12))
@@ -103,7 +103,7 @@ applicable agreement for further details.
 	(input)
 	(rect 72 216 280 232)
 	(text "INPUT" (rect 165 0 193 10)(font "Arial" (font_size 6)))
-	(text "FB_ADDR_WR[15..0]" (rect 5 0 114 12)(font "Arial" ))
+	(text "FB_ADDR_WR[15..0]" (rect 5 0 113 12)(font "Arial" ))
 	(pt 208 8)
 	(drawing
 		(line (pt 124 12)(pt 149 12))
@@ -114,6 +114,22 @@ applicable agreement for further details.
 		(line (pt 149 12)(pt 153 8))
 	)
 	(text "VCC" (rect 168 7 188 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 112 64 280 80)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "RESET" (rect 5 0 41 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
 )
 (pin
 	(output)
@@ -935,6 +951,15 @@ applicable agreement for further details.
 	(pt 1232 616)
 	(pt 1272 616)
 	(bus)
+)
+(connector
+	(pt 784 320)
+	(pt 784 352)
+)
+(connector
+	(text "RESET" (rect 804 336 839 348)(font "Arial" ))
+	(pt 784 352)
+	(pt 848 352)
 )
 (text "sel = 0, cita sa ram0, pise na ram1" (rect 792 752 986 766)(font "Arial" (font_size 8)))
 (text "sel = 1, cita sa ram1, pise na ram0" (rect 792 768 986 782)(font "Arial" (font_size 8)))

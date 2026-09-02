@@ -1,5 +1,39 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="CPU">
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_8BIT:inst5|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_b0e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX2_10BIT:inst24|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_k1e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|riscv32iTest:inst|ImmediateGenerator:inst1|MPX5_32bit:inst1|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_t1e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|riscv32iTest:inst|InstrctionMemory2:inst15|ROM_CPU:inst2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_e764.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|sdram_controller:b2v_inst|CONST_8_16b:b2v_inst41|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ik6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|sdram_controller:b2v_inst|CONST_CMD_READ_16b:b2v_inst86|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ek6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|BusDecoder:inst7|MPX4:inst16|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_70e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|Monitor:inst8|MPX2_10BIT:inst100|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_k1e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|Monitor:inst8|MPX2_10BIT:inst9|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_k1e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|sdram_controller:b2v_inst|CONST_3_16b:b2v_inst30|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ck6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|sdram_controller:b2v_inst|CONST_CMD_PRE_16b:b2v_inst103|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_hk6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|sdram_controller:b2v_inst|CONST_CMD_WRITE_16b:b2v_inst88|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_bk6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|riscv32iTest:inst|ALUDecoder:inst|MPX4_4bit:inst40|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_a0e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|riscv32iTest:inst|MPX4_32BIT:inst16|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_r1e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|sdram_controller:b2v_inst|CONST_389_16b:b2v_inst29|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_nk6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|BusDecoder:inst7|MPX4_32BIT:inst15|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_r1e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst100|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_7l34.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|riscv32iTest:inst|ALU:inst2|MPX16_32BIT:inst14|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_g3e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|sdram_controller:b2v_inst|CONST_3_16b:b2v_inst76|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ck6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst101|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_7l34.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_8BIT:inst2|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_b0e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|sdram_controller:b2v_inst|CONST_CMD_MRS_16b:b2v_inst57|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_9k6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX2_8BIT:inst22|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_b0e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX8:inst4|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_c0e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|riscv32iTest:inst|REGFILE:inst3|MPX32_32bit:inst39|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_f3e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|CONST_1_25b:b2v_inst8|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_qo6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|sdram_controller:b2v_inst|CONST_0_16b:b2v_inst2|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_9k6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|sdram_controller:b2v_inst|CONST_10000_16b:b2v_inst1|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_jk6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|sdram_controller:b2v_inst|CONST_CMD_ACTIVE_16b:b2v_inst74|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_sl6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|sdram_wrapper:inst4|sdram_controller:b2v_inst|CONST_MODE_030_13b:b2v_inst59|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ak6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|DEC3:inst16|lpm_decode:LPM_DECODE_component" CBX_FILE_NAME="decode_04f.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|riscv32iTest:inst|MPX4_32BIT:inst12|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_r1e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|riscv32iTest:inst|REGFILE:inst3|MPX32_32bit_2:inst66|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_f3e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX2_10BIT:inst23|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_k1e.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
