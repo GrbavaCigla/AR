@@ -2,21 +2,21 @@
 <LOG_ROOT>
 	<PROJECT NAME="SDRAM_TEST">
 		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|MPX4_32BIT:inst2|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_s1e.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:b2v_inst|CONST_8_16b:b2v_inst41|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ik6.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:b2v_inst|CONST_CMD_READ_16b:b2v_inst86|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ek6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:inst|CONST_389_16b:inst29|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_nk6.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|MPX2_26BIT:inst6|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_r1e.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|CONST_1_25b:b2v_inst8|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_qo6.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:b2v_inst|CONST_0_16b:b2v_inst2|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_9k6.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:b2v_inst|CONST_10000_16b:b2v_inst1|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_jk6.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:b2v_inst|CONST_3_16b:b2v_inst30|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ck6.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:b2v_inst|CONST_CMD_ACTIVE_16b:b2v_inst74|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_sl6.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:b2v_inst|CONST_CMD_PRE_16b:b2v_inst103|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_hk6.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:b2v_inst|CONST_CMD_WRITE_16b:b2v_inst88|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_bk6.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:b2v_inst|CONST_MODE_030_13b:b2v_inst59|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ak6.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:b2v_inst|CONST_389_16b:b2v_inst29|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_nk6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:inst|CONST_3_16b:inst76|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ck6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:inst|CONST_8_16b:inst41|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ik6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:inst|CONST_CMD_MRS_16b:inst57|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_9k6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:inst|CONST_CMD_READ_16b:inst86|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ek6.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|MPX2_26BIT:inst4|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_r1e.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:b2v_inst|CONST_3_16b:b2v_inst76|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ck6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:inst|CONST_0_16b:inst2|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_9k6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:inst|CONST_10000_16b:inst1|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_jk6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:inst|CONST_3_16b:inst30|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ck6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:inst|CONST_CMD_ACTIVE_16b:inst74|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_sl6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:inst|CONST_CMD_PRE_16b:inst103|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_hk6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:inst|CONST_CMD_WRITE_16b:inst88|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_bk6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:inst|CONST_MODE_030_13b:inst59|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_ak6.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|MPX2_26BIT:inst5|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_r1e.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|sdram_controller:b2v_inst|CONST_CMD_MRS_16b:b2v_inst57|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_9k6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SDRAM_TEST|sdram_wrapper:inst|CONST_1_25b:inst8|lpm_constant:LPM_CONSTANT_component" CBX_FILE_NAME="lpm_constant_qo6.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

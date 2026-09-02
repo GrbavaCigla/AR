@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sun Aug 16 01:10:47 2026"
+// CREATED		"Wed Sep 02 19:28:03 2026"
 
 module sdram_wrapper(
 	rst_n,
@@ -137,8 +137,6 @@ sdram_controller	b2v_inst(
 assign	RESET_WRAPPER =  ~rst_n;
 
 assign	REQUEST = cs_sdram & SYNTHESIZED_WIRE_4 & SYNTHESIZED_WIRE_5;
-
-assign	SYNTHESIZED_WIRE_5 = wr | rd;
 
 assign	SYNTHESIZED_WIRE_4 =  ~BUSY;
 
@@ -275,6 +273,8 @@ assign	SYNTHESIZED_WIRE_24 =  ~READY_SDRAM_ALTERA_SYNTHESIZED;
 assign	SYNTHESIZED_WIRE_7 = READY_SDRAM_ALTERA_SYNTHESIZED | RESET_WRAPPER;
 
 assign	SYNTHESIZED_WIRE_6 = READY_SDRAM_ALTERA_SYNTHESIZED | RESET_WRAPPER;
+
+assign	SYNTHESIZED_WIRE_5 = rd ^ wr;
 
 
 REG32_LD_CL	b2v_inst5(

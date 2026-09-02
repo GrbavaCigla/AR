@@ -2284,12 +2284,6 @@ applicable agreement for further details.
 	(pt 1104 384)
 )
 (connector
-	(text "debug_code[7..0]" (rect 1048 616 1132 628)(font "Arial" ))
-	(pt 1192 632)
-	(pt 1040 632)
-	(bus)
-)
-(connector
 	(text "clk" (rect 486 8 500 20)(font "Arial" ))
 	(pt 520 24)
 	(pt 472 24)
@@ -2365,6 +2359,12 @@ applicable agreement for further details.
 	(text "vga_ready" (rect 465 368 518 380)(font "Arial" ))
 	(pt 576 384)
 	(pt 448 384)
+)
+(connector
+	(text "pc[7..0]" (rect 1080 616 1117 628)(font "Arial" ))
+	(pt 1192 632)
+	(pt 1072 632)
+	(bus)
 )
 (text "PERIFERIJE" (rect 1320 168 1382 182)(font "Arial" (font_size 8)))
 (text "VGA KONTROLER" (rect 1072 176 1177 190)(font "Arial" (font_size 8)))
