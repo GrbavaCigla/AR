@@ -131,6 +131,11 @@ set_location_assignment PIN_Y14 -to HEX23
 set_location_assignment PIN_V14 -to HEX24
 set_location_assignment PIN_AB22 -to HEX25
 set_location_assignment PIN_AB21 -to HEX26
+set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar"
+set_location_assignment PIN_L1 -to led
+set_global_assignment -name BDF_FILE ../../sdram/sdram_wrapper.bdf
+set_global_assignment -name BDF_FILE ../../sdram/sdram_controller.bdf
+set_global_assignment -name BDF_FILE ../../sdram/sdram_arbiter.bdf
 set_global_assignment -name VHDL_FILE ../SevenSegmentInterfaceDEC.vhd
 set_global_assignment -name VHDL_FILE ../Binary2BCD.vhd
 set_global_assignment -name BDF_FILE ../../bus/BusDecoder/BusDecoder.bdf
@@ -146,8 +151,6 @@ set_global_assignment -name VHDL_FILE ../../components/MPX/MPX2_10BIT.vhd
 set_global_assignment -name BDF_FILE ../../vga/FrameBuffer/FrameBufferWrapper.bdf
 set_global_assignment -name VHDL_FILE ../../vga/FrameBuffer/FrameBufferRAM.vhd
 set_global_assignment -name BDF_FILE ../../vga/FrameBuffer/FrameBuffer.bdf
-set_global_assignment -name VERILOG_FILE ../../sdram/sdram_wrapper.v
-set_global_assignment -name VERILOG_FILE ../../sdram/sdram_controller.v
 set_global_assignment -name BDF_FILE ../../vga/components/RisignEdge/RisingEdgeDetector.bdf
 set_global_assignment -name BDF_FILE ../../components/REG/REG32_LD_CL_INC_DEC_SL_SR.bdf
 set_global_assignment -name BDF_FILE ../../components/REG/REG32_LD_CL_INC_DEC.bdf
@@ -255,7 +258,6 @@ set_global_assignment -name BDF_FILE ../../components/TRI/TRI_16b.bdf
 set_global_assignment -name BDF_FILE ../../components/SevenSegmentInterface/SevenSegmentInterface1.bdf
 set_global_assignment -name BDF_FILE ../../components/SevenSegmentInterface/SevenSegmentInterface4.bdf
 set_global_assignment -name BDF_FILE ../../components/REG/REG10_LD_CL.bdf
-set_global_assignment -name SEARCH_PATH "c:\\users\\aleksandar\\documents\\github\\ar"
 set_global_assignment -name VERILOG_FILE verilogComp.v
 set_global_assignment -name VERILOG_FILE output_files/ROM_CPU2.v
 set_global_assignment -name QIP_FILE ../../vga/FrameBuffer/FrameBufferRAM.qip

@@ -656,7 +656,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -184 232 64 360)
+	(rect -176 256 72 384)
 	(text "riscv32iTest" (rect 5 0 74 14)(font "Arial" (font_size 8)))
 	(text "inst3" (rect 8 112 31 124)(font "Arial" ))
 	(port
@@ -1272,62 +1272,6 @@ applicable agreement for further details.
 	(pt 456 504)
 )
 (connector
-	(text "clk" (rect -232 248 -218 260)(font "Arial" ))
-	(pt -184 264)
-	(pt -240 264)
-)
-(connector
-	(text "bus_rdata[31..0]" (rect -264 280 -184 292)(font "Arial" ))
-	(pt -184 296)
-	(pt -240 296)
-	(bus)
-)
-(connector
-	(text "bus_ready" (rect -232 296 -181 308)(font "Arial" ))
-	(pt -184 312)
-	(pt -240 312)
-)
-(connector
-	(pt 312 200)
-	(pt 312 264)
-	(bus)
-)
-(connector
-	(pt 328 216)
-	(pt 328 280)
-)
-(connector
-	(pt 344 232)
-	(pt 344 296)
-)
-(connector
-	(text "reset" (rect -232 264 -208 276)(font "Arial" ))
-	(pt -184 280)
-	(pt -240 280)
-)
-(connector
-	(text "bus_addr[31..0]" (rect 65 248 141 260)(font "Arial" ))
-	(pt 64 264)
-	(pt 312 264)
-	(bus)
-)
-(connector
-	(text "bus_wr" (rect 72 264 106 276)(font "Arial" ))
-	(pt 64 280)
-	(pt 328 280)
-)
-(connector
-	(text "bus_rd" (rect 65 280 98 292)(font "Arial" ))
-	(pt 64 296)
-	(pt 344 296)
-)
-(connector
-	(text "bus_wdata[31..0]" (rect 72 296 155 308)(font "Arial" ))
-	(pt 64 312)
-	(pt 120 312)
-	(bus)
-)
-(connector
 	(text "clk" (rect 1088 192 1102 204)(font "Arial" ))
 	(pt 1136 208)
 	(pt 1080 208)
@@ -1395,6 +1339,62 @@ applicable agreement for further details.
 (connector
 	(pt 80 688)
 	(pt 200 688)
+	(bus)
+)
+(connector
+	(text "clk" (rect -224 272 -210 284)(font "Arial" ))
+	(pt -176 288)
+	(pt -232 288)
+)
+(connector
+	(text "bus_rdata[31..0]" (rect -256 304 -176 316)(font "Arial" ))
+	(pt -176 320)
+	(pt -232 320)
+	(bus)
+)
+(connector
+	(text "bus_ready" (rect -224 320 -173 332)(font "Arial" ))
+	(pt -176 336)
+	(pt -232 336)
+)
+(connector
+	(pt 312 200)
+	(pt 312 288)
+	(bus)
+)
+(connector
+	(pt 328 216)
+	(pt 328 304)
+)
+(connector
+	(pt 344 232)
+	(pt 344 320)
+)
+(connector
+	(text "reset" (rect -224 288 -200 300)(font "Arial" ))
+	(pt -176 304)
+	(pt -232 304)
+)
+(connector
+	(text "bus_addr[31..0]" (rect 73 272 149 284)(font "Arial" ))
+	(pt 312 288)
+	(pt 72 288)
+	(bus)
+)
+(connector
+	(text "bus_wr" (rect 80 288 114 300)(font "Arial" ))
+	(pt 328 304)
+	(pt 72 304)
+)
+(connector
+	(text "bus_rd" (rect 73 304 106 316)(font "Arial" ))
+	(pt 344 320)
+	(pt 72 320)
+)
+(connector
+	(text "bus_wdata[31..0]" (rect 80 320 163 332)(font "Arial" ))
+	(pt 72 336)
+	(pt 128 336)
 	(bus)
 )
 (text "PERIFERIJE" (rect 1288 120 1350 134)(font "Arial" (font_size 8)))
