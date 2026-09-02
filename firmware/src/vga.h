@@ -13,6 +13,4 @@
 
 #define VGA_SWAP() (VGA_DWORD = VGA_SWAP_BIT)
 #define VGA_WRITE_PIXEL(x, y, set) \
-    (VGA_DWORD = ((set) ? VGA_SET_BIT_BIT : 0) | \
-               VGA_X(x) | \
-               VGA_Y(y))
+    (VGA_DWORD = ((set) ? VGA_SET_BIT_BIT : 0) | VGA_X(x) | VGA_Y(y))

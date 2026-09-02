@@ -12,11 +12,11 @@ typedef byte_t bool_t;
 // General
 #define MMIO_REG(addr) (*((volatile dword_t*)(addr)))
 
-#define BUSY_WAIT(count)                            \
-    do {                                            \
+#define BUSY_WAIT(count)                                 \
+    do {                                                 \
         volatile register dword_t i asm("a0") = (count); \
-        while (i--)                                 \
-            ;                                       \
+        while (i--)                                      \
+            ;                                            \
     } while (0)
 
 // LiDAR
@@ -24,3 +24,6 @@ typedef byte_t bool_t;
 
 // VGA
 #define VGA_DWORD_ADDRESS ((dword_t)0x20000000)
+
+// LED
+#define LED_DWORD_ADDRESS ((dword_t)0x30000000)
