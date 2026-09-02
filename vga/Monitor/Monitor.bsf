@@ -66,6 +66,13 @@ applicable agreement for further details.
 		(line (pt 0 112)(pt 16 112))
 	)
 	(port
+		(pt 0 128)
+		(input)
+		(text "RESET" (rect 0 0 37 14)(font "Arial" (font_size 8)))
+		(text "RESET" (rect 21 123 58 137)(font "Arial" (font_size 8)))
+		(line (pt 0 128)(pt 16 128))
+	)
+	(port
 		(pt 216 32)
 		(output)
 		(text "R[3..0]" (rect 0 0 36 14)(font "Arial" (font_size 8)))

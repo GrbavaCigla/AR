@@ -14,12 +14,13 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Tue Sep 01 19:30:37 2026"
+// CREATED		"Wed Sep 02 14:43:41 2026"
 
 module FrameBufferWrapper(
 	FB_WR,
 	FB_CLK,
 	FB_SEL,
+	RESET,
 	FB_ADDR_RD,
 	FB_ADDR_WR,
 	FB_DATA_IN,
@@ -31,6 +32,7 @@ module FrameBufferWrapper(
 input wire	FB_WR;
 input wire	FB_CLK;
 input wire	FB_SEL;
+input wire	RESET;
 input wire	[15:0] FB_ADDR_RD;
 input wire	[15:0] FB_ADDR_WR;
 input wire	[7:0] FB_DATA_IN;
@@ -55,8 +57,13 @@ assign	SYNTHESIZED_WIRE_5 = 1;
 
 
 
-always@(posedge FB_CLK)
+always@(posedge FB_CLK or negedge RESET)
 begin
+if (!RESET)
+	begin
+	SEL <= 0;
+	end
+else
 	SEL <= SEL ^ SYNTHESIZED_WIRE_0;
 end
 

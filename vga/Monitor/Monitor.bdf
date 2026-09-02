@@ -117,6 +117,22 @@ applicable agreement for further details.
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
 )
 (pin
+	(input)
+	(rect 512 952 680 968)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "RESET" (rect 5 0 41 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
 	(output)
 	(rect 64 376 240 392)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
@@ -925,7 +941,7 @@ applicable agreement for further details.
 (symbol
 	(rect 480 576 688 800)
 	(text "FrameBuffer" (rect 5 0 76 14)(font "Arial" (font_size 8)))
-	(text "inst15" (rect 8 208 37 220)(font "Arial" ))
+	(text "inst1" (rect 8 208 31 220)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -995,6 +1011,13 @@ applicable agreement for further details.
 		(text "FB_SEL" (rect 0 0 44 14)(font "Arial" (font_size 8)))
 		(text "FB_SEL" (rect 21 171 65 185)(font "Arial" (font_size 8)))
 		(line (pt 0 176)(pt 16 176))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "RESET" (rect 0 0 37 14)(font "Arial" (font_size 8)))
+		(text "RESET" (rect 21 187 58 201)(font "Arial" (font_size 8)))
+		(line (pt 0 192)(pt 16 192))
 	)
 	(port
 		(pt 208 32)
@@ -1350,6 +1373,11 @@ applicable agreement for further details.
 	(pt 1416 504)
 	(pt 1304 504)
 	(bus)
+)
+(connector
+	(text "RESET" (rect 406 752 441 764)(font "Arial" ))
+	(pt 480 768)
+	(pt 384 768)
 )
 (text "daje uvek prioritet vga" (rect 744 328 869 342)(font "Arial" (font_size 8)))
 (text "VGA output boje" (rect 1472 48 1566 62)(font "Arial" (font_size 8)))

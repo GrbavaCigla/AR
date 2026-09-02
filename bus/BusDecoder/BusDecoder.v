@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Thu Aug 27 16:22:30 2026"
+// CREATED		"Wed Sep 02 14:02:49 2026"
 
 module BusDecoder(
 	bus_wr,
@@ -95,8 +95,8 @@ MPX4_32BIT	b2v_inst15(
 MPX4	b2v_inst16(
 	.data3(SYNTHESIZED_WIRE_5),
 	.data2(vga_ready),
-	.data1(sdram_ready),
-	.data0(lidar_ready),
+	.data1(lidar_ready),
+	.data0(sdram_ready),
 	.sel(GDFX_TEMP_SIGNAL_1),
 	.result(bus_ready));
 
