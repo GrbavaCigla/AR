@@ -7,6 +7,7 @@ set(TOOLS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tools")
 set(LINKER_FILE "${CMAKE_CURRENT_SOURCE_DIR}/linker.ld")
 set(BIN_OUT "${CMAKE_CURRENT_BINARY_DIR}/firmware.bin")
 set(MIF_OUT "${CMAKE_CURRENT_BINARY_DIR}/instructions.mif")
+set(VER_OUT "${CMAKE_CURRENT_BINARY_DIR}/instructions.v")
 set(MEMORY_DEPTH 1024 CACHE STRING "MIF memory depth")
 
 file(GLOB_RECURSE C_SOURCES CONFIGURE_DEPENDS "${SOURCE_DIR}/*.c")
@@ -47,14 +48,18 @@ add_custom_target(firmware_bin
 
 include(ExternalProject)
 
-ExternalProject_Add(bin2mif_project
+ExternalProject_Add(tools_project
     SOURCE_DIR "${TOOLS_DIR}"
-    BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/bin2mif"
+    BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/tools"
     INSTALL_COMMAND ""
 )
 
 set(BIN2MIF
-    "${CMAKE_CURRENT_BINARY_DIR}/bin2mif/bin2mif${CMAKE_EXECUTABLE_SUFFIX}"
+    "${CMAKE_CURRENT_BINARY_DIR}/tools/bin2mif${CMAKE_EXECUTABLE_SUFFIX}"
+)
+
+set(BIN2VER
+    "${CMAKE_CURRENT_BINARY_DIR}/tools/bin2ver${CMAKE_EXECUTABLE_SUFFIX}"
 )
 
 add_custom_command(
@@ -65,12 +70,28 @@ add_custom_command(
             "${MEMORY_DEPTH}"
     DEPENDS
         "${BIN_OUT}"
-        bin2mif_project
+        tools_project
     VERBATIM
 )
 
 add_custom_target(mif ALL
     DEPENDS "${MIF_OUT}"
+)
+
+add_custom_command(
+    OUTPUT "${VER_OUT}"
+    COMMAND "${BIN2VER}"
+            "${BIN_OUT}"
+            "${VER_OUT}"
+            "${MEMORY_DEPTH}"
+    DEPENDS
+        "${BIN_OUT}"
+        tools_project
+    VERBATIM
+)
+
+add_custom_target(verilog ALL
+    DEPENDS "${VER_OUT}"
 )
 
 add_custom_command(
