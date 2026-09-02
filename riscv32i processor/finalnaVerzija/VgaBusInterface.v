@@ -14,11 +14,13 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Sep 02 14:03:06 2026"
+// CREATED		"Wed Sep 02 13:48:34 2026"
 
 module VgaBusInterface(
 	cs_vga,
 	bus_wr,
+	PIXEL_CHANGED,
+	clk,
 	bus_wdata,
 	SET_PIXEL,
 	SET_BIT,
@@ -32,6 +34,8 @@ module VgaBusInterface(
 
 input wire	cs_vga;
 input wire	bus_wr;
+input wire	PIXEL_CHANGED;
+input wire	clk;
 input wire	[31:0] bus_wdata;
 output wire	SET_PIXEL;
 output wire	SET_BIT;
@@ -41,22 +45,28 @@ output wire	[31:0] vga_rdata;
 output wire	[9:0] XIN;
 output wire	[9:0] YIN;
 
-wire	SYNTHESIZED_WIRE_0;
+wire	SET_PIXEL_ALTERA_SYNTHESIZED;
+reg	SRFF_inst;
 
 assign	SET_BIT = bus_wdata[31];
-assign	vga_ready = 1;
+assign	SEL = bus_wdata[30];
 assign	vga_rdata = 32'b00000000000000000000000000000000;
 assign	XIN = bus_wdata[9:0];
 assign	YIN = bus_wdata[19:10];
 
 
 
-assign	SYNTHESIZED_WIRE_0 =  ~bus_wdata[30];
+
+always@(posedge clk)
+begin
+	SRFF_inst <= ~SRFF_inst & SET_PIXEL_ALTERA_SYNTHESIZED | SRFF_inst & ~PIXEL_CHANGED;
+end
+
+assign	vga_ready =  ~SRFF_inst;
 
 
+assign	SET_PIXEL_ALTERA_SYNTHESIZED = cs_vga & bus_wr;
 
-assign	SET_PIXEL = SYNTHESIZED_WIRE_0 & cs_vga & bus_wr;
-
-assign	SEL = bus_wdata[30];
+assign	SET_PIXEL = SET_PIXEL_ALTERA_SYNTHESIZED;
 
 endmodule

@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Sep 02 15:39:26 2026"
+// CREATED		"Wed Sep 02 13:47:53 2026"
 
 module CPU_KVADRAT_TEST(
 	clk,
@@ -110,7 +110,6 @@ wire	bus_wr;
 wire	cs_lidar;
 wire	cs_sdram;
 wire	cs_vga;
-wire	[7:0] debug_code;
 wire	FB_SEL;
 wire	jedan;
 wire	nula123;
@@ -144,22 +143,29 @@ riscv32iTest	b2v_inst(
 	.bus_wr(bus_wr),
 	.bus_rd(bus_rd),
 	.bus_addr(bus_addr),
-	.bus_wdata(bus_wdata)
-	);
-
-
-VGADebug	b2v_inst10(
-	.clk(clk),
-	.reset(reset),
-	.bus_wr(bus_wr),
-	.cs_vga(cs_vga),
-	.bus_addr(bus_addr),
 	.bus_wdata(bus_wdata),
-	.debug_code(debug_code));
+	.PC(pc));
+
+
+Monitor	b2v_inst1(
+	.clk(clk),
+	.SET_PIXEL(SET_PIXEL),
+	.SET_BIT(SET_BIT),
+	.FB_SEL(FB_SEL),
+	.XIN(XIN),
+	.YIN(YIN),
+	
+	.hs(hs),
+	.vs(vs),
+	.PIXEL_CHANGED(PIXEL_CHANGED),
+	.B(B),
+	.G(G),
+	
+	.R(R));
 
 
 Binary2BCD	b2v_inst191(
-	.input(debug_code),
+	.input(pc[7:0]),
 	.bcd_hundreds(SYNTHESIZED_WIRE_2),
 	.bcd_tens(SYNTHESIZED_WIRE_1),
 	.bcd_units(SYNTHESIZED_WIRE_0));
@@ -168,11 +174,13 @@ Binary2BCD	b2v_inst191(
 VgaBusInterface	b2v_inst2(
 	.cs_vga(cs_vga),
 	.bus_wr(bus_wr),
+	.PIXEL_CHANGED(PIXEL_CHANGED),
+	.clk(clk),
 	.bus_wdata(bus_wdata),
 	.SET_PIXEL(SET_PIXEL),
 	.SET_BIT(SET_BIT),
 	.SEL(FB_SEL),
-	
+	.vga_ready(vga_ready),
 	.vga_rdata(vga_rdata),
 	.XIN(XIN),
 	.YIN(YIN));
@@ -245,7 +253,7 @@ sdram_wrapper	b2v_inst4(
 	);
 
 
-assign	SYNTHESIZED_WIRE_3 = FB_SEL | PIXEL_CHANGED;
+assign	SYNTHESIZED_WIRE_3 = FB_SEL | vga_ready;
 
 
 BusDecoder	b2v_inst7(
@@ -263,24 +271,6 @@ BusDecoder	b2v_inst7(
 	.cs_vga(cs_vga),
 	.bus_ready(bus_ready),
 	.bus_rdata(bus_rdata));
-
-
-Monitor	b2v_inst8(
-	.clk(clk),
-	.SET_PIXEL(SET_PIXEL),
-	.SET_BIT(SET_BIT),
-	.FB_SEL(FB_SEL),
-	.RESET(reset),
-	.XIN(XIN),
-	.YIN(YIN),
-	
-	.hs(hs),
-	.vs(vs),
-	.PIXEL_CHANGED(PIXEL_CHANGED),
-	.B(B),
-	.G(G),
-	
-	.R(R));
 
 assign	jedan = 1;
 assign	nula123 = 0;
