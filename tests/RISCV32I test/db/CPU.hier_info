@@ -2,22 +2,21 @@
 sdram_cke <= sdram_wrapper:inst4.sdram_cke
 clk => sdram_wrapper:inst4.clk
 clk => riscv32iTest:inst.CLK
-clk => Monitor:inst8.clk
-clk => VgaBusInterface:inst11.clk
+clk => LEDPeripheral:inst9.clk
+clk => Monitor:inst1.clk
+clk => VgaBusInterface:inst2.clk
 clk => sdram_clk.DATAIN
-clk => VGADebug:inst10.clk
 reset => sdram_wrapper:inst4.rst_n
 reset => riscv32iTest:inst.RESET
-reset => Monitor:inst8.RESET
-reset => VGADebug:inst10.reset
+reset => inst10.IN0
 sdram_cs_n <= sdram_wrapper:inst4.sdram_cs_n
 sdram_ras_n <= sdram_wrapper:inst4.sdram_ras_n
 sdram_cas_n <= sdram_wrapper:inst4.sdram_cas_n
 sdram_we_n <= sdram_wrapper:inst4.sdram_we_n
 sdram_dqml <= sdram_wrapper:inst4.sdram_dqml
 sdram_dqmh <= sdram_wrapper:inst4.sdram_dqmh
-hs <= Monitor:inst8.hs
-vs <= Monitor:inst8.vs
+hs <= Monitor:inst1.hs
+vs <= Monitor:inst1.vs
 sdram_clk <= clk.DB_MAX_OUTPUT_PORT_TYPE
 HEX00 <= SevenSegmentInterfaceDEC:inst20.a
 HEX01 <= SevenSegmentInterfaceDEC:inst20.b
@@ -40,18 +39,19 @@ HEX23 <= SevenSegmentInterfaceDEC:inst22.d
 HEX24 <= SevenSegmentInterfaceDEC:inst22.e
 HEX25 <= SevenSegmentInterfaceDEC:inst22.f
 HEX26 <= SevenSegmentInterfaceDEC:inst22.g
-B[0] <= Monitor:inst8.B[0]
-B[1] <= Monitor:inst8.B[1]
-B[2] <= Monitor:inst8.B[2]
-B[3] <= Monitor:inst8.B[3]
-G[0] <= Monitor:inst8.G[0]
-G[1] <= Monitor:inst8.G[1]
-G[2] <= Monitor:inst8.G[2]
-G[3] <= Monitor:inst8.G[3]
-R[0] <= Monitor:inst8.R[0]
-R[1] <= Monitor:inst8.R[1]
-R[2] <= Monitor:inst8.R[2]
-R[3] <= Monitor:inst8.R[3]
+led <= LEDPeripheral:inst9.led
+B[0] <= Monitor:inst1.B[0]
+B[1] <= Monitor:inst1.B[1]
+B[2] <= Monitor:inst1.B[2]
+B[3] <= Monitor:inst1.B[3]
+G[0] <= Monitor:inst1.G[0]
+G[1] <= Monitor:inst1.G[1]
+G[2] <= Monitor:inst1.G[2]
+G[3] <= Monitor:inst1.G[3]
+R[0] <= Monitor:inst1.R[0]
+R[1] <= Monitor:inst1.R[1]
+R[2] <= Monitor:inst1.R[2]
+R[3] <= Monitor:inst1.R[3]
 sdram_addr[0] <= sdram_wrapper:inst4.sdram_addr[0]
 sdram_addr[1] <= sdram_wrapper:inst4.sdram_addr[1]
 sdram_addr[2] <= sdram_wrapper:inst4.sdram_addr[2]
@@ -13431,50 +13431,52 @@ Li_1 => inst10.IN1
 
 
 |CPU_KVADRAT_TEST|riscv32iTest:inst|InstrctionMemory2:inst15
-READDATA[0] <= ROM_CPU3:inst3.data[0]
-READDATA[1] <= ROM_CPU3:inst3.data[1]
-READDATA[2] <= ROM_CPU3:inst3.data[2]
-READDATA[3] <= ROM_CPU3:inst3.data[3]
-READDATA[4] <= ROM_CPU3:inst3.data[4]
-READDATA[5] <= ROM_CPU3:inst3.data[5]
-READDATA[6] <= ROM_CPU3:inst3.data[6]
-READDATA[7] <= ROM_CPU3:inst3.data[7]
-READDATA[8] <= ROM_CPU3:inst3.data[8]
-READDATA[9] <= ROM_CPU3:inst3.data[9]
-READDATA[10] <= ROM_CPU3:inst3.data[10]
-READDATA[11] <= ROM_CPU3:inst3.data[11]
-READDATA[12] <= ROM_CPU3:inst3.data[12]
-READDATA[13] <= ROM_CPU3:inst3.data[13]
-READDATA[14] <= ROM_CPU3:inst3.data[14]
-READDATA[15] <= ROM_CPU3:inst3.data[15]
-READDATA[16] <= ROM_CPU3:inst3.data[16]
-READDATA[17] <= ROM_CPU3:inst3.data[17]
-READDATA[18] <= ROM_CPU3:inst3.data[18]
-READDATA[19] <= ROM_CPU3:inst3.data[19]
-READDATA[20] <= ROM_CPU3:inst3.data[20]
-READDATA[21] <= ROM_CPU3:inst3.data[21]
-READDATA[22] <= ROM_CPU3:inst3.data[22]
-READDATA[23] <= ROM_CPU3:inst3.data[23]
-READDATA[24] <= ROM_CPU3:inst3.data[24]
-READDATA[25] <= ROM_CPU3:inst3.data[25]
-READDATA[26] <= ROM_CPU3:inst3.data[26]
-READDATA[27] <= ROM_CPU3:inst3.data[27]
-READDATA[28] <= ROM_CPU3:inst3.data[28]
-READDATA[29] <= ROM_CPU3:inst3.data[29]
-READDATA[30] <= ROM_CPU3:inst3.data[30]
-READDATA[31] <= ROM_CPU3:inst3.data[31]
+READDATA[0] <= ROM_CPU:inst1.q[0]
+READDATA[1] <= ROM_CPU:inst1.q[1]
+READDATA[2] <= ROM_CPU:inst1.q[2]
+READDATA[3] <= ROM_CPU:inst1.q[3]
+READDATA[4] <= ROM_CPU:inst1.q[4]
+READDATA[5] <= ROM_CPU:inst1.q[5]
+READDATA[6] <= ROM_CPU:inst1.q[6]
+READDATA[7] <= ROM_CPU:inst1.q[7]
+READDATA[8] <= ROM_CPU:inst1.q[8]
+READDATA[9] <= ROM_CPU:inst1.q[9]
+READDATA[10] <= ROM_CPU:inst1.q[10]
+READDATA[11] <= ROM_CPU:inst1.q[11]
+READDATA[12] <= ROM_CPU:inst1.q[12]
+READDATA[13] <= ROM_CPU:inst1.q[13]
+READDATA[14] <= ROM_CPU:inst1.q[14]
+READDATA[15] <= ROM_CPU:inst1.q[15]
+READDATA[16] <= ROM_CPU:inst1.q[16]
+READDATA[17] <= ROM_CPU:inst1.q[17]
+READDATA[18] <= ROM_CPU:inst1.q[18]
+READDATA[19] <= ROM_CPU:inst1.q[19]
+READDATA[20] <= ROM_CPU:inst1.q[20]
+READDATA[21] <= ROM_CPU:inst1.q[21]
+READDATA[22] <= ROM_CPU:inst1.q[22]
+READDATA[23] <= ROM_CPU:inst1.q[23]
+READDATA[24] <= ROM_CPU:inst1.q[24]
+READDATA[25] <= ROM_CPU:inst1.q[25]
+READDATA[26] <= ROM_CPU:inst1.q[26]
+READDATA[27] <= ROM_CPU:inst1.q[27]
+READDATA[28] <= ROM_CPU:inst1.q[28]
+READDATA[29] <= ROM_CPU:inst1.q[29]
+READDATA[30] <= ROM_CPU:inst1.q[30]
+READDATA[31] <= ROM_CPU:inst1.q[31]
+bus_wait => inst.IN0
+CLK => ROM_CPU:inst1.clock
 ADDRESS[0] => ~NO_FANOUT~
 ADDRESS[1] => ~NO_FANOUT~
-ADDRESS[2] => ROM_CPU3:inst3.addr[0]
-ADDRESS[3] => ROM_CPU3:inst3.addr[1]
-ADDRESS[4] => ROM_CPU3:inst3.addr[2]
-ADDRESS[5] => ROM_CPU3:inst3.addr[3]
-ADDRESS[6] => ROM_CPU3:inst3.addr[4]
-ADDRESS[7] => ROM_CPU3:inst3.addr[5]
-ADDRESS[8] => ROM_CPU3:inst3.addr[6]
-ADDRESS[9] => ROM_CPU3:inst3.addr[7]
-ADDRESS[10] => ROM_CPU3:inst3.addr[8]
-ADDRESS[11] => ROM_CPU3:inst3.addr[9]
+ADDRESS[2] => ROM_CPU:inst1.address[0]
+ADDRESS[3] => ROM_CPU:inst1.address[1]
+ADDRESS[4] => ROM_CPU:inst1.address[2]
+ADDRESS[5] => ROM_CPU:inst1.address[3]
+ADDRESS[6] => ROM_CPU:inst1.address[4]
+ADDRESS[7] => ROM_CPU:inst1.address[5]
+ADDRESS[8] => ROM_CPU:inst1.address[6]
+ADDRESS[9] => ROM_CPU:inst1.address[7]
+ADDRESS[10] => ROM_CPU:inst1.address[8]
+ADDRESS[11] => ROM_CPU:inst1.address[9]
 ADDRESS[12] => ~NO_FANOUT~
 ADDRESS[13] => ~NO_FANOUT~
 ADDRESS[14] => ~NO_FANOUT~
@@ -13495,834 +13497,10 @@ ADDRESS[28] => ~NO_FANOUT~
 ADDRESS[29] => ~NO_FANOUT~
 ADDRESS[30] => ~NO_FANOUT~
 ADDRESS[31] => ~NO_FANOUT~
-CLK => ~NO_FANOUT~
-bus_wait => ~NO_FANOUT~
 RESET => ~NO_FANOUT~
 
 
-|CPU_KVADRAT_TEST|riscv32iTest:inst|InstrctionMemory2:inst15|ROM_CPU3:inst3
-addr[0] => Equal0.IN19
-addr[0] => Equal1.IN19
-addr[0] => Equal2.IN19
-addr[0] => Equal3.IN19
-addr[0] => Equal4.IN19
-addr[0] => Equal5.IN19
-addr[0] => Equal6.IN19
-addr[0] => Equal7.IN19
-addr[0] => Equal8.IN19
-addr[0] => Equal9.IN19
-addr[0] => Equal10.IN19
-addr[0] => Equal11.IN19
-addr[0] => Equal12.IN19
-addr[0] => Equal13.IN19
-addr[0] => Equal14.IN19
-addr[0] => Equal15.IN19
-addr[0] => Equal16.IN19
-addr[0] => Equal17.IN19
-addr[0] => Equal18.IN19
-addr[0] => Equal19.IN19
-addr[0] => Equal20.IN19
-addr[0] => Equal21.IN19
-addr[0] => Equal22.IN19
-addr[0] => Equal23.IN19
-addr[0] => Equal24.IN19
-addr[0] => Equal25.IN19
-addr[0] => Equal26.IN19
-addr[0] => Equal27.IN19
-addr[0] => Equal28.IN19
-addr[0] => Equal29.IN19
-addr[0] => Equal30.IN19
-addr[0] => Equal31.IN19
-addr[0] => Equal32.IN19
-addr[0] => Equal33.IN19
-addr[0] => Equal34.IN19
-addr[0] => Equal35.IN19
-addr[0] => Equal36.IN19
-addr[0] => Equal37.IN19
-addr[0] => Equal38.IN19
-addr[0] => Equal39.IN19
-addr[0] => Equal40.IN19
-addr[0] => Equal41.IN19
-addr[0] => Equal42.IN19
-addr[0] => Equal43.IN19
-addr[0] => Equal44.IN19
-addr[0] => Equal45.IN19
-addr[0] => Equal46.IN19
-addr[0] => Equal47.IN19
-addr[0] => Equal48.IN19
-addr[0] => Equal49.IN19
-addr[0] => Equal50.IN19
-addr[0] => Equal51.IN19
-addr[0] => Equal52.IN19
-addr[0] => Equal53.IN19
-addr[1] => Equal0.IN18
-addr[1] => Equal1.IN18
-addr[1] => Equal2.IN18
-addr[1] => Equal3.IN18
-addr[1] => Equal4.IN18
-addr[1] => Equal5.IN18
-addr[1] => Equal6.IN18
-addr[1] => Equal7.IN18
-addr[1] => Equal8.IN18
-addr[1] => Equal9.IN18
-addr[1] => Equal10.IN18
-addr[1] => Equal11.IN18
-addr[1] => Equal12.IN18
-addr[1] => Equal13.IN18
-addr[1] => Equal14.IN18
-addr[1] => Equal15.IN18
-addr[1] => Equal16.IN18
-addr[1] => Equal17.IN18
-addr[1] => Equal18.IN18
-addr[1] => Equal19.IN18
-addr[1] => Equal20.IN18
-addr[1] => Equal21.IN18
-addr[1] => Equal22.IN18
-addr[1] => Equal23.IN18
-addr[1] => Equal24.IN18
-addr[1] => Equal25.IN18
-addr[1] => Equal26.IN18
-addr[1] => Equal27.IN18
-addr[1] => Equal28.IN18
-addr[1] => Equal29.IN18
-addr[1] => Equal30.IN18
-addr[1] => Equal31.IN18
-addr[1] => Equal32.IN18
-addr[1] => Equal33.IN18
-addr[1] => Equal34.IN18
-addr[1] => Equal35.IN18
-addr[1] => Equal36.IN18
-addr[1] => Equal37.IN18
-addr[1] => Equal38.IN18
-addr[1] => Equal39.IN18
-addr[1] => Equal40.IN18
-addr[1] => Equal41.IN18
-addr[1] => Equal42.IN18
-addr[1] => Equal43.IN18
-addr[1] => Equal44.IN18
-addr[1] => Equal45.IN18
-addr[1] => Equal46.IN18
-addr[1] => Equal47.IN18
-addr[1] => Equal48.IN18
-addr[1] => Equal49.IN18
-addr[1] => Equal50.IN18
-addr[1] => Equal51.IN18
-addr[1] => Equal52.IN18
-addr[1] => Equal53.IN18
-addr[2] => Equal0.IN17
-addr[2] => Equal1.IN17
-addr[2] => Equal2.IN17
-addr[2] => Equal3.IN17
-addr[2] => Equal4.IN17
-addr[2] => Equal5.IN17
-addr[2] => Equal6.IN17
-addr[2] => Equal7.IN17
-addr[2] => Equal8.IN17
-addr[2] => Equal9.IN17
-addr[2] => Equal10.IN17
-addr[2] => Equal11.IN17
-addr[2] => Equal12.IN17
-addr[2] => Equal13.IN17
-addr[2] => Equal14.IN17
-addr[2] => Equal15.IN17
-addr[2] => Equal16.IN17
-addr[2] => Equal17.IN17
-addr[2] => Equal18.IN17
-addr[2] => Equal19.IN17
-addr[2] => Equal20.IN17
-addr[2] => Equal21.IN17
-addr[2] => Equal22.IN17
-addr[2] => Equal23.IN17
-addr[2] => Equal24.IN17
-addr[2] => Equal25.IN17
-addr[2] => Equal26.IN17
-addr[2] => Equal27.IN17
-addr[2] => Equal28.IN17
-addr[2] => Equal29.IN17
-addr[2] => Equal30.IN17
-addr[2] => Equal31.IN17
-addr[2] => Equal32.IN17
-addr[2] => Equal33.IN17
-addr[2] => Equal34.IN17
-addr[2] => Equal35.IN17
-addr[2] => Equal36.IN17
-addr[2] => Equal37.IN17
-addr[2] => Equal38.IN17
-addr[2] => Equal39.IN17
-addr[2] => Equal40.IN17
-addr[2] => Equal41.IN17
-addr[2] => Equal42.IN17
-addr[2] => Equal43.IN17
-addr[2] => Equal44.IN17
-addr[2] => Equal45.IN17
-addr[2] => Equal46.IN17
-addr[2] => Equal47.IN17
-addr[2] => Equal48.IN17
-addr[2] => Equal49.IN17
-addr[2] => Equal50.IN17
-addr[2] => Equal51.IN17
-addr[2] => Equal52.IN17
-addr[2] => Equal53.IN17
-addr[3] => Equal0.IN16
-addr[3] => Equal1.IN16
-addr[3] => Equal2.IN16
-addr[3] => Equal3.IN16
-addr[3] => Equal4.IN16
-addr[3] => Equal5.IN16
-addr[3] => Equal6.IN16
-addr[3] => Equal7.IN16
-addr[3] => Equal8.IN16
-addr[3] => Equal9.IN16
-addr[3] => Equal10.IN16
-addr[3] => Equal11.IN16
-addr[3] => Equal12.IN16
-addr[3] => Equal13.IN16
-addr[3] => Equal14.IN16
-addr[3] => Equal15.IN16
-addr[3] => Equal16.IN16
-addr[3] => Equal17.IN16
-addr[3] => Equal18.IN16
-addr[3] => Equal19.IN16
-addr[3] => Equal20.IN16
-addr[3] => Equal21.IN16
-addr[3] => Equal22.IN16
-addr[3] => Equal23.IN16
-addr[3] => Equal24.IN16
-addr[3] => Equal25.IN16
-addr[3] => Equal26.IN16
-addr[3] => Equal27.IN16
-addr[3] => Equal28.IN16
-addr[3] => Equal29.IN16
-addr[3] => Equal30.IN16
-addr[3] => Equal31.IN16
-addr[3] => Equal32.IN16
-addr[3] => Equal33.IN16
-addr[3] => Equal34.IN16
-addr[3] => Equal35.IN16
-addr[3] => Equal36.IN16
-addr[3] => Equal37.IN16
-addr[3] => Equal38.IN16
-addr[3] => Equal39.IN16
-addr[3] => Equal40.IN16
-addr[3] => Equal41.IN16
-addr[3] => Equal42.IN16
-addr[3] => Equal43.IN16
-addr[3] => Equal44.IN16
-addr[3] => Equal45.IN16
-addr[3] => Equal46.IN16
-addr[3] => Equal47.IN16
-addr[3] => Equal48.IN16
-addr[3] => Equal49.IN16
-addr[3] => Equal50.IN16
-addr[3] => Equal51.IN16
-addr[3] => Equal52.IN16
-addr[3] => Equal53.IN16
-addr[4] => Equal0.IN15
-addr[4] => Equal1.IN15
-addr[4] => Equal2.IN15
-addr[4] => Equal3.IN15
-addr[4] => Equal4.IN15
-addr[4] => Equal5.IN15
-addr[4] => Equal6.IN15
-addr[4] => Equal7.IN15
-addr[4] => Equal8.IN15
-addr[4] => Equal9.IN15
-addr[4] => Equal10.IN15
-addr[4] => Equal11.IN15
-addr[4] => Equal12.IN15
-addr[4] => Equal13.IN15
-addr[4] => Equal14.IN15
-addr[4] => Equal15.IN15
-addr[4] => Equal16.IN15
-addr[4] => Equal17.IN15
-addr[4] => Equal18.IN15
-addr[4] => Equal19.IN15
-addr[4] => Equal20.IN15
-addr[4] => Equal21.IN15
-addr[4] => Equal22.IN15
-addr[4] => Equal23.IN15
-addr[4] => Equal24.IN15
-addr[4] => Equal25.IN15
-addr[4] => Equal26.IN15
-addr[4] => Equal27.IN15
-addr[4] => Equal28.IN15
-addr[4] => Equal29.IN15
-addr[4] => Equal30.IN15
-addr[4] => Equal31.IN15
-addr[4] => Equal32.IN15
-addr[4] => Equal33.IN15
-addr[4] => Equal34.IN15
-addr[4] => Equal35.IN15
-addr[4] => Equal36.IN15
-addr[4] => Equal37.IN15
-addr[4] => Equal38.IN15
-addr[4] => Equal39.IN15
-addr[4] => Equal40.IN15
-addr[4] => Equal41.IN15
-addr[4] => Equal42.IN15
-addr[4] => Equal43.IN15
-addr[4] => Equal44.IN15
-addr[4] => Equal45.IN15
-addr[4] => Equal46.IN15
-addr[4] => Equal47.IN15
-addr[4] => Equal48.IN15
-addr[4] => Equal49.IN15
-addr[4] => Equal50.IN15
-addr[4] => Equal51.IN15
-addr[4] => Equal52.IN15
-addr[4] => Equal53.IN15
-addr[5] => Equal0.IN14
-addr[5] => Equal1.IN14
-addr[5] => Equal2.IN14
-addr[5] => Equal3.IN14
-addr[5] => Equal4.IN14
-addr[5] => Equal5.IN14
-addr[5] => Equal6.IN14
-addr[5] => Equal7.IN14
-addr[5] => Equal8.IN14
-addr[5] => Equal9.IN14
-addr[5] => Equal10.IN14
-addr[5] => Equal11.IN14
-addr[5] => Equal12.IN14
-addr[5] => Equal13.IN14
-addr[5] => Equal14.IN14
-addr[5] => Equal15.IN14
-addr[5] => Equal16.IN14
-addr[5] => Equal17.IN14
-addr[5] => Equal18.IN14
-addr[5] => Equal19.IN14
-addr[5] => Equal20.IN14
-addr[5] => Equal21.IN14
-addr[5] => Equal22.IN14
-addr[5] => Equal23.IN14
-addr[5] => Equal24.IN14
-addr[5] => Equal25.IN14
-addr[5] => Equal26.IN14
-addr[5] => Equal27.IN14
-addr[5] => Equal28.IN14
-addr[5] => Equal29.IN14
-addr[5] => Equal30.IN14
-addr[5] => Equal31.IN14
-addr[5] => Equal32.IN14
-addr[5] => Equal33.IN14
-addr[5] => Equal34.IN14
-addr[5] => Equal35.IN14
-addr[5] => Equal36.IN14
-addr[5] => Equal37.IN14
-addr[5] => Equal38.IN14
-addr[5] => Equal39.IN14
-addr[5] => Equal40.IN14
-addr[5] => Equal41.IN14
-addr[5] => Equal42.IN14
-addr[5] => Equal43.IN14
-addr[5] => Equal44.IN14
-addr[5] => Equal45.IN14
-addr[5] => Equal46.IN14
-addr[5] => Equal47.IN14
-addr[5] => Equal48.IN14
-addr[5] => Equal49.IN14
-addr[5] => Equal50.IN14
-addr[5] => Equal51.IN14
-addr[5] => Equal52.IN14
-addr[5] => Equal53.IN14
-addr[6] => Equal0.IN13
-addr[6] => Equal1.IN13
-addr[6] => Equal2.IN13
-addr[6] => Equal3.IN13
-addr[6] => Equal4.IN13
-addr[6] => Equal5.IN13
-addr[6] => Equal6.IN13
-addr[6] => Equal7.IN13
-addr[6] => Equal8.IN13
-addr[6] => Equal9.IN13
-addr[6] => Equal10.IN13
-addr[6] => Equal11.IN13
-addr[6] => Equal12.IN13
-addr[6] => Equal13.IN13
-addr[6] => Equal14.IN13
-addr[6] => Equal15.IN13
-addr[6] => Equal16.IN13
-addr[6] => Equal17.IN13
-addr[6] => Equal18.IN13
-addr[6] => Equal19.IN13
-addr[6] => Equal20.IN13
-addr[6] => Equal21.IN13
-addr[6] => Equal22.IN13
-addr[6] => Equal23.IN13
-addr[6] => Equal24.IN13
-addr[6] => Equal25.IN13
-addr[6] => Equal26.IN13
-addr[6] => Equal27.IN13
-addr[6] => Equal28.IN13
-addr[6] => Equal29.IN13
-addr[6] => Equal30.IN13
-addr[6] => Equal31.IN13
-addr[6] => Equal32.IN13
-addr[6] => Equal33.IN13
-addr[6] => Equal34.IN13
-addr[6] => Equal35.IN13
-addr[6] => Equal36.IN13
-addr[6] => Equal37.IN13
-addr[6] => Equal38.IN13
-addr[6] => Equal39.IN13
-addr[6] => Equal40.IN13
-addr[6] => Equal41.IN13
-addr[6] => Equal42.IN13
-addr[6] => Equal43.IN13
-addr[6] => Equal44.IN13
-addr[6] => Equal45.IN13
-addr[6] => Equal46.IN13
-addr[6] => Equal47.IN13
-addr[6] => Equal48.IN13
-addr[6] => Equal49.IN13
-addr[6] => Equal50.IN13
-addr[6] => Equal51.IN13
-addr[6] => Equal52.IN13
-addr[6] => Equal53.IN13
-addr[7] => Equal0.IN12
-addr[7] => Equal1.IN12
-addr[7] => Equal2.IN12
-addr[7] => Equal3.IN12
-addr[7] => Equal4.IN12
-addr[7] => Equal5.IN12
-addr[7] => Equal6.IN12
-addr[7] => Equal7.IN12
-addr[7] => Equal8.IN12
-addr[7] => Equal9.IN12
-addr[7] => Equal10.IN12
-addr[7] => Equal11.IN12
-addr[7] => Equal12.IN12
-addr[7] => Equal13.IN12
-addr[7] => Equal14.IN12
-addr[7] => Equal15.IN12
-addr[7] => Equal16.IN12
-addr[7] => Equal17.IN12
-addr[7] => Equal18.IN12
-addr[7] => Equal19.IN12
-addr[7] => Equal20.IN12
-addr[7] => Equal21.IN12
-addr[7] => Equal22.IN12
-addr[7] => Equal23.IN12
-addr[7] => Equal24.IN12
-addr[7] => Equal25.IN12
-addr[7] => Equal26.IN12
-addr[7] => Equal27.IN12
-addr[7] => Equal28.IN12
-addr[7] => Equal29.IN12
-addr[7] => Equal30.IN12
-addr[7] => Equal31.IN12
-addr[7] => Equal32.IN12
-addr[7] => Equal33.IN12
-addr[7] => Equal34.IN12
-addr[7] => Equal35.IN12
-addr[7] => Equal36.IN12
-addr[7] => Equal37.IN12
-addr[7] => Equal38.IN12
-addr[7] => Equal39.IN12
-addr[7] => Equal40.IN12
-addr[7] => Equal41.IN12
-addr[7] => Equal42.IN12
-addr[7] => Equal43.IN12
-addr[7] => Equal44.IN12
-addr[7] => Equal45.IN12
-addr[7] => Equal46.IN12
-addr[7] => Equal47.IN12
-addr[7] => Equal48.IN12
-addr[7] => Equal49.IN12
-addr[7] => Equal50.IN12
-addr[7] => Equal51.IN12
-addr[7] => Equal52.IN12
-addr[7] => Equal53.IN12
-addr[8] => Equal0.IN11
-addr[8] => Equal1.IN11
-addr[8] => Equal2.IN11
-addr[8] => Equal3.IN11
-addr[8] => Equal4.IN11
-addr[8] => Equal5.IN11
-addr[8] => Equal6.IN11
-addr[8] => Equal7.IN11
-addr[8] => Equal8.IN11
-addr[8] => Equal9.IN11
-addr[8] => Equal10.IN11
-addr[8] => Equal11.IN11
-addr[8] => Equal12.IN11
-addr[8] => Equal13.IN11
-addr[8] => Equal14.IN11
-addr[8] => Equal15.IN11
-addr[8] => Equal16.IN11
-addr[8] => Equal17.IN11
-addr[8] => Equal18.IN11
-addr[8] => Equal19.IN11
-addr[8] => Equal20.IN11
-addr[8] => Equal21.IN11
-addr[8] => Equal22.IN11
-addr[8] => Equal23.IN11
-addr[8] => Equal24.IN11
-addr[8] => Equal25.IN11
-addr[8] => Equal26.IN11
-addr[8] => Equal27.IN11
-addr[8] => Equal28.IN11
-addr[8] => Equal29.IN11
-addr[8] => Equal30.IN11
-addr[8] => Equal31.IN11
-addr[8] => Equal32.IN11
-addr[8] => Equal33.IN11
-addr[8] => Equal34.IN11
-addr[8] => Equal35.IN11
-addr[8] => Equal36.IN11
-addr[8] => Equal37.IN11
-addr[8] => Equal38.IN11
-addr[8] => Equal39.IN11
-addr[8] => Equal40.IN11
-addr[8] => Equal41.IN11
-addr[8] => Equal42.IN11
-addr[8] => Equal43.IN11
-addr[8] => Equal44.IN11
-addr[8] => Equal45.IN11
-addr[8] => Equal46.IN11
-addr[8] => Equal47.IN11
-addr[8] => Equal48.IN11
-addr[8] => Equal49.IN11
-addr[8] => Equal50.IN11
-addr[8] => Equal51.IN11
-addr[8] => Equal52.IN11
-addr[8] => Equal53.IN11
-addr[9] => Equal0.IN10
-addr[9] => Equal1.IN10
-addr[9] => Equal2.IN10
-addr[9] => Equal3.IN10
-addr[9] => Equal4.IN10
-addr[9] => Equal5.IN10
-addr[9] => Equal6.IN10
-addr[9] => Equal7.IN10
-addr[9] => Equal8.IN10
-addr[9] => Equal9.IN10
-addr[9] => Equal10.IN10
-addr[9] => Equal11.IN10
-addr[9] => Equal12.IN10
-addr[9] => Equal13.IN10
-addr[9] => Equal14.IN10
-addr[9] => Equal15.IN10
-addr[9] => Equal16.IN10
-addr[9] => Equal17.IN10
-addr[9] => Equal18.IN10
-addr[9] => Equal19.IN10
-addr[9] => Equal20.IN10
-addr[9] => Equal21.IN10
-addr[9] => Equal22.IN10
-addr[9] => Equal23.IN10
-addr[9] => Equal24.IN10
-addr[9] => Equal25.IN10
-addr[9] => Equal26.IN10
-addr[9] => Equal27.IN10
-addr[9] => Equal28.IN10
-addr[9] => Equal29.IN10
-addr[9] => Equal30.IN10
-addr[9] => Equal31.IN10
-addr[9] => Equal32.IN10
-addr[9] => Equal33.IN10
-addr[9] => Equal34.IN10
-addr[9] => Equal35.IN10
-addr[9] => Equal36.IN10
-addr[9] => Equal37.IN10
-addr[9] => Equal38.IN10
-addr[9] => Equal39.IN10
-addr[9] => Equal40.IN10
-addr[9] => Equal41.IN10
-addr[9] => Equal42.IN10
-addr[9] => Equal43.IN10
-addr[9] => Equal44.IN10
-addr[9] => Equal45.IN10
-addr[9] => Equal46.IN10
-addr[9] => Equal47.IN10
-addr[9] => Equal48.IN10
-addr[9] => Equal49.IN10
-addr[9] => Equal50.IN10
-addr[9] => Equal51.IN10
-addr[9] => Equal52.IN10
-addr[9] => Equal53.IN10
-data[0] <= <VCC>
-data[1] <= <VCC>
-data[2] <= WideOr28.DB_MAX_OUTPUT_PORT_TYPE
-data[3] <= data.DB_MAX_OUTPUT_PORT_TYPE
-data[4] <= WideOr27.DB_MAX_OUTPUT_PORT_TYPE
-data[5] <= WideOr26.DB_MAX_OUTPUT_PORT_TYPE
-data[6] <= WideOr25.DB_MAX_OUTPUT_PORT_TYPE
-data[7] <= WideOr24.DB_MAX_OUTPUT_PORT_TYPE
-data[8] <= WideOr23.DB_MAX_OUTPUT_PORT_TYPE
-data[9] <= WideOr22.DB_MAX_OUTPUT_PORT_TYPE
-data[10] <= WideOr21.DB_MAX_OUTPUT_PORT_TYPE
-data[11] <= WideOr20.DB_MAX_OUTPUT_PORT_TYPE
-data[12] <= WideOr19.DB_MAX_OUTPUT_PORT_TYPE
-data[13] <= WideOr18.DB_MAX_OUTPUT_PORT_TYPE
-data[14] <= WideOr17.DB_MAX_OUTPUT_PORT_TYPE
-data[15] <= WideOr16.DB_MAX_OUTPUT_PORT_TYPE
-data[16] <= WideOr15.DB_MAX_OUTPUT_PORT_TYPE
-data[17] <= WideOr14.DB_MAX_OUTPUT_PORT_TYPE
-data[18] <= WideOr13.DB_MAX_OUTPUT_PORT_TYPE
-data[19] <= WideOr12.DB_MAX_OUTPUT_PORT_TYPE
-data[20] <= WideOr11.DB_MAX_OUTPUT_PORT_TYPE
-data[21] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
-data[22] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
-data[23] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
-data[24] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
-data[25] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
-data[26] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-data[27] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-data[28] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-data[29] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-data[30] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-data[31] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU_KVADRAT_TEST|riscv32iTest:inst|InstrctionMemory2:inst15|ROM_CPU2:inst1
-address[0] => Equal0.IN19
-address[0] => Equal1.IN19
-address[0] => Equal2.IN19
-address[0] => Equal3.IN19
-address[0] => Equal4.IN19
-address[0] => Equal5.IN19
-address[0] => Equal6.IN19
-address[0] => Equal7.IN19
-address[0] => Equal8.IN19
-address[0] => Equal9.IN19
-address[0] => Equal10.IN19
-address[0] => Equal11.IN19
-address[0] => Equal12.IN19
-address[0] => Equal13.IN19
-address[0] => Equal14.IN19
-address[0] => Equal15.IN19
-address[0] => Equal16.IN19
-address[0] => Equal17.IN19
-address[0] => Equal18.IN19
-address[0] => Equal19.IN19
-address[0] => Equal20.IN19
-address[1] => Equal0.IN18
-address[1] => Equal1.IN18
-address[1] => Equal2.IN18
-address[1] => Equal3.IN18
-address[1] => Equal4.IN18
-address[1] => Equal5.IN18
-address[1] => Equal6.IN18
-address[1] => Equal7.IN18
-address[1] => Equal8.IN18
-address[1] => Equal9.IN18
-address[1] => Equal10.IN18
-address[1] => Equal11.IN18
-address[1] => Equal12.IN18
-address[1] => Equal13.IN18
-address[1] => Equal14.IN18
-address[1] => Equal15.IN18
-address[1] => Equal16.IN18
-address[1] => Equal17.IN18
-address[1] => Equal18.IN18
-address[1] => Equal19.IN18
-address[1] => Equal20.IN18
-address[2] => Equal0.IN17
-address[2] => Equal1.IN17
-address[2] => Equal2.IN17
-address[2] => Equal3.IN17
-address[2] => Equal4.IN17
-address[2] => Equal5.IN17
-address[2] => Equal6.IN17
-address[2] => Equal7.IN17
-address[2] => Equal8.IN17
-address[2] => Equal9.IN17
-address[2] => Equal10.IN17
-address[2] => Equal11.IN17
-address[2] => Equal12.IN17
-address[2] => Equal13.IN17
-address[2] => Equal14.IN17
-address[2] => Equal15.IN17
-address[2] => Equal16.IN17
-address[2] => Equal17.IN17
-address[2] => Equal18.IN17
-address[2] => Equal19.IN17
-address[2] => Equal20.IN17
-address[3] => Equal0.IN16
-address[3] => Equal1.IN16
-address[3] => Equal2.IN16
-address[3] => Equal3.IN16
-address[3] => Equal4.IN16
-address[3] => Equal5.IN16
-address[3] => Equal6.IN16
-address[3] => Equal7.IN16
-address[3] => Equal8.IN16
-address[3] => Equal9.IN16
-address[3] => Equal10.IN16
-address[3] => Equal11.IN16
-address[3] => Equal12.IN16
-address[3] => Equal13.IN16
-address[3] => Equal14.IN16
-address[3] => Equal15.IN16
-address[3] => Equal16.IN16
-address[3] => Equal17.IN16
-address[3] => Equal18.IN16
-address[3] => Equal19.IN16
-address[3] => Equal20.IN16
-address[4] => Equal0.IN15
-address[4] => Equal1.IN15
-address[4] => Equal2.IN15
-address[4] => Equal3.IN15
-address[4] => Equal4.IN15
-address[4] => Equal5.IN15
-address[4] => Equal6.IN15
-address[4] => Equal7.IN15
-address[4] => Equal8.IN15
-address[4] => Equal9.IN15
-address[4] => Equal10.IN15
-address[4] => Equal11.IN15
-address[4] => Equal12.IN15
-address[4] => Equal13.IN15
-address[4] => Equal14.IN15
-address[4] => Equal15.IN15
-address[4] => Equal16.IN15
-address[4] => Equal17.IN15
-address[4] => Equal18.IN15
-address[4] => Equal19.IN15
-address[4] => Equal20.IN15
-address[5] => Equal0.IN14
-address[5] => Equal1.IN14
-address[5] => Equal2.IN14
-address[5] => Equal3.IN14
-address[5] => Equal4.IN14
-address[5] => Equal5.IN14
-address[5] => Equal6.IN14
-address[5] => Equal7.IN14
-address[5] => Equal8.IN14
-address[5] => Equal9.IN14
-address[5] => Equal10.IN14
-address[5] => Equal11.IN14
-address[5] => Equal12.IN14
-address[5] => Equal13.IN14
-address[5] => Equal14.IN14
-address[5] => Equal15.IN14
-address[5] => Equal16.IN14
-address[5] => Equal17.IN14
-address[5] => Equal18.IN14
-address[5] => Equal19.IN14
-address[5] => Equal20.IN14
-address[6] => Equal0.IN13
-address[6] => Equal1.IN13
-address[6] => Equal2.IN13
-address[6] => Equal3.IN13
-address[6] => Equal4.IN13
-address[6] => Equal5.IN13
-address[6] => Equal6.IN13
-address[6] => Equal7.IN13
-address[6] => Equal8.IN13
-address[6] => Equal9.IN13
-address[6] => Equal10.IN13
-address[6] => Equal11.IN13
-address[6] => Equal12.IN13
-address[6] => Equal13.IN13
-address[6] => Equal14.IN13
-address[6] => Equal15.IN13
-address[6] => Equal16.IN13
-address[6] => Equal17.IN13
-address[6] => Equal18.IN13
-address[6] => Equal19.IN13
-address[6] => Equal20.IN13
-address[7] => Equal0.IN12
-address[7] => Equal1.IN12
-address[7] => Equal2.IN12
-address[7] => Equal3.IN12
-address[7] => Equal4.IN12
-address[7] => Equal5.IN12
-address[7] => Equal6.IN12
-address[7] => Equal7.IN12
-address[7] => Equal8.IN12
-address[7] => Equal9.IN12
-address[7] => Equal10.IN12
-address[7] => Equal11.IN12
-address[7] => Equal12.IN12
-address[7] => Equal13.IN12
-address[7] => Equal14.IN12
-address[7] => Equal15.IN12
-address[7] => Equal16.IN12
-address[7] => Equal17.IN12
-address[7] => Equal18.IN12
-address[7] => Equal19.IN12
-address[7] => Equal20.IN12
-address[8] => Equal0.IN11
-address[8] => Equal1.IN11
-address[8] => Equal2.IN11
-address[8] => Equal3.IN11
-address[8] => Equal4.IN11
-address[8] => Equal5.IN11
-address[8] => Equal6.IN11
-address[8] => Equal7.IN11
-address[8] => Equal8.IN11
-address[8] => Equal9.IN11
-address[8] => Equal10.IN11
-address[8] => Equal11.IN11
-address[8] => Equal12.IN11
-address[8] => Equal13.IN11
-address[8] => Equal14.IN11
-address[8] => Equal15.IN11
-address[8] => Equal16.IN11
-address[8] => Equal17.IN11
-address[8] => Equal18.IN11
-address[8] => Equal19.IN11
-address[8] => Equal20.IN11
-address[9] => Equal0.IN10
-address[9] => Equal1.IN10
-address[9] => Equal2.IN10
-address[9] => Equal3.IN10
-address[9] => Equal4.IN10
-address[9] => Equal5.IN10
-address[9] => Equal6.IN10
-address[9] => Equal7.IN10
-address[9] => Equal8.IN10
-address[9] => Equal9.IN10
-address[9] => Equal10.IN10
-address[9] => Equal11.IN10
-address[9] => Equal12.IN10
-address[9] => Equal13.IN10
-address[9] => Equal14.IN10
-address[9] => Equal15.IN10
-address[9] => Equal16.IN10
-address[9] => Equal17.IN10
-address[9] => Equal18.IN10
-address[9] => Equal19.IN10
-address[9] => Equal20.IN10
-clock => ~NO_FANOUT~
-rden => ~NO_FANOUT~
-q[0] <= <VCC>
-q[1] <= <VCC>
-q[2] <= WideOr27.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q.DB_MAX_OUTPUT_PORT_TYPE
-q[4] <= WideOr26.DB_MAX_OUTPUT_PORT_TYPE
-q[5] <= WideOr25.DB_MAX_OUTPUT_PORT_TYPE
-q[6] <= WideOr24.DB_MAX_OUTPUT_PORT_TYPE
-q[7] <= WideOr23.DB_MAX_OUTPUT_PORT_TYPE
-q[8] <= WideOr22.DB_MAX_OUTPUT_PORT_TYPE
-q[9] <= WideOr21.DB_MAX_OUTPUT_PORT_TYPE
-q[10] <= WideOr20.DB_MAX_OUTPUT_PORT_TYPE
-q[11] <= WideOr19.DB_MAX_OUTPUT_PORT_TYPE
-q[12] <= WideOr18.DB_MAX_OUTPUT_PORT_TYPE
-q[13] <= WideOr17.DB_MAX_OUTPUT_PORT_TYPE
-q[14] <= WideOr16.DB_MAX_OUTPUT_PORT_TYPE
-q[15] <= WideOr15.DB_MAX_OUTPUT_PORT_TYPE
-q[16] <= WideOr14.DB_MAX_OUTPUT_PORT_TYPE
-q[17] <= WideOr13.DB_MAX_OUTPUT_PORT_TYPE
-q[18] <= WideOr12.DB_MAX_OUTPUT_PORT_TYPE
-q[19] <= Equal20.DB_MAX_OUTPUT_PORT_TYPE
-q[20] <= WideOr11.DB_MAX_OUTPUT_PORT_TYPE
-q[21] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
-q[22] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
-q[23] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
-q[24] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
-q[25] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
-q[26] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-q[27] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-q[28] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-q[29] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-q[30] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-q[31] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU_KVADRAT_TEST|riscv32iTest:inst|InstrctionMemory2:inst15|ROM_CPU:inst2
+|CPU_KVADRAT_TEST|riscv32iTest:inst|InstrctionMemory2:inst15|ROM_CPU:inst1
 address[0] => altsyncram:altsyncram_component.address_a[0]
 address[1] => altsyncram:altsyncram_component.address_a[1]
 address[2] => altsyncram:altsyncram_component.address_a[2]
@@ -14369,7 +13547,7 @@ q[30] <= altsyncram:altsyncram_component.q_a[30]
 q[31] <= altsyncram:altsyncram_component.q_a[31]
 
 
-|CPU_KVADRAT_TEST|riscv32iTest:inst|InstrctionMemory2:inst15|ROM_CPU:inst2|altsyncram:altsyncram_component
+|CPU_KVADRAT_TEST|riscv32iTest:inst|InstrctionMemory2:inst15|ROM_CPU:inst1|altsyncram:altsyncram_component
 wren_a => ~NO_FANOUT~
 rden_a => altsyncram_e764:auto_generated.rden_a
 wren_b => ~NO_FANOUT~
@@ -14468,7 +13646,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|CPU_KVADRAT_TEST|riscv32iTest:inst|InstrctionMemory2:inst15|ROM_CPU:inst2|altsyncram:altsyncram_component|altsyncram_e764:auto_generated
+|CPU_KVADRAT_TEST|riscv32iTest:inst|InstrctionMemory2:inst15|ROM_CPU:inst1|altsyncram:altsyncram_component|altsyncram_e764:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -77660,20 +76838,24 @@ bus_addr[28] => inst.IN0
 bus_addr[28] => inst12.IN0
 bus_addr[28] => MPX4:inst16.sel[0]
 bus_addr[28] => inst13.IN0
+bus_addr[28] => inst21.IN1
 bus_addr[28] => MPX4_32BIT:inst15.sel[0]
 bus_addr[29] => inst8.IN0
 bus_addr[29] => inst11.IN0
 bus_addr[29] => MPX4:inst16.sel[1]
 bus_addr[29] => inst14.IN0
+bus_addr[29] => inst21.IN0
 bus_addr[29] => MPX4_32BIT:inst15.sel[1]
 bus_addr[30] => ~NO_FANOUT~
 bus_addr[31] => ~NO_FANOUT~
 cs_lidar <= inst2.DB_MAX_OUTPUT_PORT_TYPE
 bus_ready <= MPX4:inst16.result
+led_ready => MPX4:inst16.data3
 vga_ready => MPX4:inst16.data2
 lidar_ready => MPX4:inst16.data1
 sdram_ready => MPX4:inst16.data0
 cs_vga <= inst10.DB_MAX_OUTPUT_PORT_TYPE
+cs_led <= inst19.DB_MAX_OUTPUT_PORT_TYPE
 bus_rdata[0] <= MPX4_32BIT:inst15.result[0]
 bus_rdata[1] <= MPX4_32BIT:inst15.result[1]
 bus_rdata[2] <= MPX4_32BIT:inst15.result[2]
@@ -77802,6 +76984,38 @@ vga_rdata[28] => MPX4_32BIT:inst15.data2x[28]
 vga_rdata[29] => MPX4_32BIT:inst15.data2x[29]
 vga_rdata[30] => MPX4_32BIT:inst15.data2x[30]
 vga_rdata[31] => MPX4_32BIT:inst15.data2x[31]
+led_rdata[0] => MPX4_32BIT:inst15.data3x[0]
+led_rdata[1] => MPX4_32BIT:inst15.data3x[1]
+led_rdata[2] => MPX4_32BIT:inst15.data3x[2]
+led_rdata[3] => MPX4_32BIT:inst15.data3x[3]
+led_rdata[4] => MPX4_32BIT:inst15.data3x[4]
+led_rdata[5] => MPX4_32BIT:inst15.data3x[5]
+led_rdata[6] => MPX4_32BIT:inst15.data3x[6]
+led_rdata[7] => MPX4_32BIT:inst15.data3x[7]
+led_rdata[8] => MPX4_32BIT:inst15.data3x[8]
+led_rdata[9] => MPX4_32BIT:inst15.data3x[9]
+led_rdata[10] => MPX4_32BIT:inst15.data3x[10]
+led_rdata[11] => MPX4_32BIT:inst15.data3x[11]
+led_rdata[12] => MPX4_32BIT:inst15.data3x[12]
+led_rdata[13] => MPX4_32BIT:inst15.data3x[13]
+led_rdata[14] => MPX4_32BIT:inst15.data3x[14]
+led_rdata[15] => MPX4_32BIT:inst15.data3x[15]
+led_rdata[16] => MPX4_32BIT:inst15.data3x[16]
+led_rdata[17] => MPX4_32BIT:inst15.data3x[17]
+led_rdata[18] => MPX4_32BIT:inst15.data3x[18]
+led_rdata[19] => MPX4_32BIT:inst15.data3x[19]
+led_rdata[20] => MPX4_32BIT:inst15.data3x[20]
+led_rdata[21] => MPX4_32BIT:inst15.data3x[21]
+led_rdata[22] => MPX4_32BIT:inst15.data3x[22]
+led_rdata[23] => MPX4_32BIT:inst15.data3x[23]
+led_rdata[24] => MPX4_32BIT:inst15.data3x[24]
+led_rdata[25] => MPX4_32BIT:inst15.data3x[25]
+led_rdata[26] => MPX4_32BIT:inst15.data3x[26]
+led_rdata[27] => MPX4_32BIT:inst15.data3x[27]
+led_rdata[28] => MPX4_32BIT:inst15.data3x[28]
+led_rdata[29] => MPX4_32BIT:inst15.data3x[29]
+led_rdata[30] => MPX4_32BIT:inst15.data3x[30]
+led_rdata[31] => MPX4_32BIT:inst15.data3x[31]
 
 
 |CPU_KVADRAT_TEST|BusDecoder:inst7|MPX4:inst16
@@ -78529,45 +77743,88 @@ sel[1] => l2_w9_n0_mux_dataout.IN0
 sel[1] => _.IN0
 
 
-|CPU_KVADRAT_TEST|BusDecoder:inst7|ConstantX:inst17
-DATA_OUT[0] <= <GND>
-DATA_OUT[1] <= <GND>
-DATA_OUT[2] <= <GND>
-DATA_OUT[3] <= <GND>
-DATA_OUT[4] <= <GND>
-DATA_OUT[5] <= <GND>
-DATA_OUT[6] <= <GND>
-DATA_OUT[7] <= <GND>
-DATA_OUT[8] <= <GND>
-DATA_OUT[9] <= <GND>
-DATA_OUT[10] <= <GND>
-DATA_OUT[11] <= <GND>
-DATA_OUT[12] <= <GND>
-DATA_OUT[13] <= <GND>
-DATA_OUT[14] <= <GND>
-DATA_OUT[15] <= <GND>
-DATA_OUT[16] <= <GND>
-DATA_OUT[17] <= <GND>
-DATA_OUT[18] <= <GND>
-DATA_OUT[19] <= <GND>
-DATA_OUT[20] <= <GND>
-DATA_OUT[21] <= <GND>
-DATA_OUT[22] <= <GND>
-DATA_OUT[23] <= <GND>
-DATA_OUT[24] <= <GND>
-DATA_OUT[25] <= <GND>
-DATA_OUT[26] <= <GND>
-DATA_OUT[27] <= <GND>
-DATA_OUT[28] <= <GND>
-DATA_OUT[29] <= <GND>
-DATA_OUT[30] <= <GND>
-DATA_OUT[31] <= <GND>
+|CPU_KVADRAT_TEST|LEDPeripheral:inst9
+clk => led_reg.CLK
+reset => led_reg.ACLR
+cs => always0.IN0
+cs => always1.IN0
+cs => ready.IN1
+bus_wr => always0.IN1
+bus_wr => ready.IN0
+bus_rd => always1.IN1
+bus_rd => ready.IN1
+bus_wdata[0] => led_reg.DATAIN
+bus_wdata[1] => ~NO_FANOUT~
+bus_wdata[2] => ~NO_FANOUT~
+bus_wdata[3] => ~NO_FANOUT~
+bus_wdata[4] => ~NO_FANOUT~
+bus_wdata[5] => ~NO_FANOUT~
+bus_wdata[6] => ~NO_FANOUT~
+bus_wdata[7] => ~NO_FANOUT~
+bus_wdata[8] => ~NO_FANOUT~
+bus_wdata[9] => ~NO_FANOUT~
+bus_wdata[10] => ~NO_FANOUT~
+bus_wdata[11] => ~NO_FANOUT~
+bus_wdata[12] => ~NO_FANOUT~
+bus_wdata[13] => ~NO_FANOUT~
+bus_wdata[14] => ~NO_FANOUT~
+bus_wdata[15] => ~NO_FANOUT~
+bus_wdata[16] => ~NO_FANOUT~
+bus_wdata[17] => ~NO_FANOUT~
+bus_wdata[18] => ~NO_FANOUT~
+bus_wdata[19] => ~NO_FANOUT~
+bus_wdata[20] => ~NO_FANOUT~
+bus_wdata[21] => ~NO_FANOUT~
+bus_wdata[22] => ~NO_FANOUT~
+bus_wdata[23] => ~NO_FANOUT~
+bus_wdata[24] => ~NO_FANOUT~
+bus_wdata[25] => ~NO_FANOUT~
+bus_wdata[26] => ~NO_FANOUT~
+bus_wdata[27] => ~NO_FANOUT~
+bus_wdata[28] => ~NO_FANOUT~
+bus_wdata[29] => ~NO_FANOUT~
+bus_wdata[30] => ~NO_FANOUT~
+bus_wdata[31] => ~NO_FANOUT~
+bus_rdata[0] <= bus_rdata.DB_MAX_OUTPUT_PORT_TYPE
+bus_rdata[1] <= <GND>
+bus_rdata[2] <= <GND>
+bus_rdata[3] <= <GND>
+bus_rdata[4] <= <GND>
+bus_rdata[5] <= <GND>
+bus_rdata[6] <= <GND>
+bus_rdata[7] <= <GND>
+bus_rdata[8] <= <GND>
+bus_rdata[9] <= <GND>
+bus_rdata[10] <= <GND>
+bus_rdata[11] <= <GND>
+bus_rdata[12] <= <GND>
+bus_rdata[13] <= <GND>
+bus_rdata[14] <= <GND>
+bus_rdata[15] <= <GND>
+bus_rdata[16] <= <GND>
+bus_rdata[17] <= <GND>
+bus_rdata[18] <= <GND>
+bus_rdata[19] <= <GND>
+bus_rdata[20] <= <GND>
+bus_rdata[21] <= <GND>
+bus_rdata[22] <= <GND>
+bus_rdata[23] <= <GND>
+bus_rdata[24] <= <GND>
+bus_rdata[25] <= <GND>
+bus_rdata[26] <= <GND>
+bus_rdata[27] <= <GND>
+bus_rdata[28] <= <GND>
+bus_rdata[29] <= <GND>
+bus_rdata[30] <= <GND>
+bus_rdata[31] <= <GND>
+ready <= ready.DB_MAX_OUTPUT_PORT_TYPE
+led <= led_reg.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|VgaBusInterface:inst11
-SET_PIXEL <= inst.DB_MAX_OUTPUT_PORT_TYPE
-cs_vga => inst.IN0
-bus_wr => inst.IN1
+|CPU_KVADRAT_TEST|VgaBusInterface:inst2
+SET_PIXEL <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+cs_vga => inst3.IN0
+bus_wr => inst3.IN1
 SET_BIT <= bus_wdata[31].DB_MAX_OUTPUT_PORT_TYPE
 bus_wdata[0] => XIN[0].DATAIN
 bus_wdata[1] => XIN[1].DATAIN
@@ -78601,9 +77858,9 @@ bus_wdata[28] => ~NO_FANOUT~
 bus_wdata[29] => ~NO_FANOUT~
 bus_wdata[30] => SEL.DATAIN
 bus_wdata[31] => SET_BIT.DATAIN
-vga_ready <= inst4.DB_MAX_OUTPUT_PORT_TYPE
-PIXEL_CHANGED => inst3.IN0
-clk => inst3.CLK
+vga_ready <= inst1.DB_MAX_OUTPUT_PORT_TYPE
+PIXEL_CHANGED => inst.IN0
+clk => inst.CLK
 SEL <= bus_wdata[30].DB_MAX_OUTPUT_PORT_TYPE
 vga_rdata[0] <= <GND>
 vga_rdata[1] <= <GND>
@@ -78659,61 +77916,60 @@ YIN[8] <= bus_wdata[18].DB_MAX_OUTPUT_PORT_TYPE
 YIN[9] <= bus_wdata[19].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1
 hs <= Controller2:inst17.HS
 clk => Controller2:inst17.CLK
-clk => FrameBuffer:inst1.clk
+clk => FrameBuffer:inst15.clk
 clk => ClockDivider:inst10.CLK_IN
 clk => REG16_LD_CL:inst11.clk
 clk => REG16_LD_CL:inst12.clk
 vs <= Controller2:inst17.VS
-PIXEL_CHANGED <= FrameBuffer:inst1.WR_PIXEL
-SET_PIXEL => FrameBuffer:inst1.SET_PIXEL
+PIXEL_CHANGED <= FrameBuffer:inst15.WR_PIXEL
+SET_PIXEL => FrameBuffer:inst15.SET_PIXEL
 SET_PIXEL => inst13.IN0
-SET_BIT => FrameBuffer:inst1.SET_BIT
-FB_SEL => FrameBuffer:inst1.FB_SEL
-RESET => FrameBuffer:inst1.RESET
-XIN[0] => FrameBuffer:inst1.X_WR[0]
+SET_BIT => FrameBuffer:inst15.SET_BIT
+FB_SEL => FrameBuffer:inst15.FB_SEL
+XIN[0] => FrameBuffer:inst15.X_WR[0]
 XIN[0] => MPX2_10BIT:inst100.data1x[0]
-XIN[1] => FrameBuffer:inst1.X_WR[1]
+XIN[1] => FrameBuffer:inst15.X_WR[1]
 XIN[1] => MPX2_10BIT:inst100.data1x[1]
-XIN[2] => FrameBuffer:inst1.X_WR[2]
+XIN[2] => FrameBuffer:inst15.X_WR[2]
 XIN[2] => MPX2_10BIT:inst100.data1x[2]
-XIN[3] => FrameBuffer:inst1.X_WR[3]
+XIN[3] => FrameBuffer:inst15.X_WR[3]
 XIN[3] => MPX2_10BIT:inst100.data1x[3]
-XIN[4] => FrameBuffer:inst1.X_WR[4]
+XIN[4] => FrameBuffer:inst15.X_WR[4]
 XIN[4] => MPX2_10BIT:inst100.data1x[4]
-XIN[5] => FrameBuffer:inst1.X_WR[5]
+XIN[5] => FrameBuffer:inst15.X_WR[5]
 XIN[5] => MPX2_10BIT:inst100.data1x[5]
-XIN[6] => FrameBuffer:inst1.X_WR[6]
+XIN[6] => FrameBuffer:inst15.X_WR[6]
 XIN[6] => MPX2_10BIT:inst100.data1x[6]
-XIN[7] => FrameBuffer:inst1.X_WR[7]
+XIN[7] => FrameBuffer:inst15.X_WR[7]
 XIN[7] => MPX2_10BIT:inst100.data1x[7]
-XIN[8] => FrameBuffer:inst1.X_WR[8]
+XIN[8] => FrameBuffer:inst15.X_WR[8]
 XIN[8] => MPX2_10BIT:inst100.data1x[8]
-XIN[9] => FrameBuffer:inst1.X_WR[9]
+XIN[9] => FrameBuffer:inst15.X_WR[9]
 XIN[9] => MPX2_10BIT:inst100.data1x[9]
-YIN[0] => FrameBuffer:inst1.Y_WR[0]
+YIN[0] => FrameBuffer:inst15.Y_WR[0]
 YIN[0] => MPX2_10BIT:inst9.data1x[0]
-YIN[1] => FrameBuffer:inst1.Y_WR[1]
+YIN[1] => FrameBuffer:inst15.Y_WR[1]
 YIN[1] => MPX2_10BIT:inst9.data1x[1]
-YIN[2] => FrameBuffer:inst1.Y_WR[2]
+YIN[2] => FrameBuffer:inst15.Y_WR[2]
 YIN[2] => MPX2_10BIT:inst9.data1x[2]
-YIN[3] => FrameBuffer:inst1.Y_WR[3]
+YIN[3] => FrameBuffer:inst15.Y_WR[3]
 YIN[3] => MPX2_10BIT:inst9.data1x[3]
-YIN[4] => FrameBuffer:inst1.Y_WR[4]
+YIN[4] => FrameBuffer:inst15.Y_WR[4]
 YIN[4] => MPX2_10BIT:inst9.data1x[4]
-YIN[5] => FrameBuffer:inst1.Y_WR[5]
+YIN[5] => FrameBuffer:inst15.Y_WR[5]
 YIN[5] => MPX2_10BIT:inst9.data1x[5]
-YIN[6] => FrameBuffer:inst1.Y_WR[6]
+YIN[6] => FrameBuffer:inst15.Y_WR[6]
 YIN[6] => MPX2_10BIT:inst9.data1x[6]
-YIN[7] => FrameBuffer:inst1.Y_WR[7]
+YIN[7] => FrameBuffer:inst15.Y_WR[7]
 YIN[7] => MPX2_10BIT:inst9.data1x[7]
-YIN[8] => FrameBuffer:inst1.Y_WR[8]
+YIN[8] => FrameBuffer:inst15.Y_WR[8]
 YIN[8] => MPX2_10BIT:inst9.data1x[8]
-YIN[9] => FrameBuffer:inst1.Y_WR[9]
+YIN[9] => FrameBuffer:inst15.Y_WR[9]
 YIN[9] => MPX2_10BIT:inst9.data1x[9]
-v <= FrameBuffer:inst1.PIXEL_ON
+v <= FrameBuffer:inst15.PIXEL_ON
 B[0] <= inst3[0].DB_MAX_OUTPUT_PORT_TYPE
 B[1] <= inst3[1].DB_MAX_OUTPUT_PORT_TYPE
 B[2] <= inst3[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -78722,21 +77978,21 @@ G[0] <= inst4[0].DB_MAX_OUTPUT_PORT_TYPE
 G[1] <= inst4[1].DB_MAX_OUTPUT_PORT_TYPE
 G[2] <= inst4[2].DB_MAX_OUTPUT_PORT_TYPE
 G[3] <= inst4[3].DB_MAX_OUTPUT_PORT_TYPE
-OUT[0] <= FrameBuffer:inst1.OUT[0]
-OUT[1] <= FrameBuffer:inst1.OUT[1]
-OUT[2] <= FrameBuffer:inst1.OUT[2]
-OUT[3] <= FrameBuffer:inst1.OUT[3]
-OUT[4] <= FrameBuffer:inst1.OUT[4]
-OUT[5] <= FrameBuffer:inst1.OUT[5]
-OUT[6] <= FrameBuffer:inst1.OUT[6]
-OUT[7] <= FrameBuffer:inst1.OUT[7]
+OUT[0] <= FrameBuffer:inst15.OUT[0]
+OUT[1] <= FrameBuffer:inst15.OUT[1]
+OUT[2] <= FrameBuffer:inst15.OUT[2]
+OUT[3] <= FrameBuffer:inst15.OUT[3]
+OUT[4] <= FrameBuffer:inst15.OUT[4]
+OUT[5] <= FrameBuffer:inst15.OUT[5]
+OUT[6] <= FrameBuffer:inst15.OUT[6]
+OUT[7] <= FrameBuffer:inst15.OUT[7]
 R[0] <= inst2[0].DB_MAX_OUTPUT_PORT_TYPE
 R[1] <= inst2[1].DB_MAX_OUTPUT_PORT_TYPE
 R[2] <= inst2[2].DB_MAX_OUTPUT_PORT_TYPE
 R[3] <= inst2[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17
 HS <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 CLK => RegisterX:inst.CLK
 CLK => RegisterX:inst3.CLK
@@ -78764,7 +78020,7 @@ Y[9] <= RegisterX:inst3.DATA_OUT[9]
 DISPLAY <= inst21.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ComparatorX:inst10
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ComparatorX:inst10
 A[0] => Equal0.IN10
 A[0] => LessThan0.IN11
 A[0] => LessThan1.IN11
@@ -78836,7 +78092,7 @@ LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
 GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|RegisterX:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|RegisterX:inst
 CLK => data[0].CLK
 CLK => data[1].CLK
 CLK => data[2].CLK
@@ -78916,7 +78172,7 @@ DATA_OUT[9] <= data[9].DB_MAX_OUTPUT_PORT_TYPE
 DATA_OUT[10] <= data[10].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ComparatorX:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ComparatorX:inst2
 A[0] => Equal0.IN10
 A[0] => LessThan0.IN11
 A[0] => LessThan1.IN11
@@ -78988,7 +78244,7 @@ LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
 GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ConstantX:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ConstantX:inst1
 DATA_OUT[0] <= <VCC>
 DATA_OUT[1] <= <VCC>
 DATA_OUT[2] <= <VCC>
@@ -79002,7 +78258,7 @@ DATA_OUT[9] <= <GND>
 DATA_OUT[10] <= <VCC>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ConstantX:inst9
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ConstantX:inst9
 DATA_OUT[0] <= <VCC>
 DATA_OUT[1] <= <VCC>
 DATA_OUT[2] <= <VCC>
@@ -79016,7 +78272,7 @@ DATA_OUT[9] <= <VCC>
 DATA_OUT[10] <= <GND>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ComparatorX:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ComparatorX:inst8
 A[0] => Equal0.IN10
 A[0] => LessThan0.IN11
 A[0] => LessThan1.IN11
@@ -79088,7 +78344,7 @@ LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
 GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ConstantX:inst7
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ConstantX:inst7
 DATA_OUT[0] <= <VCC>
 DATA_OUT[1] <= <VCC>
 DATA_OUT[2] <= <VCC>
@@ -79102,7 +78358,7 @@ DATA_OUT[9] <= <VCC>
 DATA_OUT[10] <= <GND>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ComparatorX:inst15
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ComparatorX:inst15
 A[0] => Equal0.IN9
 A[0] => LessThan0.IN10
 A[0] => LessThan1.IN10
@@ -79168,7 +78424,7 @@ LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
 GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|RegisterX:inst3
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|RegisterX:inst3
 CLK => data[0].CLK
 CLK => data[1].CLK
 CLK => data[2].CLK
@@ -79241,7 +78497,7 @@ DATA_OUT[8] <= data[8].DB_MAX_OUTPUT_PORT_TYPE
 DATA_OUT[9] <= data[9].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ComparatorX:inst5
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ComparatorX:inst5
 A[0] => Equal0.IN9
 A[0] => LessThan0.IN10
 A[0] => LessThan1.IN10
@@ -79307,7 +78563,7 @@ LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
 GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ConstantX:inst4
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ConstantX:inst4
 DATA_OUT[0] <= <VCC>
 DATA_OUT[1] <= <GND>
 DATA_OUT[2] <= <GND>
@@ -79320,7 +78576,7 @@ DATA_OUT[8] <= <GND>
 DATA_OUT[9] <= <VCC>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ConstantX:inst14
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ConstantX:inst14
 DATA_OUT[0] <= <GND>
 DATA_OUT[1] <= <VCC>
 DATA_OUT[2] <= <GND>
@@ -79333,7 +78589,7 @@ DATA_OUT[8] <= <GND>
 DATA_OUT[9] <= <VCC>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ComparatorX:inst13
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ComparatorX:inst13
 A[0] => Equal0.IN9
 A[0] => LessThan0.IN10
 A[0] => LessThan1.IN10
@@ -79399,7 +78655,7 @@ LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
 GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ConstantX:inst12
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ConstantX:inst12
 DATA_OUT[0] <= <GND>
 DATA_OUT[1] <= <GND>
 DATA_OUT[2] <= <VCC>
@@ -79412,7 +78668,7 @@ DATA_OUT[8] <= <GND>
 DATA_OUT[9] <= <VCC>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ComparatorX:inst20
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ComparatorX:inst20
 A[0] => Equal0.IN9
 A[0] => LessThan0.IN10
 A[0] => LessThan1.IN10
@@ -79478,7 +78734,7 @@ LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
 GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ConstantX:inst19
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ConstantX:inst19
 DATA_OUT[0] <= <GND>
 DATA_OUT[1] <= <GND>
 DATA_OUT[2] <= <GND>
@@ -79491,7 +78747,7 @@ DATA_OUT[8] <= <GND>
 DATA_OUT[9] <= <VCC>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ComparatorX:inst18
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ComparatorX:inst18
 A[0] => Equal0.IN10
 A[0] => LessThan0.IN11
 A[0] => LessThan1.IN11
@@ -79563,7 +78819,7 @@ LS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
 GR <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|Controller2:inst17|ConstantX:inst17
+|CPU_KVADRAT_TEST|Monitor:inst1|Controller2:inst17|ConstantX:inst17
 DATA_OUT[0] <= <GND>
 DATA_OUT[1] <= <GND>
 DATA_OUT[2] <= <GND>
@@ -79577,21 +78833,20 @@ DATA_OUT[9] <= <VCC>
 DATA_OUT[10] <= <GND>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15
 PIXEL_ON <= MPX8:inst4.result
-OUT[0] <= FrameBufferWrapper:inst25.FB_DATA_OUT[0]
-OUT[1] <= FrameBufferWrapper:inst25.FB_DATA_OUT[1]
-OUT[2] <= FrameBufferWrapper:inst25.FB_DATA_OUT[2]
-OUT[3] <= FrameBufferWrapper:inst25.FB_DATA_OUT[3]
-OUT[4] <= FrameBufferWrapper:inst25.FB_DATA_OUT[4]
-OUT[5] <= FrameBufferWrapper:inst25.FB_DATA_OUT[5]
-OUT[6] <= FrameBufferWrapper:inst25.FB_DATA_OUT[6]
-OUT[7] <= FrameBufferWrapper:inst25.FB_DATA_OUT[7]
-RESET => FrameBufferWrapper:inst25.RESET
+OUT[0] <= FrameBufferWrapper:inst.FB_DATA_OUT[0]
+OUT[1] <= FrameBufferWrapper:inst.FB_DATA_OUT[1]
+OUT[2] <= FrameBufferWrapper:inst.FB_DATA_OUT[2]
+OUT[3] <= FrameBufferWrapper:inst.FB_DATA_OUT[3]
+OUT[4] <= FrameBufferWrapper:inst.FB_DATA_OUT[4]
+OUT[5] <= FrameBufferWrapper:inst.FB_DATA_OUT[5]
+OUT[6] <= FrameBufferWrapper:inst.FB_DATA_OUT[6]
+OUT[7] <= FrameBufferWrapper:inst.FB_DATA_OUT[7]
 WR_PIXEL <= inst13.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst13.CLK
 clk => inst12.CLK
-clk => FrameBufferWrapper:inst25.FB_CLK
+clk => FrameBufferWrapper:inst.FB_CLK
 clk => REG10_LD_CL:inst17.CLK
 clk => REG10_LD_CL:inst18.CLK
 clk => REG1_LD_CL:inst15.clk
@@ -79607,7 +78862,7 @@ SET_PIXEL => REG10_LD_CL:inst17.LD
 SET_PIXEL => REG10_LD_CL:inst18.LD
 SET_PIXEL => REG1_LD_CL:inst15.LD
 SET_PIXEL => REG4_LD_CL:inst11.LD
-FB_SEL => FrameBufferWrapper:inst25.FB_SEL
+FB_SEL => FrameBufferWrapper:inst.FB_SEL
 X_RD[0] => PixelAddrCalculator:inst1.X[0]
 X_RD[0] => inst3[0].DATAIN
 X_RD[1] => PixelAddrCalculator:inst1.X[1]
@@ -79701,7 +78956,7 @@ FB_DIN[6] => ~NO_FANOUT~
 FB_DIN[7] => ~NO_FANOUT~
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX8:inst4
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|MPX8:inst4
 data0 => LPM_MUX:LPM_MUX_component.DATA[0][0]
 data1 => LPM_MUX:LPM_MUX_component.DATA[1][0]
 data2 => LPM_MUX:LPM_MUX_component.DATA[2][0]
@@ -79716,7 +78971,7 @@ sel[2] => LPM_MUX:LPM_MUX_component.SEL[2]
 result <= LPM_MUX:LPM_MUX_component.RESULT[0]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX8:inst4|LPM_MUX:LPM_MUX_component
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|MPX8:inst4|LPM_MUX:LPM_MUX_component
 data[0][0] => mux_c0e:auto_generated.data[0]
 data[1][0] => mux_c0e:auto_generated.data[1]
 data[2][0] => mux_c0e:auto_generated.data[2]
@@ -79734,7 +78989,7 @@ clken => ~NO_FANOUT~
 result[0] <= mux_c0e:auto_generated.result[0]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX8:inst4|LPM_MUX:LPM_MUX_component|mux_c0e:auto_generated
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|MPX8:inst4|LPM_MUX:LPM_MUX_component|mux_c0e:auto_generated
 data[0] => l1_w0_n0_mux_dataout.IN1
 data[1] => l1_w0_n0_mux_dataout.IN1
 data[2] => l1_w0_n1_mux_dataout.IN1
@@ -79760,7 +79015,7 @@ sel[2] => l3_w0_n0_mux_dataout.IN0
 sel[2] => _.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst
 FB_DATA_OUT[0] <= MPX2_8BIT:inst2.result[0]
 FB_DATA_OUT[1] <= MPX2_8BIT:inst2.result[1]
 FB_DATA_OUT[2] <= MPX2_8BIT:inst2.result[2]
@@ -79769,7 +79024,6 @@ FB_DATA_OUT[4] <= MPX2_8BIT:inst2.result[4]
 FB_DATA_OUT[5] <= MPX2_8BIT:inst2.result[5]
 FB_DATA_OUT[6] <= MPX2_8BIT:inst2.result[6]
 FB_DATA_OUT[7] <= MPX2_8BIT:inst2.result[7]
-RESET => inst.ACLR
 FB_SEL => RisingEdgeDetector:inst6.IN
 FB_CLK => RisingEdgeDetector:inst6.CLK
 FB_CLK => inst.CLK
@@ -79867,7 +79121,7 @@ FB_WR_DATA[6] <= MPX2_8BIT:inst5.result[6]
 FB_WR_DATA[7] <= MPX2_8BIT:inst5.result[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_8BIT:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_8BIT:inst2
 data0x[0] => LPM_MUX:LPM_MUX_component.DATA[0][0]
 data0x[1] => LPM_MUX:LPM_MUX_component.DATA[0][1]
 data0x[2] => LPM_MUX:LPM_MUX_component.DATA[0][2]
@@ -79895,7 +79149,7 @@ result[6] <= LPM_MUX:LPM_MUX_component.RESULT[6]
 result[7] <= LPM_MUX:LPM_MUX_component.RESULT[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_8BIT:inst2|LPM_MUX:LPM_MUX_component
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_8BIT:inst2|LPM_MUX:LPM_MUX_component
 data[0][0] => mux_b0e:auto_generated.data[0]
 data[0][1] => mux_b0e:auto_generated.data[1]
 data[0][2] => mux_b0e:auto_generated.data[2]
@@ -79926,7 +79180,7 @@ result[6] <= mux_b0e:auto_generated.result[6]
 result[7] <= mux_b0e:auto_generated.result[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_8BIT:inst2|LPM_MUX:LPM_MUX_component|mux_b0e:auto_generated
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_8BIT:inst2|LPM_MUX:LPM_MUX_component|mux_b0e:auto_generated
 data[0] => l1_w0_n0_mux_dataout.IN1
 data[1] => l1_w1_n0_mux_dataout.IN1
 data[2] => l1_w2_n0_mux_dataout.IN1
@@ -79969,14 +79223,14 @@ sel[0] => l1_w7_n0_mux_dataout.IN0
 sel[0] => _.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|RisingEdgeDetector:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|RisingEdgeDetector:inst6
 OUT <= inst2.DB_MAX_OUTPUT_PORT_TYPE
 CLK => inst.CLK
 CLK => inst1.CLK
 IN => inst.DATAIN
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst101
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|FrameBufferRAM:inst101
 address[0] => altsyncram:altsyncram_component.address_a[0]
 address[1] => altsyncram:altsyncram_component.address_a[1]
 address[2] => altsyncram:altsyncram_component.address_a[2]
@@ -80013,40 +79267,40 @@ q[6] <= altsyncram:altsyncram_component.q_a[6]
 q[7] <= altsyncram:altsyncram_component.q_a[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst101|altsyncram:altsyncram_component
-wren_a => altsyncram_7l34:auto_generated.wren_a
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|FrameBufferRAM:inst101|altsyncram:altsyncram_component
+wren_a => altsyncram_iu24:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
 rden_b => ~NO_FANOUT~
-data_a[0] => altsyncram_7l34:auto_generated.data_a[0]
-data_a[1] => altsyncram_7l34:auto_generated.data_a[1]
-data_a[2] => altsyncram_7l34:auto_generated.data_a[2]
-data_a[3] => altsyncram_7l34:auto_generated.data_a[3]
-data_a[4] => altsyncram_7l34:auto_generated.data_a[4]
-data_a[5] => altsyncram_7l34:auto_generated.data_a[5]
-data_a[6] => altsyncram_7l34:auto_generated.data_a[6]
-data_a[7] => altsyncram_7l34:auto_generated.data_a[7]
+data_a[0] => altsyncram_iu24:auto_generated.data_a[0]
+data_a[1] => altsyncram_iu24:auto_generated.data_a[1]
+data_a[2] => altsyncram_iu24:auto_generated.data_a[2]
+data_a[3] => altsyncram_iu24:auto_generated.data_a[3]
+data_a[4] => altsyncram_iu24:auto_generated.data_a[4]
+data_a[5] => altsyncram_iu24:auto_generated.data_a[5]
+data_a[6] => altsyncram_iu24:auto_generated.data_a[6]
+data_a[7] => altsyncram_iu24:auto_generated.data_a[7]
 data_b[0] => ~NO_FANOUT~
-address_a[0] => altsyncram_7l34:auto_generated.address_a[0]
-address_a[1] => altsyncram_7l34:auto_generated.address_a[1]
-address_a[2] => altsyncram_7l34:auto_generated.address_a[2]
-address_a[3] => altsyncram_7l34:auto_generated.address_a[3]
-address_a[4] => altsyncram_7l34:auto_generated.address_a[4]
-address_a[5] => altsyncram_7l34:auto_generated.address_a[5]
-address_a[6] => altsyncram_7l34:auto_generated.address_a[6]
-address_a[7] => altsyncram_7l34:auto_generated.address_a[7]
-address_a[8] => altsyncram_7l34:auto_generated.address_a[8]
-address_a[9] => altsyncram_7l34:auto_generated.address_a[9]
-address_a[10] => altsyncram_7l34:auto_generated.address_a[10]
-address_a[11] => altsyncram_7l34:auto_generated.address_a[11]
-address_a[12] => altsyncram_7l34:auto_generated.address_a[12]
-address_a[13] => altsyncram_7l34:auto_generated.address_a[13]
-address_a[14] => altsyncram_7l34:auto_generated.address_a[14]
-address_a[15] => altsyncram_7l34:auto_generated.address_a[15]
+address_a[0] => altsyncram_iu24:auto_generated.address_a[0]
+address_a[1] => altsyncram_iu24:auto_generated.address_a[1]
+address_a[2] => altsyncram_iu24:auto_generated.address_a[2]
+address_a[3] => altsyncram_iu24:auto_generated.address_a[3]
+address_a[4] => altsyncram_iu24:auto_generated.address_a[4]
+address_a[5] => altsyncram_iu24:auto_generated.address_a[5]
+address_a[6] => altsyncram_iu24:auto_generated.address_a[6]
+address_a[7] => altsyncram_iu24:auto_generated.address_a[7]
+address_a[8] => altsyncram_iu24:auto_generated.address_a[8]
+address_a[9] => altsyncram_iu24:auto_generated.address_a[9]
+address_a[10] => altsyncram_iu24:auto_generated.address_a[10]
+address_a[11] => altsyncram_iu24:auto_generated.address_a[11]
+address_a[12] => altsyncram_iu24:auto_generated.address_a[12]
+address_a[13] => altsyncram_iu24:auto_generated.address_a[13]
+address_a[14] => altsyncram_iu24:auto_generated.address_a[14]
+address_a[15] => altsyncram_iu24:auto_generated.address_a[15]
 address_b[0] => ~NO_FANOUT~
 addressstall_a => ~NO_FANOUT~
 addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_7l34:auto_generated.clock0
+clock0 => altsyncram_iu24:auto_generated.clock0
 clock1 => ~NO_FANOUT~
 clocken0 => ~NO_FANOUT~
 clocken1 => ~NO_FANOUT~
@@ -80056,21 +79310,21 @@ aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
 byteena_a[0] => ~NO_FANOUT~
 byteena_b[0] => ~NO_FANOUT~
-q_a[0] <= altsyncram_7l34:auto_generated.q_a[0]
-q_a[1] <= altsyncram_7l34:auto_generated.q_a[1]
-q_a[2] <= altsyncram_7l34:auto_generated.q_a[2]
-q_a[3] <= altsyncram_7l34:auto_generated.q_a[3]
-q_a[4] <= altsyncram_7l34:auto_generated.q_a[4]
-q_a[5] <= altsyncram_7l34:auto_generated.q_a[5]
-q_a[6] <= altsyncram_7l34:auto_generated.q_a[6]
-q_a[7] <= altsyncram_7l34:auto_generated.q_a[7]
+q_a[0] <= altsyncram_iu24:auto_generated.q_a[0]
+q_a[1] <= altsyncram_iu24:auto_generated.q_a[1]
+q_a[2] <= altsyncram_iu24:auto_generated.q_a[2]
+q_a[3] <= altsyncram_iu24:auto_generated.q_a[3]
+q_a[4] <= altsyncram_iu24:auto_generated.q_a[4]
+q_a[5] <= altsyncram_iu24:auto_generated.q_a[5]
+q_a[6] <= altsyncram_iu24:auto_generated.q_a[6]
+q_a[7] <= altsyncram_iu24:auto_generated.q_a[7]
 q_b[0] <= <GND>
 eccstatus[0] <= <GND>
 eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst101|altsyncram:altsyncram_component|altsyncram_7l34:auto_generated
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|FrameBufferRAM:inst101|altsyncram:altsyncram_component|altsyncram_iu24:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -80971,6 +80225,9 @@ clock0 => ram_block1a63.CLK0
 clock0 => address_reg_a[2].CLK
 clock0 => address_reg_a[1].CLK
 clock0 => address_reg_a[0].CLK
+clock0 => out_address_reg_a[2].CLK
+clock0 => out_address_reg_a[1].CLK
+clock0 => out_address_reg_a[0].CLK
 data_a[0] => ram_block1a0.PORTADATAIN
 data_a[0] => ram_block1a8.PORTADATAIN
 data_a[0] => ram_block1a16.PORTADATAIN
@@ -81046,7 +80303,7 @@ q_a[7] <= mux_tfb:mux2.result[7]
 wren_a => decode_dla:decode3.enable
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst101|altsyncram:altsyncram_component|altsyncram_7l34:auto_generated|decode_dla:decode3
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|FrameBufferRAM:inst101|altsyncram:altsyncram_component|altsyncram_iu24:auto_generated|decode_dla:decode3
 data[0] => w_anode432w[1].IN0
 data[0] => w_anode449w[1].IN1
 data[0] => w_anode459w[1].IN0
@@ -81089,7 +80346,7 @@ eq[6] <= w_anode499w[3].DB_MAX_OUTPUT_PORT_TYPE
 eq[7] <= w_anode509w[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst101|altsyncram:altsyncram_component|altsyncram_7l34:auto_generated|decode_61a:rden_decode
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|FrameBufferRAM:inst101|altsyncram:altsyncram_component|altsyncram_iu24:auto_generated|decode_61a:rden_decode
 data[0] => w_anode520w[1].IN0
 data[0] => w_anode538w[1].IN1
 data[0] => w_anode549w[1].IN0
@@ -81124,7 +80381,7 @@ eq[6] <= w_anode593w[3].DB_MAX_OUTPUT_PORT_TYPE
 eq[7] <= w_anode604w[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst101|altsyncram:altsyncram_component|altsyncram_7l34:auto_generated|mux_tfb:mux2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|FrameBufferRAM:inst101|altsyncram:altsyncram_component|altsyncram_iu24:auto_generated|mux_tfb:mux2
 data[0] => l1_w0_n0_mux_dataout.IN1
 data[1] => l1_w1_n0_mux_dataout.IN1
 data[2] => l1_w2_n0_mux_dataout.IN1
@@ -81311,7 +80568,7 @@ sel[2] => l3_w7_n0_mux_dataout.IN0
 sel[2] => _.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10
 D[0] <= MPX2:inst0.D
 D[1] <= MPX2:inst1.D
 D[2] <= MPX2:inst2.D
@@ -81394,7 +80651,7 @@ E => MPX2:inst11.E
 E => MPX2:inst15.E
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst0
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst0
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81404,7 +80661,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst4
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst4
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81414,7 +80671,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst8
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81424,7 +80681,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst12
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst12
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81434,7 +80691,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst1
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81444,7 +80701,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst5
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst5
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81454,7 +80711,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst9
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst9
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81464,7 +80721,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst13
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst13
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81474,7 +80731,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst2
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81484,7 +80741,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst6
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81494,7 +80751,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst10
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst10
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81504,7 +80761,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst14
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst14
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81514,7 +80771,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst3
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst3
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81524,7 +80781,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst7
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst7
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81534,7 +80791,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst11
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst11
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81544,7 +80801,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst10|MPX2:inst15
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst10|MPX2:inst15
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -81554,7 +80811,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst100
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|FrameBufferRAM:inst100
 address[0] => altsyncram:altsyncram_component.address_a[0]
 address[1] => altsyncram:altsyncram_component.address_a[1]
 address[2] => altsyncram:altsyncram_component.address_a[2]
@@ -81591,40 +80848,40 @@ q[6] <= altsyncram:altsyncram_component.q_a[6]
 q[7] <= altsyncram:altsyncram_component.q_a[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst100|altsyncram:altsyncram_component
-wren_a => altsyncram_7l34:auto_generated.wren_a
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|FrameBufferRAM:inst100|altsyncram:altsyncram_component
+wren_a => altsyncram_iu24:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
 rden_b => ~NO_FANOUT~
-data_a[0] => altsyncram_7l34:auto_generated.data_a[0]
-data_a[1] => altsyncram_7l34:auto_generated.data_a[1]
-data_a[2] => altsyncram_7l34:auto_generated.data_a[2]
-data_a[3] => altsyncram_7l34:auto_generated.data_a[3]
-data_a[4] => altsyncram_7l34:auto_generated.data_a[4]
-data_a[5] => altsyncram_7l34:auto_generated.data_a[5]
-data_a[6] => altsyncram_7l34:auto_generated.data_a[6]
-data_a[7] => altsyncram_7l34:auto_generated.data_a[7]
+data_a[0] => altsyncram_iu24:auto_generated.data_a[0]
+data_a[1] => altsyncram_iu24:auto_generated.data_a[1]
+data_a[2] => altsyncram_iu24:auto_generated.data_a[2]
+data_a[3] => altsyncram_iu24:auto_generated.data_a[3]
+data_a[4] => altsyncram_iu24:auto_generated.data_a[4]
+data_a[5] => altsyncram_iu24:auto_generated.data_a[5]
+data_a[6] => altsyncram_iu24:auto_generated.data_a[6]
+data_a[7] => altsyncram_iu24:auto_generated.data_a[7]
 data_b[0] => ~NO_FANOUT~
-address_a[0] => altsyncram_7l34:auto_generated.address_a[0]
-address_a[1] => altsyncram_7l34:auto_generated.address_a[1]
-address_a[2] => altsyncram_7l34:auto_generated.address_a[2]
-address_a[3] => altsyncram_7l34:auto_generated.address_a[3]
-address_a[4] => altsyncram_7l34:auto_generated.address_a[4]
-address_a[5] => altsyncram_7l34:auto_generated.address_a[5]
-address_a[6] => altsyncram_7l34:auto_generated.address_a[6]
-address_a[7] => altsyncram_7l34:auto_generated.address_a[7]
-address_a[8] => altsyncram_7l34:auto_generated.address_a[8]
-address_a[9] => altsyncram_7l34:auto_generated.address_a[9]
-address_a[10] => altsyncram_7l34:auto_generated.address_a[10]
-address_a[11] => altsyncram_7l34:auto_generated.address_a[11]
-address_a[12] => altsyncram_7l34:auto_generated.address_a[12]
-address_a[13] => altsyncram_7l34:auto_generated.address_a[13]
-address_a[14] => altsyncram_7l34:auto_generated.address_a[14]
-address_a[15] => altsyncram_7l34:auto_generated.address_a[15]
+address_a[0] => altsyncram_iu24:auto_generated.address_a[0]
+address_a[1] => altsyncram_iu24:auto_generated.address_a[1]
+address_a[2] => altsyncram_iu24:auto_generated.address_a[2]
+address_a[3] => altsyncram_iu24:auto_generated.address_a[3]
+address_a[4] => altsyncram_iu24:auto_generated.address_a[4]
+address_a[5] => altsyncram_iu24:auto_generated.address_a[5]
+address_a[6] => altsyncram_iu24:auto_generated.address_a[6]
+address_a[7] => altsyncram_iu24:auto_generated.address_a[7]
+address_a[8] => altsyncram_iu24:auto_generated.address_a[8]
+address_a[9] => altsyncram_iu24:auto_generated.address_a[9]
+address_a[10] => altsyncram_iu24:auto_generated.address_a[10]
+address_a[11] => altsyncram_iu24:auto_generated.address_a[11]
+address_a[12] => altsyncram_iu24:auto_generated.address_a[12]
+address_a[13] => altsyncram_iu24:auto_generated.address_a[13]
+address_a[14] => altsyncram_iu24:auto_generated.address_a[14]
+address_a[15] => altsyncram_iu24:auto_generated.address_a[15]
 address_b[0] => ~NO_FANOUT~
 addressstall_a => ~NO_FANOUT~
 addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_7l34:auto_generated.clock0
+clock0 => altsyncram_iu24:auto_generated.clock0
 clock1 => ~NO_FANOUT~
 clocken0 => ~NO_FANOUT~
 clocken1 => ~NO_FANOUT~
@@ -81634,21 +80891,21 @@ aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
 byteena_a[0] => ~NO_FANOUT~
 byteena_b[0] => ~NO_FANOUT~
-q_a[0] <= altsyncram_7l34:auto_generated.q_a[0]
-q_a[1] <= altsyncram_7l34:auto_generated.q_a[1]
-q_a[2] <= altsyncram_7l34:auto_generated.q_a[2]
-q_a[3] <= altsyncram_7l34:auto_generated.q_a[3]
-q_a[4] <= altsyncram_7l34:auto_generated.q_a[4]
-q_a[5] <= altsyncram_7l34:auto_generated.q_a[5]
-q_a[6] <= altsyncram_7l34:auto_generated.q_a[6]
-q_a[7] <= altsyncram_7l34:auto_generated.q_a[7]
+q_a[0] <= altsyncram_iu24:auto_generated.q_a[0]
+q_a[1] <= altsyncram_iu24:auto_generated.q_a[1]
+q_a[2] <= altsyncram_iu24:auto_generated.q_a[2]
+q_a[3] <= altsyncram_iu24:auto_generated.q_a[3]
+q_a[4] <= altsyncram_iu24:auto_generated.q_a[4]
+q_a[5] <= altsyncram_iu24:auto_generated.q_a[5]
+q_a[6] <= altsyncram_iu24:auto_generated.q_a[6]
+q_a[7] <= altsyncram_iu24:auto_generated.q_a[7]
 q_b[0] <= <GND>
 eccstatus[0] <= <GND>
 eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst100|altsyncram:altsyncram_component|altsyncram_7l34:auto_generated
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|FrameBufferRAM:inst100|altsyncram:altsyncram_component|altsyncram_iu24:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -82549,6 +81806,9 @@ clock0 => ram_block1a63.CLK0
 clock0 => address_reg_a[2].CLK
 clock0 => address_reg_a[1].CLK
 clock0 => address_reg_a[0].CLK
+clock0 => out_address_reg_a[2].CLK
+clock0 => out_address_reg_a[1].CLK
+clock0 => out_address_reg_a[0].CLK
 data_a[0] => ram_block1a0.PORTADATAIN
 data_a[0] => ram_block1a8.PORTADATAIN
 data_a[0] => ram_block1a16.PORTADATAIN
@@ -82624,7 +81884,7 @@ q_a[7] <= mux_tfb:mux2.result[7]
 wren_a => decode_dla:decode3.enable
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst100|altsyncram:altsyncram_component|altsyncram_7l34:auto_generated|decode_dla:decode3
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|FrameBufferRAM:inst100|altsyncram:altsyncram_component|altsyncram_iu24:auto_generated|decode_dla:decode3
 data[0] => w_anode432w[1].IN0
 data[0] => w_anode449w[1].IN1
 data[0] => w_anode459w[1].IN0
@@ -82667,7 +81927,7 @@ eq[6] <= w_anode499w[3].DB_MAX_OUTPUT_PORT_TYPE
 eq[7] <= w_anode509w[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst100|altsyncram:altsyncram_component|altsyncram_7l34:auto_generated|decode_61a:rden_decode
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|FrameBufferRAM:inst100|altsyncram:altsyncram_component|altsyncram_iu24:auto_generated|decode_61a:rden_decode
 data[0] => w_anode520w[1].IN0
 data[0] => w_anode538w[1].IN1
 data[0] => w_anode549w[1].IN0
@@ -82702,7 +81962,7 @@ eq[6] <= w_anode593w[3].DB_MAX_OUTPUT_PORT_TYPE
 eq[7] <= w_anode604w[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|FrameBufferRAM:inst100|altsyncram:altsyncram_component|altsyncram_7l34:auto_generated|mux_tfb:mux2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|FrameBufferRAM:inst100|altsyncram:altsyncram_component|altsyncram_iu24:auto_generated|mux_tfb:mux2
 data[0] => l1_w0_n0_mux_dataout.IN1
 data[1] => l1_w1_n0_mux_dataout.IN1
 data[2] => l1_w2_n0_mux_dataout.IN1
@@ -82889,7 +82149,7 @@ sel[2] => l3_w7_n0_mux_dataout.IN0
 sel[2] => _.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8
 D[0] <= MPX2:inst0.D
 D[1] <= MPX2:inst1.D
 D[2] <= MPX2:inst2.D
@@ -82972,7 +82232,7 @@ E => MPX2:inst11.E
 E => MPX2:inst15.E
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst0
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst0
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -82982,7 +82242,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst4
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst4
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -82992,7 +82252,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst8
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83002,7 +82262,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst12
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst12
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83012,7 +82272,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst1
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83022,7 +82282,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst5
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst5
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83032,7 +82292,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst9
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst9
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83042,7 +82302,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst13
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst13
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83052,7 +82312,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst2
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83062,7 +82322,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst6
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83072,7 +82332,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst10
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst10
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83082,7 +82342,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst14
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst14
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83092,7 +82352,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst3
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst3
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83102,7 +82362,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst7
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst7
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83112,7 +82372,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst11
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst11
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83122,7 +82382,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_16BIT:inst8|MPX2:inst15
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_16BIT:inst8|MPX2:inst15
 D <= inst.DB_MAX_OUTPUT_PORT_TYPE
 I1 => inst1.IN0
 E => inst1.IN1
@@ -83132,7 +82392,7 @@ S => inst5.IN0
 I0 => inst2.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_8BIT:inst5
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_8BIT:inst5
 data0x[0] => LPM_MUX:LPM_MUX_component.DATA[0][0]
 data0x[1] => LPM_MUX:LPM_MUX_component.DATA[0][1]
 data0x[2] => LPM_MUX:LPM_MUX_component.DATA[0][2]
@@ -83160,7 +82420,7 @@ result[6] <= LPM_MUX:LPM_MUX_component.RESULT[6]
 result[7] <= LPM_MUX:LPM_MUX_component.RESULT[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_8BIT:inst5|LPM_MUX:LPM_MUX_component
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_8BIT:inst5|LPM_MUX:LPM_MUX_component
 data[0][0] => mux_b0e:auto_generated.data[0]
 data[0][1] => mux_b0e:auto_generated.data[1]
 data[0][2] => mux_b0e:auto_generated.data[2]
@@ -83191,7 +82451,7 @@ result[6] <= mux_b0e:auto_generated.result[6]
 result[7] <= mux_b0e:auto_generated.result[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|FrameBufferWrapper:inst25|MPX2_8BIT:inst5|LPM_MUX:LPM_MUX_component|mux_b0e:auto_generated
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|FrameBufferWrapper:inst|MPX2_8BIT:inst5|LPM_MUX:LPM_MUX_component|mux_b0e:auto_generated
 data[0] => l1_w0_n0_mux_dataout.IN1
 data[1] => l1_w1_n0_mux_dataout.IN1
 data[2] => l1_w2_n0_mux_dataout.IN1
@@ -83234,7 +82494,7 @@ sel[0] => l1_w7_n0_mux_dataout.IN0
 sel[0] => _.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1
 PIXEL_ADDR[0] <= ADD16:inst2.OUT[0]
 PIXEL_ADDR[1] <= ADD16:inst2.OUT[1]
 PIXEL_ADDR[2] <= ADD16:inst2.OUT[2]
@@ -83293,7 +82553,7 @@ X[8] => ADD16:inst15.B[5]
 X[9] => ADD16:inst15.B[6]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2
 C <= ADD8:inst3.C
 C_0 => ADD8:inst.C_0
 A[0] => ADD8:inst.A[0]
@@ -83346,7 +82606,7 @@ OUT[14] <= ADD8:inst3.OUT[6]
 OUT[15] <= ADD8:inst3.OUT[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3
 C <= ADD4:inst1.C
 C_0 => ADD4:inst.C_0
 A[0] => ADD4:inst.A[0]
@@ -83375,7 +82635,7 @@ OUT[6] <= ADD4:inst1.OUT[2]
 OUT[7] <= ADD4:inst1.OUT[3]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -83392,7 +82652,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -83403,7 +82663,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83423,7 +82683,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83443,7 +82703,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -83454,7 +82714,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83474,7 +82734,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83494,7 +82754,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -83511,7 +82771,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -83522,7 +82782,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83542,7 +82802,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83562,7 +82822,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -83573,7 +82833,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83593,7 +82853,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83613,7 +82873,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst
 C <= ADD4:inst1.C
 C_0 => ADD4:inst.C_0
 A[0] => ADD4:inst.A[0]
@@ -83642,7 +82902,7 @@ OUT[6] <= ADD4:inst1.OUT[2]
 OUT[7] <= ADD4:inst1.OUT[3]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -83659,7 +82919,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -83670,7 +82930,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83690,7 +82950,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83710,7 +82970,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -83721,7 +82981,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83741,7 +83001,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83761,7 +83021,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -83778,7 +83038,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -83789,7 +83049,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83809,7 +83069,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83829,7 +83089,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -83840,7 +83100,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83860,7 +83120,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -83880,7 +83140,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1
 C <= ADD8:inst3.C
 C_0 => ADD8:inst.C_0
 A[0] => ADD8:inst.A[0]
@@ -83933,7 +83193,7 @@ OUT[14] <= ADD8:inst3.OUT[6]
 OUT[15] <= ADD8:inst3.OUT[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3
 C <= ADD4:inst1.C
 C_0 => ADD4:inst.C_0
 A[0] => ADD4:inst.A[0]
@@ -83962,7 +83222,7 @@ OUT[6] <= ADD4:inst1.OUT[2]
 OUT[7] <= ADD4:inst1.OUT[3]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -83979,7 +83239,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -83990,7 +83250,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84010,7 +83270,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84030,7 +83290,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84041,7 +83301,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84061,7 +83321,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84081,7 +83341,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -84098,7 +83358,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84109,7 +83369,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84129,7 +83389,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84149,7 +83409,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84160,7 +83420,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84180,7 +83440,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84200,7 +83460,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst
 C <= ADD4:inst1.C
 C_0 => ADD4:inst.C_0
 A[0] => ADD4:inst.A[0]
@@ -84229,7 +83489,7 @@ OUT[6] <= ADD4:inst1.OUT[2]
 OUT[7] <= ADD4:inst1.OUT[3]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -84246,7 +83506,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84257,7 +83517,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84277,7 +83537,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84297,7 +83557,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84308,7 +83568,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84328,7 +83588,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84348,7 +83608,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -84365,7 +83625,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84376,7 +83636,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84396,7 +83656,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84416,7 +83676,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84427,7 +83687,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84447,7 +83707,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84467,7 +83727,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15
 C <= ADD8:inst3.C
 C_0 => ADD8:inst.C_0
 A[0] => ADD8:inst.A[0]
@@ -84520,7 +83780,7 @@ OUT[14] <= ADD8:inst3.OUT[6]
 OUT[15] <= ADD8:inst3.OUT[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3
 C <= ADD4:inst1.C
 C_0 => ADD4:inst.C_0
 A[0] => ADD4:inst.A[0]
@@ -84549,7 +83809,7 @@ OUT[6] <= ADD4:inst1.OUT[2]
 OUT[7] <= ADD4:inst1.OUT[3]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -84566,7 +83826,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84577,7 +83837,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84597,7 +83857,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84617,7 +83877,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84628,7 +83888,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84648,7 +83908,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84668,7 +83928,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -84685,7 +83945,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84696,7 +83956,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84716,7 +83976,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84736,7 +83996,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84747,7 +84007,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84767,7 +84027,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84787,7 +84047,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst
 C <= ADD4:inst1.C
 C_0 => ADD4:inst.C_0
 A[0] => ADD4:inst.A[0]
@@ -84816,7 +84076,7 @@ OUT[6] <= ADD4:inst1.OUT[2]
 OUT[7] <= ADD4:inst1.OUT[3]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -84833,7 +84093,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84844,7 +84104,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84864,7 +84124,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84884,7 +84144,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84895,7 +84155,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84915,7 +84175,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84935,7 +84195,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -84952,7 +84212,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -84963,7 +84223,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -84983,7 +84243,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85003,7 +84263,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85014,7 +84274,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85034,7 +84294,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst1|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85054,7 +84314,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2
 PIXEL_ADDR[0] <= ADD16:inst2.OUT[0]
 PIXEL_ADDR[1] <= ADD16:inst2.OUT[1]
 PIXEL_ADDR[2] <= ADD16:inst2.OUT[2]
@@ -85113,7 +84373,7 @@ X[8] => ADD16:inst15.B[5]
 X[9] => ADD16:inst15.B[6]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2
 C <= ADD8:inst3.C
 C_0 => ADD8:inst.C_0
 A[0] => ADD8:inst.A[0]
@@ -85166,7 +84426,7 @@ OUT[14] <= ADD8:inst3.OUT[6]
 OUT[15] <= ADD8:inst3.OUT[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3
 C <= ADD4:inst1.C
 C_0 => ADD4:inst.C_0
 A[0] => ADD4:inst.A[0]
@@ -85195,7 +84455,7 @@ OUT[6] <= ADD4:inst1.OUT[2]
 OUT[7] <= ADD4:inst1.OUT[3]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -85212,7 +84472,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85223,7 +84483,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85243,7 +84503,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85263,7 +84523,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85274,7 +84534,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85294,7 +84554,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85314,7 +84574,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -85331,7 +84591,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85342,7 +84602,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85362,7 +84622,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85382,7 +84642,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85393,7 +84653,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85413,7 +84673,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85433,7 +84693,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst
 C <= ADD4:inst1.C
 C_0 => ADD4:inst.C_0
 A[0] => ADD4:inst.A[0]
@@ -85462,7 +84722,7 @@ OUT[6] <= ADD4:inst1.OUT[2]
 OUT[7] <= ADD4:inst1.OUT[3]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -85479,7 +84739,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85490,7 +84750,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85510,7 +84770,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85530,7 +84790,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85541,7 +84801,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85561,7 +84821,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85581,7 +84841,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -85598,7 +84858,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85609,7 +84869,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85629,7 +84889,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85649,7 +84909,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85660,7 +84920,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85680,7 +84940,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst2|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85700,7 +84960,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1
 C <= ADD8:inst3.C
 C_0 => ADD8:inst.C_0
 A[0] => ADD8:inst.A[0]
@@ -85753,7 +85013,7 @@ OUT[14] <= ADD8:inst3.OUT[6]
 OUT[15] <= ADD8:inst3.OUT[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3
 C <= ADD4:inst1.C
 C_0 => ADD4:inst.C_0
 A[0] => ADD4:inst.A[0]
@@ -85782,7 +85042,7 @@ OUT[6] <= ADD4:inst1.OUT[2]
 OUT[7] <= ADD4:inst1.OUT[3]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -85799,7 +85059,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85810,7 +85070,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85830,7 +85090,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85850,7 +85110,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85861,7 +85121,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85881,7 +85141,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85901,7 +85161,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -85918,7 +85178,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85929,7 +85189,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85949,7 +85209,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -85969,7 +85229,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -85980,7 +85240,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86000,7 +85260,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86020,7 +85280,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst
 C <= ADD4:inst1.C
 C_0 => ADD4:inst.C_0
 A[0] => ADD4:inst.A[0]
@@ -86049,7 +85309,7 @@ OUT[6] <= ADD4:inst1.OUT[2]
 OUT[7] <= ADD4:inst1.OUT[3]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -86066,7 +85326,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -86077,7 +85337,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86097,7 +85357,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86117,7 +85377,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -86128,7 +85388,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86148,7 +85408,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86168,7 +85428,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -86185,7 +85445,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -86196,7 +85456,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86216,7 +85476,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86236,7 +85496,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -86247,7 +85507,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86267,7 +85527,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst1|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86287,7 +85547,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15
 C <= ADD8:inst3.C
 C_0 => ADD8:inst.C_0
 A[0] => ADD8:inst.A[0]
@@ -86340,7 +85600,7 @@ OUT[14] <= ADD8:inst3.OUT[6]
 OUT[15] <= ADD8:inst3.OUT[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3
 C <= ADD4:inst1.C
 C_0 => ADD4:inst.C_0
 A[0] => ADD4:inst.A[0]
@@ -86369,7 +85629,7 @@ OUT[6] <= ADD4:inst1.OUT[2]
 OUT[7] <= ADD4:inst1.OUT[3]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -86386,7 +85646,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -86397,7 +85657,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86417,7 +85677,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86437,7 +85697,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -86448,7 +85708,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86468,7 +85728,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst1|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86488,7 +85748,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -86505,7 +85765,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -86516,7 +85776,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86536,7 +85796,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86556,7 +85816,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -86567,7 +85827,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86587,7 +85847,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst3|ADD4:inst|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86607,7 +85867,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst
 C <= ADD4:inst1.C
 C_0 => ADD4:inst.C_0
 A[0] => ADD4:inst.A[0]
@@ -86636,7 +85896,7 @@ OUT[6] <= ADD4:inst1.OUT[2]
 OUT[7] <= ADD4:inst1.OUT[3]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -86653,7 +85913,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -86664,7 +85924,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86684,7 +85944,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86704,7 +85964,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -86715,7 +85975,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86735,7 +85995,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst1|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86755,7 +86015,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst
 C <= ADD2:inst1.C
 C_0 => ADD2:inst.C_0
 A[0] => ADD2:inst.A[0]
@@ -86772,7 +86032,7 @@ OUT[2] <= ADD2:inst1.OUT[0]
 OUT[3] <= ADD2:inst1.OUT[1]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst1
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -86783,7 +86043,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86803,7 +86063,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst1|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86823,7 +86083,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst
 C <= ADD1:inst2.C
 A[0] => ADD1:inst.A
 A[1] => ADD1:inst2.A
@@ -86834,7 +86094,7 @@ OUT[0] <= ADD1:inst.OUT
 OUT[1] <= ADD1:inst2.OUT
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst2
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86854,7 +86114,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|PixelAddrCalculator:inst2|ADD16:inst15|ADD8:inst|ADD4:inst|ADD2:inst|ADD1:inst
 C <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 A => inst9.IN0
 A => inst8.IN0
@@ -86874,7 +86134,7 @@ B => inst4.IN1
 OUT <= inst7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX2_10BIT:inst23
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|MPX2_10BIT:inst23
 data0x[0] => LPM_MUX:LPM_MUX_component.DATA[0][0]
 data0x[1] => LPM_MUX:LPM_MUX_component.DATA[0][1]
 data0x[2] => LPM_MUX:LPM_MUX_component.DATA[0][2]
@@ -86908,7 +86168,7 @@ result[8] <= LPM_MUX:LPM_MUX_component.RESULT[8]
 result[9] <= LPM_MUX:LPM_MUX_component.RESULT[9]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX2_10BIT:inst23|LPM_MUX:LPM_MUX_component
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|MPX2_10BIT:inst23|LPM_MUX:LPM_MUX_component
 data[0][0] => mux_k1e:auto_generated.data[0]
 data[0][1] => mux_k1e:auto_generated.data[1]
 data[0][2] => mux_k1e:auto_generated.data[2]
@@ -86945,7 +86205,7 @@ result[8] <= mux_k1e:auto_generated.result[8]
 result[9] <= mux_k1e:auto_generated.result[9]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX2_10BIT:inst23|LPM_MUX:LPM_MUX_component|mux_k1e:auto_generated
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|MPX2_10BIT:inst23|LPM_MUX:LPM_MUX_component|mux_k1e:auto_generated
 data[0] => l1_w0_n0_mux_dataout.IN1
 data[1] => l1_w1_n0_mux_dataout.IN1
 data[2] => l1_w2_n0_mux_dataout.IN1
@@ -86998,7 +86258,7 @@ sel[0] => l1_w9_n0_mux_dataout.IN0
 sel[0] => _.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst17
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst17
 A[0] <= REG1_LD_CL:inst.A
 A[1] <= REG1_LD_CL:inst1.A
 A[2] <= REG1_LD_CL:inst2.A
@@ -87051,7 +86311,7 @@ CLK => REG1_LD_CL:inst8.clk
 CLK => REG1_LD_CL:inst9.clk
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst17|REG1_LD_CL:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst17|REG1_LD_CL:inst
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87060,7 +86320,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst17|REG1_LD_CL:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst17|REG1_LD_CL:inst1
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87069,7 +86329,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst17|REG1_LD_CL:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst17|REG1_LD_CL:inst2
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87078,7 +86338,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst17|REG1_LD_CL:inst3
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst17|REG1_LD_CL:inst3
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87087,7 +86347,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst17|REG1_LD_CL:inst4
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst17|REG1_LD_CL:inst4
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87096,7 +86356,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst17|REG1_LD_CL:inst5
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst17|REG1_LD_CL:inst5
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87105,7 +86365,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst17|REG1_LD_CL:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst17|REG1_LD_CL:inst6
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87114,7 +86374,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst17|REG1_LD_CL:inst7
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst17|REG1_LD_CL:inst7
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87123,7 +86383,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst17|REG1_LD_CL:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst17|REG1_LD_CL:inst8
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87132,7 +86392,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst17|REG1_LD_CL:inst9
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst17|REG1_LD_CL:inst9
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87141,7 +86401,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX2_10BIT:inst24
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|MPX2_10BIT:inst24
 data0x[0] => LPM_MUX:LPM_MUX_component.DATA[0][0]
 data0x[1] => LPM_MUX:LPM_MUX_component.DATA[0][1]
 data0x[2] => LPM_MUX:LPM_MUX_component.DATA[0][2]
@@ -87175,7 +86435,7 @@ result[8] <= LPM_MUX:LPM_MUX_component.RESULT[8]
 result[9] <= LPM_MUX:LPM_MUX_component.RESULT[9]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX2_10BIT:inst24|LPM_MUX:LPM_MUX_component
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|MPX2_10BIT:inst24|LPM_MUX:LPM_MUX_component
 data[0][0] => mux_k1e:auto_generated.data[0]
 data[0][1] => mux_k1e:auto_generated.data[1]
 data[0][2] => mux_k1e:auto_generated.data[2]
@@ -87212,7 +86472,7 @@ result[8] <= mux_k1e:auto_generated.result[8]
 result[9] <= mux_k1e:auto_generated.result[9]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX2_10BIT:inst24|LPM_MUX:LPM_MUX_component|mux_k1e:auto_generated
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|MPX2_10BIT:inst24|LPM_MUX:LPM_MUX_component|mux_k1e:auto_generated
 data[0] => l1_w0_n0_mux_dataout.IN1
 data[1] => l1_w1_n0_mux_dataout.IN1
 data[2] => l1_w2_n0_mux_dataout.IN1
@@ -87265,7 +86525,7 @@ sel[0] => l1_w9_n0_mux_dataout.IN0
 sel[0] => _.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst18
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst18
 A[0] <= REG1_LD_CL:inst.A
 A[1] <= REG1_LD_CL:inst1.A
 A[2] <= REG1_LD_CL:inst2.A
@@ -87318,7 +86578,7 @@ CLK => REG1_LD_CL:inst8.clk
 CLK => REG1_LD_CL:inst9.clk
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst18|REG1_LD_CL:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst18|REG1_LD_CL:inst
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87327,7 +86587,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst18|REG1_LD_CL:inst1
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst18|REG1_LD_CL:inst1
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87336,7 +86596,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst18|REG1_LD_CL:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst18|REG1_LD_CL:inst2
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87345,7 +86605,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst18|REG1_LD_CL:inst3
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst18|REG1_LD_CL:inst3
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87354,7 +86614,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst18|REG1_LD_CL:inst4
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst18|REG1_LD_CL:inst4
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87363,7 +86623,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst18|REG1_LD_CL:inst5
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst18|REG1_LD_CL:inst5
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87372,7 +86632,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst18|REG1_LD_CL:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst18|REG1_LD_CL:inst6
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87381,7 +86641,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst18|REG1_LD_CL:inst7
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst18|REG1_LD_CL:inst7
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87390,7 +86650,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst18|REG1_LD_CL:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst18|REG1_LD_CL:inst8
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87399,7 +86659,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG10_LD_CL:inst18|REG1_LD_CL:inst9
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG10_LD_CL:inst18|REG1_LD_CL:inst9
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87408,7 +86668,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX2_8BIT:inst22
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|MPX2_8BIT:inst22
 data0x[0] => LPM_MUX:LPM_MUX_component.DATA[0][0]
 data0x[1] => LPM_MUX:LPM_MUX_component.DATA[0][1]
 data0x[2] => LPM_MUX:LPM_MUX_component.DATA[0][2]
@@ -87436,7 +86696,7 @@ result[6] <= LPM_MUX:LPM_MUX_component.RESULT[6]
 result[7] <= LPM_MUX:LPM_MUX_component.RESULT[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX2_8BIT:inst22|LPM_MUX:LPM_MUX_component
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|MPX2_8BIT:inst22|LPM_MUX:LPM_MUX_component
 data[0][0] => mux_b0e:auto_generated.data[0]
 data[0][1] => mux_b0e:auto_generated.data[1]
 data[0][2] => mux_b0e:auto_generated.data[2]
@@ -87467,7 +86727,7 @@ result[6] <= mux_b0e:auto_generated.result[6]
 result[7] <= mux_b0e:auto_generated.result[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|MPX2_8BIT:inst22|LPM_MUX:LPM_MUX_component|mux_b0e:auto_generated
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|MPX2_8BIT:inst22|LPM_MUX:LPM_MUX_component|mux_b0e:auto_generated
 data[0] => l1_w0_n0_mux_dataout.IN1
 data[1] => l1_w1_n0_mux_dataout.IN1
 data[2] => l1_w2_n0_mux_dataout.IN1
@@ -87510,7 +86770,7 @@ sel[0] => l1_w7_n0_mux_dataout.IN0
 sel[0] => _.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG1_LD_CL:inst15
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG1_LD_CL:inst15
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87519,7 +86779,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG8_LD_CL:inst10
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG8_LD_CL:inst10
 A[0] <= REG1_LD_CL:inst6.A
 A[1] <= REG1_LD_CL:inst7.A
 A[2] <= REG1_LD_CL:inst8.A
@@ -87562,7 +86822,7 @@ clk => REG1_LD_CL:inst13.clk
 clk => REG1_LD_CL:inst12.clk
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG8_LD_CL:inst10|REG1_LD_CL:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG8_LD_CL:inst10|REG1_LD_CL:inst8
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87571,7 +86831,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG8_LD_CL:inst10|REG1_LD_CL:inst10
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG8_LD_CL:inst10|REG1_LD_CL:inst10
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87580,7 +86840,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG8_LD_CL:inst10|REG1_LD_CL:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG8_LD_CL:inst10|REG1_LD_CL:inst6
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87589,7 +86849,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG8_LD_CL:inst10|REG1_LD_CL:inst7
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG8_LD_CL:inst10|REG1_LD_CL:inst7
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87598,7 +86858,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG8_LD_CL:inst10|REG1_LD_CL:inst11
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG8_LD_CL:inst10|REG1_LD_CL:inst11
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87607,7 +86867,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG8_LD_CL:inst10|REG1_LD_CL:inst9
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG8_LD_CL:inst10|REG1_LD_CL:inst9
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87616,7 +86876,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG8_LD_CL:inst10|REG1_LD_CL:inst13
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG8_LD_CL:inst10|REG1_LD_CL:inst13
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87625,7 +86885,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG8_LD_CL:inst10|REG1_LD_CL:inst12
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG8_LD_CL:inst10|REG1_LD_CL:inst12
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87634,7 +86894,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|DEC3:inst16
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|DEC3:inst16
 data[0] => lpm_decode:LPM_DECODE_component.data[0]
 data[1] => lpm_decode:LPM_DECODE_component.data[1]
 data[2] => lpm_decode:LPM_DECODE_component.data[2]
@@ -87648,7 +86908,7 @@ eq6 <= lpm_decode:LPM_DECODE_component.eq[6]
 eq7 <= lpm_decode:LPM_DECODE_component.eq[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|DEC3:inst16|lpm_decode:LPM_DECODE_component
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|DEC3:inst16|lpm_decode:LPM_DECODE_component
 data[0] => decode_04f:auto_generated.data[0]
 data[1] => decode_04f:auto_generated.data[1]
 data[2] => decode_04f:auto_generated.data[2]
@@ -87666,7 +86926,7 @@ eq[6] <= decode_04f:auto_generated.eq[6]
 eq[7] <= decode_04f:auto_generated.eq[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|DEC3:inst16|lpm_decode:LPM_DECODE_component|decode_04f:auto_generated
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|DEC3:inst16|lpm_decode:LPM_DECODE_component|decode_04f:auto_generated
 data[0] => w_anode19w[1].IN1
 data[0] => w_anode1w[1].IN0
 data[0] => w_anode30w[1].IN0
@@ -87701,7 +86961,7 @@ eq[6] <= w_anode74w[3].DB_MAX_OUTPUT_PORT_TYPE
 eq[7] <= w_anode85w[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG4_LD_CL:inst11
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG4_LD_CL:inst11
 A[0] <= REG1_LD_CL:inst6.A
 A[1] <= REG1_LD_CL:inst7.A
 A[2] <= REG1_LD_CL:inst8.A
@@ -87724,7 +86984,7 @@ clk => REG1_LD_CL:inst7.clk
 clk => REG1_LD_CL:inst9.clk
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG4_LD_CL:inst11|REG1_LD_CL:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG4_LD_CL:inst11|REG1_LD_CL:inst8
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87733,7 +86993,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG4_LD_CL:inst11|REG1_LD_CL:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG4_LD_CL:inst11|REG1_LD_CL:inst6
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87742,7 +87002,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG4_LD_CL:inst11|REG1_LD_CL:inst7
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG4_LD_CL:inst11|REG1_LD_CL:inst7
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87751,7 +87011,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|FrameBuffer:inst1|REG4_LD_CL:inst11|REG1_LD_CL:inst9
+|CPU_KVADRAT_TEST|Monitor:inst1|FrameBuffer:inst15|REG4_LD_CL:inst11|REG1_LD_CL:inst9
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -87760,7 +87020,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|MultiplexerX:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|MultiplexerX:inst8
 I0[0] => Y.DATAB
 I0[1] => Y.DATAB
 I0[2] => Y.DATAB
@@ -87779,7 +87039,7 @@ Y[2] <= Y.DB_MAX_OUTPUT_PORT_TYPE
 Y[3] <= Y.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|BackgroundMain:inst5
+|CPU_KVADRAT_TEST|Monitor:inst1|BackgroundMain:inst5
 VALID <= <VCC>
 B[0] <= ConstantX:inst6.DATA_OUT[0]
 B[1] <= ConstantX:inst6.DATA_OUT[1]
@@ -87815,35 +87075,35 @@ Y[8] => ~NO_FANOUT~
 Y[9] => ~NO_FANOUT~
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|BackgroundMain:inst5|ConstantX:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|BackgroundMain:inst5|ConstantX:inst6
 DATA_OUT[0] <= <VCC>
 DATA_OUT[1] <= <VCC>
 DATA_OUT[2] <= <VCC>
 DATA_OUT[3] <= <VCC>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|BackgroundMain:inst5|ConstantX:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|BackgroundMain:inst5|ConstantX:inst2
 DATA_OUT[0] <= <VCC>
 DATA_OUT[1] <= <VCC>
 DATA_OUT[2] <= <VCC>
 DATA_OUT[3] <= <VCC>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|BackgroundMain:inst5|ConstantX:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|BackgroundMain:inst5|ConstantX:inst8
+DATA_OUT[0] <= <VCC>
+DATA_OUT[1] <= <VCC>
+DATA_OUT[2] <= <VCC>
+DATA_OUT[3] <= <VCC>
+
+
+|CPU_KVADRAT_TEST|Monitor:inst1|ConstantX:inst30
 DATA_OUT[0] <= <GND>
 DATA_OUT[1] <= <GND>
 DATA_OUT[2] <= <GND>
 DATA_OUT[3] <= <GND>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|ConstantX:inst30
-DATA_OUT[0] <= <GND>
-DATA_OUT[1] <= <GND>
-DATA_OUT[2] <= <GND>
-DATA_OUT[3] <= <GND>
-
-
-|CPU_KVADRAT_TEST|Monitor:inst8|MultiplexerX:inst7
+|CPU_KVADRAT_TEST|Monitor:inst1|MultiplexerX:inst7
 I0[0] => Y.DATAB
 I0[1] => Y.DATAB
 I0[2] => Y.DATAB
@@ -87862,14 +87122,14 @@ Y[2] <= Y.DB_MAX_OUTPUT_PORT_TYPE
 Y[3] <= Y.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|ConstantX:inst29
+|CPU_KVADRAT_TEST|Monitor:inst1|ConstantX:inst29
 DATA_OUT[0] <= <GND>
 DATA_OUT[1] <= <GND>
 DATA_OUT[2] <= <GND>
 DATA_OUT[3] <= <GND>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|MultiplexerX:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|MultiplexerX:inst6
 I0[0] => Y.DATAB
 I0[1] => Y.DATAB
 I0[2] => Y.DATAB
@@ -87888,14 +87148,14 @@ Y[2] <= Y.DB_MAX_OUTPUT_PORT_TYPE
 Y[3] <= Y.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|ConstantX:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|ConstantX:inst
 DATA_OUT[0] <= <VCC>
 DATA_OUT[1] <= <VCC>
 DATA_OUT[2] <= <VCC>
 DATA_OUT[3] <= <VCC>
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|ClockDivider:inst10
+|CPU_KVADRAT_TEST|Monitor:inst1|ClockDivider:inst10
 CLK_IN => clk_out_next.CLK
 CLK_IN => cnt[0].CLK
 CLK_IN => cnt[1].CLK
@@ -87945,7 +87205,7 @@ PAUSE => cnt.OUTPUTSELECT
 CLK_OUT <= clk_out_next.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|MPX2_10BIT:inst100
+|CPU_KVADRAT_TEST|Monitor:inst1|MPX2_10BIT:inst100
 data0x[0] => LPM_MUX:LPM_MUX_component.DATA[0][0]
 data0x[1] => LPM_MUX:LPM_MUX_component.DATA[0][1]
 data0x[2] => LPM_MUX:LPM_MUX_component.DATA[0][2]
@@ -87979,7 +87239,7 @@ result[8] <= LPM_MUX:LPM_MUX_component.RESULT[8]
 result[9] <= LPM_MUX:LPM_MUX_component.RESULT[9]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|MPX2_10BIT:inst100|LPM_MUX:LPM_MUX_component
+|CPU_KVADRAT_TEST|Monitor:inst1|MPX2_10BIT:inst100|LPM_MUX:LPM_MUX_component
 data[0][0] => mux_k1e:auto_generated.data[0]
 data[0][1] => mux_k1e:auto_generated.data[1]
 data[0][2] => mux_k1e:auto_generated.data[2]
@@ -88016,7 +87276,7 @@ result[8] <= mux_k1e:auto_generated.result[8]
 result[9] <= mux_k1e:auto_generated.result[9]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|MPX2_10BIT:inst100|LPM_MUX:LPM_MUX_component|mux_k1e:auto_generated
+|CPU_KVADRAT_TEST|Monitor:inst1|MPX2_10BIT:inst100|LPM_MUX:LPM_MUX_component|mux_k1e:auto_generated
 data[0] => l1_w0_n0_mux_dataout.IN1
 data[1] => l1_w1_n0_mux_dataout.IN1
 data[2] => l1_w2_n0_mux_dataout.IN1
@@ -88069,7 +87329,7 @@ sel[0] => l1_w9_n0_mux_dataout.IN0
 sel[0] => _.IN0
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11
 A[0] <= REG8_LD_CL:inst.A[0]
 A[1] <= REG8_LD_CL:inst.A[1]
 A[2] <= REG8_LD_CL:inst.A[2]
@@ -88110,7 +87370,7 @@ I[14] => REG8_LD_CL:inst2.I[6]
 I[15] => REG8_LD_CL:inst2.I[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst
 A[0] <= REG1_LD_CL:inst6.A
 A[1] <= REG1_LD_CL:inst7.A
 A[2] <= REG1_LD_CL:inst8.A
@@ -88153,7 +87413,7 @@ clk => REG1_LD_CL:inst13.clk
 clk => REG1_LD_CL:inst12.clk
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst8
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88162,7 +87422,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst10
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst10
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88171,7 +87431,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst6
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88180,7 +87440,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst7
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst7
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88189,7 +87449,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst11
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst11
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88198,7 +87458,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst9
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst9
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88207,7 +87467,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst13
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst13
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88216,7 +87476,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst12
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst|REG1_LD_CL:inst12
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88225,7 +87485,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst2
 A[0] <= REG1_LD_CL:inst6.A
 A[1] <= REG1_LD_CL:inst7.A
 A[2] <= REG1_LD_CL:inst8.A
@@ -88268,7 +87528,7 @@ clk => REG1_LD_CL:inst13.clk
 clk => REG1_LD_CL:inst12.clk
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst8
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88277,7 +87537,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst10
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst10
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88286,7 +87546,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst6
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88295,7 +87555,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst7
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst7
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88304,7 +87564,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst11
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst11
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88313,7 +87573,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst9
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst9
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88322,7 +87582,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst13
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst13
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88331,7 +87591,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst12
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst11|REG8_LD_CL:inst2|REG1_LD_CL:inst12
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88340,7 +87600,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12
 A[0] <= REG8_LD_CL:inst.A[0]
 A[1] <= REG8_LD_CL:inst.A[1]
 A[2] <= REG8_LD_CL:inst.A[2]
@@ -88381,7 +87641,7 @@ I[14] => REG8_LD_CL:inst2.I[6]
 I[15] => REG8_LD_CL:inst2.I[7]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst
 A[0] <= REG1_LD_CL:inst6.A
 A[1] <= REG1_LD_CL:inst7.A
 A[2] <= REG1_LD_CL:inst8.A
@@ -88424,7 +87684,7 @@ clk => REG1_LD_CL:inst13.clk
 clk => REG1_LD_CL:inst12.clk
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst8
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88433,7 +87693,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst10
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst10
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88442,7 +87702,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst6
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88451,7 +87711,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst7
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst7
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88460,7 +87720,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst11
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst11
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88469,7 +87729,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst9
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst9
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88478,7 +87738,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst13
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst13
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88487,7 +87747,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst12
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst|REG1_LD_CL:inst12
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88496,7 +87756,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst2
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst2
 A[0] <= REG1_LD_CL:inst6.A
 A[1] <= REG1_LD_CL:inst7.A
 A[2] <= REG1_LD_CL:inst8.A
@@ -88539,7 +87799,7 @@ clk => REG1_LD_CL:inst13.clk
 clk => REG1_LD_CL:inst12.clk
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst8
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst8
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88548,7 +87808,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst10
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst10
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88557,7 +87817,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst6
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst6
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88566,7 +87826,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst7
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst7
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88575,7 +87835,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst11
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst11
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88584,7 +87844,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst9
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst9
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88593,7 +87853,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst13
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst13
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88602,7 +87862,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst12
+|CPU_KVADRAT_TEST|Monitor:inst1|REG16_LD_CL:inst12|REG8_LD_CL:inst2|REG1_LD_CL:inst12
 A <= inst.DB_MAX_OUTPUT_PORT_TYPE
 clk => inst.CLK
 LD => inst13.IN0
@@ -88611,7 +87871,7 @@ CL => inst11.IN0
 I => inst1.IN1
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|MPX2_10BIT:inst9
+|CPU_KVADRAT_TEST|Monitor:inst1|MPX2_10BIT:inst9
 data0x[0] => LPM_MUX:LPM_MUX_component.DATA[0][0]
 data0x[1] => LPM_MUX:LPM_MUX_component.DATA[0][1]
 data0x[2] => LPM_MUX:LPM_MUX_component.DATA[0][2]
@@ -88645,7 +87905,7 @@ result[8] <= LPM_MUX:LPM_MUX_component.RESULT[8]
 result[9] <= LPM_MUX:LPM_MUX_component.RESULT[9]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|MPX2_10BIT:inst9|LPM_MUX:LPM_MUX_component
+|CPU_KVADRAT_TEST|Monitor:inst1|MPX2_10BIT:inst9|LPM_MUX:LPM_MUX_component
 data[0][0] => mux_k1e:auto_generated.data[0]
 data[0][1] => mux_k1e:auto_generated.data[1]
 data[0][2] => mux_k1e:auto_generated.data[2]
@@ -88682,7 +87942,7 @@ result[8] <= mux_k1e:auto_generated.result[8]
 result[9] <= mux_k1e:auto_generated.result[9]
 
 
-|CPU_KVADRAT_TEST|Monitor:inst8|MPX2_10BIT:inst9|LPM_MUX:LPM_MUX_component|mux_k1e:auto_generated
+|CPU_KVADRAT_TEST|Monitor:inst1|MPX2_10BIT:inst9|LPM_MUX:LPM_MUX_component|mux_k1e:auto_generated
 data[0] => l1_w0_n0_mux_dataout.IN1
 data[1] => l1_w1_n0_mux_dataout.IN1
 data[2] => l1_w2_n0_mux_dataout.IN1
@@ -88818,191 +88078,6 @@ bcd_hundreds[0] <= shift.DB_MAX_OUTPUT_PORT_TYPE
 bcd_hundreds[1] <= shift.DB_MAX_OUTPUT_PORT_TYPE
 bcd_hundreds[2] <= <GND>
 bcd_hundreds[3] <= <GND>
-
-
-|CPU_KVADRAT_TEST|VGADebug:inst10
-clk => failed.CLK
-clk => finished.CLK
-clk => waiting_for_switch.CLK
-clk => request_seen.CLK
-clk => pixel_count[0].CLK
-clk => pixel_count[1].CLK
-clk => pixel_count[2].CLK
-clk => pixel_count[3].CLK
-clk => pixel_count[4].CLK
-clk => pixel_count[5].CLK
-clk => pixel_count[6].CLK
-clk => pixel_count[7].CLK
-clk => pixel_count[8].CLK
-clk => pixel_count[9].CLK
-clk => pixel_count[10].CLK
-clk => expected_y[0].CLK
-clk => expected_y[1].CLK
-clk => expected_y[2].CLK
-clk => expected_y[3].CLK
-clk => expected_y[4].CLK
-clk => expected_y[5].CLK
-clk => expected_y[6].CLK
-clk => expected_y[7].CLK
-clk => expected_y[8].CLK
-clk => expected_y[9].CLK
-clk => expected_x[0].CLK
-clk => expected_x[1].CLK
-clk => expected_x[2].CLK
-clk => expected_x[3].CLK
-clk => expected_x[4].CLK
-clk => expected_x[5].CLK
-clk => expected_x[6].CLK
-clk => expected_x[7].CLK
-clk => expected_x[8].CLK
-clk => expected_x[9].CLK
-clk => debug_code[0]~reg0.CLK
-clk => debug_code[1]~reg0.CLK
-clk => debug_code[2]~reg0.CLK
-clk => debug_code[3]~reg0.CLK
-clk => debug_code[4]~reg0.CLK
-clk => debug_code[5]~reg0.CLK
-clk => debug_code[6]~reg0.CLK
-clk => debug_code[7]~reg0.CLK
-reset => debug_code.OUTPUTSELECT
-reset => debug_code.OUTPUTSELECT
-reset => debug_code.OUTPUTSELECT
-reset => debug_code.OUTPUTSELECT
-reset => debug_code.OUTPUTSELECT
-reset => debug_code.OUTPUTSELECT
-reset => debug_code.OUTPUTSELECT
-reset => debug_code.OUTPUTSELECT
-reset => expected_x.OUTPUTSELECT
-reset => expected_x.OUTPUTSELECT
-reset => expected_x.OUTPUTSELECT
-reset => expected_x.OUTPUTSELECT
-reset => expected_x.OUTPUTSELECT
-reset => expected_x.OUTPUTSELECT
-reset => expected_x.OUTPUTSELECT
-reset => expected_x.OUTPUTSELECT
-reset => expected_x.OUTPUTSELECT
-reset => expected_x.OUTPUTSELECT
-reset => expected_y.OUTPUTSELECT
-reset => expected_y.OUTPUTSELECT
-reset => expected_y.OUTPUTSELECT
-reset => expected_y.OUTPUTSELECT
-reset => expected_y.OUTPUTSELECT
-reset => expected_y.OUTPUTSELECT
-reset => expected_y.OUTPUTSELECT
-reset => expected_y.OUTPUTSELECT
-reset => expected_y.OUTPUTSELECT
-reset => expected_y.OUTPUTSELECT
-reset => pixel_count.OUTPUTSELECT
-reset => pixel_count.OUTPUTSELECT
-reset => pixel_count.OUTPUTSELECT
-reset => pixel_count.OUTPUTSELECT
-reset => pixel_count.OUTPUTSELECT
-reset => pixel_count.OUTPUTSELECT
-reset => pixel_count.OUTPUTSELECT
-reset => pixel_count.OUTPUTSELECT
-reset => pixel_count.OUTPUTSELECT
-reset => pixel_count.OUTPUTSELECT
-reset => pixel_count.OUTPUTSELECT
-reset => request_seen.OUTPUTSELECT
-reset => waiting_for_switch.OUTPUTSELECT
-reset => finished.OUTPUTSELECT
-reset => failed.OUTPUTSELECT
-bus_wr => vga_request.IN0
-cs_vga => vga_request.IN1
-bus_addr[0] => Equal0.IN31
-bus_addr[1] => Equal0.IN30
-bus_addr[2] => Equal0.IN29
-bus_addr[3] => Equal0.IN28
-bus_addr[4] => Equal0.IN27
-bus_addr[5] => Equal0.IN26
-bus_addr[6] => Equal0.IN25
-bus_addr[7] => Equal0.IN24
-bus_addr[8] => Equal0.IN23
-bus_addr[9] => Equal0.IN22
-bus_addr[10] => Equal0.IN21
-bus_addr[11] => Equal0.IN20
-bus_addr[12] => Equal0.IN19
-bus_addr[13] => Equal0.IN18
-bus_addr[14] => Equal0.IN17
-bus_addr[15] => Equal0.IN16
-bus_addr[16] => Equal0.IN15
-bus_addr[17] => Equal0.IN14
-bus_addr[18] => Equal0.IN13
-bus_addr[19] => Equal0.IN12
-bus_addr[20] => Equal0.IN11
-bus_addr[21] => Equal0.IN10
-bus_addr[22] => Equal0.IN9
-bus_addr[23] => Equal0.IN8
-bus_addr[24] => Equal0.IN7
-bus_addr[25] => Equal0.IN6
-bus_addr[26] => Equal0.IN5
-bus_addr[27] => Equal0.IN4
-bus_addr[28] => Equal0.IN3
-bus_addr[29] => Equal0.IN0
-bus_addr[30] => Equal0.IN2
-bus_addr[31] => Equal0.IN1
-bus_wdata[0] => Equal1.IN9
-bus_wdata[0] => Equal6.IN31
-bus_wdata[1] => Equal1.IN8
-bus_wdata[1] => Equal6.IN30
-bus_wdata[2] => Equal1.IN7
-bus_wdata[2] => Equal6.IN29
-bus_wdata[3] => Equal1.IN6
-bus_wdata[3] => Equal6.IN28
-bus_wdata[4] => Equal1.IN5
-bus_wdata[4] => Equal6.IN27
-bus_wdata[5] => Equal1.IN4
-bus_wdata[5] => Equal6.IN26
-bus_wdata[6] => Equal1.IN3
-bus_wdata[6] => Equal6.IN25
-bus_wdata[7] => Equal1.IN2
-bus_wdata[7] => Equal6.IN24
-bus_wdata[8] => Equal1.IN1
-bus_wdata[8] => Equal6.IN23
-bus_wdata[9] => Equal1.IN0
-bus_wdata[9] => Equal6.IN22
-bus_wdata[10] => Equal2.IN9
-bus_wdata[10] => Equal6.IN21
-bus_wdata[11] => Equal2.IN8
-bus_wdata[11] => Equal6.IN20
-bus_wdata[12] => Equal2.IN7
-bus_wdata[12] => Equal6.IN19
-bus_wdata[13] => Equal2.IN6
-bus_wdata[13] => Equal6.IN18
-bus_wdata[14] => Equal2.IN5
-bus_wdata[14] => Equal6.IN17
-bus_wdata[15] => Equal2.IN4
-bus_wdata[15] => Equal6.IN16
-bus_wdata[16] => Equal2.IN3
-bus_wdata[16] => Equal6.IN15
-bus_wdata[17] => Equal2.IN2
-bus_wdata[17] => Equal6.IN14
-bus_wdata[18] => Equal2.IN1
-bus_wdata[18] => Equal6.IN13
-bus_wdata[19] => Equal2.IN0
-bus_wdata[19] => Equal6.IN12
-bus_wdata[20] => Equal6.IN11
-bus_wdata[21] => Equal6.IN10
-bus_wdata[22] => Equal6.IN9
-bus_wdata[23] => Equal6.IN8
-bus_wdata[24] => Equal6.IN7
-bus_wdata[25] => Equal6.IN6
-bus_wdata[26] => Equal6.IN5
-bus_wdata[27] => Equal6.IN4
-bus_wdata[28] => Equal6.IN3
-bus_wdata[29] => Equal6.IN2
-bus_wdata[30] => always0.IN1
-bus_wdata[30] => Equal6.IN0
-bus_wdata[31] => always0.IN1
-bus_wdata[31] => Equal6.IN1
-debug_code[0] <= debug_code[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-debug_code[1] <= debug_code[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-debug_code[2] <= debug_code[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-debug_code[3] <= debug_code[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-debug_code[4] <= debug_code[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-debug_code[5] <= debug_code[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-debug_code[6] <= debug_code[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-debug_code[7] <= debug_code[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU_KVADRAT_TEST|SevenSegmentInterfaceDEC:inst21
