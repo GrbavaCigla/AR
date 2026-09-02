@@ -1199,7 +1199,7 @@ applicable agreement for further details.
 (symbol
 	(rect 936 64 1224 224)
 	(text "FrameBufferWrapper" (rect 5 0 126 14)(font "Arial" (font_size 8)))
-	(text "inst25" (rect 8 144 37 156)(font "Arial" ))
+	(text "inst" (rect 8 144 25 156)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)

@@ -196,28 +196,6 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 424 128 600 208)
-	(text "ROM_CPU3" (rect 5 0 65 12)(font "Arial" ))
-	(text "inst3" (rect 8 64 31 76)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "addr[9..0]" (rect 0 0 47 12)(font "Arial" ))
-		(text "addr[9..0]" (rect 21 27 68 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 176 32)
-		(output)
-		(text "data[31..0]" (rect 0 0 53 12)(font "Arial" ))
-		(text "data[31..0]" (rect 111 27 164 39)(font "Arial" ))
-		(line (pt 176 32)(pt 160 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 160 64))
-	)
-)
-(symbol
 	(rect 424 312 608 424)
 	(text "ROM_CPU2" (rect 5 0 65 12)(font "Arial" ))
 	(text "inst1" (rect 8 96 31 108)(font "Arial" ))
@@ -253,6 +231,28 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 168 96))
 	)
 )
+(symbol
+	(rect 424 128 600 208)
+	(text "ROM_CPU3" (rect 5 0 65 12)(font "Arial" ))
+	(text "inst4" (rect 8 64 31 76)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "addr[9..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "addr[9..0]" (rect 21 27 68 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 176 32)
+		(output)
+		(text "data[31..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "data[31..0]" (rect 111 27 164 39)(font "Arial" ))
+		(line (pt 176 32)(pt 160 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 160 64))
+	)
+)
 (connector
 	(pt 288 192)
 	(pt 328 192)
@@ -276,14 +276,14 @@ applicable agreement for further details.
 	(pt 392 176)
 )
 (connector
-	(pt 632 144)
-	(pt 632 160)
-	(bus)
-)
-(connector
 	(text "ADDRESS[11..2]" (rect 318 144 402 156)(font "Arial" ))
 	(pt 336 160)
 	(pt 424 160)
+	(bus)
+)
+(connector
+	(pt 632 144)
+	(pt 632 160)
 	(bus)
 )
 (connector

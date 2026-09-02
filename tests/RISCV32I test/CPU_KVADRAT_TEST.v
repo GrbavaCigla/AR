@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Sep 02 13:47:53 2026"
+// CREATED		"Wed Sep 02 21:21:53 2026"
 
 module CPU_KVADRAT_TEST(
 	clk,
@@ -51,6 +51,7 @@ module CPU_KVADRAT_TEST(
 	HEX24,
 	HEX25,
 	HEX26,
+	led,
 	B,
 	G,
 	R,
@@ -94,6 +95,7 @@ output wire	HEX23;
 output wire	HEX24;
 output wire	HEX25;
 output wire	HEX26;
+output wire	led;
 output wire	[3:0] B;
 output wire	[3:0] G;
 output wire	[3:0] R;
@@ -107,11 +109,15 @@ wire	[31:0] bus_rdata;
 wire	bus_ready;
 wire	[31:0] bus_wdata;
 wire	bus_wr;
+wire	cs_led;
 wire	cs_lidar;
 wire	cs_sdram;
 wire	cs_vga;
+wire	[7:0] debug_code;
 wire	FB_SEL;
 wire	jedan;
+wire	[31:0] led_rdata;
+wire	led_ready;
 wire	nula123;
 wire	[31:0] pc;
 wire	PIXEL_CHANGED;
@@ -123,10 +129,10 @@ wire	[31:0] vga_rdata;
 wire	vga_ready;
 wire	[9:0] XIN;
 wire	[9:0] YIN;
-wire	[3:0] SYNTHESIZED_WIRE_0;
+wire	SYNTHESIZED_WIRE_0;
 wire	[3:0] SYNTHESIZED_WIRE_1;
 wire	[3:0] SYNTHESIZED_WIRE_2;
-wire	SYNTHESIZED_WIRE_3;
+wire	[3:0] SYNTHESIZED_WIRE_3;
 
 assign	sdram_clk = clk;
 wire	[3:0] GDFX_TEMP_SIGNAL_0;
@@ -147,35 +153,21 @@ riscv32iTest	b2v_inst(
 	.PC(pc));
 
 
-Monitor	b2v_inst1(
+VGADebug	b2v_inst10(
 	.clk(clk),
-	.SET_PIXEL(SET_PIXEL),
-	.SET_BIT(SET_BIT),
-	.FB_SEL(FB_SEL),
-	.XIN(XIN),
-	.YIN(YIN),
-	
-	.hs(hs),
-	.vs(vs),
+	.reset(reset),
+	.bus_wr(bus_wr),
+	.cs_vga(cs_vga),
+	.bus_addr(bus_addr),
+	.bus_wdata(bus_wdata)
+	);
+
+
+VgaBusInterface	b2v_inst11(
 	.PIXEL_CHANGED(PIXEL_CHANGED),
-	.B(B),
-	.G(G),
-	
-	.R(R));
-
-
-Binary2BCD	b2v_inst191(
-	.input(pc[7:0]),
-	.bcd_hundreds(SYNTHESIZED_WIRE_2),
-	.bcd_tens(SYNTHESIZED_WIRE_1),
-	.bcd_units(SYNTHESIZED_WIRE_0));
-
-
-VgaBusInterface	b2v_inst2(
+	.clk(clk),
 	.cs_vga(cs_vga),
 	.bus_wr(bus_wr),
-	.PIXEL_CHANGED(PIXEL_CHANGED),
-	.clk(clk),
 	.bus_wdata(bus_wdata),
 	.SET_PIXEL(SET_PIXEL),
 	.SET_BIT(SET_BIT),
@@ -186,10 +178,29 @@ VgaBusInterface	b2v_inst2(
 	.YIN(YIN));
 
 
+Binary2BCD	b2v_inst191(
+	.input(pc[7:0]),
+	.bcd_hundreds(SYNTHESIZED_WIRE_3),
+	.bcd_tens(SYNTHESIZED_WIRE_2),
+	.bcd_units(SYNTHESIZED_WIRE_1));
+
+
+LEDPeripheral	b2v_inst2(
+	.clk(clk),
+	.reset(SYNTHESIZED_WIRE_0),
+	.cs(cs_led),
+	.bus_wr(bus_wr),
+	.bus_rd(bus_rd),
+	.bus_wdata(bus_wdata),
+	.ready(led_ready),
+	.led(led),
+	.bus_rdata(led_rdata));
+
+
 SevenSegmentInterfaceDEC	b2v_inst20(
 	
 	.en(jedan),
-	.x(SYNTHESIZED_WIRE_0),
+	.x(SYNTHESIZED_WIRE_1),
 	.a(HEX00),
 	.b(HEX01),
 	.c(HEX02),
@@ -203,7 +214,7 @@ SevenSegmentInterfaceDEC	b2v_inst20(
 SevenSegmentInterfaceDEC	b2v_inst21(
 	
 	.en(jedan),
-	.x(SYNTHESIZED_WIRE_1),
+	.x(SYNTHESIZED_WIRE_2),
 	.a(HEX10),
 	.b(HEX11),
 	.c(HEX12),
@@ -217,7 +228,7 @@ SevenSegmentInterfaceDEC	b2v_inst21(
 SevenSegmentInterfaceDEC	b2v_inst22(
 	
 	.en(jedan),
-	.x(SYNTHESIZED_WIRE_2),
+	.x(SYNTHESIZED_WIRE_3),
 	.a(HEX20),
 	.b(HEX21),
 	.c(HEX22),
@@ -253,22 +264,43 @@ sdram_wrapper	b2v_inst4(
 	);
 
 
-assign	SYNTHESIZED_WIRE_3 = FB_SEL | vga_ready;
+assign	SYNTHESIZED_WIRE_0 =  ~reset;
 
 
-BusDecoder	b2v_inst7(
+Monitor	b2v_inst8(
+	.clk(clk),
+	.SET_PIXEL(SET_PIXEL),
+	.SET_BIT(SET_BIT),
+	.FB_SEL(FB_SEL),
+	.RESET(reset),
+	.XIN(XIN),
+	.YIN(YIN),
+	
+	.hs(hs),
+	.vs(vs),
+	.PIXEL_CHANGED(PIXEL_CHANGED),
+	.B(B),
+	.G(G),
+	
+	.R(R));
+
+
+BusDecoder	b2v_inst9(
 	.bus_wr(bus_wr),
 	.bus_rd(bus_rd),
 	.sdram_ready(sdram_ready),
 	
-	.vga_ready(SYNTHESIZED_WIRE_3),
+	.vga_ready(vga_ready),
+	.led_ready(led_ready),
 	.bus_addr(bus_addr),
+	.led_rdata(led_rdata),
 	
 	.sdram_rdata(sdram_rdata),
 	.vga_rdata(vga_rdata),
 	.cs_sdram(cs_sdram),
 	
 	.cs_vga(cs_vga),
+	.cs_led(cs_led),
 	.bus_ready(bus_ready),
 	.bus_rdata(bus_rdata));
 
