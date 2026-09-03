@@ -8,3 +8,9 @@ build:
 
 clean:
     rm -rf build
+
+objdump:
+    riscv64-linux-gnu-objdump -D -b binary -m riscv -M isa=rv32i build/firmware.bin
+
+ls:
+    riscv64-linux-gnu-objdump -D -b binary -m riscv build/firmware.bin | grep -E '\b(lb|lbu|lh|lhu|sb|sh|lw|sw)\b'

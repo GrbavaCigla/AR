@@ -1,26 +1,19 @@
 #include "common.h"
 #include "vga.h"
+#include "lidar.h"
 
 void main(void)
 {
-    register dword_t lidar, i, bit;
+    register dword_t i = 0, lidar;
+    while (1) {
+        lidar = LIDAR_DWORD;
 
-    volatile dword_t ram;
-    ram = ((dword_t)1 << 31);
-    BUSY_WAIT(0x00FFFFFF);
-    lidar = ram;
+        VGA_WRITE_PIXEL(LIDAR_GET_X(lidar), LIDAR_GET_Y(lidar), 1);
 
-    for (register byte_t i = 0; i < 16; i++) {
-        VGA_WRITE_PIXEL(i * 2 + 100, 100, 1);
+        i++;
+        if (i > 24) {
+            i = 0;
+            VGA_SWAP();
+        }
     }
-    for (register byte_t i = 0; i < 16; i++) {
-        VGA_WRITE_PIXEL(i * 2 + 101, 101, 1);
-    }
-
-    for (i = 0; i < 32; i++) {
-        bit = (lidar >> (31 - i)) & 1;
-        VGA_WRITE_PIXEL(100 + i, 103, bit);
-    }
-
-    VGA_SWAP();
 }
