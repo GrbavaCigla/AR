@@ -1,18 +1,29 @@
 ENTRY(_start)
+
+MEMORY
+{
+    ROM   (rx)  : ORIGIN = 0x00000000, LENGTH = 4K
+    SDRAM (rwx) : ORIGIN = 0x00000000, LENGTH = 16M
+}
+
+_stack_top = 0x02000000;
+
 SECTIONS
 {
-    . = 0x00000000;
     .text : {
         *(.text._start)
         *(.text*)
         *(.rodata*)
-    }
+    } > ROM
     .data : {
         *(.data*)
-    }
-    /DISCARD/ : {
+    } > SDRAM
+    .bss : {
         *(.bss*)
         *(.sbss*)
+        *(COMMON)
+    } > SDRAM
+    /DISCARD/ : {
         *(.comment)
         *(.note*)
         *(.eh_frame)
