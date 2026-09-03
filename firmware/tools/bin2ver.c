@@ -68,7 +68,7 @@ int main(int argc, char* argv[])
     }
 
     fprintf(verilog_file,
-        "module rom (\n"
+        "module ROM_CPU3 (\n"
         "    input  wire [9:0]  addr,\n"
         "    output reg  [31:0] data\n"
         ");\n\n");

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.31.6)
 
-project(lidarko LANGUAGES C)
+project(lidarko LANGUAGES C ASM)
 
 set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(TOOLS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tools")
@@ -11,8 +11,9 @@ set(VER_OUT "${CMAKE_CURRENT_BINARY_DIR}/instructions.v")
 set(MEMORY_DEPTH 1024 CACHE STRING "MIF memory depth")
 
 file(GLOB_RECURSE C_SOURCES CONFIGURE_DEPENDS "${SOURCE_DIR}/*.c")
+file(GLOB_RECURSE ASM_SOURCES CONFIGURE_DEPENDS "${SOURCE_DIR}/*.S")
 
-add_executable(firmware ${C_SOURCES})
+add_executable(firmware ${ASM_SOURCES} ${C_SOURCES})
 
 target_include_directories(firmware PRIVATE
     "${SOURCE_DIR}"
