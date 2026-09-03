@@ -2279,11 +2279,6 @@ applicable agreement for further details.
 	(pt 1952 1376)
 )
 (connector
-	(text "bus_wait" (rect 2224 1328 2266 1340)(font "Arial" ))
-	(pt 2192 1344)
-	(pt 2288 1344)
-)
-(connector
 	(text "is_JALR" (rect 1048 1032 1089 1044)(font "Arial" ))
 	(pt 1040 1048)
 	(pt 1104 1048)
@@ -2296,6 +2291,11 @@ applicable agreement for further details.
 	(text "CLK" (rect 1592 616 1613 628)(font "Arial" ))
 	(pt 1572 632)
 	(pt 1672 632)
+)
+(connector
+	(text "bus_wait" (rect 2216 1328 2258 1340)(font "Arial" ))
+	(pt 2192 1344)
+	(pt 2280 1344)
 )
 (junction (pt 1104 1048))
 (text "JALR_TARGET = JALR_SUM[31..1],0" (rect 664 952 874 966)(font "Arial" (font_size 8)))

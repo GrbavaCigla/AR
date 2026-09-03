@@ -1696,12 +1696,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "A3_[31..0]" (rect -2646 584 -2596 596)(font "Arial" ))
-	(pt -2664 600)
-	(pt -2600 600)
-	(bus)
-)
-(connector
 	(text "nula" (rect -2642 600 -2622 612)(font "Arial" ))
 	(pt -2656 616)
 	(pt -2600 616)
@@ -1715,4 +1709,10 @@ applicable agreement for further details.
 	(text "nula" (rect -2434 600 -2414 612)(font "Arial" ))
 	(pt -2448 616)
 	(pt -2408 616)
+)
+(connector
+	(text "A4_[31..0]" (rect -2646 584 -2596 596)(font "Arial" ))
+	(pt -2664 600)
+	(pt -2600 600)
+	(bus)
 )

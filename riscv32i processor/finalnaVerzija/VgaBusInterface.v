@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Wed Sep 02 13:48:34 2026"
+// CREATED		"Thu Sep 03 18:30:43 2026"
 
 module VgaBusInterface(
 	cs_vga,
@@ -45,28 +45,67 @@ output wire	[31:0] vga_rdata;
 output wire	[9:0] XIN;
 output wire	[9:0] YIN;
 
-wire	SET_PIXEL_ALTERA_SYNTHESIZED;
-reg	SRFF_inst;
+reg	busy;
+wire	D_busy;
+wire	d_done;
+reg	done;
+wire	keep_busy;
+wire	n_bus_wr;
+wire	n_busy;
+wire	n_done;
+wire	n_pixel_changed;
+wire	read_ack;
+wire	start;
+wire	SYNTHESIZED_WIRE_0;
 
 assign	SET_BIT = bus_wdata[31];
-assign	SEL = bus_wdata[30];
 assign	vga_rdata = 32'b00000000000000000000000000000000;
 assign	XIN = bus_wdata[9:0];
 assign	YIN = bus_wdata[19:10];
 
 
 
+assign	n_pixel_changed =  ~PIXEL_CHANGED;
+
+assign	start = SYNTHESIZED_WIRE_0 & n_busy & n_done & n_pixel_changed;
+
+assign	keep_busy = busy & n_pixel_changed;
+
+assign	D_busy = keep_busy | start;
+
+assign	d_done = busy & PIXEL_CHANGED;
+
+assign	SEL = start & bus_wdata[30];
+
+assign	n_bus_wr =  ~bus_wr;
+
+assign	read_ack = cs_vga & n_bus_wr;
+
+assign	vga_ready = done | read_ack;
+
+
 
 always@(posedge clk)
 begin
-	SRFF_inst <= ~SRFF_inst & SET_PIXEL_ALTERA_SYNTHESIZED | SRFF_inst & ~PIXEL_CHANGED;
+	begin
+	busy <= D_busy;
+	end
 end
 
-assign	vga_ready =  ~SRFF_inst;
 
+always@(posedge clk)
+begin
+	begin
+	done <= d_done;
+	end
+end
 
-assign	SET_PIXEL_ALTERA_SYNTHESIZED = cs_vga & bus_wr;
+assign	SYNTHESIZED_WIRE_0 = cs_vga & bus_wr;
 
-assign	SET_PIXEL = SET_PIXEL_ALTERA_SYNTHESIZED;
+assign	n_busy =  ~busy;
+
+assign	n_done =  ~done;
+
+assign	SET_PIXEL = start;
 
 endmodule

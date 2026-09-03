@@ -69,9 +69,9 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1856 128 2032 144)
+	(rect 1864 128 2040 144)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "x_pixel[15..0]" (rect 90 0 156 12)(font "Arial" ))
+	(text "x_pixelr[15..0]" (rect 90 0 159 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -85,9 +85,9 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1856 160 2032 176)
+	(rect 1864 176 2040 192)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "y_pixel[15..0]" (rect 90 0 157 12)(font "Arial" ))
+	(text "y_pixelr[15..0]" (rect 90 0 160 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -3562,6 +3562,18 @@ applicable agreement for further details.
 	(text "y_pixel[15..0]" (rect 1256 2480 1323 2492)(font "Arial" ))
 	(pt 1416 2496)
 	(pt 1248 2496)
+	(bus)
+)
+(connector
+	(text "x_pixelr[15..0]" (rect 1032 2480 1101 2492)(font "Arial" ))
+	(pt 1024 2496)
+	(pt 1096 2496)
+	(bus)
+)
+(connector
+	(text "y_pixelr[15..0]" (rect 1584 2480 1654 2492)(font "Arial" ))
+	(pt 1576 2496)
+	(pt 1656 2496)
 	(bus)
 )
 (junction (pt 1192 1648))
