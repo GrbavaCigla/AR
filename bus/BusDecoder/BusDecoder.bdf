@@ -164,38 +164,6 @@ applicable agreement for further details.
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
 )
 (pin
-	(input)
-	(rect 272 608 440 624)
-	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "led_ready" (rect 5 0 54 12)(font "Arial" ))
-	(pt 168 8)
-	(drawing
-		(line (pt 84 12)(pt 109 12))
-		(line (pt 84 4)(pt 109 4))
-		(line (pt 113 8)(pt 168 8))
-		(line (pt 84 12)(pt 84 4))
-		(line (pt 109 4)(pt 113 8))
-		(line (pt 109 12)(pt 113 8))
-	)
-	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
-)
-(pin
-	(input)
-	(rect 296 816 472 832)
-	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
-	(text "led_rdata[31..0]" (rect 5 0 82 12)(font "Arial" ))
-	(pt 176 8)
-	(drawing
-		(line (pt 92 12)(pt 117 12))
-		(line (pt 92 4)(pt 117 4))
-		(line (pt 121 8)(pt 176 8))
-		(line (pt 92 12)(pt 92 4))
-		(line (pt 117 4)(pt 121 8))
-		(line (pt 117 12)(pt 121 8))
-	)
-	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-)
-(pin
 	(output)
 	(rect 1056 200 1232 216)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
@@ -264,22 +232,6 @@ applicable agreement for further details.
 	(rect 1056 456 1232 472)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "cs_vga" (rect 90 0 126 12)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-)
-(pin
-	(output)
-	(rect 1080 568 1256 584)
-	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "cs_led" (rect 90 0 121 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -739,67 +691,46 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 864 552 928 600)
-	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
-	(text "inst19" (rect 3 37 32 49)(font "Arial" ))
+	(rect 416 792 472 848)
+	(text "ConstantX" (rect 5 0 55 12)(font "Arial" ))
+	(text "inst4" (rect 8 40 31 52)(font "Arial" ))
 	(port
-		(pt 0 16)
-		(input)
-		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
-		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
-		(line (pt 0 16)(pt 14 16))
-	)
-	(port
-		(pt 0 32)
-		(input)
-		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
-		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
-		(line (pt 0 32)(pt 14 32))
-	)
-	(port
-		(pt 64 24)
+		(pt 56 32)
 		(output)
-		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
-		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
-		(line (pt 42 24)(pt 64 24))
+		(text "DATA_OUT[size-1..0]" (rect -96 0 9 12)(font "Arial" ))
+		(text "c" (rect 25 27 30 39)(font "Arial" )(invisible))
+		(line (pt 56 32)(pt 40 32)(line_width 3))
 	)
+	(parameter
+		"size"
+		"32"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"const"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(line (pt 14 12)(pt 30 12))
-		(line (pt 14 37)(pt 31 37))
-		(line (pt 14 12)(pt 14 37))
-		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
+		(rectangle (rect 24 24 40 40)(fill (color 218 218 218)))
 	)
+	(annotation_block (parameter)(rect 456 744 638 786))
 )
 (symbol
-	(rect 744 520 808 568)
-	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
-	(text "inst21" (rect 3 37 32 49)(font "Arial" ))
+	(rect 480 1000 512 1032)
+	(text "GND" (rect 8 16 29 26)(font "Arial" (font_size 6)))
+	(text "inst5" (rect 3 21 26 33)(font "Arial" )(invisible))
 	(port
-		(pt 0 16)
-		(input)
-		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
-		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
-		(line (pt 0 16)(pt 14 16))
-	)
-	(port
-		(pt 0 32)
-		(input)
-		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
-		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
-		(line (pt 0 32)(pt 14 32))
-	)
-	(port
-		(pt 64 24)
+		(pt 16 0)
 		(output)
-		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
-		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
-		(line (pt 42 24)(pt 64 24))
+		(text "1" (rect 18 0 23 12)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 18 0 23 12)(font "Courier New" (bold))(invisible))
+		(line (pt 16 8)(pt 16 0))
 	)
 	(drawing
-		(line (pt 14 12)(pt 30 12))
-		(line (pt 14 37)(pt 31 37))
-		(line (pt 14 12)(pt 14 37))
-		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
+		(line (pt 8 8)(pt 16 16))
+		(line (pt 16 16)(pt 24 8))
+		(line (pt 8 8)(pt 24 8))
 	)
 )
 (connector
@@ -1068,69 +999,17 @@ applicable agreement for further details.
 	(pt 720 1016)
 )
 (connector
-	(pt 744 536)
-	(pt 736 536)
-)
-(connector
-	(pt 736 536)
-	(pt 736 528)
-)
-(connector
-	(pt 744 552)
-	(pt 736 552)
-)
-(connector
-	(pt 736 552)
-	(pt 736 568)
-)
-(connector
-	(pt 864 568)
-	(pt 848 568)
-)
-(connector
-	(pt 848 544)
-	(pt 848 568)
-)
-(connector
-	(pt 848 544)
-	(pt 808 544)
-)
-(connector
-	(pt 848 608)
-	(pt 848 584)
-)
-(connector
-	(pt 864 584)
-	(pt 848 584)
-)
-(connector
-	(pt 1080 576)
-	(pt 928 576)
-)
-(connector
-	(text "bus_addr[29]" (rect 576 512 639 524)(font "Arial" ))
-	(pt 584 528)
-	(pt 736 528)
-)
-(connector
-	(text "wrORrd" (rect 659 592 695 604)(font "Arial" ))
-	(pt 584 608)
-	(pt 848 608)
-)
-(connector
-	(text "bus_addr[28]" (rect 592 552 655 564)(font "Arial" ))
-	(pt 584 568)
-	(pt 736 568)
-)
-(connector
-	(text "led_ready" (rect 600 968 648 980)(font "Arial" ))
-	(pt 720 984)
-	(pt 544 984)
-)
-(connector
 	(pt 472 824)
 	(pt 632 824)
 	(bus)
+)
+(connector
+	(pt 720 984)
+	(pt 496 984)
+)
+(connector
+	(pt 496 984)
+	(pt 496 1000)
 )
 (text "BUS DECODER" (rect 696 32 780 46)(font "Arial" (font_size 8)))
 (text "Adresni prostor" (rect 240 360 329 374)(font "Arial" (font_size 8)))
@@ -1144,7 +1023,6 @@ applicable agreement for further details.
 (text "xx01" (rect 792 312 820 326)(font "Arial" (font_size 8)))
 (text "xx10" (rect 792 416 820 430)(font "Arial" (font_size 8)))
 (text "0011 led dioda" (rect 256 560 338 574)(font "Arial" (font_size 8)))
-(text "xx10" (rect 816 528 844 542)(font "Arial" (font_size 8)))
 (line (pt 224 376)(pt 480 376))
 (rectangle (rect 496 136 936 880))
 (rectangle (rect 224 352 480 424))
