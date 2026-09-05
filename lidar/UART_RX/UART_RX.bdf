@@ -1766,7 +1766,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 256 2216 352 2312)
+	(rect 1176 1992 1272 2088)
 	(text "CMP8" (rect 5 0 36 14)(font "Arial" (font_size 8)))
 	(text "inst49" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -1809,7 +1809,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 56 2232 112 2288)
+	(rect 976 2008 1032 2064)
 	(text "ConstantX" (rect 5 0 55 12)(font "Arial" ))
 	(text "inst50" (rect 8 40 37 52)(font "Arial" ))
 	(port
@@ -1832,7 +1832,7 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 24 24 40 40)(fill (color 218 218 218)))
 	)
-	(annotation_block (parameter)(rect 24 2184 234 2232))
+	(annotation_block (parameter)(rect 944 1960 1154 2008))
 )
 (symbol
 	(rect 1224 184 1288 232)
@@ -2506,20 +2506,20 @@ applicable agreement for further details.
 	(pt 1336 336)
 )
 (connector
-	(text "bit_pos[7..0]" (rect 168 2232 229 2244)(font "Arial" ))
-	(pt 256 2248)
-	(pt 160 2248)
+	(text "bit_pos[7..0]" (rect 1088 2008 1149 2020)(font "Arial" ))
+	(pt 1176 2024)
+	(pt 1080 2024)
 	(bus)
 )
 (connector
-	(pt 112 2264)
-	(pt 256 2264)
+	(pt 1032 2040)
+	(pt 1176 2040)
 	(bus)
 )
 (connector
-	(text "frame_done" (rect 378 2248 437 2260)(font "Arial" ))
-	(pt 352 2264)
-	(pt 408 2264)
+	(text "frame_done" (rect 1298 2024 1357 2036)(font "Arial" ))
+	(pt 1272 2040)
+	(pt 1328 2040)
 )
 (connector
 	(text "start_ok" (rect 984 1184 1024 1196)(font "Arial" ))
