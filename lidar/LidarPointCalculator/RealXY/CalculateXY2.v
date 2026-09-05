@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sat Sep 05 13:21:05 2026"
+// CREATED		"Sat Sep 05 21:59:38 2026"
 
 module CalculateXY2(
 	clk,
@@ -213,6 +213,11 @@ ConstantX	b2v_inst20(
 assign	sel[0] = q4 | q2;
 
 assign	sel[1] = q3 | q4;
+
+
+ROM_SIN_ASYNC	b2v_inst23(
+	.address(rom_cos_addr[5:0]),
+	.q(cos));
 
 
 CMP16	b2v_inst24(
@@ -419,6 +424,11 @@ SUB16	b2v_inst59(
 	.OUT(y_pixel));
 
 
+ROM_SIN_ASYNC	b2v_inst6(
+	.address(rom_address[5:0]),
+	.q(sin));
+
+
 ConstantX	b2v_inst60(
 	.DATA_OUT(SYNTHESIZED_WIRE_24));
 	defparam	b2v_inst60.const = 300;
@@ -432,20 +442,6 @@ ConstantX	b2v_inst61(
 
 
 
-ROM_SIN	b2v_inst63(
-	.wren(nula),
-	.clock(clk),
-	.address(rom_address[5:0]),
-	.data(nule_16),
-	.q(sin));
-
-
-ROM_SIN	b2v_inst64(
-	.wren(nula),
-	.clock(clk),
-	.address(rom_cos_addr[5:0]),
-	.data(nule_16),
-	.q(cos));
 
 
 MUL_32b	b2v_inst65(
