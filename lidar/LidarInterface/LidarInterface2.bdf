@@ -641,7 +641,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 280 472 424 600)
+	(rect 280 488 424 616)
 	(text "counter_8bit" (rect 28 0 111 16)(font "Arial" (font_size 10)))
 	(text "inst7" (rect 8 109 31 121)(font "Arial" ))
 	(port
@@ -2243,9 +2243,9 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "sclr" (rect 208 488 225 500)(font "Arial" ))
-	(pt 280 504)
-	(pt 200 504)
+	(text "sclr" (rect 208 504 225 516)(font "Arial" ))
+	(pt 280 520)
+	(pt 200 520)
 )
 (connector
 	(text "x_pixel[15..0]" (rect 2336 496 2402 508)(font "Arial" ))
@@ -2356,19 +2356,19 @@ applicable agreement for further details.
 	(pt 160 504)
 )
 (connector
-	(text "clk" (rect 200 520 214 532)(font "Arial" ))
-	(pt 200 536)
-	(pt 280 536)
+	(text "clk" (rect 200 536 214 548)(font "Arial" ))
+	(pt 200 552)
+	(pt 280 552)
 )
 (connector
-	(text "cnt_en" (rect 200 552 233 564)(font "Arial" ))
-	(pt 200 568)
-	(pt 280 568)
+	(text "cnt_en" (rect 200 568 233 580)(font "Arial" ))
+	(pt 200 584)
+	(pt 280 584)
 )
 (connector
-	(text "q[7..0]" (rect 432 528 463 540)(font "Arial" ))
-	(pt 456 544)
-	(pt 424 544)
+	(text "q[7..0]" (rect 432 544 463 556)(font "Arial" ))
+	(pt 456 560)
+	(pt 424 560)
 	(bus)
 )
 (connector

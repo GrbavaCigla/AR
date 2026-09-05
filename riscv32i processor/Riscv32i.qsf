@@ -138,6 +138,7 @@ set_location_assignment PIN_V14 -to HEX24
 set_location_assignment PIN_AB22 -to HEX25
 set_location_assignment PIN_AB21 -to HEX26
 set_location_assignment PIN_L1 -to pin_name1
+set_global_assignment -name VHDL_FILE ../components/ROM/ROM_SIN_ASYNC.vhd
 set_global_assignment -name VERILOG_FILE ../lidar/LidarPointCalculator/RealXY/CalculateXY_fixed.v
 set_global_assignment -name VERILOG_FILE ../lidar/LidarInterface/LidarInterface_fixed.v
 set_global_assignment -name VERILOG_FILE "../tests/RISCV32I test/LEDPeripheral.v"
@@ -302,4 +303,6 @@ set_global_assignment -name BDF_FILE tests/UART_RX_TEST.bdf
 set_global_assignment -name VERILOG_FILE ../lidar/LidarInterface/LidarInterface_fixed2.v
 set_global_assignment -name BDF_FILE ../lidar/LidarInterface/LidarInterface2.bdf
 set_global_assignment -name BDF_FILE ../lidar/LidarPointCalculator/RealXY/CalculateXY2.bdf
+set_global_assignment -name VERILOG_FILE output_files/LidarInterface3.v
+set_global_assignment -name QIP_FILE ../lidar/lpm_counter/counter_12bit.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

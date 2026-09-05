@@ -14,7 +14,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
-// CREATED		"Sat Sep 05 12:03:27 2026"
+// CREATED		"Sat Sep 05 21:59:10 2026"
 
 module UART_RX(
 	clk,
@@ -31,56 +31,76 @@ input wire	rst_n;
 output wire	byte_ready;
 output wire	[7:0] rx_data;
 
-wire	baud_tick;
-wire	[7:0] bit_pos;
 wire	busy;
-wire	clr_baud;
-wire	d0;
-wire	d1;
-wire	d2;
-wire	d3;
-wire	d4;
-wire	d5;
-wire	d6;
-wire	d7;
+wire	busy_clear;
+wire	count_done;
+wire	counter_clear;
 wire	falling_edge;
 wire	frame_done;
 wire	frame_valid;
 wire	jedan;
-wire	m_startb;
-wire	m_stopb;
 wire	nula;
+wire	[15:0] nule_16;
 wire	[7:0] rx_data_ALTERA_SYNTHESIZED;
 reg	rx_prev;
 reg	rx_sync;
 wire	rx_sync_n;
+wire	sample_d0;
+wire	sample_d1;
+wire	sample_d2;
+wire	sample_d3;
+wire	sample_d4;
+wire	sample_d5;
+wire	sample_d6;
+wire	sample_d7;
+wire	sample_done;
+wire	sample_start;
+wire	sample_stop;
 wire	start_bit_val;
-wire	start_detact;
+wire	start_detect;
 wire	start_ok;
 wire	stop_bit_val;
 wire	sys_reset;
+wire	[11:0] time_count;
 reg	DFF_inst;
 wire	SYNTHESIZED_WIRE_0;
 wire	SYNTHESIZED_WIRE_1;
-wire	SYNTHESIZED_WIRE_2;
-wire	SYNTHESIZED_WIRE_3;
-wire	[7:0] SYNTHESIZED_WIRE_4;
-wire	[7:0] SYNTHESIZED_WIRE_5;
-wire	[7:0] SYNTHESIZED_WIRE_6;
-wire	[7:0] SYNTHESIZED_WIRE_7;
-wire	[7:0] SYNTHESIZED_WIRE_8;
-wire	[7:0] SYNTHESIZED_WIRE_9;
-wire	[7:0] SYNTHESIZED_WIRE_10;
-wire	[7:0] SYNTHESIZED_WIRE_11;
-wire	[7:0] SYNTHESIZED_WIRE_12;
-wire	[7:0] SYNTHESIZED_WIRE_13;
-wire	[7:0] SYNTHESIZED_WIRE_14;
-wire	[3:0] SYNTHESIZED_WIRE_15;
+wire	[15:0] SYNTHESIZED_WIRE_2;
+wire	[15:0] SYNTHESIZED_WIRE_3;
+wire	[15:0] SYNTHESIZED_WIRE_4;
+wire	[15:0] SYNTHESIZED_WIRE_5;
+wire	[15:0] SYNTHESIZED_WIRE_6;
+wire	[15:0] SYNTHESIZED_WIRE_7;
+wire	[15:0] SYNTHESIZED_WIRE_8;
+wire	[15:0] SYNTHESIZED_WIRE_9;
+wire	[15:0] SYNTHESIZED_WIRE_10;
+wire	[15:0] SYNTHESIZED_WIRE_11;
+wire	[15:0] SYNTHESIZED_WIRE_12;
 
-wire	[3:0] GDFX_TEMP_SIGNAL_0;
+wire	[15:0] GDFX_TEMP_SIGNAL_0;
+wire	[15:0] GDFX_TEMP_SIGNAL_1;
+wire	[15:0] GDFX_TEMP_SIGNAL_2;
+wire	[15:0] GDFX_TEMP_SIGNAL_3;
+wire	[15:0] GDFX_TEMP_SIGNAL_4;
+wire	[15:0] GDFX_TEMP_SIGNAL_5;
+wire	[15:0] GDFX_TEMP_SIGNAL_6;
+wire	[15:0] GDFX_TEMP_SIGNAL_7;
+wire	[15:0] GDFX_TEMP_SIGNAL_8;
+wire	[15:0] GDFX_TEMP_SIGNAL_9;
+wire	[15:0] GDFX_TEMP_SIGNAL_10;
 
 
-assign	GDFX_TEMP_SIGNAL_0 = {jedan,jedan,nula,jedan};
+assign	GDFX_TEMP_SIGNAL_0 = {nule_16[3:0],time_count[11:0]};
+assign	GDFX_TEMP_SIGNAL_1 = {nule_16[3:0],time_count[11:0]};
+assign	GDFX_TEMP_SIGNAL_2 = {nule_16[3:0],time_count[11:0]};
+assign	GDFX_TEMP_SIGNAL_3 = {nule_16[3:0],time_count[11:0]};
+assign	GDFX_TEMP_SIGNAL_4 = {nule_16[3:0],time_count[11:0]};
+assign	GDFX_TEMP_SIGNAL_5 = {nule_16[3:0],time_count[11:0]};
+assign	GDFX_TEMP_SIGNAL_6 = {nule_16[3:0],time_count[11:0]};
+assign	GDFX_TEMP_SIGNAL_7 = {nule_16[3:0],time_count[11:0]};
+assign	GDFX_TEMP_SIGNAL_8 = {nule_16[3:0],time_count[11:0]};
+assign	GDFX_TEMP_SIGNAL_9 = {nule_16[3:0],time_count[11:0]};
+assign	GDFX_TEMP_SIGNAL_10 = {nule_16[3:0],time_count[11:0]};
 
 
 always@(posedge clk)
@@ -100,277 +120,269 @@ end
 
 assign	falling_edge = rx_sync_n & rx_prev;
 
-assign	start_detact = falling_edge & SYNTHESIZED_WIRE_0;
+assign	start_detect = falling_edge & SYNTHESIZED_WIRE_0;
 
 
 REG1_LD_CL	b2v_inst12(
-	.LD(start_detact),
+	.LD(start_detect),
 	.I(jedan),
 	.CL(SYNTHESIZED_WIRE_1),
 	.clk(clk),
 	.A(busy));
 
-
-counter_8bit	b2v_inst14(
-	.sclr(SYNTHESIZED_WIRE_2),
-	.clock(clk),
-	.cnt_en(SYNTHESIZED_WIRE_3),
-	.q(bit_pos));
-
-assign	SYNTHESIZED_WIRE_3 = busy & baud_tick;
+assign	counter_clear = start_detect | frame_done | sys_reset;
 
 
-CMP8	b2v_inst17(
-	.A(bit_pos),
-	.B(SYNTHESIZED_WIRE_4),
+CMP16	b2v_inst16(
+	.A(GDFX_TEMP_SIGNAL_0),
+	.B(SYNTHESIZED_WIRE_2),
 	
-	.E(m_startb)
+	.E(sample_start)
 	);
+
+
+ConstantX	b2v_inst17(
+	.DATA_OUT(nule_16));
+	defparam	b2v_inst17.const = 0;
+	defparam	b2v_inst17.size = 16;
 
 
 ConstantX	b2v_inst18(
-	.DATA_OUT(SYNTHESIZED_WIRE_4));
-	defparam	b2v_inst18.const = 8;
-	defparam	b2v_inst18.size = 8;
+	.DATA_OUT(SYNTHESIZED_WIRE_2));
+	defparam	b2v_inst18.const = 108;
+	defparam	b2v_inst18.size = 16;
 
 
-CMP8	b2v_inst19(
-	.A(bit_pos),
-	.B(SYNTHESIZED_WIRE_5),
+CMP16	b2v_inst19(
+	.A(GDFX_TEMP_SIGNAL_1),
+	.B(SYNTHESIZED_WIRE_3),
 	
-	.E(d0)
+	.E(sample_d0)
 	);
 
 
-BAUD_GENERATOR	b2v_inst2(
-	.sclr(clr_baud),
-	.clock(clk),
-	.cnt_en(jedan),
-	.q(SYNTHESIZED_WIRE_15));
-
-
 ConstantX	b2v_inst20(
-	.DATA_OUT(SYNTHESIZED_WIRE_5));
-	defparam	b2v_inst20.const = 24;
-	defparam	b2v_inst20.size = 8;
+	.DATA_OUT(SYNTHESIZED_WIRE_3));
+	defparam	b2v_inst20.const = 325;
+	defparam	b2v_inst20.size = 16;
 
 
-CMP8	b2v_inst21(
-	.A(bit_pos),
-	.B(SYNTHESIZED_WIRE_6),
+CMP16	b2v_inst21(
+	.A(GDFX_TEMP_SIGNAL_2),
+	.B(SYNTHESIZED_WIRE_4),
 	
-	.E(d1)
+	.E(sample_d1)
 	);
 
 
 ConstantX	b2v_inst22(
-	.DATA_OUT(SYNTHESIZED_WIRE_6));
-	defparam	b2v_inst22.const = 40;
-	defparam	b2v_inst22.size = 8;
+	.DATA_OUT(SYNTHESIZED_WIRE_4));
+	defparam	b2v_inst22.const = 542;
+	defparam	b2v_inst22.size = 16;
 
 
-CMP8	b2v_inst23(
-	.A(bit_pos),
-	.B(SYNTHESIZED_WIRE_7),
+CMP16	b2v_inst23(
+	.A(GDFX_TEMP_SIGNAL_3),
+	.B(SYNTHESIZED_WIRE_5),
 	
-	.E(d2)
+	.E(sample_d2)
 	);
 
 
 ConstantX	b2v_inst24(
-	.DATA_OUT(SYNTHESIZED_WIRE_7));
-	defparam	b2v_inst24.const = 56;
-	defparam	b2v_inst24.size = 8;
+	.DATA_OUT(SYNTHESIZED_WIRE_5));
+	defparam	b2v_inst24.const = 759;
+	defparam	b2v_inst24.size = 16;
 
 
-CMP8	b2v_inst25(
-	.A(bit_pos),
-	.B(SYNTHESIZED_WIRE_8),
+CMP16	b2v_inst25(
+	.A(GDFX_TEMP_SIGNAL_4),
+	.B(SYNTHESIZED_WIRE_6),
 	
-	.E(d3)
+	.E(sample_d3)
 	);
 
 
 ConstantX	b2v_inst26(
-	.DATA_OUT(SYNTHESIZED_WIRE_8));
-	defparam	b2v_inst26.const = 72;
-	defparam	b2v_inst26.size = 8;
+	.DATA_OUT(SYNTHESIZED_WIRE_6));
+	defparam	b2v_inst26.const = 976;
+	defparam	b2v_inst26.size = 16;
 
 
-CMP8	b2v_inst27(
-	.A(bit_pos),
-	.B(SYNTHESIZED_WIRE_9),
+CMP16	b2v_inst27(
+	.A(GDFX_TEMP_SIGNAL_5),
+	.B(SYNTHESIZED_WIRE_7),
 	
-	.E(d4)
+	.E(sample_d4)
 	);
 
 
 ConstantX	b2v_inst28(
-	.DATA_OUT(SYNTHESIZED_WIRE_9));
-	defparam	b2v_inst28.const = 88;
-	defparam	b2v_inst28.size = 8;
+	.DATA_OUT(SYNTHESIZED_WIRE_7));
+	defparam	b2v_inst28.const = 1193;
+	defparam	b2v_inst28.size = 16;
 
 
-CMP8	b2v_inst29(
-	.A(bit_pos),
-	.B(SYNTHESIZED_WIRE_10),
+CMP16	b2v_inst29(
+	.A(GDFX_TEMP_SIGNAL_6),
+	.B(SYNTHESIZED_WIRE_8),
 	
-	.E(d5)
+	.E(sample_d5)
 	);
 
 
+counter_12bit	b2v_inst3(
+	.sclr(counter_clear),
+	.clock(clk),
+	.cnt_en(busy),
+	.q(time_count));
+
+
 ConstantX	b2v_inst30(
-	.DATA_OUT(SYNTHESIZED_WIRE_10));
-	defparam	b2v_inst30.const = 104;
-	defparam	b2v_inst30.size = 8;
+	.DATA_OUT(SYNTHESIZED_WIRE_8));
+	defparam	b2v_inst30.const = 1410;
+	defparam	b2v_inst30.size = 16;
 
 
-CMP8	b2v_inst31(
-	.A(bit_pos),
-	.B(SYNTHESIZED_WIRE_11),
+CMP16	b2v_inst31(
+	.A(GDFX_TEMP_SIGNAL_7),
+	.B(SYNTHESIZED_WIRE_9),
 	
-	.E(d6)
+	.E(sample_d6)
 	);
 
 
 ConstantX	b2v_inst32(
-	.DATA_OUT(SYNTHESIZED_WIRE_11));
-	defparam	b2v_inst32.const = 120;
-	defparam	b2v_inst32.size = 8;
+	.DATA_OUT(SYNTHESIZED_WIRE_9));
+	defparam	b2v_inst32.const = 1627;
+	defparam	b2v_inst32.size = 16;
 
 
-CMP8	b2v_inst33(
-	.A(bit_pos),
-	.B(SYNTHESIZED_WIRE_12),
+CMP16	b2v_inst33(
+	.A(GDFX_TEMP_SIGNAL_8),
+	.B(SYNTHESIZED_WIRE_10),
 	
-	.E(d7)
+	.E(sample_d7)
 	);
 
 
 ConstantX	b2v_inst34(
-	.DATA_OUT(SYNTHESIZED_WIRE_12));
-	defparam	b2v_inst34.const = 136;
-	defparam	b2v_inst34.size = 8;
+	.DATA_OUT(SYNTHESIZED_WIRE_10));
+	defparam	b2v_inst34.const = 1844;
+	defparam	b2v_inst34.size = 16;
 
 
-CMP8	b2v_inst35(
-	.A(bit_pos),
-	.B(SYNTHESIZED_WIRE_13),
+CMP16	b2v_inst35(
+	.A(GDFX_TEMP_SIGNAL_9),
+	.B(SYNTHESIZED_WIRE_11),
 	
-	.E(m_stopb)
+	.E(sample_stop)
 	);
 
 
 ConstantX	b2v_inst36(
-	.DATA_OUT(SYNTHESIZED_WIRE_13));
-	defparam	b2v_inst36.const = 152;
-	defparam	b2v_inst36.size = 8;
+	.DATA_OUT(SYNTHESIZED_WIRE_11));
+	defparam	b2v_inst36.const = 2061;
+	defparam	b2v_inst36.size = 16;
 
 
-REG1_LD_CL	b2v_inst37(
-	.LD(m_startb),
+CMP16	b2v_inst37(
+	.A(GDFX_TEMP_SIGNAL_10),
+	.B(SYNTHESIZED_WIRE_12),
+	
+	.E(sample_done)
+	);
+
+
+ConstantX	b2v_inst38(
+	.DATA_OUT(SYNTHESIZED_WIRE_12));
+	defparam	b2v_inst38.const = 2062;
+	defparam	b2v_inst38.size = 16;
+
+assign	frame_done = busy & sample_done;
+
+
+
+REG1_LD_CL	b2v_inst40(
+	.LD(sample_start),
 	.I(rx_sync),
 	.CL(sys_reset),
 	.clk(clk),
 	.A(start_bit_val));
 
 
-REG1_LD_CL	b2v_inst38(
-	.LD(d0),
+REG1_LD_CL	b2v_inst41(
+	.LD(sample_d0),
 	.I(rx_sync),
 	.CL(sys_reset),
 	.clk(clk),
 	.A(rx_data_ALTERA_SYNTHESIZED[0]));
 
 
-REG1_LD_CL	b2v_inst39(
-	.LD(d1),
+REG1_LD_CL	b2v_inst42(
+	.LD(sample_d1),
 	.I(rx_sync),
 	.CL(sys_reset),
 	.clk(clk),
 	.A(rx_data_ALTERA_SYNTHESIZED[1]));
 
 
-REG1_LD_CL	b2v_inst40(
-	.LD(d2),
+REG1_LD_CL	b2v_inst43(
+	.LD(sample_d2),
 	.I(rx_sync),
 	.CL(sys_reset),
 	.clk(clk),
 	.A(rx_data_ALTERA_SYNTHESIZED[2]));
 
 
-REG1_LD_CL	b2v_inst41(
-	.LD(d3),
+REG1_LD_CL	b2v_inst44(
+	.LD(sample_d3),
 	.I(rx_sync),
 	.CL(sys_reset),
 	.clk(clk),
 	.A(rx_data_ALTERA_SYNTHESIZED[3]));
 
 
-REG1_LD_CL	b2v_inst42(
-	.LD(d4),
+REG1_LD_CL	b2v_inst45(
+	.LD(sample_d4),
 	.I(rx_sync),
 	.CL(sys_reset),
 	.clk(clk),
 	.A(rx_data_ALTERA_SYNTHESIZED[4]));
 
 
-REG1_LD_CL	b2v_inst43(
-	.LD(d5),
+REG1_LD_CL	b2v_inst46(
+	.LD(sample_d5),
 	.I(rx_sync),
 	.CL(sys_reset),
 	.clk(clk),
 	.A(rx_data_ALTERA_SYNTHESIZED[5]));
 
 
-REG1_LD_CL	b2v_inst44(
-	.LD(d6),
+REG1_LD_CL	b2v_inst47(
+	.LD(sample_d6),
 	.I(rx_sync),
 	.CL(sys_reset),
 	.clk(clk),
 	.A(rx_data_ALTERA_SYNTHESIZED[6]));
 
 
-REG1_LD_CL	b2v_inst45(
-	.LD(d7),
+REG1_LD_CL	b2v_inst48(
+	.LD(sample_d7),
 	.I(rx_sync),
 	.CL(sys_reset),
 	.clk(clk),
 	.A(rx_data_ALTERA_SYNTHESIZED[7]));
 
 
-REG1_LD_CL	b2v_inst46(
-	.LD(m_stopb),
+REG1_LD_CL	b2v_inst49(
+	.LD(sample_stop),
 	.I(rx_sync),
 	.CL(sys_reset),
 	.clk(clk),
 	.A(stop_bit_val));
 
 assign	start_ok =  ~start_bit_val;
-
-assign	frame_valid = start_ok & stop_bit_val;
-
-
-CMP8	b2v_inst49(
-	.A(bit_pos),
-	.B(SYNTHESIZED_WIRE_14),
-	
-	.E(frame_done)
-	);
-
-
-CMP4	b2v_inst5(
-	.A(SYNTHESIZED_WIRE_15),
-	.B(GDFX_TEMP_SIGNAL_0),
-	
-	.E(baud_tick)
-	);
-
-
-ConstantX	b2v_inst50(
-	.DATA_OUT(SYNTHESIZED_WIRE_14));
-	defparam	b2v_inst50.const = 159;
-	defparam	b2v_inst50.size = 8;
 
 assign	byte_ready = frame_done & frame_valid;
 
@@ -380,9 +392,15 @@ assign	sys_reset =  ~rst_n;
 
 assign	SYNTHESIZED_WIRE_1 = frame_done | sys_reset;
 
-assign	SYNTHESIZED_WIRE_2 = frame_done | sys_reset;
+assign	frame_valid = start_ok & stop_bit_val;
 
-assign	clr_baud = sys_reset | baud_tick;
+
+REG1_LD_CL	b2v_inst56(
+	.LD(sample_done),
+	.I(rx_sync),
+	.CL(sys_reset),
+	.clk(clk)
+	);
 
 
 
