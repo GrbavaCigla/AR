@@ -138,6 +138,7 @@ set_location_assignment PIN_V14 -to HEX24
 set_location_assignment PIN_AB22 -to HEX25
 set_location_assignment PIN_AB21 -to HEX26
 set_location_assignment PIN_L1 -to pin_name1
+set_global_assignment -name VHDL_FILE ../lidar/LidarFifo/LidarFifo.vhd
 set_global_assignment -name VERILOG_FILE "../components/ROM ZA CPU/ROM_CPU3.v"
 set_global_assignment -name BDF_FILE mainScheme/MainScheme.bdf
 set_global_assignment -name VHDL_FILE ../components/ROM/ROM_SIN_ASYNC.vhd
