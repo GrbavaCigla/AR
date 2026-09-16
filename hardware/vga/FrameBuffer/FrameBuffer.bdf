@@ -34,6 +34,7 @@ applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 48 384 104 400))
 )
 (pin
 	(input)
@@ -194,6 +195,7 @@ applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 48 608 104 624))
 )
 (pin
 	(output)
@@ -1825,7 +1827,7 @@ applicable agreement for further details.
 (text "SET/RESET PIXEL logika" (rect 1192 296 1326 310)(font "Arial" (font_size 8)))
 (text "za sad redundantni" (rect 96 184 205 198)(font "Arial" (font_size 8)))
 (text "SET_BIT registar" (rect 944 680 1038 694)(font "Arial" (font_size 8)))
-(rectangle (rect 64 40 328 912))
+(rectangle (rect 64 40 328 952))
 (rectangle (rect 344 40 776 272))
 (rectangle (rect 344 288 808 496))
 (rectangle (rect 792 40 1320 272))
