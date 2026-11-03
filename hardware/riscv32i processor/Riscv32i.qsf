@@ -306,7 +306,7 @@ set_global_assignment -name BDF_FILE tests/UART_RX_TEST.bdf
 set_global_assignment -name VERILOG_FILE ../lidar/LidarInterface/LidarInterface_fixed2.v
 set_global_assignment -name BDF_FILE ../lidar/LidarInterface/LidarInterface2.bdf
 set_global_assignment -name BDF_FILE ../lidar/LidarPointCalculator/RealXY/CalculateXY2.bdf
-set_global_assignment -name VERILOG_FILE output_files/LidarInterface3.v
+set_global_assignment -name VERILOG_FILE ../lidar/LidarInterface/LidarInterface3.v
 set_global_assignment -name QIP_FILE ../lidar/lpm_counter/counter_12bit.qip
 set_global_assignment -name BDF_FILE ../lidar/PointBank12/PointBank12.bdf
 set_global_assignment -name QIP_FILE ../lidar/PointBank12/LidarFifo.qip
